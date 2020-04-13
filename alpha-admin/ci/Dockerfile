@@ -14,4 +14,7 @@ RUN apk add python3 && \
     pip3 install awscli && \
     pip3 install aws-sam-cli
 
+RUN npm install -g create-react-app \
+    npm-audit-resolver
+
 CMD /bin/bash
