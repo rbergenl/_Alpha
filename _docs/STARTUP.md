@@ -1,11 +1,11 @@
 # Startups
 TODO:
+- create a `.gitlab-ci.yml` template which performs all required cicd steps.
+- add `install` instructions for each developer tool (npm, docker, etc.).
 - create `contentful-seed.json` for initial content (homepage, about us, etc.).
 - create in all apps the basic flows `User: login/register/profile/preferences`, and `Ecommerce: products/cart/checkout` (add these tasks to issues-seed).
 - create initial dashboards for business in Google Data Studio (Users, Growth, Financial, Features [analytics, hotjar]).
-- create a `.gitlab-ci.yml` template which performs all required cicd steps.
 - make sure to use correct `@auth` usage in schema and resolvers.
-- add `install` instructions for each developer tool (npm, docker, etc.)
 - check how to do `a/b testing` and `ecommerce`: https://www.gatsbyjs.org/docs/ab-testing-with-google-analytics-and-netlify/
 
 1. [Initial Ownership](#1-initial-ownership)
@@ -21,7 +21,7 @@ To get started, without any hurdles of deciding on a name or what to do exactly,
 
 ### Working Title
 - Go to Google and search for Dinosaur names. Pick one.
-- Create new folder in `Startups` with that name.
+- Create new folder in `Startups` with that name as projectname.
 
 ### Google Account
 You need an email adress to be able to create accounts for needed third party services. After deciding on a name and buying the domain, the email can be forwarded to this free and initial email address.
@@ -43,16 +43,11 @@ You need a creditcard to be able to create/use accounts for some needed third pa
 ### Tools
 - UX:
     - Login with Google Account at **Figma**.
+    - Signup with the project email at [**Optimizely**](https://www.optimizely.com/).
 - Developer:
-    - NVM
-    - Docker
-    - `npm install -g create-react-app`.
-    - `npm install -g expo-cli`.
-    - `npm install -g aws-cdk`.
-    - `npm install -g gatsby-cli`.
-    - Install the `Expo Client` app on your mobile phone.
+    - Make sure all applications are installed as described in `DEVELOPER.md`.
 - Technology:
-    - Signup with the project email at [**Expo**](`https://expo.io/signup`).
+    - Signup with the project email at [**Expo**](https://expo.io/signup).
     - Login with Google Account at **Gitlab**.
     - Login with Google Account at **Sentry**.
     - Login with Google Account at **Contentful CMS**.
@@ -67,6 +62,7 @@ You need a creditcard to be able to create/use accounts for some needed third pa
 - Import the basic flows and modify it to decided theme.
 
 ### Technology
+- In the project folder run `nvm install node && nvm alias default node && echo $(node -v) > .nvmrc`. 
 - Setup integration between your computer and Gitlab.
     - Run `ssh-keygen -t rsa -b 4096 -C "<GOOGLE_EMAIL>"`.
     - Save it to path `/Users/<username>/.ssh/<projectname>_gitlab`.

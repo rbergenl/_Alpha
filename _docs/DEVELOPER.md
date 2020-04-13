@@ -1,0 +1,27 @@
+# Developer Tools
+- Homebrew
+- Install via Homebrew
+    - Git
+    - Nvm? Docker?
+- Visual Studio Code
+- Install Visual Studio Code plugins:
+    - Apache Velocity
+    - Docker
+    - ESlint
+    - GitLens
+    - GraphQL
+    - Markdown Preview Enhanced
+    - Prettier - Code formatter
+    - SQLite
+    - Terminal
+- Install Nvm
+- Instal global NodeJS packages:
+    - `npm install -g create-react-app`.
+    - `npm install -g expo-cli`.
+    - `npm install -g aws-cdk`.
+    - `npm install -g gatsby-cli`.
+- Install Docker
+- Install the `Expo Client` app on your mobile phone.
+- Install Google Chrome extensions:
+    - React Dev Tools
+    - Redux Dev Tools

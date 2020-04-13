@@ -13,6 +13,7 @@
 - Sentry
 - Contentful
 - Figma
+- Optimizely
 
 ## Exit Strategy
 Goal # of users: ?
