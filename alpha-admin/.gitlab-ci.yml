@@ -1,0 +1,16 @@
+stages:
+    - build
+
+image: registry.gitlab.com/alpha/alpha-admin
+
+build_a:
+    stage: build
+    script:
+      - npm run build
+
+# 1. Lint, format, audit, build.
+# 2. Tests: unit, integration, visual, functional, security, performance, lighthouse.
+# 3. Release: write changelog (for apps only).
+# 4. Deploy.
+# 5. Smoketest
+# 6. Archive Reports.

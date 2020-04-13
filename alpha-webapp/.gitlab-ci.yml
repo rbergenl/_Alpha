@@ -1,0 +1,23 @@
+
+Lint
+Pretty
+Audit
+
+Build
+
+Tests:
+    - Unit
+    - Integration
+    - Visual
+    - Functional
+    - Security
+    - Performance
+
+Release: write changelog (for apps only).
+
+Deploy
+
+Smoketest
+lighthouse
+
+Archive Reports.
