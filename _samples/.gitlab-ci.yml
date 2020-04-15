@@ -1,16 +1,40 @@
 stages:
+    - .pre
     - build
+    - test
 
-image: registry.gitlab.com/alpha/base
+image: registry.gitlab.com/aardonyx/base
 
-build_a:
+cache:
+    untracked: true
+    key: "$CI_BUILD_REF_NAME"
+    paths:
+        - node_modules/
+
+before_script:
+    - eval $(ssh-agent -s)
+    - echo "$SSH_GITLAB_KEY" | tr -d '\r' | ssh-add -
+
+install:
+    stage: .pre
+    script: npm ci
+
+audit:
+    stage: .pre
+    script: npm run audit
+
+format:
+    stage: .pre
+    script: npm run format
+
+lint:
+    stage: .pre
+    script: npm run lint
+
+compile:
     stage: build
-    script:
-      - npm run build
+    script: npm run build
 
-# 1. Lint, format, audit, build.
-# 2. Tests: unit, integration, visual, functional, security, performance, lighthouse.
-# 3. Release: write changelog (for apps only).
-# 4. Deploy.
-# 5. Smoketest
-# 6. Archive Reports.
+unit:
+    stage: test
+    script: npm test

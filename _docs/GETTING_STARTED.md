@@ -1,10 +1,14 @@
 # Startups
+
+**Congratulations on getting started with a Startup!**
+
 TODO:
 - create a `.gitlab-ci.yml` template which performs all required cicd steps. Also check here for more steps and industry standards: https://docs.gitlab.com/ee/topics/autodevops/
 - add `install` instructions for each developer tool (npm, docker, etc.).
 - create `contentful-seed.json` for initial content (homepage, about us, etc.).
 - create in all apps the basic flows `User: login/register/profile/preferences`, and `Ecommerce: products/cart/checkout` (add these tasks to issues-seed).
 - create initial dashboards for business in Google Data Studio (Users, Growth, Financial, Features [analytics, hotjar]).
+- determine how to do initial setup for Figma with regards to UI frameworks and basic flows.
 - make sure to use correct `@auth` usage in schema and resolvers.
 - check how to do `a/b testing` and `ecommerce`: https://www.gatsbyjs.org/docs/ab-testing-with-google-analytics-and-netlify/
 
@@ -34,137 +38,96 @@ You need an email adress to be able to create accounts for needed third party se
     - During Service Agreement, disable all services.
     - From the overview `myaccount.google.com`, remove your lastname for privacy reasons.
 
-### Creditcard
+### Creditcard / Bankaccount
 You need a creditcard to be able to create/use accounts for some needed third party services.
 - Go to https://n26.com N26 Creditcard (€100 required).
 
 ## 2. Initial Setup
 
-### Tools
+### Accounts
 - UX:
     - Login with Google Account at **Figma**.
     - Signup with the project email at [**Optimizely**](https://www.optimizely.com/).
 - Developer:
-    - Make sure all applications are installed as described in `DEVELOPER.md`.
-- Technology:
     - Signup with the project email at [**Expo**](https://expo.io/signup).
     - Login with Google Account at **Gitlab**.
     - Login with Google Account at **Sentry**.
     - Login with Google Account at **Contentful CMS**.
-    - Signup with the project email at [**Snipcart**](https://snipcart.com/)
 
 ### Business
 - Setup initial administration > Google Drive > Sheets > From template > By Xero.
 
 ### UX
 - In Figma, import a Material UI Kit, an iOS UI Kit and a Bootstrap UI Kit.
-- Create a Color Scheme and modify all base components to those brand colors.
-- Import the basic flows and modify it to decided theme.
+- In Figma, import the basic flows.
 
-### Technology
-- In the project folder run `nvm install node && nvm alias default node && echo $(node -v) > .nvmrc`. 
-- Setup integration between your computer and Gitlab.
-    - Run `ssh-keygen -t rsa -b 4096 -C "<GOOGLE_EMAIL>"`.
-    - Save it to path `~/.ssh/<projectname>_gitlab`.
-    - Run for both private and public key `chmod 0400 ~/.ssh/<ssh_key>`
-    - Add to `~/.ssh/config` an entry:
-        ```bash
-        # <Projectname> GitLab
-        Host <username>.gitlab.com
-            Hostname gitlab.com
-            PreferredAuthentications publickey
-            IdentityFile ~/.ssh/<private_ssh_key>
-        ```
-    - Copy the public key into the SSH setting in Gitlab.
-    - Copy the private key in Gitlab > Settings > CICD > Variables with name `SSH_GITLAB_KEY` and value `cat ~/.ssh/<projectname>_gitlab | pbcopy`. This is so it can be used in the `.gitlab-ci.yml` file to fetch the UI and Base git repos.
-    - Create a file `.gitconfig` in the project folder:
-        ```bash
-        [user]
-            name = <NAME>
-            email = <EMAIL>
-        ```
-    - Edit the main `~/.gitconfig` to include the config for this project.
-        ```bash
-        [includeIf "gitdir:~/<PATH_TO_PROJECT>/"]
-        path = ~/<PATH_TO_PROJECT>/.gitconfig
-        ```
-    - In Settings > Personal Access Token, create a new with the name `Docker` and the scope `api`. Save the token in a file `~/.docker/<projectname>_gitlab.
-    - Run `docker login registry.gitlab.com --username <username> --password-stdin < ~/.docker/<projectname>_gitlab`.
-
-- Setup integration between Sentry and Gitlab.
-    - In Sentry create a project and follow the installation instructions.
-    - Setup integration between Sentry and Gitlab. Make sure previously created Gitlab project is in a Group.
-        - In Sentry go to Settings > Integrations > Gitlab > New Installation.
-        - Follow the instructions.
-    - To mark an issue as resolved use in the commit message `Fixes ADMIN-1`.
-
+### Developer
+- In Gitlab create a new Group with name `<Projectname>`.
+- Make sure to follow all instructions in `DEVELOPER.md`:
+    - Install Developer Tools.
+    - Initialize a NodeJS version
+    - Setup access to new Git Repository
+    - Setup access to new Docker Registry
+    - Setup integration between Sentry and Gitlab
 - Do the following for each project: admin, app, base, ui, webapp and website:
-    - Create each repository in the project folder:
-        - Admin: `npx create-react-app <projectname>-admin --template typescript`.
-        - App: `expo init <projectname>-app --template expo-template-blank-typescript`.
-        - Base: `mkdir <projectname>-base && cd <projectname>-base && cdk init --language typescript`.
-        - UI: `mkdir <projectname>-ui && cd <projectname>-ui && git init && npm init --yes --scope @<projectname>`. Still modify the name in `package.json`.
-            - App:
-                - `expo init app --template expo-template-blank-typescript`.
-                - `cd app && rm -r .git`.
-                - `npm install native-base`.
-            - Web:
-                - `npx create-react-app web --template typescript`.
-                - `cd web && rm -r .git`.
-                - `npm install react-bootstrap bootstrap`.
-        - Webapp: `npx create-react-app <projectname>-webapp --template typescript`.
-        - Website: `gatsby new <projectname>-website`.
-    - Version Control System:
-        - In Gitlab create a new Group with name `<Projectname>`
-        - In the Group create a new *blank* project with name `<Reponame>`.
-        - In Settings > Notification > disable the notifications for the project.
-        - In the local repository folder do:
-            - `git remote add origin git@<username>.gitlab.com:<groupname>/<reponame>.git`
-            - `git push --set-upstream origin master`
-    - Issue Tracking:
-        - Import the `issues-seed.csv` at the Issues section in Gitlab.
+    - Create a new *blank* project with name `<Reponame>` in the Gitlab Group.
+    - In Settings > Notification > disable the notifications for the project.
+    - Import the `issues-seed.csv` at the Issues section in Gitlab and follow those instructions when applicable.
 
 ## 3. Minimum Viable Product
 
-### Tools
+### Accounts
 - Marketing:
     - Login with Google Account at **Optimizely**
 
 ### Marketing
+- Personas
 - Keyword Research
 - Google Tag Manager
     - Universal Analytics
         - Add events to apps and website
+- Google Search Console
+- Personalisation?
+- Google Survey
+- Chatbot
+
+### UX
 - Hotjar
 - A/B Tests
-- Google Search Console
+- Figma: Create a Color Scheme and modify all base components to those brand colors.
+- Figma: Modify existing flows to just created theme.
+- Figma: Expand with new flows.
+
+## Business
+- Investor Pitch
 
 ## 4. Creditcard available
 
-### Tools
-- Technology:
-    - Create account for **AWS**.
-    - Createa account for **Paypal**.
-    - Create account for **Stripe**.
-    - Create account for **Mailgunner**.
+### Accounts
+- Developer:
+    - Signup with the project email at **AWS**.
+    - Signup with the project email at **Paypal**.
+    - Signup with the project email at **Stripe**.
+    - Signup with the project email at **Mailgunner**.
+    - Signup with the project email at [**Snipcart**](https://snipcart.com/)
 
 ### Technology Staging
-- AWS Account (creditcard required)
+- AWS Account
 - Add Auth, Api and Storage for ‘base’
 - Add Hosting and publish for ‘admin’, ‘webapp’ and ‘website’
 - Add Payment Providers:
-    - PayPal (creditcard required)
-    - Stripe (creditcard and paypal required)
+    - PayPal
+    - Stripe
 
 ## 5. Name decided
 
 ### Business
 - Do Business registration at Chamber of Commerce.
-- Create website pages: About us, General Agreement, etc.
+- Create website pages: Home, About us, General Agreement, Investor, etc.
 
-### Technology Live
-- Buy domain (creditcard required) https://domains.google/
-- Mailgunner (creditcard required)
+### Developer
+- Buy domain https://domains.google/
+- Setup Mailgunner
 - Setup Gmail settings to be able to receive and sent email with new domain
 - Publish webapp - point DNS to CDN
 - Publish app android - Play Store
