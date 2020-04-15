@@ -1,7 +1,7 @@
 stages:
     - build
 
-image: registry.gitlab.com/alpha/alpha-admin
+image: registry.gitlab.com/alpha/base
 
 build_a:
     stage: build

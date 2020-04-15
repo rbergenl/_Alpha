@@ -15,10 +15,12 @@
 # CICD pipeline
 
 ## Setup pipeline
-- From *Project Alpha* copy/paste the folder `ci` and the file `.gitlab-ci.yml`.
-- Make sure you are logged into the docker registry (explained at initial setup).
+- From *Project Alpha* copy/paste the folder `alpha-base/ci`.
+- Make sure in the `Dockerfile` you modified the `docker` commands in the top comments.
+- Run `docker login registry.gitlab.com --username <username> --password-stdin < ~/.docker/<projectname>_gitlab`.
 - Run `docker build -t registry.gitlab.com/<group>/<repo> .`
 - Run `docker push registry.gitlab.com/<group>/<repo>`.
+- From *Project Alpha* copy/pase the file `<repo>/.gitlab-ci.yml`.
 - Make sure the file `.gitlab-ci.yml` points `image` to the just pushed image.
 - Git add, commit and push.
 
@@ -27,10 +29,10 @@
 |:- |:- |:- |:- |:- |:- |:- |
 | .Pre:Install      | Npm       | :heavy_check_mark: | | | | |
 | .Pre:Audit        | ?         | :heavy_check_mark: | | | | |
+| .Pre:Lint         | Eslint    | :heavy_check_mark: | | | | |
+| .Pre:Format       | Prettier  | :heavy_check_mark: | | | | |
 | Build:Compile     | Npm       | :heavy_check_mark: | | | | |
 | Build:Release*    | ?         | | | | :heavy_check_mark: | |
-| Test:Lint         | Eslint    | :heavy_check_mark: | | | | |
-| Test:Format       | Prettier  | :heavy_check_mark: | | | | |
 | Test:Security     | ?         | :heavy_check_mark: | | | | |
 | Test:Unit         | Jest      | :heavy_check_mark: | | | | |
 | Test:Integration  | ?         | :heavy_check_mark: | | | | |

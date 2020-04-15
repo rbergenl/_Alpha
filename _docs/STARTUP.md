@@ -1,6 +1,6 @@
 # Startups
 TODO:
-- create a `.gitlab-ci.yml` template which performs all required cicd steps.
+- create a `.gitlab-ci.yml` template which performs all required cicd steps. Also check here for more steps and industry standards: https://docs.gitlab.com/ee/topics/autodevops/
 - add `install` instructions for each developer tool (npm, docker, etc.).
 - create `contentful-seed.json` for initial content (homepage, about us, etc.).
 - create in all apps the basic flows `User: login/register/profile/preferences`, and `Ecommerce: products/cart/checkout` (add these tasks to issues-seed).
@@ -65,7 +65,7 @@ You need a creditcard to be able to create/use accounts for some needed third pa
 - In the project folder run `nvm install node && nvm alias default node && echo $(node -v) > .nvmrc`. 
 - Setup integration between your computer and Gitlab.
     - Run `ssh-keygen -t rsa -b 4096 -C "<GOOGLE_EMAIL>"`.
-    - Save it to path `/Users/<username>/.ssh/<projectname>_gitlab`.
+    - Save it to path `~/.ssh/<projectname>_gitlab`.
     - Run for both private and public key `chmod 0400 ~/.ssh/<ssh_key>`
     - Add to `~/.ssh/config` an entry:
         ```bash
@@ -76,6 +76,7 @@ You need a creditcard to be able to create/use accounts for some needed third pa
             IdentityFile ~/.ssh/<private_ssh_key>
         ```
     - Copy the public key into the SSH setting in Gitlab.
+    - Copy the private key in Gitlab > Settings > CICD > Variables with name `SSH_GITLAB_KEY` and value `cat ~/.ssh/<projectname>_gitlab | pbcopy`. This is so it can be used in the `.gitlab-ci.yml` file to fetch the UI and Base git repos.
     - Create a file `.gitconfig` in the project folder:
         ```bash
         [user]
@@ -88,7 +89,7 @@ You need a creditcard to be able to create/use accounts for some needed third pa
         path = ~/<PATH_TO_PROJECT>/.gitconfig
         ```
     - In Settings > Personal Access Token, create a new with the name `Docker` and the scope `api`. Save the token in a file `~/.docker/<projectname>_gitlab.
-    - Run `docker login registry.gitlab.com --username <username> --password-stdin < ~/.docker/<projectname>_gitlab
+    - Run `docker login registry.gitlab.com --username <username> --password-stdin < ~/.docker/<projectname>_gitlab`.
 
 - Setup integration between Sentry and Gitlab.
     - In Sentry create a project and follow the installation instructions.
