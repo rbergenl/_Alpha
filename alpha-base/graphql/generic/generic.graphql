@@ -1,0 +1,168 @@
+
+##
+## S C H E M A
+##
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+##
+## R O O T   T Y P E S
+##
+
+type Query { _noop: String }
+type Mutation { _noop: String }
+type Subscription { _noop: String }
+
+##
+## B A S I C   T Y P E S
+##
+
+type S3Object {
+  bucket: String!
+  region: String!
+  key: String!
+}
+
+##
+## E N U M S
+##
+
+enum AttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+enum SortDirection {
+  ASC
+  DESC
+}
+
+##
+## I N P U T : F I L T E R
+##
+
+input StringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: AttributeTypes
+  size: SizeInput
+}
+
+input IDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: AttributeTypes
+  size: SizeInput
+}
+
+input IntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: AttributeTypes
+}
+
+input FloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: AttributeTypes
+}
+
+input BooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: AttributeTypes
+}
+
+input SizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+##
+## I N P U T : C O N D I T I O N
+##
+
+input StringKeyConditionInput {
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  between: [String]
+  beginsWith: String
+}
+
+input IDKeyConditionInput {
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  between: [ID]
+  beginsWith: ID
+}
+
+input IntKeyConditionInput {
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+##
+## E N U M S
+##
+enum LambdaResult {
+  success,
+  error
+}

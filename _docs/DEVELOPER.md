@@ -5,6 +5,7 @@
 - Install via Homebrew
     - Git
     - Nvm? Docker?
+    - [SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html) - to invoka a lambda locally.
 - Visual Studio Code
 - Install Visual Studio Code plugins:
     - Apache Velocity

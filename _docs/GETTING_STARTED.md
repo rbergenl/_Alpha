@@ -6,10 +6,12 @@ TODO:
 - create a `.gitlab-ci.yml` template which performs all required cicd steps. Also check here for more steps and industry standards: https://docs.gitlab.com/ee/topics/autodevops/
 - add `install` instructions for each developer tool (npm, docker, etc.).
 - create `contentful-seed.json` for initial content (homepage, about us, etc.).
+- process the Planty Base docs.
 - create in all apps the basic flows `User: login/register/profile/preferences`, and `Ecommerce: products/cart/checkout` (add these tasks to issues-seed).
-- create initial dashboards for business in Google Data Studio (Users, Growth, Financial, Features [analytics, hotjar]).
+- create initial dashboards for business in Google Data Studio (Users, Growth, Financial, Features [analytics, hotjar]). -> users: paid, registered, activated, loggedon, oneTimeUsage, fiveTimeUsage.
 - determine how to do initial setup for Figma with regards to UI frameworks and basic flows.
 - make sure to use correct `@auth` usage in schema and resolvers.
+- for issue `add auth`, use `exports.js` from `base`, and add a mock Cognito Api.
 - check how to do `a/b testing` and `ecommerce`: https://www.gatsbyjs.org/docs/ab-testing-with-google-analytics-and-netlify/
 
 1. [Initial Ownership](#1-initial-ownership)

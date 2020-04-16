@@ -1,0 +1,84 @@
+type AlphaConnection {
+  items: [Alpha]
+  nextToken: String
+}
+
+##
+## I N P U T : Q U E R Y - F I L T E R
+##
+
+input AlphaFilterInput {
+    # fields (only non-connection and incl. ID)
+    id: IDInput
+    title: StringInput
+    description: StringInput
+    status: StringInput
+    # default operators
+    and: [AlphaFilterInput]
+    or: [AlphaFilterInput]
+    not: AlphaFilterInput
+}
+
+##
+## I N P U T : M U T A T I O N - C O N D I T I O N
+##
+
+input AlphaConditionInput {
+    # fields (only non-connection and without ID)
+    title: StringInput
+    description: StringInput
+    status: StringInput
+    # default operators
+    and: [AlphaConditionInput]
+    or: [AlphaConditionInput]
+    not: AlphaConditionInput
+}
+
+input AlphaCreateInput {
+    # fields (only non-connection and incl. ID)
+    id: ID
+    title: String!
+    description: String
+    status: String
+}
+
+input AlphaUpdateInput {
+    # fields (only non-connection and incl. ID)
+    id: ID!
+    title: String
+    description: String
+    status: String
+}
+
+input AlphaDeleteInput {
+    id: ID
+}
+
+##
+## Q U E R Y
+##
+
+extend type Query {
+    getAlpha(id: ID!): Alpha
+    listAlphas(filter: AlphaFilterInput, limit: Int, nextToken: String): AlphaConnection
+}
+
+##
+## M U T A T I O N
+##
+
+extend type Mutation {
+    createAlpha(input: AlphaCreateInput!, condition: AlphaConditionInput): Alpha
+    updateAlpha(input: AlphaUpdateInput!, condition: AlphaConditionInput): Alpha
+    deleteAlpha(input: AlphaDeleteInput!, condition: AlphaConditionInput): Alpha    
+}
+
+##
+## S U B S C R I P T I O N
+##
+
+extend type Subscription {
+    onCreateAlpha: Alpha @aws_subscribe(mutations: ["createAlpha"])
+    onUpdateAlpha: Alpha @aws_subscribe(mutations: ["updateAlpha"])
+    onDeleteAlpha: Alpha @aws_subscribe(mutations: ["deleteAlpha"])
+}
