@@ -1,10 +1,8 @@
 # Startups
 
-**Congratulations on getting started with a Startup!**
-
 TODO:
+- have these building blocks ready: 1) Users graph in Data Studio with Data from Analytics. 2) A first feature with AB experiment. 3) The Publish pipeline to app stores. 4) The initial website via CMS.
 - create a `.gitlab-ci.yml` template which performs all required cicd steps. Also check here for more steps and industry standards: https://docs.gitlab.com/ee/topics/autodevops/
-- add `install` instructions for each developer tool (npm, docker, etc.).
 - create `contentful-seed.json` for initial content (homepage, about us, etc.). (TODO: or should be Strapi?)
 - process the Planty Base docs.
 - create in all apps the basic flows `User: login/register/profile/preferences`, and `Ecommerce: products/cart/checkout` (add these tasks to issues-seed).
@@ -13,38 +11,43 @@ TODO:
 - for issue `add auth`, use `exports.js` from `base`, and add a mock Cognito Api.
 - check how to do `a/b testing` and `ecommerce`: https://www.gatsbyjs.org/docs/ab-testing-with-google-analytics-and-netlify/
 
+**Congratulations on getting started with a Startup!**
+
+It is possible to have a Minimum Viable Product already live on **day 1**. Sometimes it is difficult to begin because you don't know where to start, you haven't decided on a name yet and you don't want to mix the business financials with personal financials. This guide helps to make the first steps. You do not need a final name from the beginning and you can have the MVP live without paying a dime.
+
 1. [Initial Ownership](#1-initial-ownership)
 2. [Initial Setup](#2-initial-setup)
 3. [Minimum Viable Product](#3-minimum-viable-product)
-4. [Creditcard available](#4-creditcard-available)
-5. [Name decided](#5-name-decided)
-6. [Growth](#6-growth)
-7. [Ownership Transfer](#7-ownership-transfer)
+4. [Name decided](#4-name-decided)
+5. [Growth](#5-growth)
+6. [Ownership Transfer](#6-ownership-transfer)
 
 ## 1. Initial Ownership
-To get started, without any hurdles of deciding on a name, needing a creditcard or what to do exactly, start with these necessary steps:
+Start with these necessary steps:
 
 ### Working Title
 - Go to Google and search for Dinosaur names. Pick one.
-- Create new folder in `Startups` with that name as projectname.
-- Make sure to follow all instructions in [`BUSINESS.md`](docs/BUSINESS.md):
+- Create a new folder in `Startups` with that name as projectname.
+
+### Tools Signup
+- Make sure to follow these instructions in [`BUSINESS.md`](docs/BUSINESS.md):
     - Emailaddress.
     - Password Manager.
-    - Creditcard.
     - Accounts.
 
 ## 2. Initial Setup
+Follow up with laying the groundwork for the startup:
 
 ### Business
 - TODO: create initial dashboards for business in Google Data Studio (Users, Growth, Financial, Features [analytics, hotjar]). -> users: paid, registered, activated, loggedon, oneTimeUsage, fiveTimeUsage.
 
 ### UX
-- In Figma, import a Material UI Kit, an iOS UI Kit and a Bootstrap UI Kit.
-- In Figma, import the basic flows.
+- Make sure to follow these instructions in [`UX.MD`](docs/UX.md):
+    - Setup Figma
 
 ### Developer
 - In Gitlab create a new Group with name `<Projectname>`.
-- Make sure to follow all instructions in [`DEVELOPER.md`](docs/DEVELOPER.md):
+- Make sure to follow these instructions in [`DEVELOPER.md`](docs/DEVELOPER.md):
     - Install Developer Tools.
     - Initialize a NodeJS version
     - Setup access to new Git Repository
@@ -55,10 +58,11 @@ To get started, without any hurdles of deciding on a name, needing a creditcard 
     - Import the `issues-seed.csv` at the Issues section in Gitlab and follow those instructions when applicable.
 
 ## 3. Minimum Viable Product
+Build the MVP and bring it live (version Alpha):
 
-### Accounts
-- Marketing:
-    - Login with Google Account at **Optimizely**
+### Business
+- Make sure to follow these instructions in [`BUSINESS.md`](docs/BUSINESS.md):
+    - Creditcard.
 
 ### Marketing
 - Personas
@@ -73,52 +77,32 @@ To get started, without any hurdles of deciding on a name, needing a creditcard 
 
 ### UX
 - Hotjar
-- A/B Tests
+- A/B Tests (Google Optimze or Optimezely) -> TODO: have one initial experiment already in base setup as example.
 - Figma: Create a Color Scheme and modify all base components to those brand colors.
 - Figma: Modify existing flows to just created theme.
 - Figma: Expand with new flows.
 
-## Business
-- Investor Pitch
-
-## 4. Creditcard required
-
 ### Developer
-- You will create a root account and from that account you will create a Test and Production account.
-    - Go to [AWS]((https://aws.amazon.com)). Click the button top right to Sign in and then click `Create a new AWS account`.
-    - Choose *Professional* and enter your name, projectname, phonenumber, country, address, region, city and postal code. Full details are needed for creditcard verification.
-    - Enter creditcard number, expiration date, your full name (In Revolut > Settings > Personal details) and use the provided address.
-    - Follow the verify identity steps by entering your phonenumber again. If this fails, it is probably due to failed payment method verification:
-        - Open the Revolut app and see a failed transaction from AWS. Make sure to topup Revolut account with €10.
-        - Login to the AWS Console as the root user.
-        - Go to the Billing Dashboard > Payment Details. For the creditcard click `verify`. If this does not work, click `edit` and make sure all details are entered and correct.
-
-- Setup an AWS Organisation so you have two accounts, Test and Production.
-    - Login as root user to console.aws.com.
-    - Go to Organization and create a new account with email: `<projectname>+awstest@gmail.com`.
-    - Note the account ID, then logout and go again to console.aws.com.
-    - Login as root user (the provided email) to the noted account and `Forget password`.
-    - Go to the emailbox and create a new password. This is the best practice to get started.
-- For both AWS Accounts, create an Admin user.
-        
+**AWS Account required**
 - Add Auth, Api and Storage for ‘base’
 - Add Hosting and publish for ‘admin’, ‘webapp’ and ‘website’
 - Add Payment Providers:
     - PayPal
     - Stripe
 
-## 5. Name decided
+## 4. Name decided
+Now that you are live it becomes important to decide on a name and build a brand (version Beta):
 
 ### Business
-- Create website pages: Home, About us, General Agreement, Investor, etc.
+- Buy domain at https://domains.google/
+- Create or update website pages: Home, About us, General Agreement, Investor, etc.
 
 ### Developer
-- Buy domain https://domains.google/
 - Setup Mailgunner
 - Setup Gmail settings to be able to receive and sent email with new domain
 - Publish webapp - point DNS to CDN
-- Publish app android - Play Store
-- Publish app ios - App Store
+- Publish app android - Play Store - or transfer ownership from gmail account to domain email.
+- Publish app ios - App Store - or transfer ownership from gmail account to domain email.
 
 ### Marketing
 - Create a *Press-kit*:
@@ -126,15 +110,23 @@ To get started, without any hurdles of deciding on a name, needing a creditcard 
     - Professional video
     - A template news item
 
-## 6. Growth
+## 5. Growth
+Go live with version 1 and grow to sell:
+
+### Marketing
 - Perform SEO:
     - Keyword research
     - Google Search Console
     - Google PageSpeed Insights
     - Linkbacks
+
+### Developer
 - Build features by using the *Issue Tracking* in **Gitlab** and performing A/B experiment for each feature.
 
-## 7. Ownership Transfer
+### Business
+- Create an Investor Pitch.
+
+## 6. Ownership Transfer
 
 ### Exit Procedure
 - Give credentials to the Password Manager.

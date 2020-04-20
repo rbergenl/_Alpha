@@ -1,11 +1,19 @@
 # Developer
 
 ## Install Developer Tools
-- Homebrew
+- Install [Git](https://git-scm.com/)
+- Install [Docker](https://docs.docker.com/docker-for-mac/install/)
+- Install Homebrew
+    - Run `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`.
 - Install via Homebrew
-    - Git
-    - Nvm? Docker?
     - [SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html) - to invoka a lambda locally.
+        - Run `brew tap aws/tap && brew install aws-sam-cli`.
+- Install Nvm
+    - Run `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash`.
+- Instal global NodeJS packages:
+    - `npm install -g expo-cli`.
+    - `npm install -g aws-cdk`.
+    - `npm install -g gatsby-cli`.
 - Visual Studio Code
 - Install Visual Studio Code plugins:
     - Apache Velocity
@@ -17,13 +25,6 @@
     - Prettier - Code formatter
     - SQLite
     - Terminal
-- Install Nvm
-- Instal global NodeJS packages:
-    - `npm install -g create-react-app`.
-    - `npm install -g expo-cli`.
-    - `npm install -g aws-cdk`.
-    - `npm install -g gatsby-cli`.
-- Install Docker
 - Install the `Expo Client` app on your mobile phone.
 - Install Google Chrome extensions:
     - React Dev Tools
@@ -60,7 +61,7 @@
     ```
 
 ### Setup access to new Docker Registry
-- In Settings > Personal Access Token, create a new with the name `Docker` and the scope `api`. Save the token in a file `~/.docker/<projectname>_gitlab.
+- In Gitlab > Settings > Personal Access Token, create a new with the name `Docker` and the scope `api`. Save the token in a file `~/.docker/<projectname>_gitlab.
 - Run `docker login registry.gitlab.com --username <username> --password-stdin < ~/.docker/<projectname>_gitlab`.
 
 ### Setup integration between Sentry and Gitlab
