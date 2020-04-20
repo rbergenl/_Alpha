@@ -21,22 +21,20 @@ All passwords for created accounts should be securely stored. An added benefit o
 - Even though the LastPass Master Password is stored in the browser, still save it to your personal [Google Keep](https://keep.google.com).
 
 ## Accounts
-For running and growing a startup you need different kind of tools for Business, Marketing, UX and Development. First open the user loggedin Chrome Browser and go to Bookmarks Manager > Import Bookmarks to import the `bookmarks.html` file.
-- Business:
-    - Signup with the project email at **Paypal**.
-        - Signup at the top right of the page for [Paypal](https://www.paypal.com/).
-        - Select `Business account`.
-        - Enter the project email and the password.
-- UX:
-    - Login with Google Account at **Figma**.
-    - Signup with the project email at [**Optimizely**](https://www.optimizely.com/).
-- Developer (intially):
-    - Signup with the project email at [**Expo**](https://expo.io/signup).
-    - Login with Google Account at **Gitlab**.
-    - Login with Google Account at **Sentry**.
-    - Login with Google Account at **Contentful CMS**. (TODO: or should be Strapi?)
-- Marketing:
-    - Login with Google Account at **Optimizely**
+For running and growing a startup you need different kind of tools for Business, Marketing, UX and Development. First open the user loggedin Chrome Browser and go to Bookmarks Manager > Import Bookmarks to import the `bookmarks.html` file. Then go to the following links to signup:
+- Login with Google Account at [Gitlab](https://about.gitlab.com/).
+- Login with Google Account at [Contentful](https://www.contentful.com/).
+- Login with Google Account at [Sentry](https://sentry.io/welcome/).
+- Login with Google Account at [Figma](https://www.figma.com/).
+- Signup with the project email at [Expo](https://expo.io/signup).
+    - Use the project email and name.
+- Signup with the project email at [Paypal](https://www.paypal.com/).
+    - Use the signup button at the top right of the page.
+    - Select `Business account`.
+    - Enter the project email and the password.
+- Signup with the project email at [Optimizely](https://www.optimizely.com/).
+    - Click `create account` and enter the project email and country.
+    - Follow the link in the registartion email to create a password.
 
 ## Creditcard
 With [Revolut](https://www.revolut.com/) you get a free bank account and a virtual creditcard. This card can be used to create accounts which require a creditcard (like AWS). The Revolut app is connected to your personal data. And the card is only used for accounts creation, where actual payment will not occur (like Mailgunner).
