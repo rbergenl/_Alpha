@@ -13,7 +13,7 @@ TODO:
 
 **Congratulations on getting started with a Startup!**
 
-It is possible to have a Minimum Viable Product already live on **day 1**. Sometimes it is difficult to begin because you don't know where to start, you haven't decided on a name yet and you don't want to mix the business financials with personal financials. This guide helps to make the first steps. You do not need a final name from the beginning and you can have the MVP live without paying a dime.
+It is possible to have a Minimum Viable Product already live on **day 1**. It might be difficult to begin because you don't know where to start and you haven't decided on a name yet. Also you might want to separate business and personal finances. This guide helps to make the first steps. To be clear: you do not need a final name from the beginning and you can have the MVP live without paying a dime.
 
 1. [Initial Ownership](#1-initial-ownership)
 2. [Initial Setup](#2-initial-setup)
