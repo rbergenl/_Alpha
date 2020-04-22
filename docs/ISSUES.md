@@ -10,6 +10,7 @@
 
 1. [Setup pipeline](#setup-pipeline)
 2. [Expand pipeline](#expand-pipeline)
+3. [Publish native](#publish-native)
 
 **Backend: basic features**
 
@@ -39,7 +40,8 @@ In the project folder run:
 - Admin: `npx create-react-app <projectname>-admin --template typescript`.
 - App: `expo init <projectname>-app --template expo-template-blank-typescript`.
 - Base: `mkdir <projectname>-base && cd <projectname>-base && cdk init --language typescript`.
-- UI: `mkdir <projectname>-ui && cd <projectname>-ui && git init && npm init --yes --scope @<projectname>`. Still modify the name in `package.json`.
+- UI: `mkdir <projectname>-ui && cd <projectname>-ui && git init && npm init --yes --scope @<projectname>`.
+    - First modify the name in `package.json` to reflect the scope.
     - App:
         - `expo init app --template expo-template-blank-typescript`.
         - `cd app && rm -r .git`.
@@ -64,12 +66,44 @@ In the project folder run:
 
 ## Project specific initialization
 
-- Website: add Typescript plugin: https://www.gatsbyjs.org/packages/gatsby-plugin-typescript/
+- TODO: Website:
+    - Add Typescript plugin: https://www.gatsbyjs.org/packages/gatsby-plugin-typescript/
+    - Add Contentful plugin: https://www.gatsbyjs.org/packages/gatsby-source-contentful/?=
+    - use a `.env` file for the api keys.
+    - Import the `contentful-seed.json`.
 
 - Base:
     - In file `/bin/planty-base.ts` change the logical stack name (will be name in cloudformation) and add the accountId with Region.
     - Add to `tsconfig.json` the line `"resolveJsonModule": true` (to be able to import package.json).
     - Add `cdk.context.json` to `.gitignore` (so that the SSM secrets do not end up in the codebase).
+
+- Admin:
+    - Create a page `dashboard` which displays AWS CloudWatch Widgets as images.
+
+## Test the Native Apps
+
+- Add privacy policy
+- Add Icon
+- Choose primaryColor
+- Modify `app.json`.
+    - Version
+    - Bundle
+    - Permissions
+- Publish bundle to allow for Over-The-Air updates:
+    - First `expo publish`.
+- Preferably, test App in Expo Client.
+- Alternatively, test iOS App on iPhone Simulator:
+    - Required Xcode to be installed.
+    - Run `expo build:ios -t simulator` and follow the instructions.
+    - First time: login with Apple ID and let expo set credentials.
+    - Download and unzip the given `tar` file.
+    - Run app with `ios-sim` or `xcrun simctl install booted <app path>` and `xcrun simctl launch booted <app identifier>`.
+- Alternatively, test Andriod App on Android Simulator:
+    - TODO
+
+TODO: check https://stackoverflow.com/questions/59539163/how-to-install-expo-ipa-on-iphone-6
+TODO: check https://www.robincussol.com/build-standalone-expo-apk-ipa-with-turtle-cli/
+Btw, check here: https://exp.host/@aardonyx1/aardonyx-app/index.exp?sdkVersion=37.0.0
 
 # CICD pipeline
 
@@ -108,6 +142,8 @@ In the project folder run:
 | Release:Version   | Npm           | | | | :heavy_check_mark: | |
 | Deploy:Prod       | ?             | | | | | :heavy_check_mark: |
 | Deploy:Test       | ?             | | | :heavy_check_mark: | | |
+| Publish:iOS       | ?             | | | | | |
+| Publish:Android   | ?             | | | | | |
 | .Post:Performance | ?             | | :heavy_check_mark: | | | |
 | .Post:Quality     | Lighthouse    | | | :heavy_check_mark: | | |
 | .Post:Smoketest   | ?             | | | :heavy_check_mark: | | |
@@ -119,6 +155,8 @@ In the project folder run:
 
 ## Add .Pre:Audit
 - npm-audit-resolver
+- Run `check-audit`
+- In case of an issue: `resolve-audit`.
 
 ## Add .Pre:Format
 - prettier
@@ -147,7 +185,18 @@ In the project folder run:
 - cypress
 
 ## Add Deploy:Prod
+> Requires creditcard and AWS Account.
 - Add to package.json `"deploy:base": "cdk deploy PlantyBaseStack --require-approval never",`.
+
+## Add Publish:iOS
+> Requires creditcard and Apple Developer Program enrollment.
+- Build a standalone app IOS:
+    - `expo build:ios`.
+
+## Add Publish:Android
+- Build a standalone app Android:
+    - `expo build:android`.
+
 
 # Backend: basic features
 
@@ -224,14 +273,3 @@ Amplify.configure(awsconfig);
 - State Management with React Context, Hooks and Apollo.
 - Add Codegen.
 - Add Mock GraphQL Api.
-
-# Project specific
-
-## Admin: create Ops Dashboard page
-
-Create a page `dashboard` which displays AWS CloudWatch Widgets as images.
-
-## Website: add Content Management System
-
-- Add Contentful plugin: https://www.gatsbyjs.org/packages/gatsby-source-contentful/?=
-- use a `.env` file for the api keys.

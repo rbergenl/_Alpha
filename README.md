@@ -1,9 +1,11 @@
 # Startups
 
 TODO:
-- have these building blocks ready: 1) Users graph in Data Studio with Data from Analytics. 2) A first feature with AB experiment. 3) The Publish pipeline to app stores. 4) The initial website via CMS.
+- have these building blocks ready: 1) Users graph in Data Studio with Data from Analytics. 2) A first feature with AB experiment. 3) The initial website via CMS.
+- check https://www.integromat.com/en/integrations/google-data-studio/revolut
+- check https://www.outsystems.com/blog/posts/ab-testing-mobile-apps-google-optimize/
 - create a `.gitlab-ci.yml` template which performs all required cicd steps. Also check here for more steps and industry standards: https://docs.gitlab.com/ee/topics/autodevops/
-- create `contentful-seed.json` for initial content (homepage, about us, etc.). (TODO: or should be Strapi?)
+- create `contentful-seed.json` for initial content (homepage, about us, etc.).
 - process the Planty Base docs.
 - create in all apps the basic flows `User: login/register/profile/preferences`, and `Ecommerce: products/cart/checkout` (add these tasks to issues-seed).
 - determine how to do initial setup for Figma with regards to UI frameworks and basic flows.
@@ -13,7 +15,7 @@ TODO:
 
 **Congratulations on getting started with a Startup!**
 
-It is possible to have a Minimum Viable Product already live on **day 1**. It might be difficult to begin because you don't know where to start and you haven't decided on a name yet. Also you might want to separate business and personal finances. This guide helps to make the first steps. To be clear: you do not need a final name from the beginning and you can have the MVP live without paying a dime.
+It is possible to have a Minimum Viable Product ready on **day 1**. In short this means you have a website which points to your native app, has a login for users on the web and for an admin on the web. Publishing the apps to the Stores and putting the website live can be done later. This means deciding on a name can also be done later. It might be difficult to begin because you don't know where to start. This guide helps to make the first steps. To be clear: you do not need a final name from the beginning and you can have an MVP ready without paying a dime.
 
 1. [Initial Ownership](#1-initial-ownership)
 2. [Initial Setup](#2-initial-setup)

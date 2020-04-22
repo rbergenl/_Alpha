@@ -1,11 +1,11 @@
 # Developer
 
 ## Install Developer Tools
-- Install [Git](https://git-scm.com/)
 - Install [Docker](https://docs.docker.com/docker-for-mac/install/)
 - Install Homebrew
     - Run `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`.
 - Install via Homebrew
+    - Git: `brew install git`.
     - [SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html) - to invoka a lambda locally.
         - Run `brew tap aws/tap && brew install aws-sam-cli`.
 - Install Nvm
@@ -14,6 +14,7 @@
     - `npm install -g expo-cli`.
     - `npm install -g aws-cdk`.
     - `npm install -g gatsby-cli`.
+    - `npm install -g turtle-cli`.
 - Visual Studio Code
 - Install Visual Studio Code plugins:
     - Apache Velocity
@@ -25,10 +26,15 @@
     - Prettier - Code formatter
     - SQLite
     - Terminal
-- Install the `Expo Client` app on your mobile phone.
 - Install Google Chrome extensions:
     - React Dev Tools
     - Redux Dev Tools
+- Install for mobile app development
+    - Expo Client app via App/Play Store.
+- Install for mobile app publishing
+    - Xcode (via App Store) and then `Preferences > Developer Tools`.
+    - Fastlane
+    - Android SDK
 
 ## Initialize a NodeJS version
 - In the project folder run `nvm install node && nvm alias default node && echo $(node -v) > .nvmrc`.

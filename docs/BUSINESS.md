@@ -36,6 +36,17 @@ For running and growing a startup you need different kind of tools for Business,
     - Click `create account` and enter the project email and country.
     - Follow the link in the registartion email to create a password.
 
+## App Store
+
+- Go to [Apple Developer](https://developer.apple.com) website and click on `Account` to create a new one.
+- Fill in your name, country and date of birth.
+- Let LastPass generate a password for you.
+- Set three security questions all with the projectname as answer each suffixed with a number 1, 2 3.
+- Confirm with the receive code in the email and then agree with the terms.
+
+## Play Store
+
+
 ## Creditcard
 With [Revolut](https://www.revolut.com/) you get a free bank account and a virtual creditcard. This card can be used to create accounts which require a creditcard (like AWS). The Revolut app is connected to your personal data. And the card is only used for accounts creation, where actual payment will not occur (like Mailgunner).
     - Install the Revolut app.
@@ -64,6 +75,9 @@ With [Revolut](https://www.revolut.com/) you get a free bank account and a virtu
     - Go to the emailbox and create a new password. This is the best practice to get started.
 - For both AWS Accounts, create an Admin user.
 - TODO: set 'permission boundaries' deny ec2, ecs and billing.
+
+## Apple Developer Program
+- In order to publish an iOS app to the App Store you need to be registered as a Developer and be enrolled in the Developer Program (costs €99 per year).
 
 ### Other accounts
 - Signup with the project email at **Stripe**.
