@@ -14,7 +14,7 @@
     - `npm install -g expo-cli`.
     - `npm install -g aws-cdk`.
     - `npm install -g gatsby-cli`.
-    - `npm install -g turtle-cli`.
+    - `npm install -g contentful-cli`.
 - Visual Studio Code
 - Install Visual Studio Code plugins:
     - Apache Velocity
@@ -29,9 +29,9 @@
 - Install Google Chrome extensions:
     - React Dev Tools
     - Redux Dev Tools
-- Install for mobile app development
+- Install for mobile app development:
     - Expo Client app via App/Play Store.
-- Install for mobile app publishing
+- Install for mobile app publishing:
     - Xcode (via App Store) and then `Preferences > Developer Tools`.
     - Fastlane
     - Android SDK

@@ -51,7 +51,7 @@ In the project folder run:
         - `cd web && rm -r .git`.
         - `npm install react-bootstrap bootstrap`.
 - Webapp: `npx create-react-app <projectname>-webapp --template typescript`.
-- Website: `gatsby new <projectname>-website`.
+- Website: `npx gatsby new <projectname>-website`.
 
 ## Setup Version Control System
 
@@ -65,12 +65,48 @@ In the project folder run:
 - From *Project Alpha* copy/paste the `README.md`. Rename an already existing readme file (e.g. `README_cra.md`).
 
 ## Project specific initialization
-
-- TODO: Website:
-    - Add Typescript plugin: https://www.gatsbyjs.org/packages/gatsby-plugin-typescript/
-    - Add Contentful plugin: https://www.gatsbyjs.org/packages/gatsby-source-contentful/?=
-    - use a `.env` file for the api keys.
-    - Import the `contentful-seed.json`.
+- Website:
+    - Run `contentful login` (saves config to `~/.contentfulrc.json`).
+    - Run `contentful space create --name "<Projectname> Website"`.
+    - Add a file `.contenful.json`.
+    ```json
+    {
+        "spaceId": "<SPACE_ID>"
+    }
+    ```
+    - From *Project Alpha* run `node export/generator`.
+    - Run `contentful space import --content-file export/contentful-export-initial-generated.json --config .contentful.json`.
+    - Run `npm install --save gatsby-source-contentful`.
+    - Login to the newly created space and create a *Content Delivery Key*.
+    - Add to a file `.env.development`:
+    ```
+        CONTENTFUL_ACCESS_TOKEN=<DELIVERY_TOKEN>
+        CONTENTFUL_PREVIEW_TOKEN=<PREVIEW_TOKEN>
+    ```
+    - Add to `gatsby-config.js`:
+    ```javascript
+        require("dotenv").config({
+            path: `.env.${process.env.NODE_ENV}`,
+        });
+        module.exports = {
+            plugins: [
+                {
+                    resolve: `gatsby-source-contentful`,
+                    options: {
+                        spaceId: spaceId: require('./.contentful').spaceId,
+                        // Learn about environment variables: https://gatsby.dev/env-vars
+                        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+                    },
+                },
+            ],
+        }
+    ```
+    - Add all files components and pages from `src` to the project.
+    - Add to `index.js`.
+    ```javascript
+        import { graphql } from 'gatsby'
+        export const pageQuery = graphql``;
+    ```
 
 - Base:
     - In file `/bin/planty-base.ts` change the logical stack name (will be name in cloudformation) and add the accountId with Region.
@@ -97,7 +133,8 @@ In the project folder run:
     - Run `expo build:ios -t simulator` and follow the instructions.
     - First time: login with Apple ID and let expo set credentials.
     - Download and unzip the given `tar` file.
-    - Run app with `ios-sim` or `xcrun simctl install booted <app path>` and `xcrun simctl launch booted <app identifier>`.
+    - Open Xcode and go to `Xcode > Open Developer Tools > Simulator`. Or hit `CMD+Space` to open Spotlight and search for `Simulator`.
+    - Drag and drop the `.app` file onto the virtual device and open the app.
 - Alternatively, test Andriod App on Android Simulator:
     - TODO
 

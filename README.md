@@ -101,7 +101,7 @@ Now that you are live it becomes important to decide on a name and build a brand
 
 ### Developer
 - Setup Mailgunner
-- Setup Gmail settings to be able to receive and sent email with new domain
+- Setup Gmail settings to be able to receive and sent email with new domain (https://medium.com/@jeremygale/how-to-setup-a-custom-domain-for-your-gmail-address-3e4b7c147306).
 - Publish webapp - point DNS to CDN
 - Publish app android - Play Store - or transfer ownership from gmail account to domain email.
 - Publish app ios - App Store - or transfer ownership from gmail account to domain email.
