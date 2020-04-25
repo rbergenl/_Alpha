@@ -66,47 +66,49 @@ In the project folder run:
 
 ## Project specific initialization
 - Website:
-    - Run `contentful login` (saves config to `~/.contentfulrc.json`).
-    - Run `contentful space create --name "<Projectname> Website"`.
-    - Add a file `.contenful.json`.
-    ```json
-    {
-        "spaceId": "<SPACE_ID>"
-    }
-    ```
-    - From *Project Alpha* run `node export/generator`.
-    - Run `contentful space import --content-file export/contentful-export-initial-generated.json --config .contentful.json`.
-    - Run `npm install --save gatsby-source-contentful`.
-    - Login to the newly created space and create a *Content Delivery Key*.
-    - Add to a file `.env.development`:
-    ```
-        CONTENTFUL_ACCESS_TOKEN=<DELIVERY_TOKEN>
-        CONTENTFUL_PREVIEW_TOKEN=<PREVIEW_TOKEN>
-    ```
-    - Add to `gatsby-config.js`:
-    ```javascript
-        require("dotenv").config({
-            path: `.env.${process.env.NODE_ENV}`,
-        });
-        module.exports = {
-            plugins: [
-                {
-                    resolve: `gatsby-source-contentful`,
-                    options: {
-                        spaceId: spaceId: require('./.contentful').spaceId,
-                        // Learn about environment variables: https://gatsby.dev/env-vars
-                        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-                    },
-                },
-            ],
+    - Create Space:
+        - Run `contentful login` (saves config to `~/.contentfulrc.json`).
+        - Run `contentful space create --name "<Projectname> Website"`.
+        - Add a file `.contenful.json`.
+        ```json
+        {
+            "spaceId": "<SPACE_ID>"
         }
-    ```
-    - Add all files components and pages from `src` to the project.
-    - Add to `index.js`.
-    ```javascript
-        import { graphql } from 'gatsby'
-        export const pageQuery = graphql``;
-    ```
+        ```
+        - Login to the newly created space and create a *Content Delivery Key*.
+        - Add to a file `.env.development`:
+        ```
+            CONTENTFUL_ACCESS_TOKEN=<DELIVERY_TOKEN>
+            CONTENTFUL_PREVIEW_TOKEN=<PREVIEW_TOKEN>
+        ```
+    - Add Pages:
+        - From *Project Alpha* run `node export/generator`.
+        - Run `contentful space import --content-file export/contentful-export-initial-generated.json --config .contentful.json`.
+        - Run `npm install --save gatsby-source-contentful`.
+        - Add to `gatsby-config.js`:
+        ```javascript
+            require("dotenv").config({
+                path: `.env.${process.env.NODE_ENV}`,
+            });
+            module.exports = {
+                plugins: [
+                    {
+                        resolve: `gatsby-source-contentful`,
+                        options: {
+                            spaceId: spaceId: require('./.contentful').spaceId,
+                            // Learn about environment variables: https://gatsby.dev/env-vars
+                            accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+                        },
+                    },
+                ],
+            }
+        ```
+        - Add all files components and pages from `src` to the project.
+        - Add to `index.js`.
+        ```javascript
+            import { graphql } from 'gatsby'
+            export const pageQuery = graphql``;
+        ```
 
 - Base:
     - In file `/bin/planty-base.ts` change the logical stack name (will be name in cloudformation) and add the accountId with Region.
