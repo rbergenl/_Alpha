@@ -1,10 +1,11 @@
 
 **Project initialization**
 
-2. [Create new project](#create-new-project)
-3. [Setup Version Control System](#setup-version-control-system)
-1. [Add basic documentation](#add-basic-documentation)
+1. [Create new project](#create-new-project)
+2. [Setup Version Control System](#setup-version-control-system)
+3. [Add basic documentation](#add-basic-documentation)
 4. [Project specific initialization](#project-specific-initialization)
+5. [Lighthouse to 100](#lighthouse-to-100)
 
 **CICD pipeline**
 
@@ -26,11 +27,6 @@
 5. [Add Router](#add-router)
 1. [Add Error tracking](#add-error-tracking)
 2. [Add A/B testing](#add-ab-testing)
-
-**Project specific**
-
-1. [Admin: create Ops Dashboard page](#admin-create-ops-dashboard-page)
-2. [Website: add Content Management System](#website-add-content-management-system)
 
 # Project initialization
 
@@ -64,8 +60,47 @@ In the project folder run:
 
 - From *Project Alpha* copy/paste the `README.md`. Rename an already existing readme file (e.g. `README_cra.md`).
 
-## Project specific initialization
+## Add Fonts
+- App:
+    - Find a desired font at https://fontflipper.com and download the font files.
+    - Place the file(s) inside `android/app/src/main/assets/fonts`.
+    - Use the actual font file name in the code `fontFamily: 'Kalam-Bold'`.
 - Website:
+    - Run `npm install --save gatsby-plugin-prefetch-google-fonts`.
+    - Add to `gatsby-config.js`:
+    ```javascript
+    {
+        resolve: `gatsby-plugin-prefetch-google-fonts`,
+        options: {
+            fonts: [
+                {
+                family: `Dosis`
+                }
+            ]
+        }
+    }
+    ```
+    - Add the line `html { font-family: 'Dosis' }` in `components/layout.css`file.
+
+## Project specific initialization
+- UI:
+    - Add a CSS Reset file (to be included by Webapp and Website):
+        - Check [docs](https://meyerweb.com/eric/tools/css/reset/).
+        - Add that example code to `reset.css`.
+- Webapp:
+    - Handy imports:
+        - Add a `.env` file with `NODE_PATH=src` so that you can import with absolute path. TODO: but check the error: "Setting NODE_PATH to resolve modules absolutely has been deprecated in favor of setting baseUrl in jsconfig.json (or tsconfig.json if you are using TypeScript) and will be removed in a future major release of create-react-app."
+- Website:
+    - Handy imports:
+        - Check [docs](https://www.npmjs.com/package/gatsby-plugin-resolve-src)
+    - Correct config:
+        - In `gatsby-config.js` set correct info for `siteMetadata`.
+        - In `gatsby-config.js` set correct info for `gatsby-plugin-manifest`.
+    - Use CSS-in-JS:
+        - Check [docs](https://www.gatsbyjs.org/docs/styled-components/).
+        - A word on **critical css**: Gatsby handles this out of the box/
+        - Run `npm install --save gatsby-plugin-styled-components styled-components babel-plugin-styled-components`.
+        - Use `import styled from 'styled-components';`.
     - Create Space:
         - Run `contentful login` (saves config to `~/.contentfulrc.json`).
         - Run `contentful space create --name "<Projectname> Website"`.
@@ -76,7 +111,7 @@ In the project folder run:
         }
         ```
         - Login to the newly created space and create a *Content Delivery Key*.
-        - Add to a file `.env.development`:
+        - Add to a file `.env.development` and `.env.production`:
         ```
             CONTENTFUL_ACCESS_TOKEN=<DELIVERY_TOKEN>
             CONTENTFUL_PREVIEW_TOKEN=<PREVIEW_TOKEN>
@@ -117,6 +152,63 @@ In the project folder run:
 
 - Admin:
     - Create a page `dashboard` which displays AWS CloudWatch Widgets as images.
+
+## Lighthouse to 100
+
+### Search Engine Optimization to 100
+- Website: already provided by Gatsby with the `<SEO>` component.
+- Webapp/Admin:
+    - The minimum setup is already provided by create-react-app.
+    - Add to `public/index.html` the line `<meta name="description" content="Description" />`.
+
+### Accessibility to 100
+- Make sure in `public/index.html` the root div has a role like `<div id="root" role="main"></div>`
+
+### Performance to 100
+
+#### Serve build on HTTPS
+- Run `$ npm install local-web-server`.
+- Add to package.json the script `"serve-https": "npm run build && ws --directory ./build --port 443 --compress --http2"`.
+
+#### Redirect HTTP to HTTPS
+- Check [docs](https://github.com/lwsjs/local-web-server/wiki/How-to-redirect-HTTP-traffic-to-HTTPS)
+- `$ npm install lws-redirect`.
+- Add to package.json the script `"redirect-http": "ws --port 80 --stack redirect --redirect 'http -> https'"`.
+
+#### Trust the Certificate
+- Ceck [docs](https://github.com/lwsjs/local-web-server/wiki/How-to-get-the-%22green-padlock%22-using-the-built-in-certificate)
+- Open KeychainOS > Certificates > 'File' > 'Import Items...'.
+- Import the certificate located at `./node_modules/lws/ssl/lws-cert.pem`
+- In the list of certificates is now a new one with the name `lws`.
+- Open it and at the section 'Trust' set it to 'Always Trust'.
+- Open the website specifying the protocol `https://localhost/`.
+
+### Progressive Web App to 100
+
+#### Enable the Service Worker
+- Check [docs](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- In `src/index.js` change `serviceWorker.unregister();` into `serviceWorker.register();`
+- Website: enable `gatsby-plugin-offline` in the gatsby-config.js file.
+
+#### Add Logos to the Manifest
+-- TODO: this is for create-react-app.. how for Gatsby?
+- Check [docs](https://developers.google.com/web/fundamentals/web-app-manifest/)
+- Convert the `src/logo.svg` into a PNG using an online converter.
+- Then make copies and resize the PNG into `512x512` and `192x192`.
+- Place both PNGs in the folder `public`.
+- Add to the `public/manifest.json` to the `icons` section:
+```
+{
+    "src": "/icon-192.png",
+    "type": "image/png",
+    "sizes": "192x192"
+},
+{
+    "src": "/icon-512.png",
+    "type": "image/png",
+    "sizes": "512x512"
+}
+```
 
 ## Test the Native Apps
 
@@ -236,6 +328,32 @@ Btw, check here: https://exp.host/@aardonyx1/aardonyx-app/index.exp?sdkVersion=3
 - Build a standalone app Android:
     - `expo build:android`.
 
+- Check [docs](https://developer.okta.com/blog/2018/12/26/react-native-android-play-store).
+- Checklists:
+  - Launch: https://developer.android.com/distribute/best-practices/launch/launch-checklist
+  - Quality: https://developer.android.com/docs/quality-guidelines/core-app-quality
+- Remove action bar here: `android/app/src/main/res/values/styles.xml` with `<item name="android:windowFullscreen">true</item>`
+- Set app name here: `android/app/src/main/res/values/strings.xml`
+- Add an Icon via Android Studio via 'file > new > Image Asset' and upload a foreground and background for the `ic_launcher`
+- Disable default React Native app permission (otherwise privacy policy is needed): add `xmlns:tools="http://schemas.android.com/tools"` to `android/app/src/main/AndroidManifest.xml` and add `<uses-permission tools:node="remove" android:name="android.permission.READ_PHONE_STATE" /><uses-permission tools:node="remove" android:name="android.permission.WRITE_EXTERNAL_STORAGE" /><uses-permission tools:node="remove" android:name="android.permission.READ_EXTERNAL_STORAGE" />`
+- Minimize the APK file: `android/app/build.gradle` set `def enableSeparateBuildPerCPUArchitecture = true def enableProguardInReleaseBuilds = true`
+- Update App Version: in `android/app/build.gradle` update the lines `versionCode 2` and `versionName "0.2"`
+- In Android Studio create a signed APK
+    - Open your app in Android Studio by browsing to the android folder of your React Native project.
+    - Go to Build > Generate signed bundle / APK.
+    - Select APK and click Next.
+    - Under Key store path click Create new.
+    - Choose a path like `/home/<user>/keystores/android.jks`.
+    - Choose passwords for the keystore and key.
+    - Enter the certificate information (note: this won’t be displayed in the app, just the certificate).
+    - Next > Select Release and both V1 and V2 Signature versions.
+- Create Application in Appstore: https://play.google.com/apps/publish/
+- Fill in the forms for Shop Information (with creating screenshots of the app)
+- Fill in the forms for Content Rating
+- Fill in the forms for Pricing & Distribution
+- Create a Release (Production track)
+- Upload the file (app-x86-release.apk and app-armeabi-v7a-release.apk)
+- Click "Start rollout"
 
 # Backend: basic features
 
