@@ -1,3 +1,25 @@
 # Website
 
 React Gatsby website for legal and marketing purposes.
+
+## Header
+- Logo
+- Main links
+- Language switch
+
+## Footer
+
+### Oneliner
+- Check [docs](https://www.orbitmedia.com/blog/website-footer-design-best-practices/)
+- Copyright: to protect again plagiarism (with year auto increment).
+- Privacy: It typically links to a page explaining what information the website collects, how it’s stored and how it might be used. For most websites, it’s about tracking (Analytics and remarketing), form submissions and email signups.
+- Terms: The "terms of use" explain what the visitor agrees to by visiting the website (like a disclaimer).
+- Sitemap: link to an HTML version of sitemap.xml for crawlers.
+- Contact: link to contact page with a form (no emailaddress).
+- Employee login link.
+- Press: link to press kit.
+
+### Fat Footer
+- Navigation: like a mega-menu, but even more clear/focussed.
+- Newsletter signup.
+- Social media icons: not in the header but as a last catch at the bottom.
