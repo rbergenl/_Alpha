@@ -14,6 +14,9 @@ module.exports = class ContentType {
         this.sys.id = name.toLowerCase();
         this.name = name.charAt(0).toUpperCase() + name.slice(1);
         if (name === 'person') this.setFieldsPerson();
+        if (name === 'post') this.setFieldsPost();
+        if (name === 'page') this.setFieldsPage();
+        if (name === 'product') this.setFieldsProduct();
     }
 
     setFieldsPerson() {
@@ -69,4 +72,74 @@ module.exports = class ContentType {
             linkType: 'Asset'
         });
     }
+
+    setFieldsPost() {
+        this.fields.push({
+            id: 'name',
+            name: 'Name',
+            type: 'Symbol',
+            localized: false,
+            required: true,
+            validations: [],
+            disabled: false,
+            omitted: false
+        });
+        this.fields.push({
+            id: 'title',
+            name: 'Title',
+            type: 'Symbol',
+            localized: false,
+            required: true,
+            validations: [],
+            disabled: false,
+            omitted: false
+        });
+    }
+
+    setFieldsPage() {
+        this.fields.push({
+            id: 'name',
+            name: 'Name',
+            type: 'Symbol',
+            localized: false,
+            required: true,
+            validations: [],
+            disabled: false,
+            omitted: false
+        });
+        this.fields.push({
+            id: 'title',
+            name: 'Title',
+            type: 'Symbol',
+            localized: false,
+            required: true,
+            validations: [],
+            disabled: false,
+            omitted: false
+        });
+    }
+
+    setFieldsProduct() {
+        this.fields.push({
+            id: 'name',
+            name: 'Name',
+            type: 'Symbol',
+            localized: false,
+            required: true,
+            validations: [],
+            disabled: false,
+            omitted: false
+        });
+        this.fields.push({
+            id: 'title',
+            name: 'Title',
+            type: 'Symbol',
+            localized: false,
+            required: true,
+            validations: [],
+            disabled: false,
+            omitted: false
+        });
+    }
+
 }

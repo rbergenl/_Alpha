@@ -2,6 +2,12 @@
 
 React Gatsby website for legal and marketing purposes.
 
+## Layouts
+- By default Gatsby generates a page with its URL based on the files in `src/pages` (so `src/pages/about.js` becomes that page at `/about`).
+- All pages should be wrapped with the `<Layout>` component.
+- The `src/components/layout.js` already defines a default website layout with a `<header>`, `<main>` and `<footer>`.
+- Pages can be created using `gatsby-node.js` which should use a page template from `src/templates`.
+
 ## Header
 - Logo
 - Main links
@@ -18,8 +24,24 @@ React Gatsby website for legal and marketing purposes.
 - Contact: link to contact page with a form (no emailaddress).
 - Employee login link.
 - Press: link to press kit.
+- Blog: link to the blog posts overview (a post is published by a person).
 
 ### Fat Footer
 - Navigation: like a mega-menu, but even more clear/focussed.
 - Newsletter signup.
 - Social media icons: not in the header but as a last catch at the bottom.
+
+## Contact Form
+- Check [docs](https://www.gatsbyjs.org/docs/building-a-contact-form/.
+- TODO
+
+## Newsletter
+- Check [docs](https://www.gatsbyjs.org/packages/gatsby-plugin-mailchimp/).
+- TODO
+
+## Chatbot
+- Check [docs](https://www.gatsbyjs.org/packages/gatsby-plugin-crisp-chat/).
+- TODO
+
+## Feedback Widget
+- TODO: (check https://github.com/jlengstorf/gatsby-feedback-widget/)

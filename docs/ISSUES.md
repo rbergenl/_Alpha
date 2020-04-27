@@ -98,7 +98,7 @@ In the project folder run:
         - In `gatsby-config.js` set correct info for `gatsby-plugin-manifest`.
     - Use CSS-in-JS:
         - Check [docs](https://www.gatsbyjs.org/docs/styled-components/).
-        - A word on **critical css**: Gatsby handles this out of the box/
+        - A word on **critical css**: Gatsby handles this out of the box.
         - Run `npm install --save gatsby-plugin-styled-components styled-components babel-plugin-styled-components`.
         - Use `import styled from 'styled-components';`.
     - Create Space:
@@ -144,6 +144,7 @@ In the project folder run:
             import { graphql } from 'gatsby'
             export const pageQuery = graphql``;
         ```
+    - TODO: add a Sitemap (and add it to robots.txt).
 
 - Base:
     - In file `/bin/planty-base.ts` change the logical stack name (will be name in cloudformation) and add the accountId with Region.
@@ -156,7 +157,13 @@ In the project folder run:
 ## Lighthouse to 100
 
 ### Search Engine Optimization to 100
-- Website: already provided by Gatsby with the `<SEO>` component.
+- Website:
+    - Already provided by Gatsby with the `<SEO>` component.
+    - Add a file `<projectname-website>\static\robots.txt` with the lines:
+    ```
+        # https://www.robotstxt.org/robotstxt.html
+        User-agent: *
+    ```
 - Webapp/Admin:
     - The minimum setup is already provided by create-react-app.
     - Add to `public/index.html` the line `<meta name="description" content="Description" />`.

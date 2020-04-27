@@ -82,7 +82,11 @@ With [Revolut](https://www.revolut.com/) you get a free bank account and a virtu
 ### Other accounts
 - Signup with the project email at **Stripe**.
 - Signup with the project email at **Mailgunner**.
-- Signup with the project email at [**Snipcart**](https://snipcart.com/)
+- Website:
+    - Signup with the project email at [**Snipcart**](https://snipcart.com/).
+    - Signup with the project email at [**Formspree**](https://formspree.io/).
+    - Signup with the project email at [**Mailchimp**](https://mailchimp.com/).
+    - Signup with the project email at [**Crispchat**](https://crisp.chat/).
 
 ## Name
 - Name candidates: ...
