@@ -33,6 +33,7 @@ React Gatsby website for legal and marketing purposes.
 
 ## Contact Form
 - Check [docs](https://www.gatsbyjs.org/docs/building-a-contact-form/.
+- Also include reCaptcha.
 - TODO
 
 ## Newsletter
@@ -44,4 +45,5 @@ React Gatsby website for legal and marketing purposes.
 - TODO
 
 ## Feedback Widget
-- TODO: (check https://github.com/jlengstorf/gatsby-feedback-widget/)
+- TODO: (check https://github.com/jlengstorf/gatsby-feedback-widget/).
+- Also include reCaptcha.

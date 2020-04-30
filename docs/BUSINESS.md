@@ -23,9 +23,12 @@ All passwords for created accounts should be securely stored. An added benefit o
 ## Accounts
 For running and growing a startup you need different kind of tools for Business, Marketing, UX and Development. First open the user loggedin Chrome Browser and go to Bookmarks Manager > Import Bookmarks to import the `bookmarks.html` file. Then go to the following links to signup:
 - Login with Google Account at [Gitlab](https://about.gitlab.com/).
-- Login with Google Account at [Contentful](https://www.contentful.com/).
+- TODO: Strapi instead? Login with Google Account at [Contentful](https://www.contentful.com/).
 - Login with Google Account at [Sentry](https://sentry.io/welcome/).
 - Login with Google Account at [Figma](https://www.figma.com/).
+- Signup with the project email at [Heroku](https://www.heroku.com/).
+    - Select profession *Other* and Language is *NodeJS*.
+- Signup with the project email at [Atlas MLab Mongo](https://mlab.com/).
 - Signup with the project email at [Expo](https://expo.io/signup).
     - Use the project email and name.
 - Signup with the project email at [Paypal](https://www.paypal.com/).
@@ -83,6 +86,7 @@ With [Revolut](https://www.revolut.com/) you get a free bank account and a virtu
 - Signup with the project email at **Stripe**.
 - Signup with the project email at **Mailgunner**.
 - Website:
+    - Create an account at [**ReCaptcha**](https://www.google.com/recaptcha).
     - Signup with the project email at [**Snipcart**](https://snipcart.com/).
     - Signup with the project email at [**Formspree**](https://formspree.io/).
     - Signup with the project email at [**Mailchimp**](https://mailchimp.com/).

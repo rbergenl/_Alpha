@@ -1,14 +1,13 @@
 # Startups
 
 TODO:
-- have these building blocks ready: 1) Users graph in Data Studio with Data from Analytics. 2) A first feature with AB experiment. 3) The initial website via CMS.
+- have these building blocks ready: 1) Users graph in Data Studio with Data from Analytics. 2) A first feature with AB experiment. 3) The initial website via CMS. 4) Initial designs in Figma.
+- setup CMS with Strapi on Heroku, mLab and Gatsby (and image assets where?)
 - check https://www.integromat.com/en/integrations/google-data-studio/revolut
 - check https://www.outsystems.com/blog/posts/ab-testing-mobile-apps-google-optimize/
 - create a `.gitlab-ci.yml` template which performs all required cicd steps. Also check here for more steps and industry standards: https://docs.gitlab.com/ee/topics/autodevops/
-- create `contentful-seed.json` for initial content (homepage, about us, etc.).
-- process the Planty Base docs.
+- process the Planty Base docs (already copy in alpha/base).
 - create in all apps the basic flows `User: login/register/profile/preferences`, and `Ecommerce: products/cart/checkout` (add these tasks to issues-seed).
-- determine how to do initial setup for Figma with regards to UI frameworks and basic flows.
 - make sure to use correct `@auth` usage in schema and resolvers.
 - for issue `add auth`, use `exports.js` from `base`, and add a mock Cognito Api.
 - check how to do `a/b testing` and `ecommerce`: https://www.gatsbyjs.org/docs/ab-testing-with-google-analytics-and-netlify/
@@ -55,7 +54,7 @@ Follow up with laying the groundwork for the startup:
     - Setup access to new Git Repository
     - Setup access to new Docker Registry
     - Setup integration between Sentry and Gitlab
-- Do the following for each project: admin, app, base, ui, webapp and website:
+- Do the following for each project: admin, app, base, cms, ui, webapp and website:
     - Create a new *blank* project with name `<Reponame>` in the Gitlab Group.
     - Import the `issues-seed.csv` at the Issues section in Gitlab and follow those instructions when applicable.
 

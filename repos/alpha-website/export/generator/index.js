@@ -65,5 +65,5 @@ fs.writeFileSync(
     JSON.stringify(new ContentFile(), null, 4)
 );
 
-console.log('Done generating file contentful-export-initial-generated.json. Now run below command.');
-console.log('contentful space import --content-file export/contentful-export-initial-generated.json --config .contentful.json');
+console.log('\n\u001b[1mDone generating file contentful-export-initial-generated.json. Now run below command.\u001b[22m\n');
+console.log('\u001b[34mcontentful space import --content-file export/contentful-export-initial-generated.json --config .contentful.json\u001b[39m\n');

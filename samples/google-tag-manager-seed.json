@@ -1,0 +1,282 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2020-04-29 19:05:46",
+    "containerVersion": {
+        "path": "accounts/441943720/containers/2532883/versions/0",
+        "accountId": "441943720",
+        "containerId": "2532883",
+        "containerVersionId": "0",
+        "container": {
+            "path": "accounts/441943720/containers/2532883",
+            "accountId": "441943720",
+            "containerId": "2532883",
+            "name": "youhave-robintenberge.c9users.io",
+            "publicId": "GTM-T8C6PR",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1472497862640",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/441943720/containers/2532883/workspaces?apiLink=container"
+        },
+        "tag": [
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "tagId": "1",
+                "name": "Facebook Login",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "doubleClick",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setTrackerName",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "useDebugVersion",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventValue",
+                        "value": "facebook"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "user"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableLinkId",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "login"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventLabel",
+                        "value": "network"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableEcommerce",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackingId",
+                        "value": "UA-83152127-1"
+                    }
+                ],
+                "fingerprint": "1472497837612",
+                "firingTriggerId": [
+                    "6"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "tagId": "2",
+                "name": "Google Universal Analytics",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "doubleClick",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setTrackerName",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "useDebugVersion",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "useHashAutoLink",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_PAGEVIEW"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "decorateFormsAutoLink",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableLinkId",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableEcommerce",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackingId",
+                        "value": "UA-83152127-1"
+                    }
+                ],
+                "fingerprint": "1472497490159",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "triggerId": "6",
+                "name": "quickstart-sign-in",
+                "type": "CLICK",
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click Classes}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "quickstart-sign-in"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1472498000640"
+            }
+        ],
+        "variable": [
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "variableId": "11",
+                "name": "Feature One",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "URL"
+                    }
+                ],
+                "fingerprint": "1588187004810",
+                "parentFolderId": "12",
+                "formatValue": {}
+            }
+        ],
+        "folder": [
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "folderId": "12",
+                "name": "Features",
+                "fingerprint": "1588187000639"
+            }
+        ],
+        "builtInVariable": [
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "type": "PAGE_URL",
+                "name": "Page URL"
+            },
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "type": "PAGE_HOSTNAME",
+                "name": "Page Hostname"
+            },
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "type": "PAGE_PATH",
+                "name": "Page Path"
+            },
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "type": "REFERRER",
+                "name": "Referrer"
+            },
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "type": "EVENT",
+                "name": "Event"
+            },
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "type": "CLICK_ELEMENT",
+                "name": "Click Element"
+            },
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "type": "CLICK_CLASSES",
+                "name": "Click Classes"
+            },
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "type": "CLICK_ID",
+                "name": "Click ID"
+            },
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "type": "CLICK_TARGET",
+                "name": "Click Target"
+            },
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "type": "CLICK_URL",
+                "name": "Click URL"
+            },
+            {
+                "accountId": "441943720",
+                "containerId": "2532883",
+                "type": "CLICK_TEXT",
+                "name": "Click Text"
+            }
+        ],
+        "fingerprint": "1588187146007",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/441943720/containers/2532883/versions/0?apiLink=version"
+    }
+}

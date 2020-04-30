@@ -8,6 +8,7 @@
     - Git: `brew install git`.
     - [SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html) - to invoka a lambda locally.
         - Run `brew tap aws/tap && brew install aws-sam-cli`.
+    - Heroku: `brew install heroku/brew/heroku`
 - Install Nvm
     - Run `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash`.
 - Instal global NodeJS packages:
@@ -72,6 +73,7 @@
 
 ### Setup integration between Sentry and Gitlab
 - In Sentry create a project and follow the installation instructions.
+- In Settings > Account > Notifications set *Weekly reports* to *off*.
 - Setup integration between Sentry and Gitlab. Make sure previously created Gitlab project is in a Group.
     - In Sentry go to Settings > Integrations > Gitlab > New Installation.
     - Follow the instructions.

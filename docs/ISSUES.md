@@ -36,6 +36,7 @@ In the project folder run:
 - Admin: `npx create-react-app <projectname>-admin --template typescript`.
 - App: `expo init <projectname>-app --template expo-template-blank-typescript`.
 - Base: `mkdir <projectname>-base && cd <projectname>-base && cdk init --language typescript`.
+- CMS: `npx create-strapi-app <projectname>-cms --quickstart --no-run`.
 - UI: `mkdir <projectname>-ui && cd <projectname>-ui && git init && npm init --yes --scope @<projectname>`.
     - First modify the name in `package.json` to reflect the scope.
     - App:
@@ -60,29 +61,50 @@ In the project folder run:
 
 - From *Project Alpha* copy/paste the `README.md`. Rename an already existing readme file (e.g. `README_cra.md`).
 
-## Add Fonts
-- App:
-    - Find a desired font at https://fontflipper.com and download the font files.
-    - Place the file(s) inside `android/app/src/main/assets/fonts`.
-    - Use the actual font file name in the code `fontFamily: 'Kalam-Bold'`.
-- Website:
-    - Run `npm install --save gatsby-plugin-prefetch-google-fonts`.
-    - Add to `gatsby-config.js`:
-    ```javascript
-    {
-        resolve: `gatsby-plugin-prefetch-google-fonts`,
-        options: {
-            fonts: [
-                {
-                family: `Dosis`
-                }
-            ]
-        }
-    }
-    ```
-    - Add the line `html { font-family: 'Dosis' }` in `components/layout.css`file.
-
 ## Project specific initialization
+- CMS:
+    - In the repo folder run `git init && git add . && git commit -m "initial commit"`.
+    - Mongo Database:
+        - Login to mLab and *create a Starter Cluster* using all defaults.
+        - Click `connect`:
+            - Since IP addresses from Heroku are dynamic, enter IP `0.0.0.0/0`. This is not secure, but good for now.
+            - Enter username `admin` and click *generate password*, copy the password and paste it somewhere. Then click *create user* and then *choose a connection method*.
+            - Select `connect your application` and keep the default *NodeJS* and version *3.0 or later*. Then copy/paste the connection string.
+        - Create a file `.env.production` with the lines:
+        ```
+            DATABASE_USERNAME=admin
+            DATABASE_PASSWORD=<PASSWORD>
+            DATABASE_HOST=<HOST>
+            DATABASE_NAME=strapi
+        ```
+        - Add to `.gitignore` the line `.env*`.
+        - Run `npm install strapi-connector-mongoose`.
+        - Run `npm install --save-dev dotenv-cli`.
+        - Modify `config/environments/production/database.json`.
+        ```json
+        {
+            "connector": "mongoose",
+            "settings": {
+                "uri": "mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}/${process.env.DATABASE_NAME}?retryWrites=true&w=majority"
+            },
+            "options": {
+                "ssl": true
+            }
+        }
+        ```
+        - Add to `package.json` script `"production": "NODE_ENV=production dotenv -e .env.production strapi start",`.
+        - Run `npm run production` for production database and `npm run develop` for local database.
+        - Go to the provided admin url and enter username `Admin`. For production let LastPass generate a password, for local enter `Admin123`. Provide the project email.
+    - Heroku:
+        - Run `heroku login`.
+        - Run `heroku create <projectname>-cms`.
+        - Run `heroku config:set DATABASE_USERNAME=admin`.
+        - Run `heroku config:set DATABASE_PASSWORD=<PASSWORD>`.
+        - Run `heroku config:set DATABASE_HOST=<HOST>`.
+        - Run `heroku config:set DATABASE_NAME=strapi`.
+        - Run `git push heroku master`.
+        - Open and bookmark the provided URL (find the previously created password in LastPass).
+
 - UI:
     - Add a CSS Reset file (to be included by Webapp and Website):
         - Check [docs](https://meyerweb.com/eric/tools/css/reset/).
@@ -92,7 +114,7 @@ In the project folder run:
         - Add a `.env` file with `NODE_PATH=src` so that you can import with absolute path. TODO: but check the error: "Setting NODE_PATH to resolve modules absolutely has been deprecated in favor of setting baseUrl in jsconfig.json (or tsconfig.json if you are using TypeScript) and will be removed in a future major release of create-react-app."
 - Website:
     - Handy imports:
-        - Check [docs](https://www.npmjs.com/package/gatsby-plugin-resolve-src)
+        - TODO: Check [docs](https://www.npmjs.com/package/gatsby-plugin-resolve-src)
     - Correct config:
         - In `gatsby-config.js` set correct info for `siteMetadata`.
         - In `gatsby-config.js` set correct info for `gatsby-plugin-manifest`.
@@ -101,7 +123,7 @@ In the project folder run:
         - A word on **critical css**: Gatsby handles this out of the box.
         - Run `npm install --save gatsby-plugin-styled-components styled-components babel-plugin-styled-components`.
         - Use `import styled from 'styled-components';`.
-    - Create Space:
+    <!-- - Create Space:
         - Run `contentful login` (saves config to `~/.contentfulrc.json`).
         - Run `contentful space create --name "<Projectname> Website"`.
         - Add a file `.contenful.json`.
@@ -143,7 +165,7 @@ In the project folder run:
         ```javascript
             import { graphql } from 'gatsby'
             export const pageQuery = graphql``;
-        ```
+        ``` -->
     - TODO: add a Sitemap (and add it to robots.txt).
 
 - Base:
@@ -153,6 +175,28 @@ In the project folder run:
 
 - Admin:
     - Create a page `dashboard` which displays AWS CloudWatch Widgets as images.
+
+## Add Fonts
+- App:
+    - Find a desired font at https://fontflipper.com and download the font files.
+    - Place the file(s) inside `android/app/src/main/assets/fonts`.
+    - Use the actual font file name in the code `fontFamily: 'Kalam-Bold'`.
+- Website:
+    - Run `npm install --save gatsby-plugin-prefetch-google-fonts`.
+    - Add to `gatsby-config.js`:
+    ```javascript
+    {
+        resolve: `gatsby-plugin-prefetch-google-fonts`,
+        options: {
+            fonts: [
+                {
+                family: `Dosis`
+                }
+            ]
+        }
+    }
+    ```
+    - Add the line `html { font-family: 'Dosis' }` in `components/layout.css`file.
 
 ## Lighthouse to 100
 
