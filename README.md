@@ -39,24 +39,27 @@ Start with these necessary steps:
 ## 2. Initial Setup
 Follow up with laying the groundwork for the startup:
 
-### Business
-- TODO: create initial dashboards for business in Google Data Studio (Users, Growth, Financial, Features [analytics, hotjar]). -> users: paid, registered, activated, loggedon, oneTimeUsage, fiveTimeUsage.
-
 ### UX
 - Make sure to follow these instructions in [`UX.MD`](docs/UX.md):
-    - Setup Figma
+    - Setup Figma.
+
+### Marketing
+- Make sure to follow these instructions in [`MARKETING.MD`](docs/MARKETING.md):
+    - Setup Google Marketing Platform.
+
+- TODO: create initial dashboards for marketing in Google Data Studio (Users, Growth, Financial, Features [analytics, hotjar]). -> users: paid, registered, activated, loggedon, oneTimeUsage, fiveTimeUsage.
 
 ### Developer
 - In Gitlab create a new Group with name `<Projectname>`.
 - Make sure to follow these instructions in [`DEVELOPER.md`](docs/DEVELOPER.md):
     - Install Developer Tools.
-    - Initialize a NodeJS version
-    - Setup access to new Git Repository
-    - Setup access to new Docker Registry
-    - Setup integration between Sentry and Gitlab
+    - Initialize a NodeJS version.
+    - Setup access to new Git Repository.
+    - Setup access to new Docker Registry.
+    - Setup integration between Sentry and Gitlab.
 - Do the following for each project: admin, app, base, cms, ui, webapp and website:
     - Create a new *blank* project with name `<Reponame>` in the Gitlab Group.
-    - Import the `issues-seed.csv` at the Issues section in Gitlab and follow those instructions when applicable.
+    - Import the `gitlab-issues-seed.csv` at the Issues section in Gitlab and follow those instructions when applicable.
 
 ## 3. Minimum Viable Product
 Build the MVP and bring it live (version Alpha):
@@ -64,6 +67,9 @@ Build the MVP and bring it live (version Alpha):
 ### Business
 - Make sure to follow these instructions in [`BUSINESS.md`](docs/BUSINESS.md):
     - Creditcard.
+    - AWS Accounts.
+    - Apple Developer Program.
+    - Accounts (creditcard required).
 
 ### Marketing
 - Personas

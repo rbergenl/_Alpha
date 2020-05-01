@@ -70,14 +70,11 @@ In the project folder run:
             - Since IP addresses from Heroku are dynamic, enter IP `0.0.0.0/0`. This is not secure, but good for now.
             - Enter username `admin` and click *generate password*, copy the password and paste it somewhere. Then click *create user* and then *choose a connection method*.
             - Select `connect your application` and keep the default *NodeJS* and version *3.0 or later*. Then copy/paste the connection string.
-        - Create a file `.env.production` with the lines:
-        ```
-            DATABASE_USERNAME=admin
-            DATABASE_PASSWORD=<PASSWORD>
-            DATABASE_HOST=<HOST>
-            DATABASE_NAME=strapi
-        ```
-        - Add to `.gitignore` the line `.env*`.
+        - Run `echo ".env*" >> .gitignore`.
+        - Run `echo "DATABASE_USERNAME=admin >> .env.production`
+        - Run `echo "DATABASE_PASSWORD=<PASSWORD> >> .env.production`
+        - Run `echo "DATABASE_HOST=<HOST> >> .env.production`
+        - Run `echo "DATABASE_NAME=strapi >> .env.production`
         - Run `npm install strapi-connector-mongoose`.
         - Run `npm install --save-dev dotenv-cli`.
         - Modify `config/environments/production/database.json`.
@@ -95,6 +92,7 @@ In the project folder run:
         - Add to `package.json` script `"production": "NODE_ENV=production dotenv -e .env.production strapi start",`.
         - Run `npm run production` for production database and `npm run develop` for local database.
         - Go to the provided admin url and enter username `Admin`. For production let LastPass generate a password, for local enter `Admin123`. Provide the project email.
+        - After login, create the same user under *Collection Types*.
     - Heroku:
         - Run `heroku login`.
         - Run `heroku create <projectname>-cms`.
@@ -104,6 +102,21 @@ In the project folder run:
         - Run `heroku config:set DATABASE_NAME=strapi`.
         - Run `git push heroku master`.
         - Open and bookmark the provided URL (find the previously created password in LastPass).
+    - Add Api, User and Permissions:
+        - Run `npx strapi install graphql`.
+        - Run `npx strapi generate:api page title:string body:text`.
+        - Run `npm run build`.
+        - Run `npm run develop`.
+        - Run `curl --data '{ "username": "Admin", "email": "<PROJECT_EMAIL>","password": "<PASSWORD>" }' --header 'Content-Type: application/json' http://localhost:1337/auth/local/register`
+        - Open the browser at `http://localhost:1337/admin`:
+            - Go to the role *Public* and give this role only *count, find and findOne* permissions for each Content-Type.
+            - Go to the role *Authenticated* and give it all permissions for each Content-Type.
+    - Add Content:
+        - To get a JWT token for the *Admin* user run `curl --data '{ "identifier": "Admin","password": "<PASSWORD>" }' --header 'Content-Type: application/json' http://localhost:1337/auth/local`.
+        - Open browser at `http://localhost:1337/graphql`.
+        - In the GraphQL Playground set HTTP-Headers: `{ "Authorization": "Bearer <JWT_TOKEN>" }`.
+        - Copy the content from *Alpha Project* file `strapi-content-seed.graphql`.
+        - Paste the conten in the GraphQL Playground and click the play button. 
 
 - UI:
     - Add a CSS Reset file (to be included by Webapp and Website):
@@ -368,7 +381,7 @@ Btw, check here: https://exp.host/@aardonyx1/aardonyx-app/index.exp?sdkVersion=3
 
 ## Add Deploy:Prod
 > Requires creditcard and AWS Account.
-- Add to package.json `"deploy:base": "cdk deploy PlantyBaseStack --require-approval never",`.
+- Add to package.json `"deploy:base": "cdk deploy <Projectname>BaseStack --require-approval never",`.
 
 ## Add Publish:iOS
 > Requires creditcard and Apple Developer Program enrollment.

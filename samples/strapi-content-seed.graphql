@@ -1,0 +1,11 @@
+mutation {
+  createPage(input: {data: { title: "Test page", body: "This is the first body text."}}) {
+    page {
+      id
+      created_at
+      updated_at
+      title
+      body
+    }
+  }
+}
