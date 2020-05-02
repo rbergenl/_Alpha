@@ -58,7 +58,7 @@ Follow up with laying the groundwork for the startup:
     - Setup access to new Docker Registry.
     - Setup integration between Sentry and Gitlab.
 - Do the following for each project: admin, app, base, cms, ui, webapp and website:
-    - Create a new *blank* project with name `<Reponame>` in the Gitlab Group.
+    - Create a new *blank* project with name `<Reponame>` in the Gitlab *Group*.
     - Import the `gitlab-issues-seed.csv` at the Issues section in Gitlab and follow those instructions when applicable.
 
 ## 3. Minimum Viable Product

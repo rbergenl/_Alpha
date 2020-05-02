@@ -60,10 +60,26 @@ In the project folder run:
 ## Add basic documentation
 
 - From *Project Alpha* copy/paste the `README.md`. Rename an already existing readme file (e.g. `README_cra.md`).
+- From *Project Alpha* copy/paste the `docs/` folder when applicable.
 
 ## Project specific initialization
 - CMS:
     - In the repo folder run `git init && git add . && git commit -m "initial commit"`.
+    - Add Api, User and Permissions:
+        - Run `npx strapi install graphql`.
+        - Run `npx strapi generate:api page title:string body:text`.
+        - Run `npm run build`.
+        - Run `npm run develop`.
+        - Run `curl --data '{ "username": "Admin", "email": "<PROJECT_EMAIL>","password": "<PASSWORD>" }' --header 'Content-Type: application/json' http://localhost:1337/auth/local/register`
+        - Open the browser at `http://localhost:1337/admin`:
+            - Go to the role *Public* and give this role only *count, find and findOne* permissions for each Content-Type.
+            - Go to the role *Authenticated* and give it all permissions for each Content-Type.
+    - Add Content:
+        - To get a JWT token for the *Admin* user run `curl --data '{ "identifier": "Admin","password": "<PASSWORD>" }' --header 'Content-Type: application/json' http://localhost:1337/auth/local`.
+        - Open browser at `http://localhost:1337/graphql`.
+        - In the GraphQL Playground set HTTP-Headers: `{ "Authorization": "Bearer <JWT_TOKEN>" }`.
+        - Copy the content from *Alpha Project* file `strapi-content-seed.graphql`.
+        - Paste the conten in the GraphQL Playground and click the play button. 
     - Mongo Database:
         - Login to mLab and *create a Starter Cluster* using all defaults.
         - Click `connect`:
@@ -93,7 +109,7 @@ In the project folder run:
         - Run `npm run production` for production database and `npm run develop` for local database.
         - Go to the provided admin url and enter username `Admin`. For production let LastPass generate a password, for local enter `Admin123`. Provide the project email.
         - After login, create the same user under *Collection Types*.
-    - Heroku:
+    - Deploy to Heroku:
         - Run `heroku login`.
         - Run `heroku create <projectname>-cms`.
         - Run `heroku config:set DATABASE_USERNAME=admin`.
@@ -102,22 +118,6 @@ In the project folder run:
         - Run `heroku config:set DATABASE_NAME=strapi`.
         - Run `git push heroku master`.
         - Open and bookmark the provided URL (find the previously created password in LastPass).
-    - Add Api, User and Permissions:
-        - Run `npx strapi install graphql`.
-        - Run `npx strapi generate:api page title:string body:text`.
-        - Run `npm run build`.
-        - Run `npm run develop`.
-        - Run `curl --data '{ "username": "Admin", "email": "<PROJECT_EMAIL>","password": "<PASSWORD>" }' --header 'Content-Type: application/json' http://localhost:1337/auth/local/register`
-        - Open the browser at `http://localhost:1337/admin`:
-            - Go to the role *Public* and give this role only *count, find and findOne* permissions for each Content-Type.
-            - Go to the role *Authenticated* and give it all permissions for each Content-Type.
-    - Add Content:
-        - To get a JWT token for the *Admin* user run `curl --data '{ "identifier": "Admin","password": "<PASSWORD>" }' --header 'Content-Type: application/json' http://localhost:1337/auth/local`.
-        - Open browser at `http://localhost:1337/graphql`.
-        - In the GraphQL Playground set HTTP-Headers: `{ "Authorization": "Bearer <JWT_TOKEN>" }`.
-        - Copy the content from *Alpha Project* file `strapi-content-seed.graphql`.
-        - Paste the conten in the GraphQL Playground and click the play button. 
-
 - UI:
     - Add a CSS Reset file (to be included by Webapp and Website):
         - Check [docs](https://meyerweb.com/eric/tools/css/reset/).
@@ -180,6 +180,37 @@ In the project folder run:
             export const pageQuery = graphql``;
         ``` -->
     - TODO: add a Sitemap (and add it to robots.txt).
+    - Deploy to Heroku:
+        - Check [docs](https://www.gatsbyjs.org/docs/deploying-to-heroku/).
+        - Run `heroku login`.
+        - Run `heroku create <projectname>-website`.
+        - Run `heroku config:set CONTENTFUL_ACCESS_TOKEN=<TOKEN>`.
+        - Run `heroku buildpacks:set heroku/nodejs`.
+        - Run `heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static.git`.
+        - Add a new file `static.json` with the content:
+        ```json
+        {
+            "root": "public/",
+            "headers": {
+            "/**": {
+                "Cache-Control": "public, max-age=0, must-revalidate"
+            },
+            "/**.css": {
+                "Cache-Control": "public, max-age=31536000, immutable"
+            },
+            "/**.js": {
+                "Cache-Control": "public, max-age=31536000, immutable"
+            },
+            "/static/**": {
+                "Cache-Control": "public, max-age=31536000, immutable"
+            }
+            },
+            "https_only": true,
+            "error_page": "404.html"
+        }
+        ```
+        - Run `git push heroku master`.
+        - Open and bookmark the provided URL.
 
 - Base:
     - In file `/bin/planty-base.ts` change the logical stack name (will be name in cloudformation) and add the accountId with Region.
@@ -422,12 +453,15 @@ Btw, check here: https://exp.host/@aardonyx1/aardonyx-app/index.exp?sdkVersion=3
 # Backend: basic features
 
 ## Add Backend Auth
+- Follow the instructions from `<projectname>/<projectname>-base/docs/auth.md`.
 
 ## Add Backend Api
-Should first add backend auth.
+- First add backend auth.
+- Follow the instructions from `<projectname>/<projectname>-base/docs/api.md`.
 
 ## Add Backend Storage
-Should first add backend auth.
+- First add backend auth.
+- Follow the instructions from `<projectname>/<projectname>-base/docs/storage.md`.
 
 # Frontend: basic features
 

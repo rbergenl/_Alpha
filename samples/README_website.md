@@ -2,6 +2,9 @@
 
 React Gatsby website for legal and marketing purposes.
 
+Access Preview via: `https://<projectname>-website.herokuapp.com/`.
+Access Live via: `https://domain.app`.
+
 ## Layouts
 - By default Gatsby generates a page with its URL based on the files in `src/pages` (so `src/pages/about.js` becomes that page at `/about`).
 - All pages should be wrapped with the `<Layout>` component.

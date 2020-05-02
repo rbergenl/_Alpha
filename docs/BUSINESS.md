@@ -95,6 +95,7 @@ With [Revolut](https://www.revolut.com/) you get a free bank account and a virtu
 - Signup with the project email at **Mailgunner**.
 
 ## Company Name
+TODO: where to place these decisions?
 - Name candidates: ...
 - Slogan candidates: ...
 
@@ -105,6 +106,7 @@ With [Revolut](https://www.revolut.com/) you get a free bank account and a virtu
     - Enter the project email and the password.
 
 ## Exit Strategy
+TODO: where to place these decisions?
 Goal # of users: ?
 Goal $ of revenue: ?
 Goal monthly % growth: ?
