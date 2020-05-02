@@ -1,5 +1,5 @@
 mutation {
-  createPage(input: {data: { title: "Test page", body: "This is the first body text."}}) {
+  createPage(input: {data: { title: "Test page", body: "This is the first body text.", image: "https://placeimg.com/640/400/any"}}) {
     page {
       id
       created_at

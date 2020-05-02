@@ -35,6 +35,8 @@ For running and growing a startup you need different kind of tools for Business,
     - Signup with the project email at [Heroku](https://www.heroku.com/).
         - Select profession *Other* and Language is *NodeJS*.
     - Signup with the project email at [Atlas MLab Mongo](https://mlab.com/).
+    - Signup with the project email at [Cloudinary](https://cloudinary.com/).
+        - Generate a password with Lastpass and select primary interest as *Images and Video*.
 - App:
     - Signup with the project email at [Expo](https://expo.io/signup).
         - Use the project email and name.
