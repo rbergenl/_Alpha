@@ -36,7 +36,7 @@ In the project folder run:
 - Admin: `npx create-react-app <projectname>-admin --template typescript`.
 - App: `expo init <projectname>-app --template expo-template-blank-typescript`.
 - Base: `mkdir <projectname>-base && cd <projectname>-base && cdk init --language typescript`.
-- CMS: `npx create-strapi-app <projectname>-cms --quickstart --no-run`.
+- CMS: `npx create-strapi-app <projectname>-cms --quickstart --no-run && cd <projectname>-cms && git init && git commit -am "initial commit"`.
 - UI: `mkdir <projectname>-ui && cd <projectname>-ui && git init && npm init --yes --scope @<projectname>`.
     - First modify the name in `package.json` to reflect the scope.
     - App:
@@ -63,88 +63,6 @@ In the project folder run:
 - From *Project Alpha* copy/paste the `docs/` folder when applicable.
 
 ## Project specific initialization
-- CMS:
-    - In the repo folder:
-        - Run `git init && git add . && git commit -m "initial commit"`.
-    - Add Api, User and Permissions:
-        - Run `npx strapi install graphql`.
-        - Run `npx strapi generate:api page title:string body:text`.
-        - Run `npm run build`.
-        - Run `npm run develop`.
-        - Run `curl --data '{ "username": "Admin", "email": "<PROJECT_EMAIL>","password": "<PASSWORD>" }' --header 'Content-Type: application/json' http://localhost:1337/auth/local/register`
-        - Open the browser at `http://localhost:1337/admin`:
-            - Go to the role *Public* and give this role only *count, find and findOne* permissions for each Content-Type.
-            - Go to the role *Authenticated* and give it all permissions for each Content-Type.
-    - Add Content:
-        - To get a JWT token for the *Admin* user run `curl --data '{ "identifier": "Admin","password": "<PASSWORD>" }' --header 'Content-Type: application/json' http://localhost:1337/auth/local`.
-        - Open browser at `http://localhost:1337/graphql`.
-        - In the GraphQL Playground set HTTP-Headers: `{ "Authorization": "Bearer <JWT_TOKEN>" }`.
-        - Copy the content from *Alpha Project* file `strapi-content-seed.graphql`.
-        - Paste the conten in the GraphQL Playground and click the play button.
-    - Add Cloudinary:
-        - Login to Cloudinary to find the *Account details*.
-        - Run `echo "CLOUDINARY_NAME=<CLOUD_NAME> >> .env.production`.
-        - Run `echo "CLOUDINARY_KEY=<API_KEY> >> .env.production`.
-        - Run `echo "CLOUDINARY_SECRET=<API_SECRET> >> .env.production`.
-        - Run `npm install strapi-provider-upload-cloudinary`.
-        - Update `./extensions/upload/config/settings.json` with.
-        ```javascript
-        if (process.env.NODE_ENV === 'production') {
-            module.exports = {
-                provider: 'cloudinary',
-                providerOptions: {
-                    cloud_name: process.env.CLOUDINARY_NAME,
-                    api_key: process.env.CLOUDINARY_KEY,
-                    api_secret: process.env.CLOUDINARY_SECRET,
-                }
-            };
-        } else {
-            // to use the default local provider you can return an empty configuration
-            module.exports = {};
-        }
-        ```
-    - Mongo Database:
-        - Login to mLab and *create a Starter Cluster* using all defaults.
-        - Click `connect`:
-            - Since IP addresses from Heroku are dynamic, enter IP `0.0.0.0/0`. This is not secure, but good for now.
-            - Enter username `admin` and click *generate password*, copy the password and paste it somewhere. Then click *create user* and then *choose a connection method*.
-            - Select `connect your application` and keep the default *NodeJS* and version *3.0 or later*. Then copy/paste the connection string.
-        - Run `echo ".env*" >> .gitignore`.
-        - Run `echo "DATABASE_USERNAME=admin" >> .env.production`
-        - Run `echo "DATABASE_PASSWORD=<PASSWORD>" >> .env.production`
-        - Run `echo "DATABASE_HOST=<HOST>" >> .env.production`
-        - Run `echo "DATABASE_NAME=strapi" >> .env.production`
-        - Run `npm install strapi-connector-mongoose`.
-        - Run `npm install --save-dev dotenv-cli`.
-        - Modify `config/environments/production/database.json`.
-        ```json
-        {
-            "connector": "mongoose",
-            "settings": {
-                "uri": "mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}/${process.env.DATABASE_NAME}?retryWrites=true&w=majority"
-            },
-            "options": {
-                "ssl": true
-            }
-        }
-        ```
-        - Add to `package.json` script `"production": "NODE_ENV=production dotenv -e .env.production strapi start",`.
-        - Run `npm run production` for production database and `npm run develop` for local database.
-        - Go to the provided admin url and enter username `Admin`. For production let LastPass generate a password, for local enter `Admin123`. Provide the project email.
-        - After login, create the same user under *Collection Types*.
-    - Deploy to Heroku:
-        - Run `heroku login`.
-        - Run `heroku create <projectname>-cms`.
-        - Run `heroku config:set $(grep DATABASE_USERNAME .env.production | xargs)`.
-        - Run `heroku config:set $(grep DATABASE_PASSWORD .env.production | xargs)`.
-        - Run `heroku config:set $(grep DATABASE_HOST .env.production | xargs)`.
-        - Run `heroku config:set $(grep DATABASE_NAME .env.production | xargs)`.
-        - Run `heroku config:set $(grep CLOUDINARY_NAME .env.production | xargs)`.
-        - Run `heroku config:set $(grep CLOUDINARY_KEY .env.production | xargs)`.
-        - Run `heroku config:set $(grep CLOUDINARY_SECRET .env.production | xargs)`.
-        - Run `git push heroku master`.
-        - Open and bookmark the provided URL (find the previously created password in LastPass).
-
 - UI:
     - Add a CSS Reset file (to be included by Webapp and Website):
         - Check [docs](https://meyerweb.com/eric/tools/css/reset/).
@@ -163,81 +81,6 @@ In the project folder run:
         - A word on **critical css**: Gatsby handles this out of the box.
         - Run `npm install --save gatsby-plugin-styled-components styled-components babel-plugin-styled-components`.
         - Use `import styled from 'styled-components';`.
-    <!-- - Create Space:
-        - Run `contentful login` (saves config to `~/.contentfulrc.json`).
-        - Run `contentful space create --name "<Projectname> Website"`.
-        - Add a file `.contenful.json`.
-        ```json
-        {
-            "spaceId": "<SPACE_ID>"
-        }
-        ```
-        - Login to the newly created space and create a *Content Delivery Key*.
-        - Add to a file `.env.development` and `.env.production`:
-        ```
-            CONTENTFUL_ACCESS_TOKEN=<DELIVERY_TOKEN>
-            CONTENTFUL_PREVIEW_TOKEN=<PREVIEW_TOKEN>
-        ```
-    - Add Pages:
-        - From *Project Alpha* run `node export/generator`.
-        - Run `contentful space import --content-file export/contentful-export-initial-generated.json --config .contentful.json`.
-        - Run `npm install --save gatsby-source-contentful`.
-        - Add to `gatsby-config.js`:
-        ```javascript
-            require("dotenv").config({
-                path: `.env.${process.env.NODE_ENV}`,
-            });
-            module.exports = {
-                plugins: [
-                    {
-                        resolve: `gatsby-source-contentful`,
-                        options: {
-                            spaceId: spaceId: require('./.contentful').spaceId,
-                            // Learn about environment variables: https://gatsby.dev/env-vars
-                            accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-                        },
-                    },
-                ],
-            }
-        ```
-        - Add all files components and pages from `src` to the project.
-        - Add to `index.js`.
-        ```javascript
-            import { graphql } from 'gatsby'
-            export const pageQuery = graphql``;
-        ``` -->
-    - TODO: add a Sitemap (and add it to robots.txt).
-    - Deploy to Heroku:
-        - Check [docs](https://www.gatsbyjs.org/docs/deploying-to-heroku/).
-        - Run `heroku login`.
-        - Run `heroku create <projectname>-website`.
-        - Run `heroku config:set CONTENTFUL_ACCESS_TOKEN=<TOKEN>`.
-        - Run `heroku buildpacks:set heroku/nodejs`.
-        - Run `heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static.git`.
-        - Add a new file `static.json` with the content:
-        ```json
-        {
-            "root": "public/",
-            "headers": {
-            "/**": {
-                "Cache-Control": "public, max-age=0, must-revalidate"
-            },
-            "/**.css": {
-                "Cache-Control": "public, max-age=31536000, immutable"
-            },
-            "/**.js": {
-                "Cache-Control": "public, max-age=31536000, immutable"
-            },
-            "/static/**": {
-                "Cache-Control": "public, max-age=31536000, immutable"
-            }
-            },
-            "https_only": true,
-            "error_page": "404.html"
-        }
-        ```
-        - Run `git push heroku master`.
-        - Open and bookmark the provided URL.
 
 - Base:
     - In file `/bin/planty-base.ts` change the logical stack name (will be name in cloudformation) and add the accountId with Region.
@@ -246,6 +89,8 @@ In the project folder run:
 
 - Admin:
     - Create a page `dashboard` which displays AWS CloudWatch Widgets as images.
+        - View: database usage Atlas Mlab Mongo.
+        - View: storage usage Cloudinary.
 
 ## Add Fonts
 - App:
@@ -279,14 +124,17 @@ In the project folder run:
         # https://www.robotstxt.org/robotstxt.html
         User-agent: *
     ```
-- Webapp/Admin:
+- Webapp:
     - The minimum setup is already provided by create-react-app.
     - Add to `public/index.html` the line `<meta name="description" content="Description" />`.
 
-### Accessibility to 100
-- Make sure in `public/index.html` the root div has a role like `<div id="root" role="main"></div>`
+### Accessibility to 100 (website/webapp only)
+- Website:
+    - Already provided by Gatsby.
+- Webapp:
+    - Make sure the `[role]="main"` attribute is set on the `<div id="root">` element in `public/index.html`.
 
-### Performance to 100
+### Performance to 100 (localhost only)
 
 #### Serve build on HTTPS
 - Run `$ npm install local-web-server`.
@@ -305,7 +153,7 @@ In the project folder run:
 - Open it and at the section 'Trust' set it to 'Always Trust'.
 - Open the website specifying the protocol `https://localhost/`.
 
-### Progressive Web App to 100
+### Progressive Web App to 100 (webapp only)
 
 #### Enable the Service Worker
 - Check [docs](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
@@ -313,7 +161,6 @@ In the project folder run:
 - Website: enable `gatsby-plugin-offline` in the gatsby-config.js file.
 
 #### Add Logos to the Manifest
--- TODO: this is for create-react-app.. how for Gatsby?
 - Check [docs](https://developers.google.com/web/fundamentals/web-app-manifest/)
 - Convert the `src/logo.svg` into a PNG using an online converter.
 - Then make copies and resize the PNG into `512x512` and `192x192`.
@@ -362,18 +209,23 @@ Btw, check here: https://exp.host/@aardonyx1/aardonyx-app/index.exp?sdkVersion=3
 
 ## Setup pipeline
 
-- From *Project Alpha* copy/paste the folder `alpha-base/ci`.
+- From *Project Alpha* copy/paste the folder `base/ci`.
 - Make sure in the `Dockerfile` you modified the `docker` commands in the top comments.
 - Run `docker login registry.gitlab.com --username <username> --password-stdin < ~/.docker/<projectname>_gitlab`.
 - Run the `docker build` command as described in the `Dockerfile`.
-- Run the `docker push` command as decsribed in the `Dockerfile`.
-- From *Project Alpha* copy/pase the file `<repo>/.gitlab-ci.yml`.
-- Make sure the file `.gitlab-ci.yml` points `image` to the just pushed image.
+- Run the `docker push` command as described in the `Dockerfile`.
+
+## Enable pipeline in repo
+- From *Project Alpha* copy/pase the file `.gitlab-ci.yml`.
+- Make sure the file `.gitlab-ci.yml` points `image` to `registry.gitlab.com/<groupname>/base`. Make sure the image has already been pushed to the registry.
 - Add to `package.json` these scripts:
     ```json
     "audit": "echo \"should be implemented\"",
     "lint": "echo \"should be implemented\"",
-    "format": "echo \"should be implemented\""
+    "format": "echo \"should be implemented\"",
+    "test": "echo \"should be implemented\"",
+    "deploy:test": "echo \"should be implemented\"",
+    "deploy:prod": "echo \"should be implemented\""
     ```
 - Git add, commit and push.
 
@@ -437,9 +289,19 @@ Btw, check here: https://exp.host/@aardonyx1/aardonyx-app/index.exp?sdkVersion=3
 ## Add Test:Functional
 - cypress
 
+## Add Deploy:Test
+- TODO
+
 ## Add Deploy:Prod
-> Requires creditcard and AWS Account.
-- Add to package.json `"deploy:base": "cdk deploy <Projectname>BaseStack --require-approval never",`.
+- Base:
+    > Requires creditcard and AWS Account.
+    - Add to package.json `"deploy:base": "cdk deploy <Projectname>BaseStack --require-approval never",`.
+- CMS:
+    > Requires the initial setup to be completed, including an initial Heroku deployment.
+    - Run `heroku login` and login via the browser.
+    - Run `heroku authorizations:create --description=gitlab`.
+    - Copy/paste the token to Gitlab > Group > Settings > CICD > Variables and add the variable `HEROKU_TOKEN` and set the flag *Masked*.
+    - Add to package.json `"deploy:prod": "git remote set-url heroku https://heroku:${HEROKU_TOKEN}@git.heroku.com/<projectname>-cms.git && git push heroku HEAD:master"`.
 
 ## Add Publish:iOS
 > Requires creditcard and Apple Developer Program enrollment.

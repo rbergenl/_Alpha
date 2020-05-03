@@ -31,7 +31,6 @@ For running and growing a startup you need different kind of tools for Business,
         - Click `create account` and enter the project email and country.
         - Follow the link in the registartion email to create a password.
 - CMS:
-    - TODO: Strapi instead? Login with Google Account at [Contentful](https://www.contentful.com/).
     - Signup with the project email at [Heroku](https://www.heroku.com/).
         - Select profession *Other* and Language is *NodeJS*.
     - Signup with the project email at [Atlas MLab Mongo](https://mlab.com/).

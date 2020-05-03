@@ -15,7 +15,6 @@
     - `npm install -g expo-cli`.
     - `npm install -g aws-cdk`.
     - `npm install -g gatsby-cli`.
-    - `npm install -g contentful-cli`.
 - Visual Studio Code
 - Install Visual Studio Code plugins:
     - Apache Velocity
@@ -54,7 +53,7 @@
         IdentityFile ~/.ssh/<private_ssh_key>
     ```
 - Copy the public key into the SSH setting in Gitlab.
-- Copy the private key in Gitlab > Settings > CICD > Variables with name `SSH_GITLAB_KEY` and value `cat ~/.ssh/<projectname>_gitlab | pbcopy`. This is so it can be used in the `.gitlab-ci.yml` file to fetch the UI and Base git repos.
+- Copy the private key in Gitlab > Group > Settings > CICD > Variables with name `SSH_GITLAB_KEY` and value `cat ~/.ssh/<projectname>_gitlab | pbcopy`. This is so it can be used in the `.gitlab-ci.yml` file to fetch the UI and Base git repos.
 - Create a file `.gitconfig` in the project folder:
     ```bash
     [user]
