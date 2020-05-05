@@ -1,4 +1,8 @@
-# Api frontend
+# Add Frontend Api
+
+- State Management with React Context, Hooks and Apollo.
+- Add Codegen.
+- Add Mock GraphQL Api.
 
 ## Config
 ```json

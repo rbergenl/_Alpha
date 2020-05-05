@@ -1,4 +1,4 @@
-# CMS Initial Setup
+# Initial Setup CMS
 
 - Add User:
     - Run `npx strapi install graphql`.

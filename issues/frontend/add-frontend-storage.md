@@ -1,4 +1,4 @@
-# Storage - frontend
+# Add Frontend Storage
 
 You should know the different levels of authentication:
 - Private: only `read, write and delete` by owner.

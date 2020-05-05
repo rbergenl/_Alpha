@@ -1,0 +1,30 @@
+# Add Publish:Android
+- Build a standalone app Android:
+    - `expo build:android`.
+
+- Check [docs](https://developer.okta.com/blog/2018/12/26/react-native-android-play-store).
+- Checklists:
+  - Launch: https://developer.android.com/distribute/best-practices/launch/launch-checklist
+  - Quality: https://developer.android.com/docs/quality-guidelines/core-app-quality
+- Remove action bar here: `android/app/src/main/res/values/styles.xml` with `<item name="android:windowFullscreen">true</item>`
+- Set app name here: `android/app/src/main/res/values/strings.xml`
+- Add an Icon via Android Studio via 'file > new > Image Asset' and upload a foreground and background for the `ic_launcher`
+- Disable default React Native app permission (otherwise privacy policy is needed): add `xmlns:tools="http://schemas.android.com/tools"` to `android/app/src/main/AndroidManifest.xml` and add `<uses-permission tools:node="remove" android:name="android.permission.READ_PHONE_STATE" /><uses-permission tools:node="remove" android:name="android.permission.WRITE_EXTERNAL_STORAGE" /><uses-permission tools:node="remove" android:name="android.permission.READ_EXTERNAL_STORAGE" />`
+- Minimize the APK file: `android/app/build.gradle` set `def enableSeparateBuildPerCPUArchitecture = true def enableProguardInReleaseBuilds = true`
+- Update App Version: in `android/app/build.gradle` update the lines `versionCode 2` and `versionName "0.2"`
+- In Android Studio create a signed APK
+    - Open your app in Android Studio by browsing to the android folder of your React Native project.
+    - Go to Build > Generate signed bundle / APK.
+    - Select APK and click Next.
+    - Under Key store path click Create new.
+    - Choose a path like `/home/<user>/keystores/android.jks`.
+    - Choose passwords for the keystore and key.
+    - Enter the certificate information (note: this won’t be displayed in the app, just the certificate).
+    - Next > Select Release and both V1 and V2 Signature versions.
+- Create Application in Appstore: https://play.google.com/apps/publish/
+- Fill in the forms for Shop Information (with creating screenshots of the app)
+- Fill in the forms for Content Rating
+- Fill in the forms for Pricing & Distribution
+- Create a Release (Production track)
+- Upload the file (app-x86-release.apk and app-armeabi-v7a-release.apk)
+- Click "Start rollout"

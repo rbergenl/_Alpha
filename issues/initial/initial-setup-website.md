@@ -1,4 +1,18 @@
-# Website Initial Setup
+# Initial Setup Website
+
+- Handy imports:
+    - TODO: Check [docs](https://www.npmjs.com/package/gatsby-plugin-resolve-src)
+
+- Correct config:
+    - In `gatsby-config.js` set correct info for `siteMetadata`.
+    - In `gatsby-config.js` set correct info for `gatsby-plugin-manifest`.
+
+- Use CSS-in-JS:
+    - TODO: can this section be moved to non-project specific issue?
+    - Check [docs](https://www.gatsbyjs.org/docs/styled-components/).
+    - A word on **critical css**: Gatsby handles this out of the box.
+    - Run `npm install --save gatsby-plugin-styled-components styled-components babel-plugin-styled-components`.
+    - Use `import styled from 'styled-components';`.
 
 - Add Pages:
     - Run `echo "STRAPI_API_URL=http://localhost:1337" >> .env.development`.
@@ -48,36 +62,6 @@
 - Add a Sitemap:
     - TODO: (and add it to robots.txt).
 
-## Deploy to Test (Heroku):
-- Check [docs](https://www.gatsbyjs.org/docs/deploying-to-heroku/).
-- Run `heroku login`.
-- Run `heroku create <projectname>-website`.
-- Run `heroku config:set CONTENTFUL_ACCESS_TOKEN=<TOKEN>`.
-- Run `heroku buildpacks:set heroku/nodejs`.
-- Run `heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static.git`.
-- Add a new file `static.json` with the content:
-```json
-{
-    "root": "public/",
-    "headers": {
-    "/**": {
-        "Cache-Control": "public, max-age=0, must-revalidate"
-    },
-    "/**.css": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-    },
-    "/**.js": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-    },
-    "/static/**": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-    }
-    },
-    "https_only": true,
-    "error_page": "404.html"
-}
-```
-- Run `git push heroku master`.
-- Open and bookmark the provided URL.
 
-## Deploy to Prod (AWS)
+# Ecommerce
+- TODO: add ecommerce features.
