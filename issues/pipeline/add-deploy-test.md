@@ -37,3 +37,6 @@
 - CMS:
     > Requires the initial cms setup to be completed, including an initial Heroku deployment and a token added to Gitlab.
     - Add to package.json `"deploy:test": "git remote add heroku https://heroku:${HEROKU_TOKEN}@git.heroku.com/${npm_package_name}.git && git push heroku HEAD:master"`.
+
+- Base:
+    - In file `/bin/<projectname>-base.ts` add the accountId with Region.

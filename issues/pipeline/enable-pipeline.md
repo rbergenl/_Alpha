@@ -1,7 +1,7 @@
 # Enable pipeline in repo
-> Requires the *setup pipeline* to be completed. The docker image should have been pushed to the registry.
+> Requires the *setup pipeline* to be completed. The docker image and gitlab-ci file should have been pushed to the registry.
+- In Gitlab > Group > Repo > Settings > CI / CD > General Pipelines set the setting *Custom CI configuration path* to `ci/.gitlab-ci.yml@<groupname>/base`
 - From *Project Alpha* copy/pase the file `.gitlab-ci.yml`.
-- Make sure the file `.gitlab-ci.yml` points `image` to `registry.gitlab.com/<groupname>/base`.
 - Add/replace to `package.json` these scripts:
     ```json
     "audit": "echo \"should be implemented\"",

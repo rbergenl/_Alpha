@@ -11,3 +11,12 @@
         "cache": "aws cloudfront create-invalidation --distribution-id E2DIPRN0JD71E6 --paths \"/index.html\""
     }
     ```
+    - Add to `<projectname>-base/stack.config.ts`.
+    ```javascript
+    import { Props as HostingProps } from './lib/constructs/hosting';
+    export const hostingConfig: HostingProps = {
+        domainName: 'rtbprojects.com',
+        siteSubDomain: 'planty-admin',
+        certificateArn: 'arn:aws:acm:us-east-1:219009929765:certificate/5d11fd07-7d5b-4f46-ade7-e1dea7b36666',
+    };
+    ```

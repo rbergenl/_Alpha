@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title>Simple GraphiQL Example</title>
+    <link href="https://unpkg.com/graphiql/graphiql.min.css" rel="stylesheet" />
+  </head>
+  <body style="margin: 0;">
+    <div id="graphiql" style="height: 100vh;"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/graphiql/graphiql.min.js"
+    ></script>
+
+    <script
+      src="https://sdk.amazonaws.com/js/aws-sdk-2.656.0.min.js"
+    ></script>
+    <script>
+        const name = new URLSearchParams(window.location.search).get('name');
+
+        if (!name) throw new Error('please specify Admin or User as query string parameter');
+
+        AWS.config.region = 'us-east-1'; // Region
+        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: 'us-east-1:42cf38db-1021-495f-b5ad-bc6a49608a43',
+        });
+        const cognito = new AWS.CognitoIdentityServiceProvider({ region: 'us-east-1' });
+        cognito.initiateAuth({
+            AuthFlow: 'USER_PASSWORD_AUTH',
+            ClientId: '2n0376cm6n5c5umrvcoebhma7v',
+            AuthParameters: {
+                USERNAME: `${name.toLowerCase()}@${name.toLowerCase()}.com`,
+                PASSWORD: `${name}123@`,
+            }
+        }, function(err, data) {
+            if (err) {
+                console.log(err, err.stack);
+            }
+            else {
+                const token = data.AuthenticationResult.AccessToken;
+                const graphQLFetcher = graphQLParams =>
+                    fetch('https://gkp2apufn5eopbh7qeie4nhvlu.appsync-api.us-east-1.amazonaws.com/graphql', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': token
+                        },
+                    body: JSON.stringify(graphQLParams),
+                    })
+                    .then(response => response.json())
+                    .catch(() => response.text());
+                ReactDOM.render(
+                    React.createElement(GraphiQL, { fetcher: graphQLFetcher }),
+                    document.getElementById('graphiql'),
+                );
+            }
+        });
+    </script>
+  </body>
+</html>
