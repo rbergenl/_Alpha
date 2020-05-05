@@ -49,18 +49,22 @@ In the project folder run:
         - `npm install react-bootstrap bootstrap`.
 - Webapp: `npx create-react-app <projectname>-webapp --template typescript`.
 - Website: `npx gatsby new <projectname>-website`.
+    - Modify in package.json `"name"` to reflect the actual name.
 
-## Setup Version Control System
+## Setup Version Control System and Git Flow
 
 - Make sure the repository is created in Gitlab.
 - In the local repository folder:
     - Run `git remote add origin git@<username>.gitlab.com:<groupname>/<reponame>.git`
     - Run `git push --set-upstream origin master`.
+    - Run `git checkout -b develop && git push --set-upstream origin develop`.
+- Go to the repository in Gitlab and Settings > Repository > Default Branch set to *Develop*.
+- When merging from a feature branch to develop use in the commit message `Closes #1`. When it fixes an issue from Sentry also use `Fixes ADMIN-1`.
 
 ## Add basic documentation
 
 - From *Project Alpha* copy/paste the `README.md`. Rename an already existing readme file (e.g. `README_cra.md`).
-- From *Project Alpha* copy/paste the `docs/` folder when applicable.
+- From *Project Alpha* copy/paste the `docs/` folder when applicable (which contain an architecture diagram).
 
 ## Project specific initialization
 - UI:
@@ -216,9 +220,10 @@ Btw, check here: https://exp.host/@aardonyx1/aardonyx-app/index.exp?sdkVersion=3
 - Run the `docker push` command as described in the `Dockerfile`.
 
 ## Enable pipeline in repo
+> Requires the *setup pipeline* to be completed. The docker image should have been pushed to the registry.
 - From *Project Alpha* copy/pase the file `.gitlab-ci.yml`.
-- Make sure the file `.gitlab-ci.yml` points `image` to `registry.gitlab.com/<groupname>/base`. Make sure the image has already been pushed to the registry.
-- Add to `package.json` these scripts:
+- Make sure the file `.gitlab-ci.yml` points `image` to `registry.gitlab.com/<groupname>/base`.
+- Add/replace to `package.json` these scripts:
     ```json
     "audit": "echo \"should be implemented\"",
     "lint": "echo \"should be implemented\"",
@@ -290,18 +295,17 @@ Btw, check here: https://exp.host/@aardonyx1/aardonyx-app/index.exp?sdkVersion=3
 - cypress
 
 ## Add Deploy:Test
-- TODO
+- Website:
+    > Requires the initial website setup to be completed, including an initial Heroku deployment a token added to Gitlab.
+    - Add to package.json `"deploy:test": "git remote add heroku https://heroku:${HEROKU_TOKEN}@git.heroku.com/${npm_package_name}.git && git push heroku HEAD:master",`.
 
 ## Add Deploy:Prod
 - Base:
     > Requires creditcard and AWS Account.
     - Add to package.json `"deploy:base": "cdk deploy <Projectname>BaseStack --require-approval never",`.
 - CMS:
-    > Requires the initial setup to be completed, including an initial Heroku deployment.
-    - Run `heroku login` and login via the browser.
-    - Run `heroku authorizations:create --description=gitlab`.
-    - Copy/paste the token to Gitlab > Group > Settings > CICD > Variables and add the variable `HEROKU_TOKEN` and set the flag *Masked*.
-    - Add to package.json `"deploy:prod": "git remote set-url heroku https://heroku:${HEROKU_TOKEN}@git.heroku.com/<projectname>-cms.git && git push heroku HEAD:master"`.
+    > Requires the initial cms setup to be completed, including an initial Heroku deployment and a token added to Gitlab.
+    - Add to package.json `"deploy:prod": "git remote add heroku https://heroku:${HEROKU_TOKEN}@git.heroku.com/${npm_package_name}.git && git push heroku HEAD:master"`.
 
 ## Add Publish:iOS
 > Requires creditcard and Apple Developer Program enrollment.

@@ -2,6 +2,7 @@ stages:
     - .pre
     - build
     - test
+    - deploy
 
 image: registry.gitlab.com/aardonyx/base
 
@@ -15,26 +16,38 @@ before_script:
     - eval $(ssh-agent -s)
     - echo "$SSH_GITLAB_KEY" | tr -d '\r' | ssh-add -
 
-install:
+pre_install:
     stage: .pre
     script: npm ci
 
-audit:
+pre_audit:
     stage: .pre
     script: npm run audit
 
-format:
+pre_format:
     stage: .pre
     script: npm run format
 
-lint:
+pre_lint:
     stage: .pre
     script: npm run lint
 
-compile:
+build_compile:
     stage: build
     script: npm run build
 
-unit:
+test_unit:
     stage: test
     script: npm test
+
+deploy_test:
+    stage: deploy
+    only:
+        - develop
+    script: npm run deploy:test
+
+deploy_prod:
+    stage: deploy
+    only:
+        - master
+    script: npm run deploy:prod

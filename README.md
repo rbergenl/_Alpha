@@ -56,6 +56,7 @@ Follow up with laying the groundwork for the startup:
     - Initialize a NodeJS version.
     - Setup access to new Git Repository.
     - Setup access to new Docker Registry.
+    - Setup access to Heroku.
     - Setup integration between Sentry and Gitlab.
 - Do the following for each project: admin, app, base, cms, ui, webapp and website:
     - Create a new *blank* project with name `<Reponame>` in the Gitlab *Group*.

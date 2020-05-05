@@ -1,6 +1,7 @@
 # Developer
 
 ## Install Developer Tools
+
 - Install [Docker](https://docs.docker.com/docker-for-mac/install/)
 - Install Homebrew
     - Run `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`.
@@ -37,10 +38,12 @@
     - Android SDK
 
 ## Initialize a NodeJS version
+
 - In the project folder run `nvm install node && nvm alias default node && echo $(node -v) > .nvmrc`.
 - When working on a repository in this project, always first run `nvm use`.
 
 ## Setup access to new Git Repository
+
 - Run `ssh-keygen -t rsa -b 4096 -C "<GOOGLE_EMAIL>"`.
 - Save it to path `~/.ssh/<projectname>_gitlab`.
 - Run for both private and public key `chmod 0400 ~/.ssh/<ssh_key>`
@@ -67,10 +70,18 @@
     ```
 
 ### Setup access to new Docker Registry
+
 - In Gitlab > Settings > Personal Access Token, create a new with the name `Docker` and the scope `api`. Save the token in a file `~/.docker/<projectname>_gitlab.
 - Run `docker login registry.gitlab.com --username <username> --password-stdin < ~/.docker/<projectname>_gitlab`.
 
+## Setup access to Heroku
+
+- Run `heroku login` and login via the browser.
+- Run `heroku authorizations:create --description=gitlab`.
+- Copy/paste the token to Gitlab > Group > Settings > CICD > Variables and add the variable `HEROKU_TOKEN` and set the flag *Masked*.
+
 ### Setup integration between Sentry and Gitlab
+
 - In Sentry create a project and follow the installation instructions.
 - In Settings > Account > Notifications set *Weekly reports* to *off*.
 - Setup integration between Sentry and Gitlab. Make sure previously created Gitlab project is in a Group.
