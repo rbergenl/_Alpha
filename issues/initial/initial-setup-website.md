@@ -1,11 +1,28 @@
 # Initial Setup Website
 
-- Handy imports:
-    - TODO: Check [docs](https://www.npmjs.com/package/gatsby-plugin-resolve-src)
-
 - Correct config:
     - In `gatsby-config.js` set correct info for `siteMetadata`.
     - In `gatsby-config.js` set correct info for `gatsby-plugin-manifest`.
+
+- Absolute imports:
+    - Check [docs](https://www.npmjs.com/package/gatsby-plugin-resolve-src)
+    - Run `npm install --save-dev gatsby-plugin-resolve-src`.
+    - Add to `gastby-config.js` to plugins `gatsby-plugin-resolve-src`.
+    - Create a `jsconfig.json` with the contents (needed for VSCode to resolve the modules):
+    ```json
+    {
+        "compilerOptions": {
+            "baseUrl": "./src",
+            "paths": {
+                "*": [
+                    "types/*",
+                    "*"
+                ]
+            }
+        },
+    }
+    ```
+    - Modify the imports in `src/pages/*.js`.
 
 - Use CSS-in-JS:
     - TODO: can this section be moved to non-project specific issue?
@@ -20,14 +37,14 @@
     - Add to `gatsby-config.js`:
     ```javascript
     require("dotenv").config({
-        path: `.env.${process.env.NODE_ENV}`,
+        path: `.env.${process.env.OVERRIDE_ENV || process.env.NODE_ENV}`,
     });
     module.exports = {
         plugins: [
             {
                 resolve: 'gatsby-source-strapi',
                 options: {
-                    apiURL: process.env.STRAPI_API_URL || 'https://aardonyx-cms.herokuapp.com',
+                    apiURL: process.env.STRAPI_API_URL || 'https://<project>-cms.herokuapp.com',
                     contentTypes: [
                     // List of the Content Types you want to be able to request from Gatsby.
                     'pages',
@@ -57,10 +74,7 @@
     `);
     <ReactMarkdown source={ data.allStrapiPages.edges[0].node.body } />
     ```
-    - In *Terminal 1* start Strapi CMS locally and in *Terminal 2* run in the Website folder `npm start`.
-
-- Add a Sitemap:
-    - TODO: (and add it to robots.txt).
+    - In *Terminal 1* start the Conent Management System locally and in *Terminal 2* run in the Website folder `npm start`.
 
 
 # Ecommerce

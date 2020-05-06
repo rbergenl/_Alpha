@@ -1,5 +1,5 @@
-# docker build --build-arg NODE_VERSION=$(node --version) --build-arg GITLAB_USERNAME=aardonyx1 --tag registry.gitlab.com/<groupname>/base .
-# docker push registry.gitlab.com/<groupname>/base
+# nvm use && docker build --build-arg NODE_VERSION=$(node --version) --build-arg GITLAB_USERNAME=aardonyx1 --tag registry.gitlab.com/<groupname>/cicd .
+# docker push registry.gitlab.com/<groupname>/cicd
 
 FROM alpine:3.10.2
 

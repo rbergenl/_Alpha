@@ -51,6 +51,21 @@ TODO: add this diagram to default `docs` in each project.
 ## Add .Pre:Lint
 - eslint
 
+- Website
+    - Check [docs](https://www.npmjs.com/package/gatsby-plugin-resolve-src).
+    - Add to `eslint.config.js`:
+    ```json
+    {
+        "settings": {
+            "import/resolver": {
+            "node": {
+                "moduleDirectory": ["node_modules", "src"]
+            }
+            }
+        }
+    }
+    ```
+
 ## Add Test:Unit
 - jest
 

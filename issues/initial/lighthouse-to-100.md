@@ -1,16 +1,13 @@
 # Lighthouse to 100
 
-## Search Engine Optimization to 100
+## Search Engine Optimization to 100 (website only)
 - Website:
     - Already provided by Gatsby with the `<SEO>` component.
-    - Add a file `<projectname-website>\static\robots.txt` with the lines:
+    - Add a file `<projectname>-website\static\robots.txt` with the lines:
     ```
         # https://www.robotstxt.org/robotstxt.html
         User-agent: *
     ```
-- Webapp:
-    - The minimum setup is already provided by create-react-app.
-    - Add to `public/index.html` the line `<meta name="description" content="Description" />`.
 
 ## Accessibility to 100 (website/webapp only)
 - Website:
@@ -21,21 +18,25 @@
 ## Performance to 100 (localhost only)
 
 ### Serve build on HTTPS
-- Run `$ npm install local-web-server`.
-- Add to package.json the script `"serve-https": "npm run build && ws --directory ./build --port 443 --compress --http2"`.
+- Run `npm install --save-dev local-web-server`.
+- Webapp:
+    - Add to package.json the script `"serve:build": "npm run build && ws --directory ./build --port 9000 --compress --http2"`.
+- Website:
+    - Add to package.json the script `"serve:build": "echo \"> remember to start the cms locally in another terminal first and run \u001b[2mOVERRIDE_ENV=development npm run build\u001b[22m in here to get fresh files in the public folder.\n\" && ws --directory ./public --port 9000 --compress --http2",`.
+    - Open a browser to `https://127.0.0.1:9000` (note the https).
 
-### Redirect HTTP to HTTPS
+### Redirect HTTP to HTTPS (actually not needed anymore)
 - Check [docs](https://github.com/lwsjs/local-web-server/wiki/How-to-redirect-HTTP-traffic-to-HTTPS)
-- `$ npm install lws-redirect`.
+- Run `npm install lws-redirect`.
 - Add to package.json the script `"redirect-http": "ws --port 80 --stack redirect --redirect 'http -> https'"`.
 
-### Trust the Certificate
+### Trust the Certificate (if needed)
 - Ceck [docs](https://github.com/lwsjs/local-web-server/wiki/How-to-get-the-%22green-padlock%22-using-the-built-in-certificate)
 - Open KeychainOS > Certificates > 'File' > 'Import Items...'.
 - Import the certificate located at `./node_modules/lws/ssl/lws-cert.pem`
 - In the list of certificates is now a new one with the name `lws`.
-- Open it and at the section 'Trust' set it to 'Always Trust'.
-- Open the website specifying the protocol `https://localhost/`.
+- Open it and at the section *Trust* set it to *Always Trust*.
+- Start the server and open the website specifying the protocol `https`.
 
 ## Progressive Web App to 100 (webapp only)
 
