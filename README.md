@@ -23,6 +23,8 @@ It is possible to have a Minimum Viable Product ready on **day 1**. In short thi
 5. [Growth](#5-growth)
 6. [Ownership Transfer](#6-ownership-transfer)
 
+> See [these diagrams](./docs/OVERVIEWS.md) for an overview of what is provided.
+
 ## 1. Initial Ownership
 Start with these necessary steps:
 
