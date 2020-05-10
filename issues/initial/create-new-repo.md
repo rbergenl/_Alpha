@@ -4,9 +4,12 @@ In the project folder run:
 - Admin: `npx create-react-app <projectname>-admin --template typescript`.
 - App: `expo init <projectname>-app --template expo-template-blank-typescript`.
 - Base: `mkdir <projectname>-base && cd <projectname>-base && cdk init --language typescript`.
+    - Modify the name in `package.json` to reflect the scope `@<projectname>/base`.
 - CICD: `mkdir <projectname>-cicd && cd <projectname>-cicd && touch .gitignore && git init && git add . && git commit -m "initial commit"`.
 - CMS: `npx create-strapi-app <projectname>-cms --quickstart --no-run && cd <projectname>-cms && git init && git commit -am "initial commit"`.
-- UI: `mkdir <projectname>-ui && cd <projectname>-ui && git init && npm init --yes --scope @<projectname>`.
+- Mocks: `mkdir <projectname>-mocks && cd <projectname>-mocks && npm init --yes --scope @<projectname> && echo -e "/node_modules\n/dist" > .gitignore && git init && git add . && git commit -m "initial commit"`.
+    - Modify the name in `package.json` to reflect the scope `@projectname/mocks`.
+- UI: `mkdir <projectname>-ui && cd <projectname>-ui && git init && npm init --yes --scope @<projectname>/ui`.
     - First modify the name in `package.json` to reflect the scope.
     - App:
         - `expo init app --template expo-template-blank-typescript`.

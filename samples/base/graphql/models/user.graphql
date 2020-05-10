@@ -1,0 +1,84 @@
+##
+## I N P U T : Q U E R Y - F I L T E R
+##
+
+input UserFilterInput {
+    # fields
+    id: IDInput
+    title: StringInput
+    description: StringInput
+    status: StringInput
+    # default operators
+    and: [UserFilterInput]
+    or: [UserFilterInput]
+    not: UserFilterInput
+}
+
+##
+## I N P U T : M U T A T I O N - C O N D I T I O N
+##
+
+input UserConditionInput {
+    # fields
+    title: StringInput
+    description: StringInput
+    status: StringInput
+    # default operators
+    and: [UserConditionInput]
+    or: [UserConditionInput]
+    not: UserConditionInput
+}
+
+input UserCreateInput {
+    # fields
+    id: ID
+    title: String!
+    description: String
+    status: String
+}
+
+input UserUpdateInput {
+    # fields
+    id: ID!
+    title: String
+    description: String
+    status: String
+}
+
+input UserDeleteInput {
+    id: ID
+}
+
+##
+## Q U E R Y
+##
+
+type UserConnection {
+  items: [User]
+  nextToken: String
+}
+
+extend type Query {
+    getUser(id: ID!): User
+    listUsers(filter: UserFilterInput, limit: Int, nextToken: String): UserConnection
+}
+
+##
+## M U T A T I O N
+##
+
+extend type Mutation {
+    createUser(input: UserCreateInput!, condition: UserConditionInput): User
+    updateUser(input: UserUpdateInput!, condition: UserConditionInput): User
+    deleteUser(input: UserDeleteInput!, condition: UserConditionInput): User    
+}
+
+##
+## S U B S C R I P T I O N
+##
+
+extend type Subscription {
+    onCreateUser: User @aws_subscribe(mutations: ["createUser"])
+    onUpdateUser: User @aws_subscribe(mutations: ["updateUser"])
+    onDeleteUser: User @aws_subscribe(mutations: ["deleteUser"])
+}

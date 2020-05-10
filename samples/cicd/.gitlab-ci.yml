@@ -1,3 +1,5 @@
+# TODO: check here for more industry standards https://docs.gitlab.com/ee/topics/autodevops/
+
 stages:
     - .pre
     - build

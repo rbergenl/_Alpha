@@ -2,6 +2,7 @@
 **TODO: move awsconfig.js file to @node_modules/@<projectname>/base**
 
 - Run `npm install aws-amplify`.
+- Run `npm install --save-dev git+ssh://git@<username>.gitlab.com:<groupname>/base.git#master`.
 - Create a file `awsconfig.js` with the contents:
 ```javascript
 const awsconfig = {

@@ -2,14 +2,12 @@
 
 TODO:
 - have these building blocks ready: 1) Users graph in Data Studio with Data from Analytics. 2) A first feature with AB experiment. 3) The initial website via CMS. 4) Initial designs in Figma.
-- setup CMS with Strapi on Heroku, mLab and Gatsby (and image assets where?)
 - check https://www.integromat.com/en/integrations/google-data-studio/revolut
 - check https://www.outsystems.com/blog/posts/ab-testing-mobile-apps-google-optimize/
-- create a `.gitlab-ci.yml` template which performs all required cicd steps. Also check here for more steps and industry standards: https://docs.gitlab.com/ee/topics/autodevops/
 - process the Planty Base docs (already copy in alpha/base).
 - create in all apps the basic flows `User: login/register/profile/preferences`, and `Ecommerce: products/cart/checkout` (add these tasks to issues-seed).
 - make sure to use correct `@auth` usage in schema and resolvers.
-- for issue `add auth`, use `exports.js` from `base`, and add a mock Cognito Api.
+- for issue `add auth`, use `exports.js` from `base`, and add a mock Cognito Api. Also set admin/user password via config, via ssm.
 - check how to do `a/b testing` and `ecommerce`: https://www.gatsbyjs.org/docs/ab-testing-with-google-analytics-and-netlify/
 
 **Congratulations on getting started with a Startup!**
@@ -60,9 +58,9 @@ Follow up with laying the groundwork for the startup:
     - Setup access to new Docker Registry.
     - Setup access to Heroku.
     - Setup integration between Sentry and Gitlab.
-- Do the following for each project: admin, app, base, cms, ui, webapp and website:
+- Do the following for each project: admin, app, base, cicd, cms, mocks, ui, webapp and website:
     - Create a new *blank* project with name `<Reponame>` in the Gitlab *Group*.
-    - Import the `gitlab-issues-seed.csv` at the Issues section in Gitlab and follow those instructions when applicable.
+    - In the *Alpa Project* run `node issues <reponame>` to generate an `gitlab-issues-seed-<repo>.csv` file. This can be imported at the *Issues* section in the Gitlab Repository. Follow the instructions in those issues to complete initial setup.
 
 ## 3. Minimum Viable Product
 Build the MVP and bring it live (version Alpha):
@@ -131,7 +129,7 @@ Go live with version 1 and grow to sell:
     - Linkbacks
 
 ### Developer
-- Build features by using the *Issue Tracking* in **Gitlab** and performing A/B experiment for each feature.
+- Build features by using the *Issue Tracking* in *Gitlab* and performing an A/B experiment for each feature.
 
 ### Business
 - Create an Investor Pitch.

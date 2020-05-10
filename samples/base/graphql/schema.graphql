@@ -1,0 +1,20 @@
+##
+## T O P L E V E L   E N T I T I E S
+##
+
+# @model
+type User {
+    id: ID!
+}
+
+##
+## I N T E R F A C E S
+##
+
+##
+## U N I O N S
+##
+
+##
+## E N U M S
+##

@@ -25,11 +25,11 @@ For running and growing a startup you need different kind of tools for Business,
 - Developer:
     - Login with Google Account at [Gitlab](https://about.gitlab.com/).
     - Login with Google Account at [Sentry](https://sentry.io/welcome/).
-- UX:
-    - Login with Google Account at [Figma](https://www.figma.com/).
     - Signup with the project email at [Optimizely](https://www.optimizely.com/).
         - Click `create account` and enter the project email and country.
         - Follow the link in the registartion email to create a password.
+- UX:
+    - Login with Google Account at [Figma](https://www.figma.com/).
 - CMS:
     - Signup with the project email at [Heroku](https://www.heroku.com/).
         - Select profession *Other* and Language is *NodeJS*.
@@ -58,6 +58,7 @@ For running and growing a startup you need different kind of tools for Business,
 
 ## Play Store
 
+TODO: ??
 
 ## Creditcard
 With [Revolut](https://www.revolut.com/) you get a free bank account and a virtual creditcard. This card can be used to create accounts which require a creditcard (like AWS). The Revolut app is connected to your personal data. And the card is only used for accounts creation, where actual payment will not occur (like Mailgunner).
