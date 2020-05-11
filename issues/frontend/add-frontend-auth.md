@@ -1,37 +1,26 @@
 # Add Frontend Auth
-**TODO: move awsconfig.js file to @node_modules/@<projectname>/base**
 
-- Run `npm install aws-amplify`.
-- Run `npm install --save-dev git+ssh://git@<username>.gitlab.com:<groupname>/base.git#master`.
-- Create a file `awsconfig.js` with the contents:
-```javascript
-const awsconfig = {
-    aws_cognito_region: 'us-east-1',
-    aws_user_pools_id: '<USER_POOL_ID>',
-    aws_user_pools_web_client_id: '<CLIENT_ID>',
-    oauth: {
-        domain: '<PROJECT>-<UUID>.auth.us-east-1.amazoncognito.com',
-        scope: [
-            'email',
-            'openid',
-            'profile'
-        ],
-        redirectSignIn: 'http://localhost:3000/',
-        redirectSignOut: 'http://localhost:3000/',
-        responseType: 'code'
-    },
-    federationTarget: 'COGNITO_USER_POOLS'
-};
-export default awsconfig;
+> First setup the *Mocks* repo so that a *Mock Auth* endpoint is available.
+
+## Add Config
+- Run the commands:
+> depending on the client, change `localhost_admin_client` to `localhost_app_client` or `localhost_webapp_client` to enable prefilled login username.
+```bash
+echo "REACT_APP_AWS_COGNITO_REGION=localhost_region" >> .env.local
+echo "REACT_APP_AWS_USER_POOLS_ID=localhost_user_pool_id" >> .env.local
+echo "REACT_APP_AWS_USER_POOLS_WEB_CLIENT_ID=localhost_admin_client" >> .env.local
+echo "REACT_APP_OAUTH_DOMAIN=localhost:8443" >> .env.local
+echo "REACT_APP_OAUTH_REDIRECT_SIGN_IN=http://localhost:3000/" >> .env.local
+echo "REACT_APP_OAUTH_REDIRECT_SIGN_OUT=http://localhost:3000/" >> .env.local
 ```
+
+## Add UI
 - Add to `app.tsx`:
 ```javascript
-    import Amplify, { Auth } from 'aws-amplify';
-    import awsconfig from './aws-exports';
-    Amplify.configure(awsconfig);
     <button onClick={() => Auth.federatedSignIn()}>Sign In</button>
     <button onClick={async () => console.log(await Auth.currentSession())}>Current Session</button>
     <button onClick={() => Auth.signOut()}>Sign Out</button>
 ```
-- Add `user` to React Context.
-- Add Mock Cognito Api
+
+## Add State
+- TODO: Add `user` to React Context.

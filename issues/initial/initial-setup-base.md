@@ -1,13 +1,13 @@
 # Initial Setup Base
 
-## Householding
+## Do Householding
 - Run `echo "cdk.context.json" >> .gitignore` (so that the SSM secrets do not end up in the codebase).
 - Run `touch stack.config.ts` (to create initial config file.
 - Add to `tsconfig.json` the line `"compilerOptions": { "resolveJsonModule": true,` (to be able to import package.json).
 
 ## Add Backend Auth
 - Follow the instructions from `<projectname>/<projectname>-base/docs/auth.md`.
-- Add to `<projectname>/<projectname>-base/stack.config.ts`.
+- Add to `<projectname>/<projectname>-base/stack-config.ts`.
 ```javascript
 import { Props as AuthProps, ProviderType } from './lib/constructs/auth';
 // Auth domain prefix should be unique
@@ -40,12 +40,10 @@ export const authConfig: AuthProps = {
     ],
 };
 ```
-- Add Mock Auth.
 
 ## Add Backend Api
-- First add backend auth.
+- Add to `package.json` the line `"files": [ "graphql/" ]`.
 - Follow the instructions from `<projectname>/<projectname>-base/docs/api.md`.
-- Add Mock Api.
 
 ## Add Backend Storage
 - First add backend auth.

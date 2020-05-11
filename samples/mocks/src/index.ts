@@ -4,6 +4,7 @@ import * as https from 'https';
 
 import express from 'express';
 import cors from 'cors';
+import bodyParser from 'body-parser';
 
 import { apolloServer } from './api';
 import { oAuthRouter, logoutRouter } from './auth';
@@ -17,6 +18,7 @@ const app = express();
 apolloServer.applyMiddleware({ app });
 
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/oauth2', oAuthRouter);
 app.use('/logout', logoutRouter);

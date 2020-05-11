@@ -1,5 +1,8 @@
 # Initial Setup Mocks
 
+> First setup the *Base* repo so that a *GraphQL Schema* is available.
+
+# Do Householding
 - Run `npm install --save-dev nodemon typescript npm-run-all`.
 - Run `npx tsc --init`.
 - Add to `package.json`:
@@ -9,13 +12,15 @@
 "serve": "nodemon dist",
 "build": "tsc --outDir dist"
 ```
+- Copy/pase from *Alpha Project* the `src` folder.
 
 ## Api
 - Run `npm install apollo-server-express graphql-tools merge-graphql-schemas`.
+- Run `npm install --save-dev git+ssh://git@<username>.gitlab.com:<groupname>/base.git#master`.
 
 ## Auth
 - Check [docs](https://aws.amazon.com/premiumsupport/knowledge-center/decode-verify-cognito-json-token/).
-- Run `npm install express cors jsonwebtoken`.
+- Run `npm install express cors body-parser jsonwebtoken`.
 - Run `npm install --save-dev @types/express @types/cors @types/jsonwebtoken`.
 - RUN `openssl req \
     -newkey rsa:2048 \
@@ -32,5 +37,5 @@
     -sha256 \
     -days 3650`.
 - Open KeychainOS > Certificates > `File` > `Import Items...`.
-- Import the just creted `crt` file.
+- Import the just created `crt` file.
 - Open it and at the section *Trust* set it to *Always Trust*.

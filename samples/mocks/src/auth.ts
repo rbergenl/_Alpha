@@ -3,25 +3,67 @@ import express from 'express';
 import { sign, SignOptions } from 'jsonwebtoken';
 
 import { privateKey } from './index';
+import { users } from './users';
 
 export const oAuthRouter = express.Router();
 export const logoutRouter = express.Router();
 
 oAuthRouter.get('/authorize', (req: express.Request, res: express.Response) => {
-    const { redirect_uri, state } = req.query;
-    const code = 'localhost_code';
-    res.redirect(`${redirect_uri}?code=${code}&state=${state}`);
+    const queryString = new URLSearchParams();
+    queryString.append('state', req.query.state.toString());
+    queryString.append('redirect_uri', req.query.redirect_uri.toString());
+    queryString.append('client_id', req.query.client_id.toString());
+
+    res.redirect(`./hosted_ui?${queryString.toString()}`);
+});
+
+oAuthRouter.get('/hosted_ui', (req: express.Request, res: express.Response) => {
+    const { client_id } = req.query;
+    let username = '';
+
+    if (client_id === 'localhost_admin_client') {
+        username = 'admin';
+    }
+
+    res.send(`
+        <style>
+            html { background-color: darkcyan; }
+            form { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+            form > * { font-size: 200%; margin: 1rem; background-color: white; }
+        </style>
+        <form method="POST" action="./login">
+            <input name="state" type="hidden" value="${req.query.state}" />
+            <input name="redirect_uri" type="hidden" value="${req.query.redirect_uri}" />
+            <input name="username" placeholder="username" type="text" value="${username}" />
+            <button type="submit">Login</button>
+        </form>
+    `);
+});
+
+oAuthRouter.post('/login' , (req: express.Request, res: express.Response) => {
+    const { redirect_uri, state, username } = req.body;
+
+    const user = users.find((user) => user['cognito:username'] === username);
+
+    if (user) {
+        const queryString = new URLSearchParams();
+        queryString.append('code', Buffer.from(username).toString('hex'));
+        queryString.append('state', state);
+        res.redirect(`${redirect_uri}?${queryString.toString()}`);
+    } else {
+        res.status(404);
+        res.send(`user <strong>${username}</strong> not found`);
+    }
 });
 
 oAuthRouter.post('/token', (req: express.Request, res: express.Response) => {
+    
+    const username = Buffer.from(req.body.code, 'hex').toString('utf8');
+    const user = users.find((user) => user['cognito:username'] === username);
     const payload = {
-        'cognito:groups': [
-          'localhost-mocks'
-        ],
-        token_use: 'id',
-        'cognito:username': 'localhost-username-hashed',
-        'email': 'mock@mock.com'
+        ...user
     };
+
     const signOptions: SignOptions = {
         issuer:  'localhost_issuer',
         subject:  'localhost_subject',
@@ -29,6 +71,7 @@ oAuthRouter.post('/token', (req: express.Request, res: express.Response) => {
         expiresIn:  '12h',
         algorithm:  'RS256'
     };
+
     const token = sign(payload, privateKey, signOptions);
 
     res.json({
@@ -41,6 +84,5 @@ oAuthRouter.post('/token', (req: express.Request, res: express.Response) => {
 });
 
 logoutRouter.get('/', (req: express.Request, res: express.Response) => {
-    const { logout_uri } = req.query;
-    res.redirect(logout_uri.toString());
+    res.redirect(req.query.logout_uri.toString());
 });

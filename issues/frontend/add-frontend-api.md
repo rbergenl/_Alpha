@@ -1,19 +1,21 @@
 # Add Frontend Api
 
-- State Management with React Context, Hooks and Apollo.
-- Add Codegen.
-- Add Mock GraphQL Api.
+> First setup the *Mocks* repo so that a *Mock GraphQL* endpoint is available.
 
-## Config
-```json
-{
-    "aws_appsync_graphqlEndpoint": "https://z2omwfgl5je4llr5t7d3aj5qxe.appsync-api.us-east-1.amazonaws.com/graphql",
-    "aws_appsync_region": "us-east-1",
-    "aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS"
-}
+## Add Config
+- Run the commands:
+```bash
+echo "REACT_APP_APPSYNC_GRAPHQL_ENDPOINT=https://localhost:8443/graphql" >> .env.local
+echo "REACT_APP_APPSYNC_REGION=localhost_region" >> .env.local
 ```
 
-## App - example
+## Run Codegen
+TODO: ??
+
+## Add Apollo
+- TODO: State Management with React Context, Hooks and Apollo.
+
+## Add UI
 ```javascript
 const addTodo = /* GraphQL */`
   mutation createTodo(
@@ -28,8 +30,6 @@ const addTodo = /* GraphQL */`
   }
 `;
 ```
-
-## Codegen
 
 ## Uploading a file
 ```javascript
