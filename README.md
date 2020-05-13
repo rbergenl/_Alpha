@@ -6,7 +6,7 @@ TODO:
 - check https://www.outsystems.com/blog/posts/ab-testing-mobile-apps-google-optimize/
 - process the Planty Base docs (already copy in alpha/base).
 - create in all apps the basic flows `User: login/register/profile/preferences`, and `Ecommerce: products/cart/checkout` (add these tasks to issues-seed).
-- make sure to use correct `@auth` usage in schema and resolvers.
+- make sure to use correct `@auth` usage in schema and resolvers (least privilege).
 - for issue `add auth`, use `exports.js` from `base`, and add a mock Cognito Api. Also set admin/user password via config, via ssm.
 - check how to do `a/b testing` and `ecommerce`: https://www.gatsbyjs.org/docs/ab-testing-with-google-analytics-and-netlify/
 
@@ -24,32 +24,40 @@ It is possible to have a Minimum Viable Product ready on **day 1**. In short thi
 > See [these diagrams](./docs/OVERVIEWS.md) for an overview of what is provided.
 
 ## 1. Initial Ownership
+
 Start with these necessary steps:
 
 ### Working Title
+
 - Go to Google and search for Dinosaur names. Pick one.
 - Create a new folder in `Startups` with that name as projectname.
 
 ### Tools Signup
+
 - Make sure to follow these instructions in [`BUSINESS.md`](docs/BUSINESS.md):
     - Emailaddress.
     - Password Manager.
     - Accounts.
 
 ## 2. Initial Setup
+
 Follow up with laying the groundwork for the startup:
 
 ### UX
+
 - Make sure to follow these instructions in [`UX.MD`](docs/UX.md):
+    - Decide on initial Color Scheme and Fonts.
     - Setup Figma.
+    - Create Design System.
 
 ### Marketing
+
 - Make sure to follow these instructions in [`MARKETING.MD`](docs/MARKETING.md):
     - Setup Google Marketing Platform.
-
-- TODO: create initial dashboards for marketing in Google Data Studio (Users, Growth, Financial, Features [analytics, hotjar]). -> users: paid, registered, activated, loggedon, oneTimeUsage, fiveTimeUsage.
+    - Create Google Data Studio reports.
 
 ### Developer
+
 - In Gitlab create a new Group with name `<Projectname>`.
 - Make sure to follow these instructions in [`DEVELOPER.md`](docs/DEVELOPER.md):
     - Install Developer Tools.
@@ -63,9 +71,11 @@ Follow up with laying the groundwork for the startup:
     - In the *Alpa Project* run `node issues <reponame>` to generate an `gitlab-issues-seed-<repo>.csv` file. This can be imported at the *Issues* section in the Gitlab Repository. Follow the instructions in those issues to complete initial setup.
 
 ## 3. Minimum Viable Product
+
 Build the MVP and bring it live (version Alpha):
 
 ### Business
+
 - Make sure to follow these instructions in [`BUSINESS.md`](docs/BUSINESS.md):
     - Creditcard.
     - AWS Accounts.
@@ -73,25 +83,21 @@ Build the MVP and bring it live (version Alpha):
     - Accounts (creditcard required).
 
 ### Marketing
-- Personas
-- Keyword Research
-- Google Tag Manager
-    - Universal Analytics
-        - Add events to apps and website
-- Google Search Console
-- Personalisation?
-- Google Survey
-- Chatbot
+
+- Make sure to follow these instructions in [`MARKETING.MD`](docs/MARKETING.md):
+    - Add Minumum Viable Product features.
 
 ### UX
-- Hotjar
-- A/B Tests (Google Optimze or Optimezely) -> TODO: have one initial experiment already in base setup as example.
-- Figma: Create a Color Scheme and modify all base components to those brand colors.
-- Figma: Modify existing flows to just created theme.
-- Figma: Expand with new flows.
+
+- Make sure to follow these instructions in [`UX.MD`](docs/UX.md):
+    - Create Website Prototype.
+    - Create App Prototype.
+    - Use workflow to add new user flows.
 
 ### Developer
-**AWS Account required**
+
+> **AWS Account required**
+
 - Add Auth, Api and Storage for ‘base’
 - Add Hosting and publish for ‘admin’, ‘webapp’ and ‘website’
 - Add Payment Providers:
@@ -99,13 +105,16 @@ Build the MVP and bring it live (version Alpha):
     - Stripe
 
 ## 4. Name decided
+
 Now that you are live it becomes important to decide on a name and build a brand (version Beta):
 
 ### Business
+
 - Buy domain at https://domains.google/
 - Create or update website pages: Home, About us, General Agreement, Investor, etc.
 
 ### Developer
+
 - Setup Mailgunner
 - Setup Gmail settings to be able to receive and sent email with new domain (https://medium.com/@jeremygale/how-to-setup-a-custom-domain-for-your-gmail-address-3e4b7c147306).
 - Publish webapp - point DNS to CDN
@@ -113,30 +122,38 @@ Now that you are live it becomes important to decide on a name and build a brand
 - Publish app ios - App Store - or transfer ownership from gmail account to domain email.
 
 ### Marketing
+
 - Create a *Press-kit*:
     - Professional photos
     - Professional video
     - A template news item
 
 ## 5. Growth
+
 Go live with version 1 and grow to sell:
 
 ### Marketing
+
 - Perform SEO:
     - Keyword research
     - Google Search Console
     - Google PageSpeed Insights
     - Linkbacks
+- Set Marketing Goals and perform Analysis on them.
 
 ### Developer
+
 - Build features by using the *Issue Tracking* in *Gitlab* and performing an A/B experiment for each feature.
+- Grow the team and grow the product using concepts from [Basecamp Shape Up](https://basecamp.com/shapeup).
 
 ### Business
+
 - Create an Investor Pitch.
 
 ## 6. Ownership Transfer
 
 ### Exit Procedure
+
 - Give credentials to the Password Manager.
 - Remove all stored credentials from Google Chrome.
 - Google Account:
