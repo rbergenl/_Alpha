@@ -4,12 +4,11 @@
 - Add to `App.tsx` the line `import { StoreProvider } from './store';` and wrap the app with `<StoreProvider></StoreProvider>`.
 
 ## Enable User
+
 - Initial State:
-    - Add to `initialState.ts` the line `import { User } from './user';`.
-    - Add `user: User;` to the `interface IState`.
-    - Fix the Typescript error by adding a user object to the initial state.
+    - Add in `index.tsx` to `interface IState` the line `user: User;` and to `initialState` the line `user: userInitialState` and also import appropriately.
 - User Reducer:
-    - In `StoreProvider.tsx` extend the `rootReducer` with `user: userReducer(state.user, action)`. And import the `userReducer` appropriately.
+    - In `index.tsx` extend the `rootReducer` with `user: userReducer(state.user, action)`. And import the `userReducer` appropriately.
     - Change the line to `type TAction = UserActions;` and also import appropriately.
 - User Actions:
     - To make changing state from components easy add to `index.tsx` the line `export { userLogin } from './user';`.

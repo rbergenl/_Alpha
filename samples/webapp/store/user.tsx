@@ -6,6 +6,11 @@ export interface User {
     userLoggedIn: boolean;
 }
 
+export const userInitialState: User = {
+    name: 'John',
+    userLoggedIn: false
+}
+
 // user login action
 export const USER_LOGIN = 'USER_LOGIN';
 
