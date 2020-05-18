@@ -18,9 +18,13 @@ In the project folder run:
         - `cd app && rm -r .git`.
         - `npm install native-base`.
     - Web:
+        - `npx create-react-library` and give the answers: `web ui-web <projectname> <projectname>/web MIT npm typescript`.
+    - TODO: ?? This one, or the one above? Web:
         - `npx create-react-app web --template typescript`.
         - `cd web && rm -r .git`.
         - `npm install react-bootstrap bootstrap`.
+    - Theme: 
+        - `mkdir theme && npm init --yes && echo "node_modules" >> .gitignore`.
 - Webapp: `npx create-react-app <projectname>-webapp --template typescript`.
 - Website: `npx gatsby new <projectname>-website`.
     - Modify in package.json `"name"` to reflect the actual name.

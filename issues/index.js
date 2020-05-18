@@ -24,6 +24,9 @@ ${addIssue('frontend', 'add-ab-testing.md')}
 `
 }
 
+// first do Householding (absolute imports).
+// then add Theming (background), then Router (Tabs), then State Management (user)
+// then Auth.
 const admin = () => {
     return `title, description
 ${addIssue('initial', 'initial-setup-cms.md')}

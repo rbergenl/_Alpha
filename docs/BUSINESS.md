@@ -97,9 +97,7 @@ With [Revolut](https://www.revolut.com/) you get a free bank account and a virtu
 - Signup with the project email at **Mailgunner**.
 
 ## Company Name
-TODO: where to place these decisions?
-- Name candidates: ...
-- Slogan candidates: ...
+While working on the Startup you might come up with ideas for a Company Name, sometimes including a catchy Slogan. Store these in [Google Keep](https://keep.google.com/) with the tag `name`.
 
 ### Accounts (name required)
 - Signup with the project email at [Paypal](https://www.paypal.com/).

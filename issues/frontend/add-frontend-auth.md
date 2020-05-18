@@ -1,6 +1,8 @@
 # Add Frontend Auth
 
 > First setup the *Mocks* repo so that a *Mock Auth* endpoint is available.
+> First setup the *UI* repo so that *UI Components* are available.
+> First setup *State Management* so that *user and session details* can be stored.
 
 ## Add Config
 - Run the commands:
@@ -15,8 +17,10 @@ echo "REACT_APP_OAUTH_REDIRECT_SIGN_OUT=http://localhost:3000/" >> .env.local
 ```
 
 ## Add UI
+- TODO: should come from the *UI* project.
 - Add to `app.tsx`:
 ```javascript
+    import { Auth } from 'aws-amplify';
     <button onClick={() => Auth.federatedSignIn()}>Sign In</button>
     <button onClick={async () => console.log(await Auth.currentSession())}>Current Session</button>
     <button onClick={() => Auth.signOut()}>Sign Out</button>

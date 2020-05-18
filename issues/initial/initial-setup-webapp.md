@@ -1,4 +1,17 @@
 # Initial Setup Webapp
 
-- Handy imports:
-    - Add a `.env` file with `NODE_PATH=src` so that you can import with absolute path. TODO: but check the error: "Setting NODE_PATH to resolve modules absolutely has been deprecated in favor of setting baseUrl in jsconfig.json (or tsconfig.json if you are using TypeScript) and will be removed in a future major release of create-react-app."
+## Do Householding
+- Cleanup:
+    - Remove the files `App.css` and `index.css` and their respective imports (CSS-in-JS is going to be used instead).
+- Absolute imports:
+    - Add `"baseUrl": "./src"` to the `compilerOptions` in `tsconfig.json`.
+
+## Add Amplify
+- Run `npm install aws-amplify`.
+- Copy/paste from *Alpha Project* the `app-config.js` into the `src` folder.
+- Add to `app.tsx`:
+```javascript
+    import Amplify from 'aws-amplify';
+    import config from './app-config';
+    Amplify.configure(config.aws);
+```

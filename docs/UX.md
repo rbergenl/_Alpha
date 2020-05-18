@@ -29,8 +29,21 @@ The naming convention is as following:
     - Colors are named `Text/Light/Primary` or `Background/Dark/Secondary` (first slashes are the groupname, the last one the actual colorname).
 
 ## Decide on initial Color Scheme and Fonts
-
-- TODO: how to choose a color scheme?
+- Use [this tool](https://coolors.co/) to generate a Color Pallete with 5 colors.
+- Store the decision in [Google Keep](https://keep.google.com/) with the tag `ux` based on this example:
+```
+[title] Colors
+[image] screenshot of the chosen colors
+QueenPink = e2c2c6
+UnbleachedSilk = ffe5d4
+LaurelGreen = bacdb0
+DarkSkyBlue = 96bdc6
+SpanishCarmine = ca2e55
+BrandPrimary = DarkSkyBlue
+BrandSecondary = QueenPink
+Accent = SpanishCarmine
+Neutral = UnbleachedSlik
+```
 - Choose a Font from [Google Fonts](https://fonts.google.com). Generally apps use *Roboto* and websites use *Avenir* or *Helvetica Neue*.
 
 ## Setup Figma

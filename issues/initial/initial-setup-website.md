@@ -1,5 +1,6 @@
 # Initial Setup Website
 
+## Do Householding
 - Correct config:
     - In `gatsby-config.js` set correct info for `siteMetadata`.
     - In `gatsby-config.js` set correct info for `gatsby-plugin-manifest`.
@@ -24,6 +25,7 @@
     ```
     - Modify the imports in `src/pages/*.js`.
 
+## Add Theming
 - Use CSS-in-JS:
     - TODO: can this section be moved to non-project specific issue?
     - Check [docs](https://www.gatsbyjs.org/docs/styled-components/).
@@ -31,6 +33,7 @@
     - Run `npm install --save gatsby-plugin-styled-components styled-components babel-plugin-styled-components`.
     - Use `import styled from 'styled-components';`.
 
+## Add Pages
 - Add Pages:
     - Run `echo "STRAPI_API_URL=http://localhost:1337" >> .env.development`.
     - Run `npm install gatsby-source-strapi`.
