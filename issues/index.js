@@ -24,12 +24,15 @@ ${addIssue('frontend', 'add-ab-testing.md')}
 `
 }
 
-// first do Householding (absolute imports).
-// then add Theming (background), then Router (Tabs), then State Management (user)
-// then Auth.
 const admin = () => {
     return `title, description
-${addIssue('initial', 'initial-setup-cms.md')}
+${addIssue('frontend', 'add-frontend-auth.md')}
+${addIssue('frontend', 'add-state-management.md')}
+${addIssue('frontend', 'add-router.md')}
+${addIssue('frontend', 'add-i18n.md')}
+${addIssue('frontend', 'add-theming.md')}
+${addIssue('initial', 'initial-setup-admin.md')}
+${addIssue('initial', 'create-new-repo.md')}
 `
 }
 

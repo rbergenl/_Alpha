@@ -36,6 +36,17 @@ TODO: add this diagram to default `docs` in each project.
 ## Add .Pre:Format
 - prettier
 
+- Webapp:
+    - Add to package.json `"format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",`.
+    - Add a `.prettierrc` file:
+    ```
+    {
+    "printWidth": 120,
+    "trailingComma": "all",
+    "singleQuote": true
+    }
+    ```
+
 **TODO: this text comes from Planty Admin readme**
 - Use setup as explained here: https://create-react-app.dev/docs/setting-up-your-editor/
 - `touch .editorconfig` (see editor configuration https://editorconfig.org)
@@ -47,11 +58,19 @@ TODO: add this diagram to default `docs` in each project.
 - add script to package.json "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"".
 - In VSCode, install via extension sidebar `prettier-vscode`, and execute on a document with `CDM+SHIFT+P` and `Format Document`.
 
-
 ## Add .Pre:Lint
 - eslint
 
-- Website
+- Webapp:
+    - `npm install --save-dev eslint tslint-config-prettier`.
+    - Add to `eslint.json`:
+    ```json
+    {
+       "extends": ["tslint:recommended", "tslint-config-prettier"]
+    }
+    ```
+    - Add to package `"lint": "tslint -p tsconfig.json"`.
+- Website:
     - Check [docs](https://www.npmjs.com/package/gatsby-plugin-resolve-src).
     - Add to `eslint.config.js`:
     ```json

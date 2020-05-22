@@ -24,7 +24,7 @@ In the project folder run:
         - `cd web && rm -r .git`.
         - `npm install react-bootstrap bootstrap`.
     - Theme: 
-        - `mkdir theme && npm init --yes && echo "node_modules" >> .gitignore`.
+        - `mkdir theme && cd theme && npm init --yes && echo "node_modules" >> .gitignore`.
 - Webapp: `npx create-react-app <projectname>-webapp --template typescript`.
 - Website: `npx gatsby new <projectname>-website`.
     - Modify in package.json `"name"` to reflect the actual name.

@@ -28,9 +28,17 @@ The naming convention is as following:
     - Texts are named `App/HeadingOne` or `Website/HeadingOne`.
     - Colors are named `Text/Light/Primary` or `Background/Dark/Secondary` (first slashes are the groupname, the last one the actual colorname).
 
-## Decide on initial Color Scheme and Fonts
+## Decide on initial Fonts and Color Scheme
+- Choose a Font from [Google Fonts](https://fonts.google.com). Generally native apps use *Roboto* and for the web is commonly used *Avenir* or *Helvetica Neue*.
+- Store the decisions in [Google Keep](https://keep.google.com/) with the tag `ux` based on this example:
+```
+[title] Fonts
+Apps: Roboto
+Website: Avenir
+Webapp: Helvetica Neue
+```
 - Use [this tool](https://coolors.co/) to generate a Color Pallete with 5 colors.
-- Store the decision in [Google Keep](https://keep.google.com/) with the tag `ux` based on this example:
+- Store the decisions in [Google Keep](https://keep.google.com/) with the tag `ux` based on this example:
 ```
 [title] Colors
 [image] screenshot of the chosen colors
@@ -44,7 +52,6 @@ BrandSecondary = QueenPink
 Accent = SpanishCarmine
 Neutral = UnbleachedSlik
 ```
-- Choose a Font from [Google Fonts](https://fonts.google.com). Generally apps use *Roboto* and websites use *Avenir* or *Helvetica Neue*.
 
 ## Setup Figma
 
