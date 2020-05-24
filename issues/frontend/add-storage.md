@@ -1,5 +1,8 @@
 # Add Frontend Storage
 
+> First setup the *Mocks* repo so that a *Mock GraphQL and Storage* endpoint is available.
+> First add *Frontend Auth and Api* so that client side authentication and data storage is available.
+
 You should know the different levels of authentication:
 - Private: only `read, write and delete` by owner.
 - Public: ...
@@ -13,6 +16,14 @@ You should know the different levels of authentication:
     "aws_user_files_s3_bucket": "amplify-testa5197ab993e940dca492cd1929ca09a4prod-prod",
     "aws_user_files_s3_bucket_region": "us-east-1"
 }
+```
+
+## Uploading a file
+```javascript
+Storage.put(file.name, file)
+.then (async (result) => {
+    await API.graphql(graphqlOperation(createType, { input: inputObj })))
+})
 ```
 
 ## App

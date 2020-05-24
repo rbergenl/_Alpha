@@ -26,12 +26,17 @@ ${addIssue('frontend', 'add-ab-testing.md')}
 
 const admin = () => {
     return `title, description
-${addIssue('frontend', 'add-frontend-auth.md')}
-${addIssue('frontend', 'add-state-management.md')}
-${addIssue('frontend', 'add-router.md')}
+${addIssue('frontend', 'add-storage.md')}
+${addIssue('frontend', 'add-api.md')}
+${addIssue('frontend', 'add-auth.md')}
+${addIssue('frontend', 'add-store.md')}
 ${addIssue('frontend', 'add-i18n.md')}
-${addIssue('frontend', 'add-theming.md')}
+${addIssue('frontend', 'add-navigator.md')}
+${addIssue('frontend', 'add-theme.md')}
 ${addIssue('initial', 'initial-setup-admin.md')}
+${addIssue('initial', 'lighthouse-to-100.md')}
+${addIssue('initial', 'add-basic-docs.md')}
+${addIssue('initial', 'setup-vcs.md')}
 ${addIssue('initial', 'create-new-repo.md')}
 `
 }

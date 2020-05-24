@@ -1,8 +1,9 @@
-# Add Frontend Auth
+# Add Auth
 
 > First setup the *Mocks* repo so that a *Mock Auth* endpoint is available.
 > First setup the *UI* repo so that *UI Components* are available.
-> First setup *State Management* so that *user and session details* can be stored.
+> First setup *Store* so that *user and session details* can be stored.
+> First setup *Navigator* so that *auth flow* is possible.
 
 ## Add Config
 - Run the commands:
@@ -28,3 +29,6 @@ echo "REACT_APP_OAUTH_REDIRECT_SIGN_OUT=http://localhost:3000/" >> .env.local
 
 ## Add State
 - TODO: Add `user` to React Context.
+
+## Add Private Route
+- TODO: Add `PrivateRoute.tsx`.

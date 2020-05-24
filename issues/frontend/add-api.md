@@ -1,4 +1,4 @@
-# Add Frontend Api
+# Add Api
 
 > First setup the *Mocks* repo so that a *Mock GraphQL* endpoint is available.
 
@@ -29,12 +29,4 @@ const addTodo = /* GraphQL */`
     }
   }
 `;
-```
-
-## Uploading a file
-```javascript
-Storage.put(file.name, file)
-.then (async (result) => {
-    await API.graphql(graphqlOperation(createType, { input: inputObj })))
-})
 ```

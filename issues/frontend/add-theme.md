@@ -1,12 +1,15 @@
-# Add Theming
+# Add Theme
+
+TODO: modify theming to comply with this setup (mode and variant): https://styled-components.com/docs/tooling#styled-theming
 
 > First setup the *UI* repo so that a *Base Theme* and *Fonts* are available.
 
+## Getting Started
 - In the *UI* repo run `npm link` and then in the target repo run `npm link @<projectname>/ui` (this allows to use the local repo to be used for rapid development).
 - Run `npm install --save-dev git+ssh://git@<username>.gitlab.com:<groupname>/ui.git#master`.
 - Run `npm install --save-dev styled-components @types/styled-components`.
 - Copy/pase from *Alpha Project* the `theme` folder into `src`.
-- In `App.tsx` add
+- In `App.tsx` add (replace the `<div></div>`):
 ```javascript
 import { ThemeProvider, GlobalStyle, themeLight } from 'theme';
 <ThemeProvider theme={themeLight}>
@@ -41,7 +44,15 @@ import { ThemeProvider, GlobalStyle, themeLight } from 'theme';
     ```
     - Add the line `html { font-family: 'Dosis' }` in `components/layout.css`file.
 
-## Add UI Component
+## Add App Shell
+- Copy/paste from *Project Alpha* the `withAppShell.tsx` Higher Order Component.
+- Move the `<Header />` from `App.tsx` into `<header></header>` of `withAppShell.tsx`.
+- Add to `Home.tsx` the lines:
+```javascript
+import withAppShell from './withAppShell';
+export default withAppShell(Home);
+```
 
 ## Add SVG
 - TODO: get SVG XML from Figma.
+- Home and Profile icon.
