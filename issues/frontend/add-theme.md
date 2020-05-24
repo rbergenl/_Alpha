@@ -7,15 +7,12 @@ TODO: modify theming to comply with this setup (mode and variant): https://style
 ## Getting Started
 - In the *UI* repo run `npm link` and then in the target repo run `npm link @<projectname>/ui` (this allows to use the local repo to be used for rapid development).
 - Run `npm install --save-dev git+ssh://git@<username>.gitlab.com:<groupname>/ui.git#master`.
-- Run `npm install --save-dev styled-components @types/styled-components`.
+- Run `npm install --save-dev styled-components styled-theming @types/styled-components @types/styled-theming`.
 - Copy/pase from *Alpha Project* the `theme` folder into `src`.
 - In `App.tsx` add (replace the `<div></div>`):
 ```javascript
-import { ThemeProvider, GlobalStyle, themeLight } from 'theme';
-<ThemeProvider theme={themeLight}>
-    <GlobalStyle />
-    ...existing app
-</ThemeProvider>
+import { Themed } from 'theme';
+<Themed>...existing app</Themed>
 ```
 
 ## Add Fonts
@@ -45,12 +42,20 @@ import { ThemeProvider, GlobalStyle, themeLight } from 'theme';
     - Add the line `html { font-family: 'Dosis' }` in `components/layout.css`file.
 
 ## Add App Shell
-- Copy/paste from *Project Alpha* the `withAppShell.tsx` Higher Order Component.
+- Copy/paste from *Project Alpha* the `withAppShell.tsx` Higher Order Component into `src/components`.
 - Move the `<Header />` from `App.tsx` into `<header></header>` of `withAppShell.tsx`.
 - Add to `Home.tsx` the lines:
 ```javascript
 import withAppShell from './withAppShell';
 export default withAppShell(Home);
+```
+
+## Add Button with Variant
+- In `Home.tsx` add the code:
+```javascript
+import { VARIANTS } from 'theme';
+import Button from 'theme/ui/Button';
+<Button variant={VARIANTS.primary}>Click</Button>
 ```
 
 ## Add SVG
