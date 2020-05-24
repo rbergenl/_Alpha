@@ -24,8 +24,8 @@ export default Notfound;
 ```javascript
 import { Link } from 'react-router-dom';
 import TabNavigator from 'theme/ui/TabNavigator';
-import icon_home from 'theme/icons/home.svg';
-import icon_profile from 'theme/icons/profile.svg';
+import icon_home from '@<projectname>/ui/theme/dist/icons/home.svg';
+import icon_profile from '@<projectname>/ui/theme/dist/icons/profile.svg';
 <footer>
     <TabNavigator>
         <Link to="/home"><img src={ icon_home } alt="icon_home" /></Link>

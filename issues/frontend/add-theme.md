@@ -59,5 +59,7 @@ import Button from 'theme/ui/Button';
 ```
 
 ## Add SVG
-- TODO: get SVG XML from Figma.
-- Home and Profile icon.
+- In *Figma* open the *App* file, then find a *Layer* which has an *Arrow Back* icon.
+- Select the layer of the icon and *right click > copy/pase > copy as svg*.
+- Paste the contents into a new file `src/theme/icons/arrow-back.svg`.
+- In `Home.tsx` add the line `import arrowBack_icon from 'theme/icons/arrow-back.svg';` and replace the word `Click` with `<img src={arrowBack_icon} alt="arrow back icon" />`.

@@ -38,6 +38,9 @@ const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
         overflow-y: hidden;
     }
+    img[src$=".svg"] {
+        height: 100%;
+    }
 `;
 
 const Themed = ({ children }: any) => (

@@ -13,9 +13,6 @@ const StyledTabNavigator = styled.div`
         height: 50px;
         padding: 0.5rem;
     }
-    img {
-        height: 100%;
-    }
 `;
 
 function TabNavigator({ children }: any) {
