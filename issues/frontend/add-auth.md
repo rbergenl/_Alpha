@@ -5,6 +5,8 @@
 > First setup *Store* so that *user and session details* can be stored.
 > First setup *Navigator* so that *auth flow* is possible.
 
+- For info on the `useAuth` hook, check this [blog](https://www.rockyourcode.com/custom-react-hook-use-aws-amplify-auth/).
+
 ## Add Config
 - Run the commands:
 > depending on the client, change `localhost_admin_client` to `localhost_app_client` or `localhost_webapp_client` to enable prefilled login username.

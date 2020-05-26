@@ -1,4 +1,4 @@
-## Initial Setup App
+# Initial Setup App
 
 - Add privacy policy
 - Add Icon

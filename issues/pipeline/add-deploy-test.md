@@ -1,5 +1,7 @@
 # Add Deploy:Test
 
+> Make sure to have finished the step *Setup access to Heroku* in *DEVELOPER.md*.
+
 - Website:
     > Requires the initial website setup to be completed, including an initial Heroku deployment and a token added to Gitlab.
     - Add to package.json `"deploy:test": "git remote add heroku https://heroku:${HEROKU_TOKEN}@git.heroku.com/${npm_package_name}.git && git push heroku HEAD:master",`.

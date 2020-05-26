@@ -11,6 +11,17 @@ const addIssue = (folder, filename) => {
     } catch(error) { console.log(error) }
 }
 
+
+const app = () => {
+    return `title, description
+${addIssue('initial', 'create-new-repo.md')}
+${addIssue('initial', 'setup-vcs.md')}
+${addIssue('initial', 'add-basic-docs.md')}
+${addIssue('initial', 'lighthouse-to-100.md')}
+${addIssue('initial', 'initial-setup-app.md')}
+`
+}
+
 const base = () => {
     return `title, description
 ${addIssue('frontend', 'add-ab-testing.md')}
@@ -42,7 +53,7 @@ ${addIssue('initial', 'create-new-repo.md')}
 }
 
 const repo =  process.argv[2];
-const repos = ['base', 'ui', 'admin'];
+const repos = ['app', 'base', 'ui', 'admin'];
 if (!repo) {
     throw new Error('please specify for which repo you want to create issues: $ node issues base');
 }

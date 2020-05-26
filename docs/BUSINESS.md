@@ -1,26 +1,32 @@
 # Business
 
-## Emailaddress
+## Initial Ownership
+
+### Emailaddress
 You need an email address to be able to create accounts for needed third party services. After deciding on a name and buying the domain, the email can be forwarded to this free and initial email address without being visible to others.
 - Go to Google and create a new [account](https://accounts.google.com/signup) using the chosen name.
-    - Use your real name. You can change this data when transfering the account later.
+    - Use the projectname as firstname and lastname. You can change this data when transfering the account later.
     - Use the chosen name for the email address (if needed suffix with a 1, 2, etc.).
-    - Use a password generator and save it in your personal and browser password manager.
-    - Verify with your real phonenumber.
-    - Use your real date of birth and gender.
-    - During Service Agreement, disable all services.
+    - Use a password generator (LastPass) and save it in your personal and browser password manager.
+    - Leave phonenumber and alternate email address empty.
+    - Use 01-01-1970 as date of birth and gender *prefer not to say*.
+    - During Service Agreement, choose *More options* and disable all services.
     - From the overview `myaccount.google.com`, remove your lastname for privacy reasons; and at *Personalisation* set the language to English.
-- Get an isolated business environment by loggin into Google Chrome: click on the top right profile icon and `add` new person.
+- Get an isolated business environment by opening Google Chrome browser: click on the top right profile icon and `add` new person. Login with the new Google Account and enable sync. Use this browser profile for all startup activities.
 
-## Password Manager
+### Company Names
+While working on the Startup you might come up with ideas for a Company Name, sometimes including a catchy Slogan. Store these in [Google Keep](https://keep.google.com/) with the tag `name`.
+
+### Password Manager
 All passwords for created accounts should be securely stored. An added benefit of using LastPass is an easy way to login to those accounts.
 - Go to Lastpass and create a new [account](https://www.lastpass.com/).
-- Signup with the project email. Also since your are logged into Google Chrome with the Google Account you can let Lastpass generate a password and have it stored in Chrome.
+- Signup with the project email. Also since your are logged into Google Chrome with the Google Account you can let it generate a password and have it stored in Chrome.
 - Follow the instructions to install Lastpass as browser extension.
 - Then login to that extension (you can find the password in Chrome > Settings > Passwords).
-- Even though the LastPass Master Password is stored in the browser, still save it to your personal [Google Keep](https://keep.google.com).
+- Even though the LastPass Master Password is stored in the browser, still save it to your personal LastPass as a note or in [Google Keep](https://keep.google.com).
+- Then login to [Gmail](https://gmail.google.com) and logout then login again to let Lastpass store that username/password.
 
-## Accounts
+### Accounts
 For running and growing a startup you need different kind of tools for Business, Marketing, UX and Development. First open the user loggedin Chrome Browser and go to Bookmarks Manager > Import Bookmarks to import the `bookmarks.html` file. Then go to the following links to signup:
 - Developer:
     - Login with Google Account at [Gitlab](https://about.gitlab.com/).
@@ -48,25 +54,19 @@ For running and growing a startup you need different kind of tools for Business,
     - Signup with the project email at [**Snipcart**](https://snipcart.com/).
     - TODO: Where to store product data??
 
-## App Store
+## Minimum Viable Product
 
-- Go to [Apple Developer](https://developer.apple.com) website and click on `Account` to create a new one.
-- Fill in your name, country and date of birth.
-- Let LastPass generate a password for you.
-- Set three security questions all with the projectname as answer each suffixed with a number 1, 2 3.
-- Confirm with the receive code in the email and then agree with the terms.
-
-## Play Store
-
-TODO: ??
-
-## Creditcard
+### Creditcard
 With [Revolut](https://www.revolut.com/) you get a free bank account and a virtual creditcard. This card can be used to create accounts which require a creditcard (like AWS). The Revolut app is connected to your personal data. And the card is only used for accounts creation, where actual payment will not occur (like Mailgunner).
     - Install the Revolut app.
     - Enter the phonenumber, a password and the received code.
     - Enter your real name and address.
     - Verify with your passport.
     - Topup the account with €10. Sometimes a creditcard verification process takes $1. You can topup the account using Apple Pay or a direct bank transfer.
+
+### Accounts (creditcard required)
+- Signup with the project email at **Stripe**.
+- Signup with the project email at **Mailgunner**.
 
 ### AWS Accounts
 - You will create a root account and from that account you will create a Test and Production account.
@@ -92,18 +92,25 @@ With [Revolut](https://www.revolut.com/) you get a free bank account and a virtu
 ### Apple Developer Program
 - In order to publish an iOS app to the App Store you need to be registered as a Developer and be enrolled in the Developer Program (costs €99 per year).
 
-### Accounts (creditcard required)
-- Signup with the project email at **Stripe**.
-- Signup with the project email at **Mailgunner**.
-
-## Company Name
-While working on the Startup you might come up with ideas for a Company Name, sometimes including a catchy Slogan. Store these in [Google Keep](https://keep.google.com/) with the tag `name`.
+## Name Decided
 
 ### Accounts (name required)
 - Signup with the project email at [Paypal](https://www.paypal.com/).
     - Use the signup button at the top right of the page.
     - Select `Business account`.
     - Enter the project email and the password.
+
+### App Store
+
+- Go to [Apple Developer](https://developer.apple.com) website and click on `Account` to create a new one.
+- Fill in your name, country and date of birth.
+- Let LastPass generate a password for you.
+- Set three security questions all with the projectname as answer each suffixed with a number 1, 2 3.
+- Confirm with the receive code in the email and then agree with the terms.
+
+### Play Store
+
+TODO: ??
 
 ## Exit Strategy
 TODO: where to place these decisions?

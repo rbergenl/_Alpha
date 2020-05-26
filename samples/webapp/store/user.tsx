@@ -28,7 +28,7 @@ export const userLogin = (payload: string): IUserLogin => ({
 export type UserActions = IUserLogin;
 
 // user reducer
-export const userReducer: React.Reducer<User, UserActions> = (user, action) => {
+export const userReducer: React.Reducer<User, UserActions> = (user, action): User => {
     switch (action.type) {
 
         case USER_LOGIN:
