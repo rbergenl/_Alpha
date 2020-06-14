@@ -37,6 +37,7 @@ ${addIssue('frontend', 'add-ab-testing.md')}
 
 const admin = () => {
     return `title, description
+${addIssue('frontend', 'add-analytics.md')}
 ${addIssue('frontend', 'add-storage.md')}
 ${addIssue('frontend', 'add-api.md')}
 ${addIssue('frontend', 'add-auth.md')}

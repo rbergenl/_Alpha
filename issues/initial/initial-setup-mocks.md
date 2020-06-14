@@ -10,13 +10,17 @@
 "start": "npm run build && node dist",
 "develop": "npm-run-all --parallel \"build -- --watch\" \"serve -- --watch\"",
 "serve": "nodemon dist",
-"build": "tsc --outDir dist"
+"build": "rm -rf dist && tsc --outDir dist"
 ```
 - Copy/pase from *Alpha Project* the `src` folder.
 
 ## Api
 - Run `npm install apollo-server-express graphql-tools merge-graphql-schemas`.
 - Run `npm install --save-dev git+ssh://git@<username>.gitlab.com:<groupname>/base.git#master`.
+
+### Chat
+- Run `npm install graphql-subscriptions`.
+- Use PubSub and create resolvers for Query, Mutation and Subscription.
 
 ## Auth
 - Check [docs](https://aws.amazon.com/premiumsupport/knowledge-center/decode-verify-cognito-json-token/).

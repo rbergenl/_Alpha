@@ -2,7 +2,6 @@
 
 ## Install Developer Tools
 
-- Install [Docker](https://docs.docker.com/docker-for-mac/install/)
 - Install Homebrew
     - Run `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`.
 - Install via Homebrew
@@ -10,26 +9,35 @@
     - [SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html) - to invoka a lambda locally.
         - Run `brew tap aws/tap && brew install aws-sam-cli`.
     - Heroku: `brew install heroku/brew/heroku`
+    - Java: `` ?? **TODO:**
+- Install via Gem
+    - Cocoapods: `gem install cocoapods`
 - Install Nvm
-    - Run `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash`. expo init bactro-app --template expo-template-blank-typescript
-- Visual Studio Code
-- Install Visual Studio Code plugins:
-    - Apache Velocity
-    - Docker
-    - ESlint
-    - GitLens
-    - GraphQL
-    - Markdown Preview Enhanced
-    - Prettier - Code formatter
-    - SQLite
-    - Terminal
+    - Run `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash`.
+- Install [Docker](https://docs.docker.com/docker-for-mac/install/)
+- Install for NodeJs web development:
+    - Visual Studio Code
+    - Install Visual Studio Code plugins:
+        - Apache Velocity
+        - Docker
+        - ESlint
+        - GitLens
+        - GraphQL
+        - Markdown Preview Enhanced
+        - Prettier - Code formatter
+        - SQLite
+        - Terminal
 - Install Google Chrome extensions:
     - React Dev Tools
     - Redux Dev Tools
+- Install for Java/Kotlin web development:
+    - Intellij Community Edition
+    - Install Intellij plugins:
+        - Tomcat **?? TODO**
 - Install for mobile app development:
     - Expo Client app via App/Play Store.
 - Install for mobile app publishing:
-    - Xcode (via App Store) and then `Preferences > Developer Tools`.
+    - Xcode (not via App Store but [here](https://developer.apple.com/download/more/))
     - Fastlane
     - Android SDK
 
@@ -38,9 +46,10 @@
 - In the project folder run `nvm install node && nvm alias default node && echo $(node -v) > .nvmrc`.
 - When working on a repository in this project, always first run `nvm use`.
 - Instal global NodeJS packages:
-    - `npm install -g expo-cli`.
-    - `npm install -g aws-cdk`.
-    - `npm install -g gatsby-cli`.
+    - `npm install --global expo-cli`.
+    - `npm install --global react-native-cli`.
+    - `npm install --global aws-cdk`.
+    - `npm install --global gatsby-cli`.
 
 ## Setup access to new Git Repository
 
@@ -88,3 +97,14 @@
     - In Sentry go to Settings > Integrations > Gitlab > New Installation.
     - Follow the instructions.
 - To mark an issue as resolved use in the commit message `Fixes ADMIN-1`.
+
+## Setup a new Java/Kotlin project
+
+- **TODO:**
+For Spring, always start here: https://start.spring.io/
+Then run `./gradlew run`
+Check /localhost:8080/
+Then run `./gradlew war`.
+Copy the war file to /Tomcat/webapps
+Run `tail -f logs/catalina.out`.
+Run `./bin/startup.sh`.

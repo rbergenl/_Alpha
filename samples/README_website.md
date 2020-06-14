@@ -28,6 +28,7 @@ Access Live via: `https://domain.app`.
 - Employee login link.
 - Press: link to press kit.
 - Blog: link to the blog posts overview (a post is published by a person).
+- FAQ: link to Frequently Asked Questions.
 
 ### Fat Footer
 - Navigation: like a mega-menu, but even more clear/focussed.
@@ -50,3 +51,6 @@ Access Live via: `https://domain.app`.
 ## Feedback Widget
 - TODO: (check https://github.com/jlengstorf/gatsby-feedback-widget/).
 - Also include reCaptcha.
+
+## Blog
+- TODOD: add amp to blog (gatsby amp plugin?).
