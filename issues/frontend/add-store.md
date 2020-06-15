@@ -16,10 +16,8 @@ Store is the place where application State is being managed. It consists of:
 - User Reducer:
     - In `index.tsx` extend the `rootReducer` with `user: userReducer(state.user, action)`. And import the `userReducer` appropriately.
     - Change the line to `type TAction = UserActions;` and also import appropriately.
-- User Actions:
-    - To make changing state from components easy add to `index.tsx` the line `export { userLogin } from './user';`.
 - Read and Write to State:
-    - In the component `Home.tsx` import the self created Store Hook and an User Action `import { useStore, userLogin } from 'store';`.
+    - In the component `Dummy.tsx` import the self created Store Hook `import { useStore } from 'store';` and an User Action `import { userLoginAction } from 'store/user';`.
     - Call the Hook in the component with `const { state, dispatch } = useStore();`.
     - Read the State by printing `<h1>{ state.user.name }</h1>`.
-    - Write to the State by calling `<button onClick={() => dispatch(userLogin('Doe'))}>Click</button>`.
+    - Write to the State by calling `<button onClick={() => dispatch(userLoginAction())}>Click</button>`.

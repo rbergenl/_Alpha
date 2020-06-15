@@ -4,7 +4,7 @@
 - Run `npm install react-i18next i18next --save`.
 - Copy/paste from *Alpha Project* the `i18n` folder into `src`.
 - Add to `index.tsx` the line `import './i18n';`.
-- Add to `Home.tsx` the code:
+- Add to `Dummy.tsx` the code:
 ```javascript
 import { useTranslation } from 'react-i18next';
 const { t } = useTranslation();

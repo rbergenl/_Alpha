@@ -45,14 +45,14 @@ import { Themed } from 'theme';
 ## Add App Shell
 - Copy/paste from *Project Alpha* the `withAppShell.tsx` Higher Order Component into `src/components`.
 - Move the `<Header />` from `App.tsx` into `<header></header>` of `withAppShell.tsx`.
-- Add to `Home.tsx` the lines:
+- Add to `Dummy.tsx` the lines:
 ```javascript
 import withAppShell from './withAppShell';
-export default withAppShell(Home);
+export default withAppShell(Dummy);
 ```
 
 ## Add Button with Variant
-- In `Home.tsx` add the code:
+- In `Dummy.tsx` add the code:
 ```javascript
 import { VARIANTS } from 'theme';
 import Button from 'theme/ui/Button';
@@ -63,4 +63,4 @@ import Button from 'theme/ui/Button';
 - In *Figma* open the *App* file, then find a *Layer* which has an *Arrow Back* icon.
 - Select the layer of the icon and *right click > copy/pase > copy as svg*.
 - Paste the contents into a new file `src/theme/icons/arrow-back.svg`.
-- In `Home.tsx` add the line `import arrowBack_icon from 'theme/icons/arrow-back.svg';` and replace the word `Click` with `<img src={arrowBack_icon} alt="arrow back icon" />`.
+- In `Dummy.tsx` add the line `import arrowBack_icon from 'theme/icons/arrow-back.svg';` and replace the word `Click` with `<img src={arrowBack_icon} alt="arrow back icon" />`.
