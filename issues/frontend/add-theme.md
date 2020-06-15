@@ -5,8 +5,9 @@ TODO: modify theming to comply with this setup (mode and variant): https://style
 > First setup the *UI* repo so that a *Base Theme* and *Fonts* are available.
 
 ## Getting Started
-- In the *UI* repo run `npm link` and then in the target repo run `npm link @<projectname>/ui` (this allows to use the local repo to be used for rapid development).
 - Run `npm install --save-dev git+ssh://git@<username>.gitlab.com:<groupname>/ui.git#master`.
+- In the *UI* repo run `npm link` and then in the target repo run `npm link @<projectname>/ui` (this allows to use the local repo to be used for rapid development).
+- Add in `package.json` to `"start"` script the command `npm run link` and add `"link": npm link @<projectname>/ui`.
 - Run `npm install --save-dev styled-components styled-theming @types/styled-components @types/styled-theming`.
 - Copy/pase from *Alpha Project* the `theme` folder into `src`.
 - In `App.tsx` add (replace the `<div></div>`):

@@ -239,6 +239,7 @@ export class Auth extends cdk.Construct {
             this,
             `${props.userPoolName}IdentityPool`,
             {
+                // should be set to true to allow storage and analytics
                 allowUnauthenticatedIdentities: true,
                 cognitoIdentityProviders: userPoolClients.map(
                     (

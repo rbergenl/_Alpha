@@ -2,11 +2,16 @@ import express from 'express';
 
 import { sign, SignOptions } from 'jsonwebtoken';
 
-import { privateKey } from './index';
-import { users } from './users';
+import { privateKey } from '../index';
+import { users, USERS } from '../stubs/users';
 
 export const oAuthRouter = express.Router();
 export const logoutRouter = express.Router();
+
+enum CLIENT_IDS {
+    localhost_admin_client = 'localhost_admin_client',
+    localhost_webapp_client = 'localhost_webapp_client'
+}
 
 oAuthRouter.get('/authorize', (req: express.Request, res: express.Response) => {
     const queryString = new URLSearchParams();
@@ -21,8 +26,11 @@ oAuthRouter.get('/hosted_ui', (req: express.Request, res: express.Response) => {
     const { client_id } = req.query;
     let username = '';
 
-    if (client_id === 'localhost_admin_client') {
-        username = 'admin';
+    if (client_id === CLIENT_IDS.localhost_admin_client) {
+        username = USERS.admin1;
+    }
+    if (client_id === CLIENT_IDS.localhost_webapp_client) {
+        username = USERS.user1;
     }
 
     res.send(`

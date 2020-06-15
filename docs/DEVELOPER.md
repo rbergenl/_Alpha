@@ -19,10 +19,10 @@
     - Visual Studio Code
     - Install Visual Studio Code plugins:
         - Apache Velocity
+        - Apollo GraphQL
         - Docker
         - ESlint
         - GitLens
-        - GraphQL
         - Markdown Preview Enhanced
         - Prettier - Code formatter
         - SQLite
@@ -50,6 +50,7 @@
     - `npm install --global react-native-cli`.
     - `npm install --global aws-cdk`.
     - `npm install --global gatsby-cli`.
+    - `npm install --global apollo`.
 
 ## Setup access to new Git Repository
 

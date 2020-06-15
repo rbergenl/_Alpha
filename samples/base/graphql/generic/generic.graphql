@@ -18,8 +18,13 @@ type Mutation { _noop: String }
 type Subscription { _noop: String }
 
 ##
-## B A S I C   T Y P E S
+## A W S   T Y P E S
 ##
+
+scalar AWSDateTime
+scalar AWSDate
+scalar AWSURL
+directive @aws_subscribe(mutations: [String]!) on FIELD_DEFINITION
 
 type S3Object {
   bucket: String!

@@ -42,7 +42,10 @@ export const authConfig: AuthProps = {
 ```
 
 ## Add Backend Api
+- Run `npm install --save-dev graphql merge-graphql-schemas`.
+- Create a file `constructs/api-schema.ts`.
 - Add to `package.json` the line `"files": [ "graphql/" ]`.
+- Add to `package.json` the script `"codegen": "npx ts-node constructs/api-schema"`.
 - Follow the instructions from `<projectname>/<projectname>-base/docs/api.md`.
 
 ## Add Backend Storage

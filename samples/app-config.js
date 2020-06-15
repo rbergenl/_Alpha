@@ -17,8 +17,11 @@ const config = {
         federationTarget: 'COGNITO_USER_POOLS',
         aws_appsync_graphqlEndpoint: process.env.REACT_APP_APPSYNC_GRAPHQL_ENDPOINT,
         aws_appsync_region: process.env.REACT_APP_APPSYNC_REGION,
-        aws_appsync_authenticationType: 'AMAZON_COGNITO_USER_POOLS'
-    }
+        aws_appsync_authenticationType: 'AMAZON_COGNITO_USER_POOLS',
+        aws_mobile_analytics_app_id: process.env.REACT_APP_MOBILE_ANALYTICS_APP_ID,
+        aws_mobile_analytics_app_region: process.env.REACT_APP_MOBILE_ANALYTICS_APP_REGION,
+    },
+    mock_analytics_provider_baseurl: process.env.REACT_APP_MOCK_ANALYTICS_PROVIDER_BASEURL
 };
 
 export default config;
