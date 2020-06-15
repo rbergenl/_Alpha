@@ -100,6 +100,10 @@ With [Revolut](https://www.revolut.com/) you get a free bank account and a virtu
 
 ## Name Decided
 
+### Business Registration
+
+TODO? where to do online business registration which will be accepted by Apple developer program and PayPal and printful. -> If at home is possible, just do that. If too much effort or expensive, Latvia has e-Residency (one time 190 euro and then 50 per month for service provider). Or get an office address for 5 euro per month in Amsterdam; and register the business on that address).
+
 ### Accounts (name required)
 - Signup with the project email at [Paypal](https://www.paypal.com/).
     - Use the signup button at the top right of the page.

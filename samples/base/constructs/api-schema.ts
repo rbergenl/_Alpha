@@ -1,11 +1,31 @@
-import * as path from 'path';
 import * as fs from 'fs';
+import * as path from 'path';
 import * as mergeGraphqlSchemas from 'merge-graphql-schemas';
-const { fileLoader, mergeTypes } = mergeGraphqlSchemas;
 
-if (!fs.statSync(path.join(__dirname, '../cdk.out'))) fs.mkdirSync(path.join(__dirname, '../cdk.out'));
+const paths = {
+    schemasIn: path.join(__dirname, '../graphql/**/!(__generated__)/*.graphql'),
+    schemaOutDir: path.join(__dirname, '../graphql/__generated__'),
+    schemaFileName: 'schema.graphql'
+};
 
-const typesArray = fileLoader(path.join(__dirname, '../graphql/**/*.graphql'));
-export const schemaString = mergeTypes(typesArray, { all: true });
+export class ApiSchema {
 
-fs.writeFileSync(path.join(__dirname, '../cdk.out/schema.graphql'), schemaString);
+    private schemaString = '';
+
+    constructor() {
+        this.init();
+    }
+
+    init(): void {
+        if (!fs.existsSync(paths.schemaOutDir)) {
+            fs.mkdirSync(paths.schemaOutDir);
+        }
+        const typesArray = mergeGraphqlSchemas.fileLoader(paths.schemasIn);
+        this.schemaString = mergeGraphqlSchemas.mergeTypes(typesArray, { all: true });
+        fs.writeFileSync(path.join(paths.schemaOutDir, paths.schemaFileName), this.schemaString);
+    }
+
+    asString(): string {
+        return this.schemaString;
+    }
+}

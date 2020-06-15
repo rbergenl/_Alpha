@@ -2,8 +2,10 @@
 
 ## Do Householding
 - Run `echo "cdk.context.json" >> .gitignore` (so that the SSM secrets do not end up in the codebase).
-- Run `touch stack.config.ts` (to create initial config file.
 - Add to `tsconfig.json` the line `"compilerOptions": { "resolveJsonModule": true,` (to be able to import package.json).
+- Add to `bin/<projectname>-base.ts` the line `const env: cdk.Environment = { account: '<ACCOUNT_ID>', region: '<REGION>' };` and add a third parameter to the stack `{ env }`.
+- Run `touch stack.config.ts` (to create initial config file).
+- Copy/paste from *Alpha Project* the folders `constructs`, `docs` and `graphql`.
 
 ## Add Backend Auth
 - Follow the instructions from `<projectname>/<projectname>-base/docs/auth.md`.
@@ -43,12 +45,12 @@ export const authConfig: AuthProps = {
 
 ## Add Backend Api
 - Run `npm install --save-dev graphql merge-graphql-schemas`.
-- Create a file `constructs/api-schema.ts`.
 - Add to `package.json` the line `"files": [ "graphql/" ]`.
-- Add to `package.json` the script `"codegen": "npx ts-node constructs/api-schema"`.
+- Add to `package.json` the script `"codegen": "npx ts-node -e \"import { ApiSchema } from './constructs/api-schema'; new ApiSchema()\""`.
+    - Always run this script after modifying any GraphQL file and commit the generated schema file to version control.
 - Follow the instructions from `<projectname>/<projectname>-base/docs/api.md`.
 
 ## Add Backend Storage
 - First add backend auth.
 - Follow the instructions from `<projectname>/<projectname>-base/docs/storage.md`.
-- Add Mock Storage.
+- TODO: Add Mock Storage.

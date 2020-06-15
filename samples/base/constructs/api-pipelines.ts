@@ -139,6 +139,7 @@ export class ApiPipelines extends cdk.Construct {
                         ).renderTemplate(),
                     }
                 );
+
                 new cdk.CfnOutput(this, 'Pipelineresolver', {
                     value: pipelineResolver.attrResolverArn,
                 });

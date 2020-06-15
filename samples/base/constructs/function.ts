@@ -1,21 +1,21 @@
 /* eslint-disable no-sync */
 import * as cdk from '@aws-cdk/core';
 import * as fs from 'fs';
+import * as path from 'path';
 import * as lambda from '@aws-cdk/aws-lambda';
 import * as lambdaNodeJS from '@aws-cdk/aws-lambda-nodejs';
-import * as path from 'path';
 
-interface Props {
-    pathLambda: string;
-}
+const paths = {
+    lambda: path.join(__dirname, '../lambda'),
+};
 
 export class Function extends cdk.Construct {
     public functions: Map<string, lambdaNodeJS.NodejsFunction> = new Map();
 
-    public constructor(scope: cdk.Construct, id: string, props: Props) {
+    public constructor(scope: cdk.Construct, id: string) {
         super(scope, id);
 
-        const lambdaFiles = fs.readdirSync(props.pathLambda);
+        const lambdaFiles = fs.readdirSync(paths.lambda);
 
         for (const lambdaName of lambdaFiles) {
             const lambdaFunction = new lambdaNodeJS.NodejsFunction(
@@ -24,7 +24,7 @@ export class Function extends cdk.Construct {
                 {
                     runtime: lambda.Runtime.NODEJS_10_X,
                     entry: path.resolve(
-                        props.pathLambda,
+                        paths.lambda,
                         `${lambdaName}/${lambdaName}.ts`
                     ),
                     handler: 'handler',
@@ -36,9 +36,9 @@ export class Function extends cdk.Construct {
 
             const { stackName } = cdk.Stack.of(this);
 
-            Function.writeInvokeFile(props.pathLambda, lambdaName, stackName);
+            Function.writeInvokeFile(paths.lambda, lambdaName, stackName);
 
-            Function.writeTestFile(props.pathLambda, lambdaName);
+            Function.writeTestFile(paths.lambda, lambdaName);
         }
     }
 
