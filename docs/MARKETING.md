@@ -11,6 +11,8 @@ TODO: expand on items below..
 
 - TODO: create initial dashboards for marketing in Google Data Studio (Users, Growth, Financial, Features [analytics, hotjar]). -> users: paid, registered, activated, loggedon, oneTimeUsage, fiveTimeUsage.
 
+- TODO: export PinPoint data to CSV in S3, and with a Lambda write the Google Sheets API. This Sheet is a Data Source in DataStudio (user login, etc.)
+
 ## Add Minumum Viable Product features
 
 TODO: expand on items below..
