@@ -6,12 +6,13 @@
 You need an email address to be able to create accounts for needed third party services. After deciding on a name and buying the domain, the email can be forwarded to this free and initial email address without being visible to others.
 - Go to Google and create a new [account](https://accounts.google.com/signup) using the chosen name.
     - Use the projectname as firstname and lastname. You can change this data when transfering the account later.
-    - Use the chosen name for the email address (if needed suffix with a 1, 2, etc.).
+    - Use the chosen name for the email address (if needed choose one suggested or search first for available usernames).
     - Use a password generator (LastPass) and save it in your personal and browser password manager.
     - Leave phonenumber and alternate email address empty.
     - Use 01-01-1970 as date of birth and gender *prefer not to say*.
+    - Skip the screen *Get more from your number*
     - During Service Agreement, choose *More options* and disable all services.
-    - From the overview `myaccount.google.com`, remove your lastname for privacy reasons; and at *Personalisation* set the language to English.
+    - From the overview `myaccount.google.com`, remove your lastname and phonenumber for privacy reasons; and at *Personalisation* set the language to English.
 - Get an isolated business environment by opening Google Chrome browser: click on the top right profile icon and `add` new person. Login with the new Google Account and enable sync. Use this browser profile for all startup activities.
 
 ### Company Names
