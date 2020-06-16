@@ -24,7 +24,6 @@ const client = new ApolloClient({
 ## Add Subscription Support
 - Check the [docs](https://www.apollographql.com/docs/react/data/subscriptions/).
 - Run `npm install --save apollo-link-ws subscriptions-transport-ws`.
-- TODO: State Management with React Context, Hooks and Apollo.
 
 ## Add Codegen
 - Add to `package.json` the script `"codegen": "apollo client:codegen src/api/types --target typescript --outputFlat",`.
@@ -34,8 +33,8 @@ const path = require('path');
 module.exports = {
     client: {
         service: {
-            name: 'aardonyx-webapp-graphql',
-            localSchemaFile: path.resolve(__dirname, './node_modules/@aardonyx/base/cdk.out/schema.graphql')
+            name: '<projectname>-webapp-graphql',
+            localSchemaFile: path.resolve(__dirname, './node_modules/@aardonyx/base/graphql/__generated__/schema.graphql')
         }
     }
 };

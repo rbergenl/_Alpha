@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as mergeGraphqlSchemas from 'merge-graphql-schemas';
 
 const paths = {
-    schemasIn: path.join(__dirname, '../graphql/**/!(__generated__)/*.graphql'),
+    schemasIn: path.join(__dirname, '../graphql/**/(*.graphql|!(schema.graphql))'),
     schemaOutDir: path.join(__dirname, '../graphql/__generated__'),
     schemaFileName: 'schema.graphql'
 };
