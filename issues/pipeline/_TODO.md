@@ -92,3 +92,18 @@ TODO: add this diagram to default `docs` in each project.
 
 ## Add Test:Functional
 - cypress
+
+## .Post:Performance
+Performance Test: JMeter (met stubs en edge cases).
+Monitoring/trends zichtbaar.
+Leesbaar rapport.
+Heb de "keten" inzichtelijk.
+
+## Test:Security
+- Have a Testplan (what exactly is it for?)
+- Have a register of known risks, and how they are accounted for.
+Automated PEN test.
+Static Application Security Test (Sonarqube).
+Dynamic Application Security Test (ZAP, Burp Suite).
+OWASP Dependency check plugin.
+Leesbare rapporten.

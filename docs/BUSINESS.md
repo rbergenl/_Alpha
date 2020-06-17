@@ -46,6 +46,14 @@ For running and growing a startup you need different kind of tools for Business,
 - App:
     - Signup with the project email at [Expo](https://expo.io/signup).
         - Use the project email and name.
+    - Signup for an Apple ID (used to let Expo create credentials to build an iOS app).
+        - Go to [Apple Developer](https://developer.apple.com) website and click on `Account` to create a new one.
+        - Fill the projectname as first and lastname and 01-01-1970 as date of birth.
+        - Let LastPass generate a password for you.
+        - The phonenumber is only used to securely login to the account (MFA)
+        - (Old process) Set three security questions all with the projectname as answer each suffixed with a number 1, 2 3.
+        - Confirm with the receive code in the email and then agree with the terms.
+
 - Website (marketing):
     - Create an account at [**ReCaptcha**](https://www.google.com/recaptcha).
     - Signup with the project email at [**Mailchimp**](https://mailchimp.com/).
@@ -113,11 +121,7 @@ TODO? where to do online business registration which will be accepted by Apple d
 
 ### App Store
 
-- Go to [Apple Developer](https://developer.apple.com) website and click on `Account` to create a new one.
-- Fill in your name, country and date of birth.
-- Let LastPass generate a password for you.
-- Set three security questions all with the projectname as answer each suffixed with a number 1, 2 3.
-- Confirm with the receive code in the email and then agree with the terms.
+TODO: ??
 
 ### Play Store
 

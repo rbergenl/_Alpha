@@ -1,53 +1,78 @@
 # Initial Setup App
 
-- Add privacy policy
-- Add Icon
-- Choose primaryColor
-- Modify `app.json`.
-    - Version
-    - Bundle
-    - Permissions
-- Publish bundle to allow for Over-The-Air updates:
-    - First `expo publish`.
-- Preferably, test App in Expo Client.
-- Alternatively, test iOS App on iPhone Simulator:
-    - Required Xcode to be installed.
-    - Run `expo build:ios -t simulator` and follow the instructions.
-    - First time: login with Apple ID and let expo set credentials.
-    - Download and unzip the given `tar` file.
-    - Open Xcode and go to `Xcode > Open Developer Tools > Simulator`. Or hit `CMD+Space` to open Spotlight and search for `Simulator`.
-    - Drag and drop the `.app` file onto the virtual device and open the app.
-- Alternatively, test Andriod App on Android Simulator:
-    - TODO
+> Make sure you have an *Expo* account and an *Apple ID*.
+
+## Householding
+
+- Have Expo CLI installed `npm install --global expo-cli`.
+- Run `expo login`.
+- Add to `app.json` to the key `ios` the line `"bundleIdentifier": "com.<projectname>.app"`.
+
+## Run in Expo Client
+
+> After project creation make short iterations on initial functionality. This publishing to a channel (first default, later to live) allows for Over-The-Air updates.
+- Run `expo publish`.
+    - Make sure your Expo Client is installed and logged-in with the actual email of the project.
+    - Open the project page `https://expo.io/@<username>/<username>-app` and scan the QR code with the phone camera.
+
+## Run in iOS Simulator from CLI
+
+> Make sure you are able to make a build and run the app in a simulator
+- Run `expo build:ios -t simulator` and follow the instructions.
+- Download and unzip the given `tar` file.
+- Open Xcode and go to `Xcode > Open Developer Tools > Simulator`. Or hit `CMD+Space` to open Spotlight and search for `Simulator`.
+- Drag and drop the `.app` file onto the virtual device and open the app.
+
+## Enable Expo Bare Workflow
+
+> Make sure Xcode is installed with its developer tools.
+- Check the [docs](https://docs.expo.io/bare/exploring-bare-workflow/).
+- Have React Native installed `npm install --global react-native-cli`.
+- Run `expo eject`.
+- Run `cd ios && pod install`.
+- Run in a seperate terminal `npm start`.
+- Run `npm run ios`.
+- Remember the process for installing an Expo Component:
+    - Run `expo install <component>`.
+    - Run `cd ios && npx pod-install`.
+
+### Run in iOS Simulator from Xcode
+
+> Make sure to enable the Expo Bare Workflow first.
+- Open in Xcode the `.xcworkspace` file (not the xproject file).
+- Select the active scheme `<projectname>app - iPhone11` and press *Play*. A simulator should open the app.
+
+## Run on your device from Xcode (TODO: finish this section)
+
+- Login with your Apple ID (Xcode > Preferences > Accounts) and create a Developer Signing Certificate (valid for 7 days).
+- In the *Project Navigator* pane select `<projectname>app`.
+- Set the app group name for the Project targets to a valid name. (For more information on app groups, see Configure app groups.??)
+- Select 'Target > <projectname>app' and select a Team (from Apple Id). Update the `Bundle Identifier` to `com.example.apple-<projectname>.<appname>` and also add a `App Group` with name `com.example.apple-<projectname>`.
+- Change AppGroup value in UserDefaults+DataSource.swift to match your app group name.
+- Connect the Iphone and build to the Iphone.
+    - First time: on the iPhone, open Settings > General > Device Management > <appleid> > *Trust*.
+
+## Build for the App Store
+
+> You should be enrolled in the Apple Developer Program.
+- TODO??: add Version and Permissions to app.json.
+- TODO??: add Privacy Policy, add Icon, choose PrimaryColor.
+- TODO??: first create your own credentials (keys files etc).
+- Run `expo build:ios -t archive` and follow the instructions..
+    - To Configure credentials say "No" and then "Let Expo handle the process".
+    - If login fails, wait a couple of minutes, and run the command again with the flag ` --clear-credentials`.
+
+## TODO Build and Test for Android
+- Test Andriod App on Android Simulator.
+
+## TODO Setup Pipeline
 
 TODO: check https://stackoverflow.com/questions/59539163/how-to-install-expo-ipa-on-iphone-6
 TODO: check https://www.robincussol.com/build-standalone-expo-apk-ipa-with-turtle-cli/
 Btw, check here: https://exp.host/@aardonyx1/aardonyx-app/index.exp?sdkVersion=37.0.0
 
-## Expo Bare Workflow
-- Prerequisites:
-    - Have Xcode installed.
-    - Login with your Apple ID (Xcode > Preferences > Accounts) and create a Developer Signing Certificate (valid for 7 days).
-    - Have Expo CLI installed `npm install --global expo-cli`.
-    - Have React Native installed `npm install --global react-native-cli`.
-- Check the [docs](https://docs.expo.io/bare/exploring-bare-workflow/).
-- Create a bare project with `expo init --template bare-minimum`.
-- Run `expo eject`.
-- Run `cd ios && pod install`.
-- Run `npm run ios`.
-- Installing an Expo Component:
-    - Run `expo install <component>`.
-    - Run `cd ios && npx pod-install`.
+## EXAMPLE SOUPCHEF
 
-SIRI
--> Open the `.xcworkspace` file (not the xproject file).
--> In Xcode, select the xproject file (at the top) > Tab Capabilities > Add `Siri`.
-
--> `npm install react-native-siri-shortcut --save`.
--> Update the IOS files (Appdelegate.m, Podfile, Info.plist).
-
-
-TRY EXAMPLE SOUPCHEF
 - Download code from [here](https://developer.apple.com/documentation/sirikit/soup_chef_accelerating_app_interactions_with_shortcuts).
 - Before you can run Soup Chef on your iPhone, you need to:
     - Set the app group name for the SoupChef, SoupChefIntents, SoupChefWatch Extension, and SoupChefIntentsWatch targets to a valid name. For more information on app groups, see Configure app groups.
@@ -63,3 +88,15 @@ In my case, here are the steps that I resolve the problems:
 - In Xcode 10 menu > Product > Clean Build Folder
 - In Xcode 10 menu > Xcode > Preferences > Account > Download Manual Profiles
 - In Xcode 10 menu > Product > Build / Archive
+
+
+## TODO: the feedback after fresh project running expo eject
+
+⚠️  iOS configuration applied with warnings that should be fixed:
+- supportsTablet: You will need to configure this in the "General" tab for your project target in Xcode.
+- icon: This is the image that your app uses on your home screen, you will need to configure it manually.
+- splash: This is the image that your app uses on the loading screen, we recommend installing and using expo-splash-screen. Details. (​https://github.com/expo/expo/blob/master/packages/expo-splash-screen/README.md​)
+
+⚠️  Android configuration applied with warnings that should be fixed:
+- splash: This is the image that your app uses on the loading screen, we recommend installing and using expo-splash-screen. Details. (​https://github.com/expo/expo/blob/master/packages/expo-splash-screen/README.md​)
+- icon: This is the image that your app uses on your home screen, you will need to configure it manually.
