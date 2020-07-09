@@ -7,6 +7,7 @@
 - Have Expo CLI installed `npm install --global expo-cli`.
 - Run `expo login`.
 - Add to `app.json` to the key `ios` the line `"bundleIdentifier": "com.<projectname>.app"`.
+- Add to `package.json` the script `"debug": "expo start --no-dev --minify"` (to be able to publish the app from there).
 
 ## Run in Expo Client
 

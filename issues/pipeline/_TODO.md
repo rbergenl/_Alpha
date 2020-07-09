@@ -85,9 +85,6 @@ TODO: add this diagram to default `docs` in each project.
     }
     ```
 
-## Add Test:Unit
-- jest
-
 ## Add Test:Integration
 
 ## Add Test:Functional
