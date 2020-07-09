@@ -1,4 +1,5 @@
 import React from 'react';
+import { combineReducers } from 'redux';
 
 type TAction = any;
 
@@ -6,12 +7,12 @@ interface IState {}
 
 const initialState: IState = {};
 
+const rootReducer = combineReducers({});
+
 interface IContextProps {
     state: IState;
     dispatch: React.Dispatch<TAction>;
 }
-
-const rootReducer: React.Reducer<IState, TAction> = (state, action) => ({});
 
 const StoreContext = React.createContext<IContextProps>({
     dispatch: () => {},

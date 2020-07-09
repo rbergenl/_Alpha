@@ -1,6 +1,6 @@
 # Initial Setup App
 
-> Make sure you have an *Expo* account and an *Apple ID*.
+> Make sure you have an *Expo* account.
 
 ## Householding
 
@@ -17,7 +17,7 @@
 
 ## Run in iOS Simulator from CLI
 
-> Make sure you are able to make a build and run the app in a simulator
+> Make sure you have Xcode installed and you are able to make a build and run the app in a simulator
 - Run `expo build:ios -t simulator` and follow the instructions.
 - Download and unzip the given `tar` file.
 - Open Xcode and go to `Xcode > Open Developer Tools > Simulator`. Or hit `CMD+Space` to open Spotlight and search for `Simulator`.
@@ -41,18 +41,18 @@
 > Make sure to enable the Expo Bare Workflow first.
 - Open in Xcode the `.xcworkspace` file (not the xproject file).
 - Select the active scheme `<projectname>app - iPhone11` and press *Play*. A simulator should open the app.
+> It is actually better to work on a real device, and even better to have an older one.
 
-## Run on your device from Xcode (TODO: finish this section)
+## Run on your device from Xcode (preferred method)
 
-- Login with your Apple ID (Xcode > Preferences > Accounts) and create a Developer Signing Certificate (valid for 7 days).
+> Make sure you have an *Apple ID* (enrollment in Apple Developer Program not needed).
+- Login with your Apple ID (Xcode > Preferences > Accounts) and create a Developer Signing Certificate via *Manage Certificates* (valid for 7 days).
 - In the *Project Navigator* pane select `<projectname>app`.
-- Set the app group name for the Project targets to a valid name. (For more information on app groups, see Configure app groups.??)
-- Select 'Target > <projectname>app' and select a Team (from Apple Id). Update the `Bundle Identifier` to `com.example.apple-<projectname>.<appname>` and also add a `App Group` with name `com.example.apple-<projectname>`.
-- Change AppGroup value in UserDefaults+DataSource.swift to match your app group name.
+- Select 'Target > <projectname>app' and go to section `Signing & Capabilities`. Select a Team (from Apple Id). Update the `Bundle Identifier` to `com.<projectname>.app` (as set in `app.json`).
 - Connect the Iphone and build to the Iphone.
     - First time: on the iPhone, open Settings > General > Device Management > <appleid> > *Trust*.
 
-## Build for the App Store
+## Build for the App Store (TODO)
 
 > You should be enrolled in the Apple Developer Program.
 - TODO??: add Version and Permissions to app.json.
@@ -62,10 +62,10 @@
     - To Configure credentials say "No" and then "Let Expo handle the process".
     - If login fails, wait a couple of minutes, and run the command again with the flag ` --clear-credentials`.
 
-## TODO Build and Test for Android
+## Build and Test for Android (TODO)
 - Test Andriod App on Android Simulator.
 
-## TODO Setup Pipeline
+## Setup Pipeline (TODO)
 
 TODO: check https://stackoverflow.com/questions/59539163/how-to-install-expo-ipa-on-iphone-6
 TODO: check https://www.robincussol.com/build-standalone-expo-apk-ipa-with-turtle-cli/
@@ -89,6 +89,7 @@ In my case, here are the steps that I resolve the problems:
 - In Xcode 10 menu > Xcode > Preferences > Account > Download Manual Profiles
 - In Xcode 10 menu > Product > Build / Archive
 
+Something wrong with expo App? For example 'invariant violation: "main" has not been registered'. Run `expo start --no-dev --minify`. Or also handy to clear cache with `expo r -c`
 
 ## TODO: the feedback after fresh project running expo eject
 

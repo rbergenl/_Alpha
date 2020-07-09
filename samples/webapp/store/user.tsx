@@ -1,11 +1,11 @@
-import React from 'react';
+import { Reducer } from "redux";
 
 interface CognitoUser {
     username: string;
 }
 
 // user model
-export interface User {
+export interface UserState {
     isLoading: boolean;
     isError: boolean;
     user: CognitoUser;
@@ -14,7 +14,7 @@ export interface User {
     isSignedIn: boolean;
 }
 
-export const userInitialState: User = {
+export const userInitialState: UserState = {
     isLoading: false,
     isError: false,
     user: { username: '' },
@@ -47,42 +47,38 @@ export const fetchUserDataSuccessAction = (payload: CognitoUser): IFetchUserData
 export const fetchUserDataIFailureAction = (): IFetcgUserDataFailureAction => ({ type: FETCH_USER_DATA_FAILURE });
 
 // user reducer
-export const userReducer: React.Reducer<User, UserActions> = (user, action): User => {
+export const userReducer: Reducer<UserState, UserActions> = (user, action): UserState => {
+    if (!user) return userInitialState;
     console.log(action)
     switch (action.type) {
         case USER_LOGIN_SUCCESS:
-            return { 
-                ...user,
+            return Object.assign<{}, UserState, Partial<UserState>>({}, user, { 
                 isSignedIn: true,
                 isLoading: false,
                 isError: false,
-            };
+            });
         case FETCH_USER_DATA_INIT:
-            return {
-                ...user,
+            return Object.assign<{}, UserState, Partial<UserState>>({}, user, { 
                 isLoading: true,
                 isError: false,
-            }
+            });
         case FETCH_USER_DATA_SUCCESS:
-            return {
-                ...user,
+            return Object.assign<{}, UserState, Partial<UserState>>({}, user, { 
                 isLoading: false,
                 isError: false,
                 id: action.payload.username,
                 name: action.payload.username.toLocaleUpperCase()
-            }
+            });
         case FETCH_USER_DATA_FAILURE:
-            return { 
-                ...user,
+            return Object.assign<{}, UserState, Partial<UserState>>({}, user, { 
                 isLoading: false,
                 isError: true
-            }
+            });
         case RESET_USER_DATA:
-            return {
-                ...userInitialState,
+            return Object.assign<{}, UserState, Partial<UserState>>({}, userInitialState, { 
                 isSignedIn: true
-            };
+            });
         default:
-            throw new Error()
+            return user;
     }
 };

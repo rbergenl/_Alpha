@@ -1,0 +1,9 @@
+{
+    "typeName": "Mutation",
+    "fieldName": "exampleField",
+    "arguments": { "one": "one" },
+    "identity": {},
+    "source": {},
+    "request": {},
+    "prev": {}
+}

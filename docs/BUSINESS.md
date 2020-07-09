@@ -7,13 +7,14 @@ You need an email address to be able to create accounts for needed third party s
 - Go to Google and create a new [account](https://accounts.google.com/signup) using the chosen name.
     - Use the projectname as firstname and lastname. You can change this data when transfering the account later.
     - Use the chosen name for the email address (if needed choose one suggested or search first for available usernames).
-    - Use a password generator (LastPass) and save it in your personal and browser password manager.
+    - Use a password generator (LastPass) and save it in your personal and browser password manager. Save the password first before using it because it might get lost from the clipboard.
     - Leave phonenumber and alternate email address empty.
+        - If you are required to enter a phonenumber it is because only 2 accounts per IP-address can be created. And only 5 accounts per phonenumber are allowed. A workaround is to create the account via the Gmail op on a mobile phone and then choose to *Skip* the phonenumber step.
     - Use 01-01-1970 as date of birth and gender *prefer not to say*.
     - Skip the screen *Get more from your number*
     - During Service Agreement, choose *More options* and disable all services.
     - From the overview `myaccount.google.com`, remove your lastname and phonenumber for privacy reasons; and at *Personalisation* set the language to English.
-- Get an isolated business environment by opening Google Chrome browser: click on the top right profile icon and `add` new person. Login with the new Google Account and enable sync. Use this browser profile for all startup activities.
+- Create an isolated business environment by opening Google Chrome browser: click on the top right profile icon and `add` new person. Login with the new Google Account and enable sync. Use this browser profile for all startup activities.
 
 ### Company Names
 While working on the Startup you might come up with ideas for a Company Name, sometimes including a catchy Slogan. Store these in [Google Keep](https://keep.google.com/) with the tag `name`.

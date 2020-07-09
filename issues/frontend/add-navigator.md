@@ -7,8 +7,8 @@ Inspired by [React Navigation](https://reactnavigation.org/) different types of 
 
 ## Getting Started
 - Run `npm install react-router-dom @types/react-router-dom`
-- Add to `App.tsx` the line `import { Switch, Route, BrowserRouter } from 'react-router-dom';`.
-- Replace the `<Dummy />` component with `<BrowserRouter><Switch><Route path="/home" component={Dummy} /></Switch></BrowserRouter>`.
+- Add to `App.tsx` the line `import { Switch, Route, BrowserRouter } from 'react-router-dom';`. For App this should be `react-router-native` with `NativeRouter`.
+- Replace the `<Dummy />` component with `<BrowserRouter><Switch><Route path="/home" component={Dummy} /></Switch></BrowserRouter>`. For App this should be with child component instead of render component `<Switch><Route exact path="/"><Dummy></Dummy></Route></Switch>`.
 
 ## Add NotFound
 - Create `components/NotFound.tsx` with code:
