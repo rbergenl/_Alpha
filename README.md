@@ -1,18 +1,5 @@
 # Startups
 
-TODO:
-- have these building blocks ready: 1) Users graph in Data Studio with Data from Analytics. 2) A first feature with AB experiment. 3) The initial website via CMS. 4) Initial designs in Figma.
-- How to do multilingual website/cms? (when .nl domain, then default is dutch/euro and for each other language make specific).
-- UI repo should be with Master and Tags. (Check npm packes bookmark).
-- Optimize caching in Gitlab pipeline
-- Add Architecture images to Alpha/Samples/Docs (e.g. cms setup).
-- check https://www.integromat.com/en/integrations/google-data-studio/revolut
-- check https://www.outsystems.com/blog/posts/ab-testing-mobile-apps-google-optimize/
-- process the Planty Base docs (already copy in alpha/base).
-- create in all apps the basic flows `User: login/register/profile/preferences`, and `Ecommerce: products/cart/checkout` (add these tasks to issues-seed).
-- make sure to use correct `@auth` usage in schema and resolvers (least privilege).
-- check how to do `a/b testing` and `ecommerce`: https://www.gatsbyjs.org/docs/ab-testing-with-google-analytics-and-netlify/
-
 **Congratulations on getting started with a Startup!**
 
 It is possible to have a Minimum Viable Product ready on **day 1**. In short this means you have a website which points to your native app, has a login for users on the web and for an admin on the web. Publishing the apps to the Stores and putting the website live can be done later. This means deciding on a name can also be done later. It might be difficult to begin because you don't know where to start. This guide helps to make the first steps. To be clear: you do not need a final name from the beginning and you can have an MVP ready without paying a dime.
@@ -48,14 +35,14 @@ Follow up with laying the groundwork for the startup:
 
 ### UX
 
-- Make sure to follow these instructions in [`UX.MD`](docs/UX.md):
+- Make sure to follow these instructions in [`UX.md`](docs/UX.md):
     - Decide on initial Color Scheme and Fonts.
     - Setup Figma.
     - Create Design System.
 
 ### Marketing
 
-- Make sure to follow these instructions in [`MARKETING.MD`](docs/MARKETING.md):
+- Make sure to follow these instructions in [`MARKETING.md`](docs/MARKETING.md):
     - Setup Google Marketing Platform.
     - Create Google Data Studio reports.
 
@@ -87,19 +74,19 @@ Build the MVP and bring it live (version Alpha):
 
 ### Marketing
 
-- Make sure to follow these instructions in [`MARKETING.MD`](docs/MARKETING.md):
+- Make sure to follow these instructions in [`MARKETING.md`](docs/MARKETING.md):
     - Add Minumum Viable Product features.
 
 ### UX
 
-- Make sure to follow these instructions in [`UX.MD`](docs/UX.md):
+- Make sure to follow these instructions in [`UX.md`](docs/UX.md):
     - Create Website Prototype.
     - Create App Prototype.
     - Use workflow to add new user flows.
 
 ### Developer
 
-> **AWS Account required**
+> AWS Account required
 
 - Add Auth, Api and Storage for ‘base’
 - Add Hosting and publish for ‘admin’, ‘webapp’ and ‘website’

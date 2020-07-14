@@ -28,7 +28,7 @@ describe('<App />', () => {
 - Add snapshot test with line: `expect(tree).toMatchSnapshot();`.
 - Add Coverage report:
   - Provide to Jest config `"collectCoverage": true,`.
-  - Add to `.gitignore` the line `coverage/**/*`.
+  - Add to `.gitignore` the line `coverage/`.
 
 ### Tips
 - Add these scripts:
@@ -47,7 +47,5 @@ describe('<App />', () => {
 > Get Jest config from here: https://github.com/stringparser/expo-jest-typescript/blob/master/package.json
 - Async-Storage > __mock__
 - Moment > jsconfig.json > "esModuleInterop": true,
-- "test": "jest --detectOpenHandles" (for async operations)
 - Add `|react-router-native` to jest config transformIgnorePatterns.
 - Add to top of test file `jest.useFakeTimers();` to prevent the error "ReferenceError: You are trying to `import` a file after the Jest environment has been torn down." on `<StoreContext.Provider>`
-
