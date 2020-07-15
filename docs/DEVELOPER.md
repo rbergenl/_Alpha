@@ -81,7 +81,7 @@
 
 ## Setup access to new Docker Registry
 
-- In Gitlab > Settings > Access Token, create a new with the name `Docker` and the scope `api`. Save the token in a file `~/.docker/<projectname>_gitlab.
+- In Gitlab > Settings > Access Token, create a new with the name `Docker` and the scope `api`. Save the token in a file `~/.docker/<projectname>_gitlab`.
 - Run `docker login registry.gitlab.com --username <username> --password-stdin < ~/.docker/<projectname>_gitlab`.
 
 ## Setup access to Heroku
