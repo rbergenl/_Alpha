@@ -49,3 +49,5 @@ describe('<App />', () => {
 - Moment > jsconfig.json > "esModuleInterop": true,
 - Add `|react-router-native` to jest config transformIgnorePatterns.
 - Add to top of test file `jest.useFakeTimers();` to prevent the error "ReferenceError: You are trying to `import` a file after the Jest environment has been torn down." on `<StoreContext.Provider>`
+- Redux: use `redux-mock-store` https://redux.js.org/recipes/writing-tests#async-action-creators
+- Add `redux-persist` to the transformIgnorePatterns key in `package.json > jest`

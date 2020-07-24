@@ -5,19 +5,38 @@ Store is the place where application State is being managed. It consists of:
 - Reducers.
 - Actions.
 
+It is recommended to make yourself familiar with the [Redux best practices](https://redux.js.org/style-guide/style-guide)
+
 ## Getting Started
+
 - Copy/paste from *Alpha Project* the folder `store`.
-- Add to `App.tsx` the line `import { StoreProvider } from 'store';` and wrap the app with `<StoreProvider></StoreProvider>`.
+- Run `npm install redux react-redux && npm install --save-dev @types/react-redux`.
+- Add this code to `App.tsx`:
+```javascript
+import { createStore } from 'redux';
+import { Provider as StoreProvider } from 'react-redux';
+import { rootReducer } from 'store';
+const store = createStore(rootReducer);
+<StoreProvider store={store}></StoreProvider>
+```
 
 ## Enable User
 
-- Initial State:
-    - Add in `index.tsx` to `interface IState` the line `user: User;` and to `initialState` the line `user: userInitialState` and also import appropriately.
-- User Reducer:
-    - In `index.tsx` extend the `rootReducer` with `user: userReducer(state.user, action)`. And import the `userReducer` appropriately.
-    - Change the line to `type TAction = UserActions;` and also import appropriately.
-- Read and Write to State:
-    - In the component `Dummy.tsx` import the self created Store Hook `import { useStore } from 'store';` and an User Action `import { userLoginAction } from 'store/user';`.
-    - Call the Hook in the component with `const { state, dispatch } = useStore();`.
-    - Read the State by printing `<h1>{ state.user.name }</h1>`.
-    - Write to the State by calling `<button onClick={() => dispatch(userLoginAction())}>Click</button>`.
+- Add in `index.tsx` to `interface IState` the line `user: User;` and to `initialState` the line `user: userInitialState` and also import appropriately.
+- Change the line to `type TAction = UserActions;` and also import appropriately.
+- In `index.tsx` extend the `rootReducer` with `user: userReducer`. And import the `userReducer` appropriately.
+
+## Using Store
+
+Read and Write to State:
+- To read state use the hook `const state = useSelector((state: RootState) => state);`.
+- To update state use the hook `const dispatch = useDispatch();`.
+- Print the state with `<h1>{ state.user.name }</h1>`.
+- Update the State by adding the line `import { userLoginAction } from 'store/user';` and calling `<button onClick={() => dispatch(userLoginAction())}>Click</button>`.
+
+## Enable Debugging
+
+- To enable debugger add to the `createStore()` function as second parameter `(window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()` (ignore the eslint error).
+
+## Enable Persistence
+- Use `redux-persist` as promoted by Redux [here](https://redux.js.org/introduction/ecosystem#persistence).

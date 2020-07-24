@@ -1,2 +1,0 @@
-# Add Error tracking
-- Sentry

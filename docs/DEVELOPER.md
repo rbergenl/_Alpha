@@ -9,6 +9,7 @@
     - [SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html) - to invoka a lambda locally.
         - Run `brew tap aws/tap && brew install aws-sam-cli`.
     - Heroku: `brew install heroku/brew/heroku`
+    - React-Native-Debugger: `brew cask install react-native-debugger`
     - Java: `` ?? **TODO:**
 - Install via Gem
     - Cocoapods: `gem install cocoapods`

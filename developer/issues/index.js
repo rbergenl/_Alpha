@@ -18,6 +18,9 @@ ${addIssue('initial', 'create-new-repo.md')}
 ${addIssue('initial', 'setup-vcs.md')}
 ${addIssue('initial', 'add-basic-docs.md')}
 ${addIssue('initial', 'initial-setup-app.md')}
+${addIssue('pipeline', 'add-pre-audit.md')}
+${addIssue('pipeline', 'add-pre-format.md')}
+${addIssue('pipeline', 'add-pre-lint.md')}
 `
 }
 

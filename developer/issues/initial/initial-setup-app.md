@@ -3,11 +3,12 @@
 > Make sure you have an *Expo* account.
 
 ## Householding
-
 - Have Expo CLI installed `npm install --global expo-cli`.
 - Run `expo login`.
 - Add to `app.json` to the key `ios` the line `"bundleIdentifier": "com.<projectname>.app"`.
 - Add to `package.json` the script `"debug": "expo start --no-dev --minify"` (to be able to publish the app from there).
+- Move `App.tsx` into `./src` and update import in `index.js` approriately.
+- Add `"baseUrl": "./src"` to the `compilerOptions` in `tsconfig.json` (to enable absolute imports). -> TODO: check, this did not work. (check: https://reactnative.dev/docs/typescript#using-custom-path-aliases-with-typescript)
 
 ## Run in Expo Client
 
