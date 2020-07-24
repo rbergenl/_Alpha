@@ -1,6 +1,4 @@
-## Setup Test Environment
-
-TODO: modify references to Production to Test.
+## Setup Prod Environment
 
 ### Add Cloudinary
 - Login to Cloudinary to find the *Account details*.

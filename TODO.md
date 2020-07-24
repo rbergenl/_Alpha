@@ -6,6 +6,8 @@
     4) Initial designs in Figma.
 
 ## Other
+- Investigate segment for personalization: https://segment.com/marketing/?ref=nav
+- Investigate productboard for feature roadmap: https://portal.productboard.com/
 - How to do multilingual website/cms? (when .nl domain, then default is dutch/euro and for each other language make specific).
 - UI repo should be with Master and Tags. (Check npm packes bookmark).
 - Optimize caching in Gitlab pipeline

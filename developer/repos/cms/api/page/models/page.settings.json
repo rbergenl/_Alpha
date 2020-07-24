@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "name": "Page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "publish",
+        "future",
+        "draft",
+        "pending",
+        "private"
+      ],
+      "default": "draft",
+      "required": false
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "author": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "pages"
+    },
+    "template": {
+      "type": "enumeration",
+      "enum": [
+        "default"
+      ],
+      "default": "default",
+      "required": false
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "generic.hero"
+      ]
+    }
+  }
+}

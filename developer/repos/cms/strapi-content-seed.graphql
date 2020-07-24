@@ -1,11 +1,7 @@
 mutation {
-  createPage(input: {data: { title: "Test page", body: "This is the first body text.", image: "https://placeimg.com/640/400/any"}}) {
+  createPage(input: {data: { slug: "test", title: "Test page" }}) {
     page {
       id
-      created_at
-      updated_at
-      title
-      body
     }
   }
 }
