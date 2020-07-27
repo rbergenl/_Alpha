@@ -57,8 +57,10 @@ Follow up with laying the groundwork for the startup:
     - Setup access to Heroku.
     - Setup integration between Sentry and Gitlab.
 - Do the following for each project: admin, app, base, cicd, cms, mocks, ui, webapp and website:
+    - Start with *CICD* so that it will be enabled automatically for all other repos.
     - Create a new *blank* project with name `<Reponame>` in the Gitlab *Group*.
-    - In the *Alpa Project* run `node issues <reponame>` to generate an `gitlab-issues-seed-<repo>.csv` file. This can be imported at the *Issues* section in the Gitlab Repository. Follow the instructions in those issues to complete initial setup.
+    - In the *Alpa Project* run `node issues <reponame>` to generate an `gitlab-issues-seed-<repo>.csv` file. This can be imported at the *Issues* section in the Gitlab Repository.
+    - Process the issues in chronological order and follow the instructions to complete initial setup.
 
 ## 3. Minimum Viable Product
 

@@ -7,7 +7,7 @@ In the project folder run:
     - Modify the name in `package.json` to reflect the scope `@<projectname>/base`.
     - Remove the `bin` key from `package.json` since the reference to Typescript file fails when installing this repo in other projects.
   ],
-- CICD: `mkdir <projectname>-cicd && cd <projectname>-cicd && touch .gitignore && git init && git add . && git commit -m "initial commit"`.
+- CICD: `mkdir <projectname>-cicd && cd <projectname>-cicd && touch .gitignore && git init && git add . && git commit -m "initial commit Closes #1, #2"`.
 - CMS: `npx create-strapi-app <projectname>-cms --quickstart --no-run && cd <projectname>-cms && git init && git add . && git commit -m "initial commit"`.
 - Mocks: `mkdir <projectname>-mocks && cd <projectname>-mocks && npm init --yes --scope @<projectname> && echo -e "/node_modules\n/dist\n.DS_Store" > .gitignore && git init && git add . && git commit -m "initial commit"`.
     - Modify the name in `package.json` to reflect the scope `@projectname/mocks`.

@@ -7,6 +7,30 @@
 - Run `expo login`.
 - Add to `app.json` to the key `ios` the line `"bundleIdentifier": "com.<projectname>.app"`.
 - Add to `package.json` the script `"debug": "expo start --no-dev --minify"` (to be able to publish the app from there).
+- Run `git add . && git commit -m "householding" && git push`.
+- Run `npx @react-native-community/cli doctor` to find missing items from a common App development setup.
+
+## Set the Splash Screen
+- Read the [docs](https://github.com/expo/expo/blob/master/packages/expo-splash-screen/README.md).
+- First install [unimodules](https://docs.expo.io/bare/installing-unimodules/).
+- Run `expo install expo-splash-screen && npx pod install`.
+- TODO..
+
+## Enable Expo Bare Workflow
+
+> Make sure Xcode is installed with its developer tools.
+- Check the [docs](https://docs.expo.io/bare/exploring-bare-workflow/).
+- Have React Native installed `npm install --global react-native-cli`.
+- Run `expo eject`.
+- Run `git add . && git commit -m "expo eject" && git push`.
+- Run `npx pod-install`.
+- Run in a seperate terminal `npm start`.
+- Run `npm run ios`.
+- Remember the process for installing an Expo Component:
+    - Run `expo install <component>`.
+    - Run `npx pod-install` (or `cd ios && pod install`).
+
+## Enable absolute imports
 - Move `App.tsx` into `./src` and update import in `index.js` approriately.
 - Add `"baseUrl": "./src"` to the `compilerOptions` in `tsconfig.json` (to enable absolute imports). -> TODO: check, this did not work. (check: https://reactnative.dev/docs/typescript#using-custom-path-aliases-with-typescript)
 
@@ -24,19 +48,6 @@
 - Download and unzip the given `tar` file.
 - Open Xcode and go to `Xcode > Open Developer Tools > Simulator`. Or hit `CMD+Space` to open Spotlight and search for `Simulator`.
 - Drag and drop the `.app` file onto the virtual device and open the app.
-
-## Enable Expo Bare Workflow
-
-> Make sure Xcode is installed with its developer tools.
-- Check the [docs](https://docs.expo.io/bare/exploring-bare-workflow/).
-- Have React Native installed `npm install --global react-native-cli`.
-- Run `expo eject`.
-- Run `cd ios && pod install`.
-- Run in a seperate terminal `npm start`.
-- Run `npm run ios`.
-- Remember the process for installing an Expo Component:
-    - Run `expo install <component>`.
-    - Run `cd ios && npx pod-install`.
 
 ### Run in iOS Simulator from Xcode
 

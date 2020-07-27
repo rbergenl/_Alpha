@@ -1,4 +1,4 @@
-## Add Deploy:Prod
+# Add Deploy:Prod
 - Base:
     > Requires creditcard and AWS Account.
     - Add to package.json `"deploy:base": "cdk deploy <Projectname>BaseStack --require-approval never",`.

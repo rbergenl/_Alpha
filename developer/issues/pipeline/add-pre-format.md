@@ -1,4 +1,4 @@
-## Add .Pre:Format
+# Add .Pre:Format
 
 - Webapp / App:
     - Run `npm install --save-dev prettier`.

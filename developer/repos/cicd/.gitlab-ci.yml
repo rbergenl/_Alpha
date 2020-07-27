@@ -6,7 +6,7 @@ stages:
     - test
     - deploy
 
-image: registry.gitlab.com/aardonyx/base
+image: registry.gitlab.com/<groupname>/cicd
 
 cache:
     untracked: true

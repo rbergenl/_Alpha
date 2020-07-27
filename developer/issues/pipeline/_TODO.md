@@ -20,7 +20,7 @@ TODO: add this diagram to default `docs` in each project.
 | Publish:iOS       | ?             | | | | | |
 | Publish:Android   | ?             | | | | | |
 | .Post:Performance | ?             | | :heavy_check_mark: | | | |
-| .Post:Quality     | Lighthouse    | | | :heavy_check_mark: | | |
+| .Post:Quality     | Lighthouse/SonarQube | | | :heavy_check_mark: | | |
 | .Post:Smoketest   | ?             | | | :heavy_check_mark: | | |
 | .Post:Visual      | ?             | | | :heavy_check_mark: | | |
 
@@ -43,7 +43,7 @@ Heb de "keten" inzichtelijk.
 - Have a Testplan (what exactly is it for?)
 - Have a register of known risks, and how they are accounted for.
 Automated PEN test.
-Static Application Security Test (Sonarqube).
+Static Application Security Test (Sonarqube) - https://docs.sonarqube.org/latest/setup/get-started-2-minutes/.
 Dynamic Application Security Test (ZAP, Burp Suite).
 OWASP Dependency check plugin.
 Leesbare rapporten.

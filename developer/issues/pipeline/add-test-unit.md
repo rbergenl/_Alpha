@@ -1,6 +1,6 @@
-## Add Test:Unit
+# Add Test:Unit
 
-### App
+## App
 - Run `npm install --save-dev jest jest-expo react-test-renderer npm install @types/react-test-renderer @types/jest`.
 - Update `package.json` with:
 ```javascript
@@ -12,6 +12,7 @@
   "preset": "jest-expo"
 }
 ```
+- Update `package.json` to include this [config](https://github.com/stringparser/expo-jest-typescript/blob/master/package.json).
 - Create a file `App.test.tsx` with contents:
 ```javascript
 import React from 'react';
@@ -30,7 +31,7 @@ describe('<App />', () => {
   - Provide to Jest config `"collectCoverage": true,`.
   - Add to `.gitignore` the line `coverage/`.
 
-### Tips
+## Tips
 - Add these scripts:
 ```javascript
 // active development of tests, watch files for changes and re-runs all tests
@@ -42,12 +43,3 @@ describe('<App />', () => {
 // when a screen/component is updated, the test snapshots will throw an error, this updates them
 "updateSnapshots": "jest -u --coverage=false"
 ```
-
-### Troubleshooting
-> Get Jest config from here: https://github.com/stringparser/expo-jest-typescript/blob/master/package.json
-- Async-Storage > __mock__
-- Moment > jsconfig.json > "esModuleInterop": true,
-- Add `|react-router-native` to jest config transformIgnorePatterns.
-- Add to top of test file `jest.useFakeTimers();` to prevent the error "ReferenceError: You are trying to `import` a file after the Jest environment has been torn down." on `<StoreContext.Provider>`
-- Redux: use `redux-mock-store` https://redux.js.org/recipes/writing-tests#async-action-creators
-- Add `redux-persist` to the transformIgnorePatterns key in `package.json > jest`
