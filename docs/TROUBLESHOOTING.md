@@ -8,6 +8,8 @@
 - The `www.` subdomain gives privacy error. Solution: in your DNS point `www.<domainname>.com` as CNAME to `<username>.github.io`.
 
 ## React Native
+
+- Check the `ios/Podfile` at the `react-native` or `expo` github repository inside `template` folder.
 - Using JS Debugging: when in the app; open the menu > dev settings > server and port > localhost:8081. Then in Chrome go to `chrome://extensions/` to disable all extensions (cause they might give errors). Close the browser. And on the device then enable menu > js debugging
 - when loading firebase while using react-native, you might get the error "undefined self.fetch". This problem is in the fetch module, and can be solved by opening the from the Dev menu on the device the Remote JS debugger
 - Install the latest version of XDE https://github.com/expo/xde/releases. If you don’t update, you will see an error similar to: `Error: Cannot find module 'exponent/tools/hashAssetFiles'...` (actually, it is because of expo should be under 'dependencies' in the package.json)

@@ -28,6 +28,7 @@ RUN tar -xf node-${NODE_VERSION}-linux-x64-musl.tar.xz -C /usr/local --strip-com
 
 # Installing global tools to be able to run before npm install
 RUN npm install --global eslint \
+       eslint-plugin-react \
        npm-audit-resolver \
        prettier
 

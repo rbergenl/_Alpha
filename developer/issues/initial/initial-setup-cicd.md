@@ -11,6 +11,7 @@
 
 ## NPM Scripts
 - Run `npm init --yes`.
+- Run `npm install` to generate a `package-lock.json` file.
 - Add these scripts to the newly generated `package.json` file:
 ```json
 {

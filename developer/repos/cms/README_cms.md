@@ -18,7 +18,7 @@ Strapi open-source Content Management System hosted on Heroku with MongoDB. Imag
 
 > Since the CMS is an internal application there is no need for a test and/or acceptance environment. Changes to the CMS is directly deployed to production.
 
--Access via: `https://<projectname>-cms.herokuapp.com/admin`.
+- URL: https://<projectname>-cms.herokuapp.com/admin
 
 ## Using the Content API
 

@@ -32,6 +32,7 @@ ${addIssue('pipeline', 'add-pre-format.md')}
 ${addIssue('pipeline', 'add-pre-lint.md')}
 ${addIssue('pipeline', 'add-build-compile.md')}
 ${addIssue('pipeline', 'add-test-unit.md')}
+${addIssue('pipeline', 'add-deploy-test.md')}
 `
 }
 

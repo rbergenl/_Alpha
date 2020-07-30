@@ -1,4 +1,5 @@
 # Add .Pre:Lint
+
 - Check [docs](https://reactjs.org/docs/hooks-rules.html#eslint-plugin)
 - App:
     - Run `npm install eslint --save-dev`.
@@ -12,8 +13,9 @@
         - Select *Standard*
         - Select *JSON*
         - Select *Yes* to install dependencies
-    - Move the contents of the generated `.eslintrc.json` file into `package.json` under the key `eslintConfig`.
-    - Add to package `"lint": "eslint --ext .tsx src/",`.
+    - Move the contents of the generated `.eslintrc.json` file into `package.json` under the key `eslintConfig` and remove the generated file again.
+    - Also extend the config with `"settings": { "react": { "version": "detect" } }`.
+    - Add to `package.json` the script `"lint": "eslint --ext .tsx src/",`.
 - Webapp:
     - Run `npm install --save-dev eslint tslint-config-prettier`.
     - Add to `eslint.json`:
@@ -22,7 +24,7 @@
        "extends": ["tslint:recommended", "tslint-config-prettier"]
     }
     ```
-    - Add to package `"lint": "tslint -p tsconfig.json"`.
+    - Add to `package.json` the script `"lint": "tslint -p tsconfig.json"`.
 - Website:
     - Check [docs](https://www.npmjs.com/package/gatsby-plugin-resolve-src).
     - Add to `eslint.config.js`:

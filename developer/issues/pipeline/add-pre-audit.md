@@ -1,4 +1,5 @@
 # Add .Pre:Audit
-- npm-audit-resolver (install global)
-- Run `check-audit`
-- In case of an issue: `resolve-audit`.
+
+- Run `npm install --save-dev npm-audit-resolver`.
+- Add to `package.json` the script `"audit": "check-audit",`.
+- In case of an issue run: `npx resolve-audit`.

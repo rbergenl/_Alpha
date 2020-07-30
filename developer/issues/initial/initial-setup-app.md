@@ -5,8 +5,10 @@
 ## Householding
 - Have Expo CLI installed `npm install --global expo-cli`.
 - Run `expo login`.
+- Run `echo -e "\n# Custom" >> .gitignore`.
 - Add to `app.json` to the key `ios` the line `"bundleIdentifier": "com.<projectname>.app"`.
 - Add to `package.json` the script `"debug": "expo start --no-dev --minify"` (to be able to publish the app from there).
+- Modify in `App.tsx` the line `export default function App() {` into `const App: React.FC = () => {` and end the file with `export default App`.
 - Run `git add . && git commit -m "householding" && git push`.
 - Run `npx @react-native-community/cli doctor` to find missing items from a common App development setup.
 
@@ -15,6 +17,7 @@
 - First install [unimodules](https://docs.expo.io/bare/installing-unimodules/).
 - Run `expo install expo-splash-screen && npx pod install`.
 - TODO..
+- TODO.. also to set the Icon and supportsTablet from Xcode.
 
 ## Enable Expo Bare Workflow
 
@@ -22,6 +25,8 @@
 - Check the [docs](https://docs.expo.io/bare/exploring-bare-workflow/).
 - Have React Native installed `npm install --global react-native-cli`.
 - Run `expo eject`.
+- Modify in `app.json` the line `"entryPoint": "index.js"`.
+- Move `App.tsx` into `./src` and update import in `index.js` approriately.
 - Run `git add . && git commit -m "expo eject" && git push`.
 - Run `npx pod-install`.
 - Run in a seperate terminal `npm start`.
@@ -31,7 +36,6 @@
     - Run `npx pod-install` (or `cd ios && pod install`).
 
 ## Enable absolute imports
-- Move `App.tsx` into `./src` and update import in `index.js` approriately.
 - Add `"baseUrl": "./src"` to the `compilerOptions` in `tsconfig.json` (to enable absolute imports). -> TODO: check, this did not work. (check: https://reactnative.dev/docs/typescript#using-custom-path-aliases-with-typescript)
 
 ## Run in Expo Client
