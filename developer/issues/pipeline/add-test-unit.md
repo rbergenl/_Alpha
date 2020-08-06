@@ -31,18 +31,9 @@
   })
   ```
 
-## Tips
-- Add these scripts:
-```javascript
-// active development of tests, watch files for changes and re-runs all tests
-"test": "jest --watch --coverage=false --changedSince=origin/master",
-// debug, console.logs and only re-runs the file that was changed
-"testDebug": "jest -o --watch --coverage=false",
-// displays code coverage in cli and updates the code coverage html
-"testFinal": "jest",
-// when a screen/component is updated, the test snapshots will throw an error, this updates them
-"updateSnapshots": "jest -u --coverage=false"
-```
+## Tips on Snapshots
+
+- Whenever you make a UI change run `npx jest --watch` to interactively review and update snapshot(s). The snapshot exists to capture unintented UI changes and should be code reviewed during a Pull Request.
 
 ## Add Reports
 
@@ -64,3 +55,10 @@
   - Run `echo coverage/ >> .gitignore`.
   - Run `echo junit.xml >> .gitignore`.
   - In *Gitlab > <Groupname> > <Reponame> > Settings > CI / CD > General Pipelines* add the regex `All files[^|]*\|[^|]*\s+([\d\.]+)` to the setting *Test coverage parsing*.
+  - Coverage report can be viewed at:
+    - *Pipeline > Job "test_unit" > Details column*.
+    - *Merge request - Overview page > Pipeline section*.
+    - http://<groupname>.gitlab.io/<reponame>/lcov-report
+      - By default configured to deploy *Master* only.
+      - Also check *Settings > Pages*.
+      - Add the url to bookmarks with name `Gitlab - <Reponame> - Master - Coverage`.

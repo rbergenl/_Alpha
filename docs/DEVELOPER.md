@@ -67,7 +67,7 @@
       IdentityFile ~/.ssh/<private_ssh_key>
   ```
 - Copy the public key in Gitlab > Settings > SSH Keys with `cat ~/.ssh/<projectname>_gitlab.pub | pbcopy`.
-- Copy the private key in Gitlab > Group > Settings > CICD > Variables with name `SSH_GITLAB_KEY` and value `cat ~/.ssh/<projectname>_gitlab | pbcopy`. This is so it can be used in the `.gitlab-ci.yml` file to fetch the UI and Base git repos.
+- Copy the private key in Gitlab > Group > Settings > CICD > Variables with name `SSH_GITLAB_KEY` and value `cat ~/.ssh/<projectname>_gitlab | base64 | pbcopy`. This is so it can be used in the `.gitlab-ci.yml` file to fetch the UI and Base git repos. Base64 encoding is used so that the *secret* variable can be masked.
 - Create a file `nano .gitconfig` in the project folder:
   ```bash
   [user]

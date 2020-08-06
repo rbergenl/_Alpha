@@ -32,6 +32,7 @@ All passwords for created accounts should be securely stored. An added benefit o
 For running and growing a startup you need different kind of tools for Business, Marketing, UX and Development. First open the user loggedin Chrome Browser and go to Bookmarks Manager > Import Bookmarks to import the `bookmarks.html` file. Then go to the following links to signup:
 - Developer:
     - Login with Google Account at [Gitlab](https://about.gitlab.com/).
+        - Optionally disable receiving emails at *Settings > Notifications*.
     - Login with Google Account at [Sentry](https://sentry.io/welcome/).
     - Signup with the project email at [Optimizely](https://www.optimizely.com/).
         - Click `create account` and enter the project email and country.

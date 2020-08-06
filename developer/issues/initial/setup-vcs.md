@@ -8,5 +8,5 @@
 - Go to the repository in Gitlab and Settings > Repository:
     - Default Branch set to *Develop*. Make sure *Auto-close referenced issues on default branch* is selected.
     - Protected Branches make *Develop* protected with allowing merge and push (only maintainers).
-    - Protected Branches make *Master* no one allowed to push (allowed to merge keep only maintainers).
+    - Protected Branches make *Master* protected with allowing merge and push (only maintainers).
 - When merging from a feature branch to develop use in the Pull request description the text `Closes #1`. When it fixes an issue from Sentry also use `Fixes ADMIN-1`.

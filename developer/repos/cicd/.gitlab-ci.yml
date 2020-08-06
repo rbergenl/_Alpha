@@ -4,6 +4,7 @@ stages:
     - .pre
     - build
     - test
+    - release
     - deploy
 
 image: registry.gitlab.com/<groupname>/cicd
@@ -14,13 +15,12 @@ cache:
     paths:
         - node_modules/
 
-before_script:
-    - eval $(ssh-agent -s)
-    - echo "$SSH_GITLAB_KEY" | tr -d '\r' | ssh-add -
-
 pre_install:
     stage: .pre
     script: npm ci
+    before_script:
+        - eval $(ssh-agent -s)
+        - echo "$SSH_GITLAB_KEY" | tr -d '\r' | ssh-add -    
 
 pre_audit:
     stage: .pre
@@ -41,15 +41,34 @@ build_compile:
 test_unit:
     stage: test
     script: npm test
+    artifacts:
+        paths:
+            - coverage/
+        reports:
+            junit: junit.xml
+            cobertura: coverage/cobertura-coverage.xml
+
+release_version:
+    stage: release
+    script: npm version prerelease --preid=$(git rev-parse --abbrev-ref HEAD)
 
 deploy_test:
     stage: deploy
-    only:
-        - develop
+    only: develop
     script: npm run deploy:test
+    before_script:
+        - if [ $CI_PROJECT_NAME == "app" ] ; then expo login --non-interactive -u $EXPO_CLI_USERNAME ; fi
 
 deploy_prod:
     stage: deploy
-    only:
-        - master
+    only: master
     script: npm run deploy:prod
+
+pages:
+    stage: deploy
+    only: master
+    script:
+        - mv coverage/ public/
+    artifacts:
+        paths:
+            - public
