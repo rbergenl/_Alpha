@@ -1,4 +1,4 @@
-# Initial Setup CICD
+# Setup Initial CICD
 
 > Make sure you have *Docker* installed.
 

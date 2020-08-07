@@ -14,24 +14,26 @@ const addIssue = (folder, filename) => {
 const cicd = () => {
     return `title, description
 ${addIssue('initial', 'create-new-repo.md')}
-${addIssue('initial', 'setup-vcs.md')}
+${addIssue('initial', 'enable-vcs.md')}
 ${addIssue('initial', 'add-basic-docs.md')}
-${addIssue('initial', 'initial-setup-cicd.md')}
+${addIssue('initial', 'setup-initial-cicd.md')}
 `
 }
 
 const app = () => {
     return `title, description
 ${addIssue('initial', 'create-new-repo.md')}
-${addIssue('initial', 'setup-vcs.md')}
+${addIssue('initial', 'enable-vcs.md')}
 ${addIssue('initial', 'add-basic-docs.md')}
-${addIssue('initial', 'initial-setup-app.md')}
+${addIssue('initial', 'setup-initial-app.md')}
 ${addIssue('pipeline', 'enable-pipeline.md')}
 ${addIssue('pipeline', 'add-pre-audit.md')}
 ${addIssue('pipeline', 'add-pre-format.md')}
 ${addIssue('pipeline', 'add-pre-lint.md')}
 ${addIssue('pipeline', 'add-build-compile.md')}
 ${addIssue('pipeline', 'add-test-unit.md')}
+${addIssue('pipeline', 'add-release-branches.md')}
+${addIssue('pipeline', 'add-release-master.md')}
 ${addIssue('pipeline', 'add-deploy-test.md')}
 `
 }
@@ -39,16 +41,17 @@ ${addIssue('pipeline', 'add-deploy-test.md')}
 const base = () => {
     return `title, description
 ${addIssue('frontend', 'add-ab-testing.md')}
-${addIssue('initial', 'initial-setup-cms.md')}
+${addIssue('initial', 'setup-initial-cms.md')}
 `
 }
 
 const cms = () => {
     return `title, description
 ${addIssue('initial', 'create-new-repo.md')}
-${addIssue('initial', 'setup-vcs.md')}
+${addIssue('initial', 'enable-vcs.md')}
 ${addIssue('initial', 'add-basic-docs.md')}
-${addIssue('initial', 'initial-setup-cms.md')}
+${addIssue('initial', 'setup-initial-cms.md')}
+${addIssue('environments', 'setup-test-cms.md')}
 `
 }
 
@@ -68,10 +71,10 @@ ${addIssue('frontend', 'add-store.md')}
 ${addIssue('frontend', 'add-i18n.md')}
 ${addIssue('frontend', 'add-navigator.md')}
 ${addIssue('frontend', 'add-theme.md')}
-${addIssue('initial', 'initial-setup-admin.md')}
+${addIssue('initial', 'setup-initial-admin.md')}
 ${addIssue('initial', 'lighthouse-to-100.md')}
 ${addIssue('initial', 'add-basic-docs.md')}
-${addIssue('initial', 'setup-vcs.md')}
+${addIssue('initial', 'enable-vcs.md')}
 ${addIssue('initial', 'create-new-repo.md')}
 `
 }

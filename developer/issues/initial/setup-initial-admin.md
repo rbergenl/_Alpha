@@ -1,4 +1,4 @@
-# Initial Setup Admin
+# Setup Initial Admin
 
 ## Add Amplify
 - Run `npm install aws-amplify`.

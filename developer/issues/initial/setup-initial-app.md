@@ -1,4 +1,4 @@
-# Initial Setup App
+# Setup Initial App
 
 > Make sure you have an *Expo* account.
 

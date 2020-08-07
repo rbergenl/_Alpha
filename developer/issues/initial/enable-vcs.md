@@ -1,4 +1,4 @@
-# Setup Version Control System and Git Flow
+# Enable Version Control System and Git Flow
 
 - Make sure the repository is created in Gitlab.
 - In the local repository folder:

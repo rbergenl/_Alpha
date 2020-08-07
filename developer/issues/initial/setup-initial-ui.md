@@ -1,4 +1,4 @@
-# Initial setup UI
+# Setup Initial UI
 
 ## Do Householding
 

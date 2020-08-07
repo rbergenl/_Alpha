@@ -1,4 +1,4 @@
-# Initial Setup Website
+# Setup Initial Website
 
 ## Do Householding
 - Have Gatsby installed `npm install --global gatsby-cli`.

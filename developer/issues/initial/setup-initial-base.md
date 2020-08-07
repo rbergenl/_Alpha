@@ -1,4 +1,4 @@
-# Initial Setup Base
+# Setup Initial Base
 
 ## Do Householding
 

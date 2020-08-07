@@ -1,4 +1,4 @@
-# Initial Setup Webapp
+# Setup Initial Webapp
 
 ## Do Householding
 - Add `"baseUrl": "./src"` to the `compilerOptions` in `tsconfig.json` (to enable absolute imports).

@@ -1,4 +1,4 @@
-# Initial Setup CMS
+# Setup Initial CMS
 
 > First follow the *Getting Started* steps in the repos `README.md`.
 

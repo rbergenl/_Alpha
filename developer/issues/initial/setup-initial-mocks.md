@@ -1,4 +1,4 @@
-# Initial Setup Mocks
+# Setup Initial Mocks
 
 > First setup the *Base* repo so that a *GraphQL Schema* is available.
 
