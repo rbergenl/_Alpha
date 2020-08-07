@@ -43,11 +43,11 @@
 
 # Add Documentation
 
-- Create a file `CONTRIBUTING.md` with the text:
+- Create/update file `CONTRIBUTING.md` with the text:
 ```markdown
-# Release
+## Releasing
 
 - The last commit before merging a feature branch to develop should be conform [commitizen](https://github.com/commitizen/cz-cli) convention.
-- To commit without convention, just commit as you normally would `git commit -m "message"` and exit `CTRL+C` the interactive pre-commit-hook.
+- Run `git commit -m "message"` and exit `CTRL+C` the interactive pre-commit-hook to commit without convention.
 - A release happens after a commit on master. Based on the conventional commits in git log, the tool [semantic-release](https://github.com/semantic-release/semantic-release) creates a `git tag`, create a release, bumps the `package.json` version accordingly and generates a `CHANGELOG.md`.
 ```

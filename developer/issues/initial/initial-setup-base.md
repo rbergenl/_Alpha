@@ -1,6 +1,8 @@
 # Initial Setup Base
 
 ## Do Householding
+
+- Have AWS CDK installed `npm install --global aws-cdk`.
 - Run `echo "cdk.context.json" >> .gitignore` (so that the SSM secrets do not end up in the codebase).
 - Add to `tsconfig.json` the line `"compilerOptions": { "resolveJsonModule": true,` (to be able to import package.json).
 - Add to `bin/<projectname>-base.ts` the line `const env: cdk.Environment = { account: '<ACCOUNT_ID>', region: '<REGION>' };` and add a third parameter to the stack `{ env }`.

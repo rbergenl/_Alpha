@@ -5,7 +5,8 @@
 - Install Homebrew
   - Run `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`.
 - Install via Homebrew
-  - Git: `brew install git`.
+  - Git: `brew install git bash-completion`.
+    - Run `nano ~/.bash_profile` and add `[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"`.
   - [SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html) - to invoka a lambda locally.
     - Run `brew tap aws/tap && brew install aws-sam-cli`.
   - Heroku: `brew install heroku/brew/heroku`
@@ -46,12 +47,6 @@
 
 - In the project folder run `nvm install node && nvm alias default node && echo $(node -v) > .nvmrc`.
 - When working on a repository in this project, always first run `nvm use`.
-- Instal global NodeJS packages:
-  - `npm install --global expo-cli`.
-  - `npm install --global react-native-cli`.
-  - `npm install --global aws-cdk`.
-  - `npm install --global gatsby-cli`.
-  - `npm install --global apollo`.
 
 ## Setup access to new Git Repository
 
@@ -79,24 +74,20 @@
   [includeIf "gitdir:~/<PATH_TO_PROJECT>/"]
   path = ~/<PATH_TO_PROJECT>/.gitconfig
   ```
-
-## Setup access to new Docker Registry
-
-- In Gitlab > Settings > Access Token, create a new with the name `Docker` and the scope `api`. Save the token in a file `nano ~/.docker/<projectname>_gitlab`.
-- Run `docker login registry.gitlab.com --username <username> --password-stdin < ~/.docker/<projectname>_gitlab`.
+- Run `git init && git config user.name && rm -r .git` to validate correct setup.
 
 ## Setup access to Heroku
 
 - Run `heroku login` and login via the browser.
 - Run `heroku authorizations:create --description=gitlab`.
-- Copy/paste the token to Gitlab > Group > Settings > CICD > Variables and add the variable `HEROKU_TOKEN` and set the flag _Masked_.
+- Copy/paste the token to *Gitlab > Group > Settings > CICD > Variables* and add the variable `HEROKU_TOKEN` and set the flag _Masked_.
 
 ## Setup integration between Sentry and Gitlab
 
 - In Sentry create a project and follow the installation instructions.
-- In Settings > Account > Notifications set _Weekly reports_ to _off_.
+- In *Settings > Account > Notifications* set _Weekly reports_ to _off_.
 - Setup integration between Sentry and Gitlab. Make sure previously created Gitlab project is in a Group.
-  - In Sentry go to Settings > Integrations > Gitlab > New Installation.
+  - In Sentry go to *Settings > Integrations > Gitlab > New Installation*.
   - Follow the instructions.
 - To mark an issue as resolved use in the commit message `Fixes ADMIN-1`.
 

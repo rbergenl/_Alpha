@@ -1,6 +1,7 @@
 # Initial Setup Website
 
 ## Do Householding
+- Have Gatsby installed `npm install --global gatsby-cli`.
 - Correct config:
     - In `gatsby-config.js` set correct info for `siteMetadata`.
     - In `gatsby-config.js` set correct info for `gatsby-plugin-manifest`.

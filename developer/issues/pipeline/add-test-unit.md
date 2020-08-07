@@ -31,10 +31,6 @@
   })
   ```
 
-## Tips on Snapshots
-
-- Whenever you make a UI change run `npx jest --watch` to interactively review and update snapshot(s). The snapshot exists to capture unintented UI changes and should be code reviewed during a Pull Request.
-
 ## Add Reports
 
 - App:
@@ -62,3 +58,17 @@
       - By default configured to deploy *Master* only.
       - Also check *Settings > Pages*.
       - Add the url to bookmarks with name `Gitlab - <Reponame> - Master - Coverage`.
+
+# Add Documentation
+
+- Create/update file `CONTRIBUTING.md` with the text:
+```markdown
+# Testing
+
+- Run `npx jest --watch <optionally_first_part_of_filename>` to work on specific tests in a Test Driven Development approach.
+- Inside a testfile, mark a test with `it.only()` to skip all other tests in the suite.
+- Use the watch mode to review and update snapshot(s). The snapshot exists to capture unintented UI changes and should be commit and code reviewed during a Pull Request.
+```
+
+
+- Add to unit-test docs: `npm run test:watch — <filename>`. And `it.only`.

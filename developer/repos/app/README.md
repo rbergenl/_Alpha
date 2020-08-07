@@ -8,6 +8,7 @@ React Native app based on Expo.
 
 ## Getting Started
 
+- Run `nvm use`.
 - Run `npm install`.
 - Run `npm start`.
 - In another terminal run `npm run ios`.

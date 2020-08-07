@@ -39,4 +39,4 @@ Read and Write to State:
 - To enable debugger add to the `createStore()` function as second parameter `(window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()` (ignore the eslint error).
 
 ## Enable Persistence
-- Use `redux-persist` as promoted by Redux [here](https://redux.js.org/introduction/ecosystem#persistence).
+- Use `redux-persist` as promoted by Redux [here](https://redux.js.org/introduction/ecosystem#persistence). >> TODO: or better `redux-offline` since redux-persist are difficult to use in unit tests.

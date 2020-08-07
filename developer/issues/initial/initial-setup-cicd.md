@@ -2,12 +2,17 @@
 
 > Make sure you have *Docker* installed.
 
-## Docker Image
+## Setup access to Docker Registry
+
+- In *Gitlab > Settings > Access Token* create a new token with name `Docker` and scope `api`. Save the token in a file `nano ~/.docker/<projectname>_gitlab`.
 - Run `docker login registry.gitlab.com --username <username> --password-stdin < ~/.docker/<projectname>_gitlab`.
+
+## Docker Image
 - From *Project Alpha* copy/paste the file `Dockerfile`.
-- Make sure in the `Dockerfile` to modify the `docker` commands in the top comments.
+- Make sure in the `Dockerfile` to modify the account details in the `docker` commands in the top comments.
 - Run the `docker build` command as described in the `Dockerfile`.
-- Run the `docker push` command as described in the `Dockerfile`.
+- Run the `docker push` command.
+- Run the `docker image` command to cleanup your local system.
 
 ## NPM Scripts
 - Run `npm init --yes`.
@@ -20,6 +25,7 @@
     "format": "echo \"not yet implemented\"",
     "build": "echo \"not yet implemented\"",
     "test": "echo \"not yet implemented\"",
+    "release": "echo \"not yet implemented\"",
     "deploy:test": "echo \"not yet implemented\"",
     "deploy:prod": "echo \"not yet implemented\""
 }
@@ -27,5 +33,5 @@
 
 ## Gitlab-CI File
 - From *Project Alpha* copy/paste the file `.gitlab-ci.yml`.
-- In that file modify the key `image`.
-- Run `git add . && git commit -m "add docker file, package file and gitlab file" && git push`
+- Run `git add . && git commit -m "add docker file, package file and gitlab file, closes #4" && git push`.
+- View the pipeline success in *Gitlab > Group > Repo > CI / CD > Pipelines*.

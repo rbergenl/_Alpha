@@ -3,20 +3,19 @@ TODO: add this diagram to default `docs` in each project.
 
 | Stage:Job         | Tool          | Push | Create PR | Merge | Create RC | Release |
 |:- |:- |:- |:- |:- |:- |:- |
-| .Pre:Install      | Npm           | :heavy_check_mark: | | | | |
-| .Pre:Audit        | Audit Resolver| :heavy_check_mark: | | | | |
-| .Pre:Format       | Prettier      | :heavy_check_mark: | | | | |
-| .Pre:Lint         | Eslint        | :heavy_check_mark: | | | | |
+X | .Pre:Install      | Npm           | :heavy_check_mark: | | | | |
+X | .Pre:Audit        | Audit Resolver| :heavy_check_mark: | | | | |
+X | .Pre:Format       | Prettier      | :heavy_check_mark: | | | | |
+X | .Pre:Lint         | Eslint        | :heavy_check_mark: | | | | |
 | Build:Compile     | React Scripts | :heavy_check_mark: | | | | |
 | Test:Functional   | Cypress       | | :heavy_check_mark: | | | |
 | Test:Integration  | ?             | :heavy_check_mark: | | | | |
 | Test:Security     | ?             | :heavy_check_mark: | | | | |
-| Test:Unit         | Jest          | :heavy_check_mark: | | | | |
-| Release:Changelog | ?             | | | | :heavy_check_mark: | |
-| Release:Tag       | Git           | | | | :heavy_check_mark: | |
-| Release:Version   | Npm           | | | | :heavy_check_mark: | |
+X | Test:Unit         | Jest          | :heavy_check_mark: | | | | |
+X| Release:Branches | ?             | | | | :heavy_check_mark: | |
+X | Release:Master       | Git           | | | | :heavy_check_mark: | |
 | Deploy:Prod       | ?             | | | | | :heavy_check_mark: |
-| Deploy:Test       | ?             | | | :heavy_check_mark: | | |
+X | Deploy:Test       | ?             | | | :heavy_check_mark: | | |
 | Publish:iOS       | ?             | | | | | |
 | Publish:Android   | ?             | | | | | |
 | .Post:Performance | ?             | | :heavy_check_mark: | | | |

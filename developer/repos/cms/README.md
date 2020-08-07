@@ -4,10 +4,13 @@ Strapi open-source Content Management System hosted on Heroku with MongoDB. Imag
 
 ## Getting Started
 
+## Getting Started
+
+- Run `nvm use`.
 - Run `npm install`.
-- For development, run `npm run develop`.
-- For production, run `npm run build && npm start`.
-- The browser should open to `http://localhost:1337/admin`.
+- Run `npm run develop` for development.
+- Run `npm run build && npm start` for production.
+    - The browser should open to `http://localhost:1337/admin`.
 
 ## Local Environment
 
