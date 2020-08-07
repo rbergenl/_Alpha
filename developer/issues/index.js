@@ -11,12 +11,32 @@ const addIssue = (folder, filename) => {
     } catch(error) { console.log(error) }
 }
 
-const cicd = () => {
+const admin = () => {
     return `title, description
 ${addIssue('initial', 'create-new-repo.md')}
 ${addIssue('initial', 'enable-vcs.md')}
 ${addIssue('initial', 'add-basic-docs.md')}
-${addIssue('initial', 'setup-initial-cicd.md')}
+${addIssue('initial', 'setup-initial-admin.md')}
+${addIssue('initial', 'lighthouse-to-100.md')}
+${addIssue('pipeline', 'enable-pipeline.md')}
+${addIssue('pipeline', 'add-pre-audit.md')}
+${addIssue('pipeline', 'add-pre-format.md')}
+${addIssue('pipeline', 'add-pre-lint.md')}
+${addIssue('pipeline', 'add-build-compile.md')}
+${addIssue('pipeline', 'add-test-unit.md')}
+${addIssue('pipeline', 'add-release-branches.md')}
+${addIssue('pipeline', 'add-release-master.md')}
+${addIssue('pipeline', 'add-deploy-test.md')}
+${addIssue('frontend', 'add-theme.md')}
+${addIssue('frontend', 'add-navigator.md')}
+${addIssue('frontend', 'add-i18n.md')}
+${addIssue('frontend', 'add-store.md')}
+${addIssue('frontend', 'add-auth.md')}
+${addIssue('frontend', 'add-api.md')}
+${addIssue('frontend', 'add-storage.md')}
+${addIssue('frontend', 'add-analytics.md')}
+${addIssue('frontend', 'add-error-reporting.md')}
+${addIssue('frontend', 'add-ab-testing.md')}
 `
 }
 
@@ -35,13 +55,34 @@ ${addIssue('pipeline', 'add-test-unit.md')}
 ${addIssue('pipeline', 'add-release-branches.md')}
 ${addIssue('pipeline', 'add-release-master.md')}
 ${addIssue('pipeline', 'add-deploy-test.md')}
+${addIssue('frontend', 'add-theme.md')}
+${addIssue('frontend', 'add-navigator.md')}
+${addIssue('frontend', 'add-i18n.md')}
+${addIssue('frontend', 'add-store.md')}
+${addIssue('frontend', 'add-auth.md')}
+${addIssue('frontend', 'add-api.md')}
+${addIssue('frontend', 'add-storage.md')}
+${addIssue('frontend', 'add-analytics.md')}
+${addIssue('frontend', 'add-error-reporting.md')}
+${addIssue('frontend', 'add-ab-testing.md')}
 `
 }
 
 const base = () => {
     return `title, description
-${addIssue('frontend', 'add-ab-testing.md')}
-${addIssue('initial', 'setup-initial-cms.md')}
+${addIssue('initial', 'create-new-repo.md')}
+${addIssue('initial', 'enable-vcs.md')}
+${addIssue('initial', 'add-basic-docs.md')}
+${addIssue('initial', 'setup-initial-base.md')}
+`
+}
+
+const cicd = () => {
+    return `title, description
+${addIssue('initial', 'create-new-repo.md')}
+${addIssue('initial', 'enable-vcs.md')}
+${addIssue('initial', 'add-basic-docs.md')}
+${addIssue('initial', 'setup-initial-cicd.md')}
 `
 }
 
@@ -55,32 +96,84 @@ ${addIssue('environments', 'setup-test-cms.md')}
 `
 }
 
+const mocks = () => {
+    return `title, description
+${addIssue('initial', 'create-new-repo.md')}
+${addIssue('initial', 'enable-vcs.md')}
+${addIssue('initial', 'add-basic-docs.md')}
+${addIssue('initial', 'setup-initial-mocks.md')}
+`
+}
+
 const ui = () => {
     return `title, description
+${addIssue('initial', 'create-new-repo.md')}
+${addIssue('initial', 'enable-vcs.md')}
+${addIssue('initial', 'add-basic-docs.md')}
+${addIssue('initial', 'setup-initial-ui.md')}
+`
+}
+
+const webapp = () => {
+    return `title, description
+${addIssue('initial', 'create-new-repo.md')}
+${addIssue('initial', 'enable-vcs.md')}
+${addIssue('initial', 'add-basic-docs.md')}
+${addIssue('initial', 'setup-initial-webapp.md')}
+${addIssue('initial', 'lighthouse-to-100.md')}
+${addIssue('pipeline', 'enable-pipeline.md')}
+${addIssue('pipeline', 'add-pre-audit.md')}
+${addIssue('pipeline', 'add-pre-format.md')}
+${addIssue('pipeline', 'add-pre-lint.md')}
+${addIssue('pipeline', 'add-build-compile.md')}
+${addIssue('pipeline', 'add-test-unit.md')}
+${addIssue('pipeline', 'add-release-branches.md')}
+${addIssue('pipeline', 'add-release-master.md')}
+${addIssue('pipeline', 'add-deploy-test.md')}
+${addIssue('frontend', 'add-theme.md')}
+${addIssue('frontend', 'add-navigator.md')}
+${addIssue('frontend', 'add-i18n.md')}
+${addIssue('frontend', 'add-store.md')}
+${addIssue('frontend', 'add-auth.md')}
+${addIssue('frontend', 'add-api.md')}
+${addIssue('frontend', 'add-storage.md')}
+${addIssue('frontend', 'add-analytics.md')}
+${addIssue('frontend', 'add-error-reporting.md')}
 ${addIssue('frontend', 'add-ab-testing.md')}
 `
 }
 
-const admin = () => {
+const website = () => {
     return `title, description
-${addIssue('frontend', 'add-analytics.md')}
-${addIssue('frontend', 'add-storage.md')}
-${addIssue('frontend', 'add-api.md')}
-${addIssue('frontend', 'add-auth.md')}
-${addIssue('frontend', 'add-store.md')}
-${addIssue('frontend', 'add-i18n.md')}
-${addIssue('frontend', 'add-navigator.md')}
-${addIssue('frontend', 'add-theme.md')}
-${addIssue('initial', 'setup-initial-admin.md')}
-${addIssue('initial', 'lighthouse-to-100.md')}
-${addIssue('initial', 'add-basic-docs.md')}
-${addIssue('initial', 'enable-vcs.md')}
 ${addIssue('initial', 'create-new-repo.md')}
+${addIssue('initial', 'enable-vcs.md')}
+${addIssue('initial', 'add-basic-docs.md')}
+${addIssue('initial', 'setup-initial-website.md')}
+${addIssue('initial', 'lighthouse-to-100.md')}
+${addIssue('pipeline', 'enable-pipeline.md')}
+${addIssue('pipeline', 'add-pre-audit.md')}
+${addIssue('pipeline', 'add-pre-format.md')}
+${addIssue('pipeline', 'add-pre-lint.md')}
+${addIssue('pipeline', 'add-build-compile.md')}
+${addIssue('pipeline', 'add-test-unit.md')}
+${addIssue('pipeline', 'add-release-branches.md')}
+${addIssue('pipeline', 'add-release-master.md')}
+${addIssue('pipeline', 'add-deploy-test.md')}
+${addIssue('frontend', 'add-theme.md')}
+${addIssue('frontend', 'add-navigator.md')}
+${addIssue('frontend', 'add-i18n.md')}
+${addIssue('frontend', 'add-store.md')}
+${addIssue('frontend', 'add-auth.md')}
+${addIssue('frontend', 'add-api.md')}
+${addIssue('frontend', 'add-storage.md')}
+${addIssue('frontend', 'add-analytics.md')}
+${addIssue('frontend', 'add-error-reporting.md')}
+${addIssue('frontend', 'add-ab-testing.md')}
 `
 }
 
 const repo =  process.argv[2];
-const repos = ['cicd', 'app', 'base', 'cms', 'ui', 'admin'];
+const repos = ['admin', 'app', 'base', 'cicd', 'cms', 'mocks', 'ui', 'webapp', 'website'];
 if (!repo) {
     throw new Error('please specify for which repo you want to create issues: $ node issues base');
 }
