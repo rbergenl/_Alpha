@@ -3,7 +3,7 @@ import express from 'express';
 import { sign, SignOptions } from 'jsonwebtoken';
 
 import { privateKey } from '../index';
-import { users, USERS } from '../stubs/users';
+import { users, USERS } from '../..data/users';
 
 export const oAuthRouter = express.Router();
 export const logoutRouter = express.Router();

@@ -1,3 +1,4 @@
+import { User } from '../types/user';
 
 export enum USERS {
   admin1 = 'admin1',
@@ -33,10 +34,3 @@ const user2: User = {
 };
 
 export const users = [admin, user1, user2];
-
-interface User {
-    'cognito:groups': string[];
-    'token_use': string;
-    'cognito:username': string;
-    'email': string;
-}

@@ -12,6 +12,36 @@
 - Copy/paste from *Alpha Project* the folders `constructs`, `graphql` and `lambda`.
 - Run `git add . && git commit -m "perform initial householding" && git push`.
 
+## Enable Mocking
+
+> The HTTPS connection is required for the Auth *Json Web Token (JWT)* to work.
+
+- Copy/paste from *Alpha Projects* the folder `mocks`.
+- Add to `tsconfig.json` the compiler options `"esModuleInterop": true`
+- Run `npm install --save-dev body-parser cors express @types/{cors,express} ts-node-dev`.
+- Add to `package.json` the script `"mocks": "ts-node-dev mocks/src"`.
+- Run in the folder `mocks`:
+```bash
+openssl req \
+    -newkey rsa:2048 \
+    -x509 \
+    -nodes \
+    -keyout selfsigned.key \
+    -new \
+    -out selfsigned.crt \
+    -subj /CN=mock.<projectname>.com \
+    -reqexts SAN \
+    -extensions SAN \
+    -config <(cat /System/Library/OpenSSL/openssl.cnf \
+        <(printf '[SAN]\nsubjectAltName=DNS:localhost')) \
+    -sha256 \
+    -days 3650
+```
+- Open KeychainOS > Certificates > `File` > `Import Items...`.
+- Import the just created `crt` file.
+- Open it and at the section *Trust* set it to *Always Trust*.
+- Run `npm run mocks` and open the browser at `https://localhost:8443`.
+
 ## Add Backend
 
 > When using Api and/or Storage, always add Auth first.

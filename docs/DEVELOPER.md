@@ -9,6 +9,7 @@
     - Run `nano ~/.bash_profile` and add `[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"`.
   - [SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html) - to invoka a lambda locally.
     - Run `brew tap aws/tap && brew install aws-sam-cli`.
+  - Proxy: `brew install mitmproxy`.
   - Heroku: `brew install heroku/brew/heroku`
   - React-Native-Debugger: `brew cask install react-native-debugger`
   - Java: `` ?? **TODO:**
