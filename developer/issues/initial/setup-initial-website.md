@@ -1,6 +1,8 @@
 # Setup Initial Website
 
 ## Do Householding
+
+- Modify in package.json `"name"` to reflect the actual name.
 - Have Gatsby installed `npm install --global gatsby-cli`.
 - Correct config:
     - In `gatsby-config.js` set correct info for `siteMetadata`.

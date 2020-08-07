@@ -3,6 +3,8 @@
 > First setup the *Base* repo so that a *GraphQL Schema* is available.
 
 # Do Householding
+
+- Modify the name in `package.json` to reflect the scope `@projectname/mocks`.
 - Run `npm install --save-dev nodemon typescript npm-run-all`.
 - Run `npx tsc --init`.
 - Add to `package.json`:

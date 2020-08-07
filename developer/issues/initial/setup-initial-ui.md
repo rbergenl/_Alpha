@@ -2,6 +2,20 @@
 
 ## Do Householding
 
+- First modify the name in `package.json` to reflect the scope.
+- App:
+    - `expo init app --template expo-template-blank-typescript`.
+    - `cd app && rm -r .git`.
+    - `npm install native-base`.
+- Web:
+    - `npx create-react-library` and give the answers: `web ui-web <projectname> <projectname>/web MIT npm typescript`.
+- TODO: ?? This one, or the one above? Web:
+    - `npx create-react-app web --template typescript`.
+    - `cd web && rm -r .git`.
+    - `npm install react-bootstrap bootstrap`.
+- Theme: 
+    - `mkdir theme && cd theme && npm init --yes && echo "node_modules" >> .gitignore`.
+
 ## Setup Theme
 - In the folder `theme`:
     - Run `mkdir src && cd src && touch web-fonts.css && mkdir icons`.
