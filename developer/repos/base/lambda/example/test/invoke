@@ -3,7 +3,7 @@
 FILE=$([[ -z $@ ]] && echo default.json || echo $@)
 EVENT=$(cat $(dirname "$0")/events/$FILE) npx ts-node --dir $(dirname "$0") << EOF
     const lambda = require('../index')
-    const resp = (response: any): boolean => process.stdout.write(response + '\n');
-    const err = (error: any): boolean => process.stderr.write(error + '\n');
+    const resp = (response: any): void => console.log(response);
+    const err = (error: any): void => console.error(error);
     lambda.handler(JSON.parse(process.env.EVENT || '')).then(resp, err);
 EOF

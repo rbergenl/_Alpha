@@ -1,8 +1,8 @@
 
-export type Resolver = (ctx: ApiResolverPayload) => Promise<LambdaResult>;
+export type Resolver = (ctx: LambdaPayloadApiResolver) => Promise<LambdaResult>;
 export type TypeHandler = Record<string, Resolver | undefined>;
 
-export interface ApiResolverPayload {
+export interface LambdaPayloadApiResolver {
     typeName: string; /* Filled dynamically based on @function usage location */
     fieldName: string; /* Filled dynamically based on @function usage location */
     arguments?: Record<string, {}>; /* GraphQL field arguments via $ctx.arguments */
@@ -12,7 +12,11 @@ export interface ApiResolverPayload {
     prev?: Record<string, {}>; /* If using the built-in pipeline resolver support, this contains the object returned by the previous function. */
 }
 
-export enum LambdaResult {
-    SUCCES = 'success',
-    ERROR = 'error',
+export interface LambdaResult {
+    status: LambdaResultStatus;
+}
+
+export enum LambdaResultStatus {
+    SUCCESS = 'success',
+    FAILURE = 'failure',
 }

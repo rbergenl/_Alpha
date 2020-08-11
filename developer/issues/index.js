@@ -105,15 +105,6 @@ ${addIssue('environments', 'setup-test-cms.md')}
 `
 }
 
-const mocks = () => {
-    return `title, description
-${addIssue('initial', 'create-new-repo.md')}
-${addIssue('initial', 'enable-vcs.md')}
-${addIssue('initial', 'add-basic-docs.md')}
-${addIssue('initial', 'setup-initial-mocks.md')}
-`
-}
-
 const ui = () => {
     return `title, description
 ${addIssue('initial', 'create-new-repo.md')}
@@ -182,7 +173,7 @@ ${addIssue('frontend', 'add-ab-testing.md')}
 }
 
 const repo =  process.argv[2];
-const repos = ['admin', 'app', 'base', 'cicd', 'cms', 'mocks', 'ui', 'webapp', 'website'];
+const repos = ['admin', 'app', 'base', 'cicd', 'cms', 'ui', 'webapp', 'website'];
 if (!repo) {
     throw new Error('please specify for which repo you want to create issues: $ node issues base');
 }

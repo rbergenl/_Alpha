@@ -1,6 +1,6 @@
-import { ApiResolverPayload, LambdaResult, TypeHandler } from '../types';
+import { LambdaPayloadApiResolver, LambdaResult, TypeHandler, LambdaResultStatus } from '../../types/lambda';
 
-export const handler = async (payload: ApiResolverPayload): Promise<LambdaResult> => {
+export const handler = async (payload: LambdaPayloadApiResolver): Promise<LambdaResult> => {
     const typeHandler = resolvers[payload.typeName];
     if (typeHandler) {
         const resolver = typeHandler[payload.fieldName];
@@ -14,7 +14,7 @@ export const handler = async (payload: ApiResolverPayload): Promise<LambdaResult
 const resolvers: Record<string, TypeHandler | undefined> = {
     Mutation: {
         async exampleField(): Promise<LambdaResult> {
-            return LambdaResult.SUCCES;
+            return { status: LambdaResultStatus.SUCCESS };
         },
     },
 };

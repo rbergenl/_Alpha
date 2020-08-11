@@ -1,5 +1,5 @@
 import { PubSub } from 'graphql-subscriptions';
-import { listMessages_listMessages_items as MessageItem } from './types/listMessages';
+import { listMessages_listMessages_items as MessageItem } from '../../../types/__generated__/listMessages';
 
 const pubsub = new PubSub();
 

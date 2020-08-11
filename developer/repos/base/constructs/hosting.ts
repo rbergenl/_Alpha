@@ -3,7 +3,7 @@ import * as cdk from '@aws-cdk/core';
 import * as cloudfront from '@aws-cdk/aws-cloudfront';
 import * as s3 from '@aws-cdk/aws-s3';
 
-export interface Props {
+export interface HostingProps {
     domainName: string;
     siteSubDomain: string;
     certificateArn?: string;
@@ -16,7 +16,7 @@ export interface Props {
  * Route53 alias record, and ACM certificate.
  */
 export class Hosting extends cdk.Construct {
-    public constructor(parent: cdk.Construct, name: string, props: Props) {
+    public constructor(parent: cdk.Construct, name: string, props: HostingProps) {
         super(parent, name);
 
         // Const zone = route53.HostedZone.fromLookup(this, 'Zone', { domainName: props.domainName });

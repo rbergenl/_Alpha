@@ -20,7 +20,7 @@ const paths = {
     pipelineResolvers: path.join(__dirname, '../graphql/pipelineResolvers'),
 };
 
-export interface Props {
+export interface ApiProps {
     apiName: string;
     userPool: cognito.IUserPool;
     functions: Map<string, lambdaNodeJS.NodejsFunction>;

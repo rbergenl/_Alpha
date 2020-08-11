@@ -1,24 +1,36 @@
-# Function backend
+# Backend Function
+
+## Initial Setup
 
 - Make sure to run `npm install --save-dev parcel-bundler`.
-
-## Local Testing
-- Create an `event.json` file in the lambda folder.
+- Run `npm install @aws-cdk/{aws-lambda,aws-lambda-nodejs}`.
+- Add to `config-stack.ts` the lines:
 ```javascript
-{
-  "typeName": "Mutation",
-  "fieldName": "shoppingcartToAH",
-  "arguments": { "one": "one" },
-  "identity": {},
-  "source": {},
-  "request": {},
-  "prev": {}
-}
+import { FunctionProps } from './constructs/function';
+export enum LambdaName {};
+export const functionConfig: FunctionProps = {
+    lambdas: {}
+};
 ```
-- During CDK deploy a file `invoke.sh` is created in the lambda folder.
-- To test the lambda in an actual container, run with `sh invoke.sh`.
-- During CDK deploy a file `test.ts` is created in the lambda folder.
-- To execute the function with node, run with `npx ts-node test`.
+- Add to `lib/<projectname>-base-stack.ts` the lines:
+```javascript
+import { functionConfig } from '../stack-config';
+import { Function as Lambdas } from '../constructs/function';
+const lambdas = new Lambdas(scope, 'Lambdas', functionConfig);
+```
 
-## Mocking
+## Enable Mocking
+
 T.b.d.
+
+## Adding Lambda
+
+- Copy/paste the `example` and modify accordingly.
+- Add to `stack-config.ts` the lambda foldername to the `enum LambdaName` and add it to `functionConfig`.
+
+## Invoking Locally
+
+- Add a new JSON file in the `test/events` folder.
+- To invoke the lambda with:
+  - Default event: run `test/invoke`.
+  - Custom event: run `test/invoke <event_filename>`.

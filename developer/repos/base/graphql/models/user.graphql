@@ -5,9 +5,8 @@
 input UserFilterInput {
     # fields
     id: IDInput
-    title: StringInput
-    description: StringInput
-    status: StringInput
+    name: StringInput
+    email: StringInput
     # default operators
     and: [UserFilterInput]
     or: [UserFilterInput]
@@ -21,8 +20,8 @@ input UserFilterInput {
 input UserConditionInput {
     # fields
     title: StringInput
-    description: StringInput
-    status: StringInput
+    name: StringInput
+    email: StringInput
     # default operators
     and: [UserConditionInput]
     or: [UserConditionInput]
@@ -32,17 +31,15 @@ input UserConditionInput {
 input UserCreateInput {
     # fields
     id: ID
-    title: String!
-    description: String
-    status: String
+    name: String!
+    email: StringInput
 }
 
 input UserUpdateInput {
     # fields
     id: ID!
-    title: String
-    description: String
-    status: String
+    name: String
+    email: StringInput
 }
 
 input UserDeleteInput {
