@@ -33,10 +33,10 @@
 
 ## Add Reports
 
-- App:
-  - Run `npm install --save-dev jest-unit`.
+- App / Base:
+  - Run `npm install --save-dev jest-junit`.
   - Modify the `package.json` script to `"test": "jest --ci --coverage --reporters=\"jest-junit\"",`.
-  - Add to `package.json` to key `jest` the config:
+  - Add to `package.json` to key `jest` the config (or for *Base* in the already existing `jest.config.js` file):
   ```json
   {
     "coverageReporters": [
@@ -46,6 +46,13 @@
       "clover",
       "cobertura"
     ],
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/babel.config.js",
+      "!**/jest.setup.js"
+    ]
   }
   ```
   - Run `echo coverage/ >> .gitignore`.
@@ -69,6 +76,3 @@
 - Inside a testfile, mark a test with `it.only()` to skip all other tests in the suite.
 - Use the watch mode to review and update snapshot(s). The snapshot exists to capture unintented UI changes and should be commit and code reviewed during a Pull Request.
 ```
-
-
-- Add to unit-test docs: `npm run test:watch — <filename>`. And `it.only`.

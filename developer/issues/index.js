@@ -82,7 +82,12 @@ ${addIssue('pipeline', 'add-build-compile.md')}
 ${addIssue('pipeline', 'add-test-unit.md')}
 ${addIssue('pipeline', 'add-release-branches.md')}
 ${addIssue('pipeline', 'add-release-master.md')}
+${addIssue('environments', 'setup-test-base.md')}
 ${addIssue('pipeline', 'add-deploy-test.md')}
+${addIssue('environments', 'setup-staging-base.md')}
+${addIssue('pipeline', 'add-deploy-staging.md')}
+${addIssue('environments', 'setup-production-base.md')}
+${addIssue('pipeline', 'add-deploy-production.md')}
 `
 }
 

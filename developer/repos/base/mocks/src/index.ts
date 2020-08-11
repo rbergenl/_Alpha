@@ -18,10 +18,10 @@ const PORT = 8443;
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use('/', (req: express.Request, res: express.Response) => res.send('Hello from Mock Server'));
 // app.use('/oauth2', oAuthRouter);
 // app.use('/logout', logoutRouter);
 // app.use('/v1/apps/localhost-analytics-app', analyticsRouter);
+app.use('/', (req: express.Request, res: express.Response) => res.send('Hello from Mock Server'));
 
 // apolloServer.installSubscriptionHandlers(server);
 // apolloServer.applyMiddleware({ app });

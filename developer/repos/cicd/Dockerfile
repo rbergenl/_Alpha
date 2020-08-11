@@ -30,8 +30,10 @@ RUN tar -xf node-${NODE_VERSION}-linux-x64-musl.tar.xz -C /usr/local --strip-com
 # Installing global tools to be able to run before npm install
 RUN npm install --global eslint \
        eslint-plugin-react \
+       @typescript-eslint/eslint-plugin \
        npm-audit-resolver \
-       prettier
+       prettier \
+       expo-cli
 
 # Adding ssh config to be able to fetch private packages referenced in package.json
 RUN mkdir -p ~/.ssh && \

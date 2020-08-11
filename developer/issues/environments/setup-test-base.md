@@ -1,4 +1,5 @@
 # Setup Test Environment for Base
 
-Add to `package.json` the script `"deploy:base": "cdk deploy PlantyBaseStack --require-approval never",`.
+> The Test Environment for Base runs the Mock Server
+
 - TODO

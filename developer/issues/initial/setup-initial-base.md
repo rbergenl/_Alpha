@@ -3,6 +3,9 @@
 ## Do Householding
 
 - Modify the name in `package.json` to reflect the scope `@<projectname>/base`.
+- Modify the script in `package.json` into `"build": "rm -rf build/ && tsc lib/*.ts --outDir build"`.
+- Add to `tsconfig.json` the line `"include": ["lib"]` to only build the lib folder.
+- Run `echo "build/" >> .gitignore`.
 - Remove the `bin` key from `package.json` since the reference to Typescript file fails when installing this repo in other projects.
 - Add to `bin/<projectname>-base.ts` the line `const env: cdk.Environment = { account: '<ACCOUNT_ID>', region: '<REGION>' };` and add a third parameter to the stack `{ env }`.
 - Remove the folder `test` and modify `jest.config.js` to represent `{ roots: ['<rootDir>/lambda'], testMatch: ['**/*.spec.ts'], }`.

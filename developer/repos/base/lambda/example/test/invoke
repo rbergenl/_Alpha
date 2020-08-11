@@ -1,8 +1,9 @@
 #!/bin/bash
 # Pass in the event name as argument 'test/invoke one.json' otherwise default is used.
 FILE=$([[ -z $@ ]] && echo default.json || echo $@)
-EVENT=$(cat $(dirname "$0")/events/$FILE) npx ts-node --dir $(dirname "$0") << EOF
-    const lambda = require('../index')
+NODE_ENV=development EVENT=$(cat $(dirname "$0")/events/$FILE) npx ts-node --dir $(dirname "$0") << EOF
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; // allow https mock server
+    const lambda = require('../index');
     const resp = (response: any): void => console.log(response);
     const err = (error: any): void => console.error(error);
     lambda.handler(JSON.parse(process.env.EVENT || '')).then(resp, err);

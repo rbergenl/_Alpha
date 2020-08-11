@@ -1,4 +1,4 @@
-# GoLive Website
+# Setup Production Environment for Website
 
 - Add a Sitemap:
     - Run `npm install gatsby-plugin-sitemap`.
@@ -10,3 +10,4 @@
     plugins: [`gatsby-plugin-sitemap`],
     ```
     - Run `echo "Sitemap: https://<domainname>/sitemap.xml" >> static/robots.txt`.
+
