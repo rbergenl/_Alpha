@@ -57,11 +57,11 @@
   ```
   - Run `echo coverage/ >> .gitignore`.
   - Run `echo junit.xml >> .gitignore`.
-  - In *Gitlab > <Groupname> > <Reponame> > Settings > CI / CD > General Pipelines* add the regex `All files[^|]*\|[^|]*\s+([\d\.]+)` to the setting *Test coverage parsing*.
+  - In *Gitlab > Group > Repo > Settings > CI / CD > General Pipelines* add the regex `All files[^|]*\|[^|]*\s+([\d\.]+)` to the setting *Test coverage parsing*.
   - Coverage report can be viewed at:
     - *Pipeline > Job "test_unit" > Details column*.
     - *Merge request - Overview page > Pipeline section*.
-    - http://<groupname>.gitlab.io/<reponame>/lcov-report
+    - http://**groupname**.gitlab.io/**reponame**>/lcov-report
       - By default configured to deploy *Master* only.
       - Also check *Settings > Pages*.
       - Add the url to bookmarks with name `Gitlab - <Reponame> - Master - Coverage`.

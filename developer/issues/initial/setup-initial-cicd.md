@@ -6,7 +6,7 @@
 
 > This access is needed so that a release can be commited back to the repository.
 
-- In Gitlab, create a Personal Access Token with name `Pipeline` and scope *api, write repo* and add is as a protected and masked variable `GITLAB_TOKEN` to *Gitlab > <Groupname> > Settings > CI / CD > Variables*.
+- In Gitlab, create a Personal Access Token with name `Pipeline` and scope *api, write repo* and add is as a protected and masked variable `GITLAB_TOKEN` to *Gitlab > Group > Settings > CI / CD > Variables*.
 
 ## Setup access to Docker Registry
 

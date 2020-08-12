@@ -20,8 +20,7 @@ RUN apk update && \
     apk add sed
 
 RUN pip3 install --upgrade setuptools pip && \
-    pip3 install awscli && \
-    pip3 install aws-sam-cli
+    pip3 install awscli
 
 # Alternative way of installing Node on Alpine: https://github.com/nvm-sh/nvm/issues/1102#issuecomment-550572252
 RUN curl -O https://unofficial-builds.nodejs.org/download/release/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64-musl.tar.xz

@@ -3,16 +3,21 @@
 > Make sure you have an *Expo* account.
 
 ## Householding
+
 - Have Expo CLI installed `npm install --global expo-cli`.
 - Run `expo login`.
 - Run `echo -e "\n# Custom" >> .gitignore`.
 - Add to `app.json` to the key `ios` the line `"bundleIdentifier": "com.<projectname>.app"`.
+- Add to `package.json` the key `"name": "<projectname>-app",`.
+- Copy/paste from `app.json` the key `version` into `package.json`.
+    - Run `npm install --save-dev json` and add to `package.json` the script `"version": "json -I -f ./app.json -e 'this.expo.version=\"'$npm_package_version'\"' && git add -A app.json",` to keep both json files aligned.
 - Add to `package.json` the script `"debug": "expo start --no-dev --minify"` (to be able to publish the app from there).
 - Modify in `App.tsx` the line `export default function App() {` into `const App: React.FC = () => {` and end the file with `export default App`.
 - Run `git add . && git commit -m "householding" && git push`.
 - Run `npx @react-native-community/cli doctor` to find missing items from a common App development setup.
 
 ## Set the Splash Screen
+
 - Read the [docs](https://github.com/expo/expo/blob/master/packages/expo-splash-screen/README.md).
 - First install [unimodules](https://docs.expo.io/bare/installing-unimodules/).
 - Run `expo install expo-splash-screen && npx pod install`.

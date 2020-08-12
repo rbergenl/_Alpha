@@ -8,9 +8,12 @@ X | .Pre:Audit        | Audit Resolver| :heavy_check_mark: | | | | |
 X | .Pre:Format       | Prettier      | :heavy_check_mark: | | | | |
 X | .Pre:Lint         | Eslint        | :heavy_check_mark: | | | | |
 X | Build:Compile     | React Scripts | :heavy_check_mark: | | | | |
-| Test:Functional   | Cypress       | | :heavy_check_mark: | | | |
-| Test:Integration  | ?             | :heavy_check_mark: | | | | |
-| Test:Security     | ?             | :heavy_check_mark: | | | | |
+| Test:Functional   | Cypress       | | :heavy_check_mark: | | | | On [release].
+| Test:Integration  | ?             | :heavy_check_mark: | | | | | On [release].
+| Test:Quality     | Lighthouse/SonarQube | | | :heavy_check_mark: | | | -> On [release].
+| Test:Visual      | ?             | | | :heavy_check_mark: | | | -> On [release].
+| Test:Security     | ?             | :heavy_check_mark: | | | | | Develop
+| Test:Performance | ?             | | :heavy_check_mark: | | | | -> Develop
 X | Test:Unit         | Jest          | :heavy_check_mark: | | | | |
 X | Release:Branches | ?             | | | | :heavy_check_mark: | |
 X | Release:Master       | Git           | | | | :heavy_check_mark: | |
@@ -19,10 +22,7 @@ X | Release:Master       | Git           | | | | :heavy_check_mark: | |
 X | Deploy:Test       | ?             | | | :heavy_check_mark: | | |
 | Publish:iOS       | ?             | | | | | |
 | Publish:Android   | ?             | | | | | |
-| .Post:Performance | ?             | | :heavy_check_mark: | | | |
-| .Post:Quality     | Lighthouse/SonarQube | | | :heavy_check_mark: | | |
-| .Post:Smoketest   | ?             | | | :heavy_check_mark: | | |
-| .Post:Visual      | ?             | | | :heavy_check_mark: | | |
+| .Post:Smoketest   | ?             | | | :heavy_check_mark: | | | -> After deploy-test/stag/prod only
 
 > Stages run in sequence and jobs run in parralel.
 

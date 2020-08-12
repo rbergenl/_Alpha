@@ -21,7 +21,7 @@
 
 - Check the [docs](https://create-react-app.dev/docs/setting-up-your-editor/#formatting-code-automatically).
 - Run `npm install --save-dev husky lint-staged prettier`.
-- Add to `package.json` the lines:
+- Add to `package.json` the lines (for *Base* modify the lint-staged accordingly):
 ```json
 {
   "lint-staged": {
