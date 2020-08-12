@@ -77,12 +77,6 @@
   ```
 - Run `git init && git config user.name && rm -r .git` to validate correct setup.
 
-## Setup access to Heroku
-
-- Run `heroku login` and login via the browser.
-- Run `heroku authorizations:create --description=gitlab`.
-- Copy/paste the token to *Gitlab > Group > Settings > CICD > Variables* and add the variable `HEROKU_TOKEN` and set the flag _Masked_.
-
 ## Setup integration between Sentry and Gitlab
 
 - In Sentry create a project and follow the installation instructions.

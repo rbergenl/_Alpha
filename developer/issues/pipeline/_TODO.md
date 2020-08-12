@@ -7,14 +7,15 @@ X | .Pre:Install      | Npm           | :heavy_check_mark: | | | | |
 X | .Pre:Audit        | Audit Resolver| :heavy_check_mark: | | | | |
 X | .Pre:Format       | Prettier      | :heavy_check_mark: | | | | |
 X | .Pre:Lint         | Eslint        | :heavy_check_mark: | | | | |
-| Build:Compile     | React Scripts | :heavy_check_mark: | | | | |
+X | Build:Compile     | React Scripts | :heavy_check_mark: | | | | |
 | Test:Functional   | Cypress       | | :heavy_check_mark: | | | |
 | Test:Integration  | ?             | :heavy_check_mark: | | | | |
 | Test:Security     | ?             | :heavy_check_mark: | | | | |
 X | Test:Unit         | Jest          | :heavy_check_mark: | | | | |
-X| Release:Branches | ?             | | | | :heavy_check_mark: | |
+X | Release:Branches | ?             | | | | :heavy_check_mark: | |
 X | Release:Master       | Git           | | | | :heavy_check_mark: | |
 | Deploy:Prod       | ?             | | | | | :heavy_check_mark: |
+| Deploy:Staging       | ?             | | | :heavy_check_mark: | | |
 X | Deploy:Test       | ?             | | | :heavy_check_mark: | | |
 | Publish:iOS       | ?             | | | | | |
 | Publish:Android   | ?             | | | | | |

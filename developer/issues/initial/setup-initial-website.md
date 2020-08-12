@@ -29,6 +29,7 @@
     - Modify the imports in `src/pages/*.js`.
 
 ## Add Theming
+
 - Use CSS-in-JS:
     - TODO: can this section be moved to non-project specific issue?
     - Check [docs](https://www.gatsbyjs.org/docs/styled-components/).
@@ -37,6 +38,7 @@
     - Use `import styled from 'styled-components';`.
 
 ## Add Pages
+
 - Add Pages:
     - Run `echo "STRAPI_API_URL=http://localhost:1337" >> .env.development`.
     - Run `npm install gatsby-source-strapi`.
@@ -84,11 +86,13 @@
 
 
 # Ecommerce Features
+
 - TODO: add ecommerce features.
 - Signup with the project email at [**Snipcart**](https://snipcart.com/).
 - TODO: Where to store product data??
 
 ## Marketing Features
+
 - Create an account at [**ReCaptcha**](https://www.google.com/recaptcha).
 - Signup with the project email at [**Mailchimp**](https://mailchimp.com/).
 - Signup with the project email at [**Crispchat**](https://crisp.chat/).

@@ -29,7 +29,7 @@ const pascalCaseProjectName = pkg.name
 - Copy/paste from *Alpha Projects* the folder `mocks`.
 - Add to `tsconfig.json` the compiler options `"esModuleInterop": true`
 - Run `npm install --save-dev body-parser cors express @types/{cors,express} ts-node-dev`.
-- Add to `package.json` the script `"mocks": "ts-node-dev mocks/src"`.
+- Add to `package.json` the scripts `"start": "ts-node mocks/src","develop": "ts-node-dev mocks/src",`.
 - Run in the folder `mocks`:
 ```bash
 openssl req \

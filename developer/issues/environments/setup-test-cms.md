@@ -1,8 +1,10 @@
 # Setup Test Environment for CMS
 
 > Requires the initial CMS setup to be completed.
+> Requires an account for Cloudinary, mLab and Heroku.
 
 ## Add Cloudinary
+
 - Login to Cloudinary to find the *Account details*.
 - Run `echo "CLOUDINARY_NAME=<CLOUD_NAME> >> .env.production`.
 - Run `echo "CLOUDINARY_KEY=<API_KEY> >> .env.production`.
@@ -26,6 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 ```
 
 ## Add Mongo Database
+
 - Login to mLab and *create a Starter Cluster* using all defaults.
 - Click `connect`:
     - Since IP addresses from Heroku are dynamic, enter IP `0.0.0.0/0`. This is not secure, but good for now.
@@ -56,6 +59,7 @@ if (process.env.NODE_ENV === 'production') {
 - After login, create the same user under *Collection Types*.
 
 ## Deploy to Heroku
+
 - Run `heroku login`.
 - Run `heroku create <projectname>-cms`.
 - Run `heroku config:set $(grep DATABASE_USERNAME .env.production | xargs)`.
@@ -65,5 +69,5 @@ if (process.env.NODE_ENV === 'production') {
 - Run `heroku config:set $(grep CLOUDINARY_NAME .env.production | xargs)`.
 - Run `heroku config:set $(grep CLOUDINARY_KEY .env.production | xargs)`.
 - Run `heroku config:set $(grep CLOUDINARY_SECRET .env.production | xargs)`.
-- Run `git push heroku master`.
+- Run `git push heroku develop:master`.
 - Open and bookmark the provided URL (find the previously created password in LastPass).

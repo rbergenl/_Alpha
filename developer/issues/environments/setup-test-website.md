@@ -3,6 +3,7 @@
 > Requires the initial website setup to be completed.
 
 ## Deploy to Heroku
+
 - Check [docs](https://www.gatsbyjs.org/docs/deploying-to-heroku/).
 - Run `heroku login`.
 - Run `heroku create <projectname>-website`.
@@ -31,5 +32,5 @@
     "error_page": "404.html"
 }
 ```
-- Run `git push heroku master`.
+- Run `git push heroku develop:master`.
 - Open and bookmark the provided URL.
