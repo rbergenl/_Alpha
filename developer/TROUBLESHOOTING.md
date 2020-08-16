@@ -7,6 +7,10 @@
 - Github pages resets the custom domain. Solution: add a `CNAME` file with the line `www.<domainname>.com`.
 - The `www.` subdomain gives privacy error. Solution: in your DNS point `www.<domainname>.com` as CNAME to `<username>.github.io`.
 
+## Expo
+- Try to publish with `expo publish --target managed` to publish an app that will run in Expo client. Or run `expo publish --target bare` to just publish the app.
+- Try: go to the Expo project page and near the QR code click `Open project in browser`. There the app can be opened in Android and might display more error information.
+
 ## React Native
 
 - Check the `ios/Podfile` at the `react-native` or `expo` github repository inside `template` folder.

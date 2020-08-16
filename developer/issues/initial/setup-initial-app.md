@@ -10,7 +10,7 @@
 - Add to `app.json` to the key `ios` the line `"bundleIdentifier": "com.<projectname>.app"`.
 - Add to `package.json` the key `"name": "<projectname>-app",`.
 - Copy/paste from `app.json` the key `version` into `package.json`.
-    - Run `npm install --save-dev json` and add to `package.json` the script `"version": "json -I -f ./app.json -e 'this.expo.version=\"'$npm_package_version'\"' && git add -A app.json",` to keep both json files aligned.
+- Add to `package.json` the script `"version": "node -e \"const app = require('./app.json'); const pkg = require('./package.json'); const fs = require('fs'); app.expo.version=pkg.version; fs.writeFileSync('app.json', JSON.stringify(app, null, 2));\" && git add -A app.json",` to keep both json files aligned.
 - Add to `package.json` the script `"debug": "expo start --no-dev --minify"` (to be able to publish the app from there).
 - Modify in `App.tsx` the line `export default function App() {` into `const App: React.FC = () => {` and end the file with `export default App`.
 - Run `git add . && git commit -m "householding" && git push`.

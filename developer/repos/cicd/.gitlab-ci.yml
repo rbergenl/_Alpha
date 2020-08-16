@@ -52,6 +52,8 @@ release_branches:
     stage: release
     only:
         - develop
+    before_script:
+        - if [ $CI_PROJECT_NAME == "app" ] ; then npm set unsafe-perm true; fi
     script: npm version prerelease --preid=develop
     after_script:
         - git remote set-url --push origin https://gitlab-ci-token:$GITLAB_TOKEN@gitlab.com/$CI_PROJECT_PATH.git
