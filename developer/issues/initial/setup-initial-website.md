@@ -83,17 +83,3 @@
     <ReactMarkdown source={ data.allStrapiPages.edges[0].node.body } />
     ```
     - In *Terminal 1* start the Conent Management System locally and in *Terminal 2* run in the Website folder `npm start`.
-
-
-# Ecommerce Features
-
-- TODO: add ecommerce features.
-- Signup with the project email at [**Snipcart**](https://snipcart.com/).
-- TODO: Where to store product data??
-
-## Marketing Features
-
-- Create an account at [**ReCaptcha**](https://www.google.com/recaptcha).
-- Signup with the project email at [**Mailchimp**](https://mailchimp.com/).
-- Signup with the project email at [**Crispchat**](https://crisp.chat/).
-- Signup with the project email at [**Formspree**](https://formspree.io/).

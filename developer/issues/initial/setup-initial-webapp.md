@@ -1,6 +1,7 @@
 # Setup Initial Webapp
 
 ## Do Householding
+
 - Add `"baseUrl": "./src"` to the `compilerOptions` in `tsconfig.json` (to enable absolute imports).
 - Remove the files `App.css` and `index.css` and their respective imports (CSS-in-JS is going to be used instead).
 - In the folder `components` create a new component `Dummy.tsx` with code:

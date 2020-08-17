@@ -1,4 +1,4 @@
-# Internationalization
+# Add Internationalization
 
 - Check the [docs](https://react.i18next.com/).
 - Run `npm install react-i18next i18next --save`.
@@ -17,3 +17,6 @@ const { i18n } = useTranslation();
 <button onClick={() => i18n.changeLanguage('en')}>EN</button>
 <button onClick={() => i18n.changeLanguage('nl')}>NL</button>
 ```
+
+- CMS / Website:
+    - TODO

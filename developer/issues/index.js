@@ -174,6 +174,17 @@ ${addIssue('frontend', 'add-storage.md')}
 ${addIssue('frontend', 'add-analytics.md')}
 ${addIssue('frontend', 'add-error-reporting.md')}
 ${addIssue('frontend', 'add-ab-testing.md')}
+${addIssue('ecommerce', 'add-shopping-cart.md')}
+${addIssue('ecommerce', 'add-payment-processing.md')}
+${addIssue('ecommerce', 'add-trust-webshop.md')}
+${addIssue('marketing', 'add-tag-management.md')}
+${addIssue('marketing', 'add-cookie-consent.md')}
+${addIssue('marketing', 'add-contact-form.md')}
+${addIssue('marketing', 'add-newsletter-subscription.md')}
+${addIssue('marketing', 'add-survey.md')}
+${addIssue('marketing', 'add-personalisation.md')}
+${addIssue('marketing', 'add-retargeting.md')}
+${addIssue('marketing', 'add-chat.md')}
 `
 }
 
