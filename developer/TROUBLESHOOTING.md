@@ -32,3 +32,22 @@
 - Add to top of test file `jest.useFakeTimers();` to prevent the error "ReferenceError: You are trying to `import` a file after the Jest environment has been torn down." on `<StoreContext.Provider>`
 - Redux: use `redux-mock-store` https://redux.js.org/recipes/writing-tests#async-action-creators
 - Add `redux-persist` to the transformIgnorePatterns key in `package.json > jest`
+
+## MacOS Storage Full
+
+- Check folders via Terminal with command `du -hs */ | sort -h` (disk utility, human-readable summary and sort by the human-readable column (e.g. 2.2G)). Use `du -hs .*` to include hidden folders otherwise visible with `ls -a` or `du -hs *` for just files otherwise visible with `ls -l`.
+- Go through all NodeJS projects and remove the `node_modules` folder.
+- NVM:
+    - stores versions here ``/Users/username/.nvm/versions`. It creates a different folder for each installation of Node. And each globally installed package is installed per version of Node. So, consolidate the versions of Node (e.g. v14.0.1 and v14.0.2 and v14.0.3, means, upgrade all to v14.0.3).
+- Docker:
+    - stores caches for each layer of images that are build or run. Check images with `docker images` and remove with `docker image rm <id|name>`.
+- Xcode:
+    - stores downloads here `/Users/username/Library/Caches/com.apple.dt.Xcode`.
+    - stores a build of an App here `/Users/username/Library/Developer/Xcode/DerivedData/`
+    - stores device support in the folders `/watchOS DeviceSupport` and `/iOS DeviceSupport`.
+    - stores simulator data here `/Users/username/Library/Developer/CoreSimulator`.
+- Chrome:
+    - stores profiles here `/Users/username/Library/Application Support/Google/Chrome`.
+- Mac:
+    - stores system updates here `/Library/Updates/` (first check if latest update is installed, it should be automatically removed).
+    - stores application data here `/Users/username/Library/Application Support/` and here `/Library/Application Support/` (check for application you don't use anymore).

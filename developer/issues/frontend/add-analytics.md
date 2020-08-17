@@ -42,4 +42,5 @@ echo "REACT_APP_MOCK_ANALYTICS_PROVIDER_BASEURL=https://localhost:8443/v1/apps/l
     ```
 
 - Website:
-    - Add Google Tag Manager.
+    - Add Google Tag Manager -> which includes Facebook Pixel as well.
+

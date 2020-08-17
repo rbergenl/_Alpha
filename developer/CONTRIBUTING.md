@@ -40,3 +40,14 @@ When merging from a feature branch to develop use in the Pull request descriptio
 - The last commit before merging a feature branch to develop should be conform [commitizen](https://github.com/commitizen/cz-cli) convention.
 - Run `git commit -m "message"` and exit `CTRL+C` the interactive pre-commit-hook to commit without convention.
 - A release happens after a commit on master. Based on the conventional commits in git log, the tool [semantic-release](https://github.com/semantic-release/semantic-release) creates a `git tag`, create a release, bumps the `package.json` version accordingly and generates a `CHANGELOG.md`.
+
+## Debugging
+
+- Check the file `TROUBLESHOOTING.md`.
+- Run `npm run debug` when applicable.
+- Check Sentry for errors when applicable.
+- App: Check the [docs](https://docs.expo.io/workflow/debugging/).
+    - Install debugger: `brew cask install react-native-debugger`.
+    - Install proxy: `brew install mitmproxy`.
+    - Instaal logger: `brew install --HEAD libimobiledevice -g`.
+- Redux: to enable debugger add in `store/index.tsx` to the `createStore()` function as third parameter `(window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()` (ignore the eslint error).

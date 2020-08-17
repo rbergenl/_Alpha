@@ -13,17 +13,13 @@ It is recommended to make yourself familiar with the [Redux best practices](http
 - Run `npm install redux react-redux && npm install --save-dev @types/react-redux`.
 - Add this code to `App.tsx`:
 ```javascript
-import { createStore } from 'redux';
-import { Provider as StoreProvider } from 'react-redux';
-import { rootReducer } from 'store';
-const store = createStore(rootReducer);
+import { store } from './store'
 <StoreProvider store={store}></StoreProvider>
 ```
 
 ## Enable User
 
 - Add in `index.tsx` to `interface IState` the line `user: User;` and to `initialState` the line `user: userInitialState` and also import appropriately.
-- Change the line to `type TAction = UserActions;` and also import appropriately.
 - In `index.tsx` extend the `rootReducer` with `user: userReducer`. And import the `userReducer` appropriately.
 
 ## Using Store
@@ -34,9 +30,6 @@ Read and Write to State:
 - Print the state with `<h1>{ state.user.name }</h1>`.
 - Update the State by adding the line `import { userLoginAction } from 'store/user';` and calling `<button onClick={() => dispatch(userLoginAction())}>Click</button>`.
 
-## Enable Debugging
-
-- To enable debugger add to the `createStore()` function as second parameter `(window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()` (ignore the eslint error).
-
 ## Enable Persistence
+
 - Use `redux-persist` as promoted by Redux [here](https://redux.js.org/introduction/ecosystem#persistence). >> TODO: or better `redux-offline` since redux-persist are difficult to use in unit tests.

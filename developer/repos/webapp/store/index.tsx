@@ -1,32 +1,17 @@
 import React from 'react';
-import { combineReducers } from 'redux';
+import { combineReducers, createStore, CombinedState } from 'redux';
 
 type TAction = any;
 
-interface IState {}
+type IState = CombinedState<{}>
 
 const initialState: IState = {};
 
 const rootReducer = combineReducers({});
 
-interface IContextProps {
-    state: IState;
-    dispatch: React.Dispatch<TAction>;
-}
+export type RootState = ReturnType<typeof rootReducer>
 
-const StoreContext = React.createContext<IContextProps>({
-    dispatch: () => {},
-    state: initialState
-});
-
-export const useStore = () => React.useContext(StoreContext);
-
-export const StoreProvider = ({ children }: any) => {
-    const [state, dispatch] = React.useReducer(rootReducer, initialState);
-
-    return (
-        <StoreContext.Provider value={{ state, dispatch }}>
-                {children}
-        </StoreContext.Provider>
-    );
-};
+export const store = createStore(
+    rootReducer,
+    initialState
+);
