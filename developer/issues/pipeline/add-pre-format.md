@@ -16,6 +16,7 @@
   }
   ```
   - First time, modify in `package.json` the command `--check` into `--write` and run `npm run format`. Then revert the modification.
+- Read the `CONTRIBUTING.md` file for more information.
 
 ## Enable Formatting on Commit
 
@@ -41,11 +42,3 @@
 
 - Use setup as explained here: https://create-react-app.dev/docs/setting-up-your-editor/
 - Run `touch .editorconfig` (see editor configuration https://editorconfig.org).
-
-## Add Documentation
-- Create/update file `CONTRIBUTING.md` with the text:
-```markdown
-## Formatting
-
-- When the pipeline command `npm run format` detects issues in file(s) the solution is: in VSCode, install via extension sidebar `prettier-vscode`, and execute on a document with `CDM+SHIFT+P` and `Format Document`.
-```

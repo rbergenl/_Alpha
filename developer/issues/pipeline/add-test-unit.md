@@ -30,12 +30,13 @@
       })
   })
   ```
+- Read the `CONTRIBUTING.md` file for more information.
 
 ## Add Reports
 
 - App / Base:
   - Run `npm install --save-dev jest-junit`.
-  - Modify the `package.json` script to `"test": "jest --ci --coverage --reporters=\"jest-junit\"",`.
+  - Modify the `package.json` script to `"test": "jest --ci --coverage --reporters=\"default\" --reporters=\"jest-junit\"",`.
   - Add to `package.json` to key `jest` the config (or for *Base* in the already existing `jest.config.js` file):
   ```json
   {
@@ -65,14 +66,3 @@
       - By default configured to deploy *Master* only.
       - Also check *Settings > Pages*.
       - Add the url to bookmarks with name `Gitlab - <Reponame> - Master - Coverage`.
-
-# Add Documentation
-
-- Create/update file `CONTRIBUTING.md` with the text:
-```markdown
-# Testing
-
-- Run `npx jest --watch <optionally_first_part_of_filename>` to work on specific tests in a Test Driven Development approach.
-- Inside a testfile, mark a test with `it.only()` to skip all other tests in the suite.
-- Use the watch mode to review and update snapshot(s). The snapshot exists to capture unintented UI changes and should be commit and code reviewed during a Pull Request.
-```

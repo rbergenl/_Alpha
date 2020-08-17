@@ -5,6 +5,8 @@
 - TODO: npm publish (in cicd) -> only for UI and Base project.
 - TODO: check reference to issue ticket
 
+- Read the `CONTRIBUTING.md` file for more information.
+
 # Setup Commitizen
 
 - Run `npx commitizen init cz-conventional-changelog --save-dev --save-exact`.
@@ -40,15 +42,4 @@
     ]
   }
 }
-```
-
-# Add Documentation
-
-- Create/update file `CONTRIBUTING.md` with the text:
-```markdown
-## Releasing
-
-- The last commit before merging a feature branch to develop should be conform [commitizen](https://github.com/commitizen/cz-cli) convention.
-- Run `git commit -m "message"` and exit `CTRL+C` the interactive pre-commit-hook to commit without convention.
-- A release happens after a commit on master. Based on the conventional commits in git log, the tool [semantic-release](https://github.com/semantic-release/semantic-release) creates a `git tag`, create a release, bumps the `package.json` version accordingly and generates a `CHANGELOG.md`.
 ```
