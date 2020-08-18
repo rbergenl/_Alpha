@@ -11,7 +11,7 @@ It is possible to have a Minimum Viable Product ready on **day 1**. In short thi
 5. [Growth](#5-growth)
 6. [Ownership Transfer](#6-ownership-transfer)
 
-> See [these diagrams](./docs/OVERVIEWS.md) for an overview of what is provided.
+> See [these diagrams](./developer/OVERVIEWS.md) for an overview of what is provided.
 
 ## 1. Initial Ownership
 
@@ -24,7 +24,7 @@ Start with these necessary steps:
 
 ### Tools Signup
 
-- Make sure to follow these instructions in [`BUSINESS.md`](docs/BUSINESS.md):
+- Make sure to follow these instructions in [`BUSINESS.md`](business/BUSINESS.md):
     - Emailaddress.
     - Password Manager.
     - Accounts.
@@ -35,21 +35,21 @@ Follow up with laying the groundwork for the startup:
 
 ### UX
 
-- Make sure to follow these instructions in [`UX.md`](docs/UX.md):
+- Make sure to follow these instructions in [`UX.md`](ux/UX.md):
     - Decide on initial Color Scheme and Fonts.
     - Setup Figma.
     - Create Design System.
 
 ### Marketing
 
-- Make sure to follow these instructions in [`MARKETING.md`](docs/MARKETING.md):
+- Make sure to follow these instructions in [`MARKETING.md`](marketing/MARKETING.md):
     - Setup Google Marketing Platform.
     - Create Google Data Studio reports.
 
 ### Developer
 
 - In Gitlab create a new Group with name `<Projectname>`.
-- Make sure to follow these instructions in [`DEVELOPER.md`](docs/DEVELOPER.md):
+- Make sure to follow these instructions in [`DEVELOPER.md`](developer/DEVELOPER.md):
     - Install Developer Tools.
     - Initialize a NodeJS version.
     - Setup access to new Git Repository.
@@ -67,7 +67,7 @@ Build the MVP and bring it live (version Alpha):
 
 ### Business
 
-- Make sure to follow these instructions in [`BUSINESS.md`](docs/BUSINESS.md):
+- Make sure to follow these instructions in [`BUSINESS.md`](business/BUSINESS.md):
     - Creditcard.
     - AWS Accounts.
     - Apple Developer Program.
@@ -75,12 +75,12 @@ Build the MVP and bring it live (version Alpha):
 
 ### Marketing
 
-- Make sure to follow these instructions in [`MARKETING.md`](docs/MARKETING.md):
+- Make sure to follow these instructions in [`MARKETING.md`](marketing/MARKETING.md):
     - Add Minumum Viable Product features.
 
 ### UX
 
-- Make sure to follow these instructions in [`UX.md`](docs/UX.md):
+- Make sure to follow these instructions in [`UX.md`](ux/UX.md):
     - Create Website Prototype.
     - Create App Prototype.
     - Use workflow to add new user flows.
