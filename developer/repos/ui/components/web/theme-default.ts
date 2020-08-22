@@ -1,0 +1,4 @@
+const mode = {
+    light: {},
+    dark: {}
+};

@@ -163,6 +163,7 @@ ${addIssue('pipeline', 'add-build-compile.md')}
 ${addIssue('pipeline', 'add-test-unit.md')}
 ${addIssue('pipeline', 'add-release-branches.md')}
 ${addIssue('pipeline', 'add-release-master.md')}
+${addIssue('environments', 'setup-test-website.md')}
 ${addIssue('pipeline', 'add-deploy-test.md')}
 ${addIssue('frontend', 'add-theme.md')}
 ${addIssue('frontend', 'add-navigator.md')}

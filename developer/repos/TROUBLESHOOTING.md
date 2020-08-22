@@ -1,13 +1,19 @@
 # Troubelshooting
 
+## NPM
+- With `lifecycle EPERM, Operation not permitted` do the following: Go to System Preferences > Security & Privacy > Privacy > Full Disk Access. Add Terminal.
+
 ## Gatsby
+
 - manifest.webmanifest has error or 404 and icons not generated. Solution: upgrade gatsby-plugin-manifest to the latest version.
 
 ## Github Pages
+
 - Github pages resets the custom domain. Solution: add a `CNAME` file with the line `www.<domainname>.com`.
 - The `www.` subdomain gives privacy error. Solution: in your DNS point `www.<domainname>.com` as CNAME to `<username>.github.io`.
 
 ## Expo
+
 - Try to publish with `expo publish --target managed` to publish an app that will run in Expo client. Or run `expo publish --target bare` to just publish the app.
 - Try: go to the Expo project page and near the QR code click `Open project in browser`. There the app can be opened in Android and might display more error information.
 
@@ -26,6 +32,7 @@
 - To reload the application or enable hot loading, shake the device or send via the terminal `$ adb shell input keyevent KEYCODE_MENU` (or `npm run menu`)
 
 ## Jest React Unit Testing
+
 - Async-Storage > __mock__
 - Moment > jsconfig.json > "esModuleInterop": true,
 - Add `|react-router-native` to jest config transformIgnorePatterns.

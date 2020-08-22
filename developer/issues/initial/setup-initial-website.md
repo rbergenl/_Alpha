@@ -4,38 +4,26 @@
 
 - Modify in package.json `"name"` to reflect the actual name.
 - Have Gatsby installed `npm install --global gatsby-cli`.
+- Remove the file `src/pages/using-typescript.tsx`.
 - Correct config:
     - In `gatsby-config.js` set correct info for `siteMetadata`.
     - In `gatsby-config.js` set correct info for `gatsby-plugin-manifest`.
-
-- Absolute imports:
-    - Check [docs](https://www.npmjs.com/package/gatsby-plugin-resolve-src)
-    - Run `npm install --save-dev gatsby-plugin-resolve-src`.
-    - Add to `gastby-config.js` to plugins `gatsby-plugin-resolve-src`.
-    - Create a `jsconfig.json` with the contents (needed for VSCode to resolve the modules):
-    ```json
-    {
-        "compilerOptions": {
-            "baseUrl": "./src",
-            "paths": {
-                "*": [
-                    "types/*",
-                    "*"
-                ]
-            }
-        },
-    }
+- Typescript:
+    - Modify all files in `src` to `.tsx` extension
+    - Run `npm install --save-dev @graphql-codegen/{cli,typescript,typescript-operations`.
+    - Add `codegen.yml`:
+    ```yaml
+    overwrite: true
+    schema: "http://localhost:8000/___graphql"
+    generates:
+    src/__generated__/types.ts:
+        plugins:
+        - "typescript"
+        - "typescript-operations"
     ```
-    - Modify the imports in `src/pages/*.js`.
-
-## Add Theming
-
-- Use CSS-in-JS:
-    - TODO: can this section be moved to non-project specific issue?
-    - Check [docs](https://www.gatsbyjs.org/docs/styled-components/).
-    - A word on **critical css**: Gatsby handles this out of the box.
-    - Run `npm install --save gatsby-plugin-styled-components styled-components babel-plugin-styled-components`.
-    - Use `import styled from 'styled-components';`.
+    - Add to `package.json` the script `"codegen": "graphql-codegen --config codegen.yml"`.
+    - Start the Gatsby server and run `npm run codegen`.
+- Run `git add . && git commit -m "do householding" && git push`.
 
 ## Add Pages
 
@@ -64,22 +52,27 @@
     }
     ```
     - Run `npm install react-markdown`.
-    - Add to `index.js`:
+    - Add to `src/pages/index.js`:
     ```javascript
     import { useStaticQuery, graphql } from 'gatsby'
     import ReactMarkdown from 'react-markdown'
-    const data = useStaticQuery(graphql`
-        query HomeQuery {
+    import { Query } from '../__generated__/types'
+    const data = useStaticQuery<Query>(graphql`
+        query {
             allStrapiPages { 
-            edges {
+                edges {
                 node {
-                title
-                body
+                    title
+                    content {
+                    text
+                    }
                 }
-            }
+                }
             }
         }
     `);
-    <ReactMarkdown source={ data.allStrapiPages.edges[0].node.body } />
+    const { text } = data.allStrapiPages.edges[0].node.content[0];
+    <ReactMarkdown source={ text } />
     ```
-    - In *Terminal 1* start the Conent Management System locally and in *Terminal 2* run in the Website folder `npm start`.
+    - In *Terminal 2* start the Conent Management System locally and in *Terminal 1* run in the Website folder `npm start`.
+- Run `git add . && git commit -m "add pages" && git push`.

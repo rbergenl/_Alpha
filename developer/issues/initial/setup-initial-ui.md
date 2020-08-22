@@ -17,6 +17,7 @@
     - `mkdir theme && cd theme && npm init --yes && echo "node_modules" >> .gitignore`.
 
 ## Setup Theme
+
 - In the folder `theme`:
     - Run `mkdir src && cd src && touch web-fonts.css && mkdir icons`.
     - Run `npm install --save-dev typescript`.
@@ -34,6 +35,7 @@
     - Run `echo "dist" >> .gitignore`.
 
 ## Add Fonts
+
 - Download the font files from [Google Fonts](https://fonts.google.com).
     - Select the style `Regular 400`.
     - In the popup at *Embed* open the link.
@@ -51,11 +53,13 @@
     - Copy/paste and rename the downloaded file into `theme/public/fonts` (e.g. dosis-regular-400.woff).
 
 ## Add Icons
+
 - In *Figma* open the *App* file, then find a *Layer* which has an icon (e.g. Home and Profile).
 - Select the layer of the icon and *right click > copy/pase > copy as svg*.
 - Paste the contents into a new file `src/icons/<iconname>.svg`.
 
 ## TODO
+
 - Add a CSS Reset file (to be included by Webapp and Website):
     - Check [docs](https://meyerweb.com/eric/tools/css/reset/).
     - Add that example code to `reset.css`.

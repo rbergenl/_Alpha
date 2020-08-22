@@ -9,4 +9,4 @@ In the project folder run:
 - Mocks: `mkdir <projectname>-mocks && cd <projectname>-mocks && npm init --yes --scope @<projectname> && echo -e "/node_modules\n/dist\n.DS_Store" > .gitignore && git init && git add . && git commit -m "initial commit"`.
 - UI: `mkdir <projectname>-ui && cd <projectname>-ui && git init && npm init --yes --scope @<projectname>/ui`.
 - Webapp: `npx create-react-app <projectname>-webapp --template typescript`.
-- Website: `npx gatsby new <projectname>-website`.
+- Website: `npm install --global gatsby-cli && gatsby new <projectname>-website`.

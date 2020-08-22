@@ -7,6 +7,7 @@
 > This user is allowed to manage *Content-Types* and *User Permissions* through the Strapi Admin Panel.
 - Open the browser at `http://localhost:1337/admin`.
 - Create a user with the name `Admin`, the password `Admin123@` and as email `<project-email>`.
+- Add the credentials to LastPass.
 
 ## Add User: Editor
 
