@@ -13,13 +13,13 @@
 
 > This is a technical user for the Content API which is only allowed to manage *Content*.
 - Open the browser at `http://localhost:1337/admin` and login as Admin.
-- Create a user with the name `Editor`, the password `Editor123@` and as email `editor+<project-email>`. Set the role to `Authenticated` and enable `Confirmed`.
+- Add to Collection-Type User a new user with the name `Editor`, the password `Editor123@` and as email `editor_local+<project-email>`. Set the role to `Authenticated` and enable `Confirmed`.
 
 ## Add User: Website
 
 > This is a technical user for the Content API which is only allowed to read *Content*.
 - Open the browser at `http://localhost:1337/admin` and login as Admin.
-- Create a user with the name `Website`, the password `Website123@` and as email `website+<project-email>`. Set the role to `Public` and enable `Confirmed`.
+- Add to Collection-Type User a new user with the name `Website`, the password `Website123@` and as email `website_local+<project-email>`. Set the role to `Public` and enable `Confirmed`.
 
 ## Add Api and Components:
 

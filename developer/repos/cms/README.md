@@ -13,8 +13,9 @@ Strapi open-source Content Management System hosted on Heroku with MongoDB. Imag
 
 ## URLS
 
-- Localhost: `http://localhost:1337/admin`.
+- Localhost (npm start): `http://localhost:1337/admin`.
 - GraphQL: `http://localhost:1337/graphql`
+- Localhost Test (npm run develop:test): `http://0.0.0.0:1337/admin`.
 - Test: https://<projectname>-cms.herokuapp.com/admin
 
 ## Local Environment

@@ -4,10 +4,18 @@ React Gatsby website for legal and marketing purposes.
 
 ## URLS
 
-- Localhost: http://localhost:8000
+- Localhost (npm run develop): http://localhost:8000
 - Localhost GraphQL: http://localhost:8000/___graphql
+- Localhost Public (npm run serve): http://localhost:9000
 - Access Preview via: https://<projectname>-website.herokuapp.com/.
-- Access Live via: https://domain.app.
+- Access Live via: https://www.domain.app (website should be hosted on subdmain `www`).
+
+## Development Tips
+
+- To locally test a production build, first run `npm run build` (optionally with `:test`), and then run `npm run serve`.
+- Use GraphiQL on the GraphQL endpoint to build queryies and validate the content received.
+- Add to `index.tsx` the line ``const data = useStaticQuery<Query>(graphql`query { }`);``.
+- PageProps can be typed with `import { PageProps } from "gatsby"` and `const Page = (props: PageProps) => {`.
 
 ## Layouts
 
@@ -15,6 +23,10 @@ React Gatsby website for legal and marketing purposes.
 - All pages should be wrapped with the `<Layout>` component.
 - The `src/components/layout.js` already defines a default website layout with a `<header>`, `<main>` and `<footer>`.
 - Pages can be created using `gatsby-node.js` which should use a page template from `src/templates`.
+
+## Multilingual
+
+- If domain is `.com` the default language is `en-US` and paths are not prefixed with language code. If domain is `.nl` the default language is `nl-NL`. When the user uses a `Location Switcher` it is then added as snake_case prefix to the path `www.domain.com/nl_nl/page`. The `<link hreflang>` should be set, with `x-default` pointing to the base language page.
 
 ## Header
 
@@ -67,3 +79,7 @@ React Gatsby website for legal and marketing purposes.
 ## Blog
 
 - TODOD: add amp to blog (gatsby amp plugin?).
+
+## Email
+
+https://sendgrid.com/pricing/ (100/day for free)
