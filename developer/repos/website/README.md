@@ -12,10 +12,10 @@ React Gatsby website for legal and marketing purposes.
 
 ## Development Tips
 
-- To locally test a production build, first run `npm run build` (optionally with `:test`), and then run `npm run serve`.
-- Use GraphiQL on the GraphQL endpoint to build queryies and validate the content received.
-- Add to `index.tsx` the line ``const data = useStaticQuery<Query>(graphql`query { }`);``.
-- PageProps can be typed with `import { PageProps } from "gatsby"` and `const Page = (props: PageProps) => {`.
+- To start developing, first run `npm run codegen`.
+- To locally test a production build, first run `npm run build` (optionally with `:test-env`), and then run `npm run serve`.
+- After adding a new Content-Type to the CMS do not forget to add Permissions, and the type name to plugin options in `gatsby-config.js`.
+- Keep the GraphQL Types generator running while developing `npm run codegen -- --watch`.
 
 ## Layouts
 

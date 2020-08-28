@@ -1,7 +1,7 @@
 mutation {
-  createPage(input: {data: { slug: "test", title: "Test page" }}) {
-    page {
-      id
-    }
-  }
+  createPage(input: {data: { slug: "home", title: "Home page" }}) { page { id } }
+  createPage(input: {data: { slug: "contact", title: "Contact page" }}) { page { id } }
+  createPage(input: {data: { slug: "privacy", title: "Privacy page" }}) { page { id } }
+  createPage(input: {data: { slug: "blog", title: "Blog Overview page" }}) { page { id } }
+  createPage(input: {data: { slug: "shop", title: "Shop page" }}) { page { id } }
 }

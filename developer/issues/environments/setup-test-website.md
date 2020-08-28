@@ -44,4 +44,4 @@
 - Run `heroku buildpacks:set heroku/nodejs`.
 - Run `heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static.git`.
 - Run `git push heroku develop:master`.
-- Open the provided URL and bookmark it as *Website Preview* to an *Environments* folder and verify the URL is already in `README.md`.
+- Open the provided URL and bookmark it as *Website Preview* to an *Product* folder and verify the URL is already in `README.md`.
