@@ -1,7 +1,18 @@
-mutation {
-  createPage(input: {data: { slug: "home", title: "Home page" }}) { page { id } }
-  createPage(input: {data: { slug: "contact", title: "Contact page" }}) { page { id } }
-  createPage(input: {data: { slug: "privacy", title: "Privacy page" }}) { page { id } }
-  createPage(input: {data: { slug: "blog", title: "Blog Overview page" }}) { page { id } }
-  createPage(input: {data: { slug: "shop", title: "Shop page" }}) { page { id } }
+mutation DummyPage {
+  createPage(input: { data: { 
+    slug: "dummy",
+    title: "Dummy Page"
+    status: draft
+  }}) { page { id } }
 }
+
+mutation HomePageNL { createPage(input: {data: { slug: "home", title: "Home Page NL", status: publish, template: home_page, lang: nl }}) { page { id } } }
+# After creation of HomePageNL and before HomePageEN, copy/paste this snippet to QUERY VARIABLES
+#{
+#  "canonical_page": "<PASTE_ID_FROM_HOME_PAGE_NL_HERE>"
+#}
+mutation HomePageEN($canonical_page: ID) { createPage(input: {data: { slug: "home", title: "Home Page EN", status: publish, template: home_page, lang: en, canonical_page: $canonical_page }}) { page { id } } }
+mutation ContactPage { createPage(input: {data: { slug: "contact", title: "Contact Page" }}) { page { id } } }
+mutation PrivacyPage { createPage(input: {data: { slug: "privacy", title: "Privacy Page" }}) { page { id } } }
+mutation BlogOverviewPage { createPage(input: {data: { slug: "blog", title: "Blog Overview Page" }}) { page { id } } }
+mutation ShopPage { createPage(input: {data: { slug: "shop", title: "Shop Page" }}) { page { id } } }

@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "top_navigations",
+  "info": {
+    "name": "Menu"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "menu_item": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.menu-item"
+    },
+    "position": {
+      "type": "enumeration",
+      "enum": [
+        "header",
+        "footer"
+      ]
+    }
+  }
+}

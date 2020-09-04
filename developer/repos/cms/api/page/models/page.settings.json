@@ -12,7 +12,7 @@
     "slug": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "status": {
       "type": "enumeration",
@@ -38,16 +38,47 @@
     "template": {
       "type": "enumeration",
       "enum": [
-        "default"
+        "account_page",
+        "blog_overview",
+        "contact_page",
+        "home_page",
+        "info_page_fullwidth",
+        "info_page_sidebar",
+        "landing_page",
+        "product_detail",
+        "search_results",
+        "shop_page",
+        "single_page"
       ],
-      "default": "default",
+      "default": "info_page_fullwidth",
       "required": false
     },
     "content": {
       "type": "dynamiczone",
       "components": [
-        "generic.hero"
+        "generic.hero",
+        "generic.paragraph"
       ]
+    },
+    "paragraph2": {
+      "type": "component",
+      "repeatable": true,
+      "component": "generic.paragraph"
+    },
+    "lang": {
+      "type": "enumeration",
+      "enum": [
+        "en",
+        "nl"
+      ],
+      "default": "en",
+      "unique": false
+    },
+    "page_redirect": {
+      "model": "page"
+    },
+    "canonical_page": {
+      "model": "page"
     }
   }
 }

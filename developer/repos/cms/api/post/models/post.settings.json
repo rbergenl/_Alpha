@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "posts",
+  "info": {
+    "name": "Post"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "slug": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}
