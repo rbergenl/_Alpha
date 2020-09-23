@@ -1,23 +1,30 @@
 # nvm use && docker build --build-arg NODE_VERSION=$(node --version) --build-arg GITLAB_USERNAME=<username> --tag registry.gitlab.com/<groupname>/cicd .
 # docker push registry.gitlab.com/<groupname>/cicd
 # docker image rm registry.gitlab.com/<groupname>/cicd
+# docker run --detach --tty --volume /var/run/docker.sock:/var/run/docker.sock --name <groupname>-cicd registry.gitlab.com/<groupname>/cicd
+# docker exec --interactive --tty <groupname>-cicd bash
+# docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <groupname>-cicd
 
 FROM alpine:3.10.2
 
 ARG NODE_VERSION
 ARG GITLAB_USERNAME
 
-RUN apk update && \
-    apk add bash && \
-    apk add curl && \
-    apk add build-base && \
-    apk add docker && \
-    apk add git && \
-    apk add jq && \
-    apk add openssh-client && \
-    apk add python3 && \
-    apk add python3-dev && \
-    apk add sed
+RUN apk update && apk add --no-cache \
+    bash \
+    nano \
+    curl \
+    wget \
+    build-base \
+    git \
+    jq \
+    sed \
+    ca-certificates \
+    openssl \
+    openssh-client \
+    docker-cli \
+    python3 \
+    python3-dev
 
 RUN pip3 install --upgrade setuptools pip && \
     pip3 install awscli

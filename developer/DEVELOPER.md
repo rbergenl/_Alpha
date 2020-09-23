@@ -39,6 +39,7 @@
   - Intellij Community Edition
   - Install Intellij plugins:
     - Tomcat **?? TODO**
+- Install [Google Cloud SDK](https://cloud.google.com/sdk/docs/quickstart-macos).
 - Install for mobile app development:
   - Expo Client app via App/Play Store.
 - Install for mobile app publishing:

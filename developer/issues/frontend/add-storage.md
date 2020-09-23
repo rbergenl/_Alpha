@@ -1,4 +1,4 @@
-# Add Frontend Storage
+# Add Storage
 
 > First setup the *Mocks* repo so that a *Mock GraphQL and Storage* endpoint is available.
 > First add *Frontend Auth and Api* so that client side authentication and data storage is available.

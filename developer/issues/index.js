@@ -166,12 +166,12 @@ ${addIssue('pipeline', 'add-release-master.md')}
 ${addIssue('environments', 'setup-test-website.md')}
 ${addIssue('pipeline', 'add-deploy-test.md')}
 ${addIssue('frontend', 'add-theme.md')}
-${addIssue('frontend', 'add-navigator.md')}
+${/* add-navigator is excluded */ ''}
 ${addIssue('frontend', 'add-i18n.md')}
-${addIssue('frontend', 'add-store.md')}
-${addIssue('frontend', 'add-auth.md')}
-${addIssue('frontend', 'add-api.md')}
-${addIssue('frontend', 'add-storage.md')}
+${/* add-store is excluded */ ''}
+${/* add-auth is excluded */ ''}
+${/* add-api is excluded */ ''}
+${/* add-storage is excluded */ ''}
 ${addIssue('frontend', 'add-analytics.md')}
 ${addIssue('frontend', 'add-error-reporting.md')}
 ${addIssue('frontend', 'add-ab-testing.md')}

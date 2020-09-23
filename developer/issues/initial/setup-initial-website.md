@@ -4,13 +4,13 @@
 
 - Modify in package.json `"name"` to reflect the actual name.
 - Have Gatsby installed `npm install --global gatsby-cli`.
-- Remove the file `src/pages/using-typescript.tsx` and `src/pages/index.js` and `src/pages/page-2.js`.
-- Correct config:
+- Run `npm install react-markdown`.
+- Remove the folder `src`.
+- Copy/paste from *Alpha Project* the folder `src`.
     - In `gatsby-config.js` set correct info for `siteMetadata`.
     - In `gatsby-config.js` set correct info for `gatsby-plugin-manifest`.
 - Convert project to Typescript:
     - Modify all files in `src` to `.tsx` extension
-    - Copy/paste from *Alpha Project* the folder `gatsby-node`.
     - Remove the file `gatsby-node.js` and create a new file `gatsby-node.ts` with the lines `export { onPostBootstrap } from './src/gatsby-node/onPostBoostrap';; export { createPages } from './src/gatsby-node/createPages';`.
     - Npm install `npm install --save-dev typescript ts-node`.
     - Add to `gatsby-config.js` the line `require('ts-node').register(); module.exports = require('./gatsby-config');`.
@@ -40,9 +40,6 @@
     - Add to `package.json` the script `""codegen": "apollo client:codegen src/__generated__ --config apollo.config.js --target typescript --outputFlat --no-addTypename"`.
     - Run `npm run codegen -- --watch`.
     - Enable the code in `gatsby-node.ts` again.
-- Add Templates:
-    - Copy/paste from *Alpha Project* the folder `templates` and `gatsby-node`.
-    - Run `npm install react-markdown`.
 - Start the Gatsby server to verify a working website.
 - Add `__generated__` to `.gitignore`.
 - Run `git add . && git commit -m "do householding" && git push`.
@@ -74,4 +71,5 @@ module.exports = {
 }
 ```
 - In *Terminal 2* start the Conent Management System locally and in *Terminal 1* run in the Website folder `npm start`.
+- Add to `package.json` the script `"build:local-env": "OVERRIDE_ENV=development npm run build",` to be able to build locally.
 - Run `git add . && git commit -m "connect to cms" && git push`.

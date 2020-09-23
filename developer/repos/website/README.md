@@ -2,7 +2,7 @@
 
 React Gatsby website for legal and marketing purposes.
 
-## URLS
+## URLs
 
 - Localhost (npm run develop): http://localhost:8000
 - Localhost GraphQL: http://localhost:8000/___graphql

@@ -10,17 +10,24 @@ stages:
 image: registry.gitlab.com/$CI_PROJECT_NAMESPACE/cicd
 
 cache:
-    untracked: true
-    key: "$CI_BUILD_REF_NAME"
+    key: ${CI_COMMIT_REF_SLUG}
     paths:
+        - .npm/
         - node_modules/
+    policy: pull
 
 pre_install:
     stage: .pre
+    cache:
+        key: ${CI_COMMIT_REF_SLUG}
+        paths:
+            - .npm/
+            - node_modules/
+        policy: pull-push
     before_script:
         - env
         - echo $SSH_GITLAB_KEY | base64 -d > ~/.ssh/id_rsa && chmod 400 ~/.ssh/id_rsa
-    script: npm ci
+    script: npm ci --cache .npm --prefer-offline --no-audit
 
 pre_audit:
     stage: .pre
@@ -37,6 +44,7 @@ pre_lint:
 build_compile:
     stage: build
     script: npm run build
+    # artifact dist folder? when npm publish, yes.
 
 test_unit:
     stage: test
@@ -54,10 +62,10 @@ release_branches:
         - develop
     before_script:
         - if [ $CI_PROJECT_NAME == "app" ] ; then npm set unsafe-perm true; fi # to execute npm version command
-    script: npm version prerelease --preid=develop
+    script: npm version prerelease --preid=develop  --message "%s [skip ci]"
     after_script:
         - git remote set-url --push origin https://gitlab-ci-token:$GITLAB_TOKEN@gitlab.com/$CI_PROJECT_PATH.git
-        - git push origin HEAD:develop --push-option ci.skip
+        - git push origin HEAD:develop
 
 release_master:
     stage: release
@@ -69,7 +77,7 @@ release_master:
     script: npm run release
     after_script:
         - git remote set-url --push origin https://gitlab-ci-token:$GITLAB_TOKEN@gitlab.com/$CI_PROJECT_PATH.git
-        - git push origin HEAD:develop --push-option ci.skip
+        - git push origin HEAD:develop
 
 deploy_test:
     stage: deploy
