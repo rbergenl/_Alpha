@@ -105,6 +105,7 @@ With [Revolut](https://www.revolut.com/) you get a free bank account and a virtu
     - Login as root user (the provided email) to the noted account and `Forget password`.
     - Go to the emailbox and create a new password. This is the best practice to get started.
 - For both AWS Accounts, create an Admin user.
+- Go to *Billing* and set a Monthly Budget.
 - TODO: set 'permission boundaries' deny ec2, ecs and billing (with budgets)
 
 ### Google Cloud Account

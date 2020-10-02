@@ -8,6 +8,40 @@ Shared UI components, styleguide for ReactNative and Web. Place code snippets as
 Keep this library as thin as possible.
 Organise styling per theme.
 Sass/Css variables.
-HTML snippets (and examples) for components and page templates.
 Fonts
 Icons
+Demo App (expo web) and Web: HTML snippets (and examples) for components and page templates.
+
+## Variables
+
+## Themes
+
+## Icons
+
+## Fonts
+
+## Components
+
+- Layout:
+    - Hero
+- Forms:
+    - Form
+- Presentational:
+    - Quote
+    - Video
+- Dialog:
+    - Slider
+
+## Feature Flows
+
+- E-Commerce:
+    - ??
+- Product-Tour:
+    - ??
+- User-Account:
+    - Signup
+    - Signin
+    - Preferences
+
+## Inspirations
+- https://gestalt.netlify.app
