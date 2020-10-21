@@ -5,6 +5,8 @@ Session events.
 Authentication events.
 Feature events.
 
+TODO: check Google Measurement Protocol as alternative to AWS https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide#social
+
 ## Add Config
 - Run the commands:
 ```bash

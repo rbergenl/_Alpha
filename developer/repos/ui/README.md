@@ -12,6 +12,8 @@ Fonts
 Icons
 Demo App (expo web) and Web: HTML snippets (and examples) for components and page templates.
 
+**TIP**: to build clean components use this reference for code snippets: https://www.w3schools.com/howto/default.asp
+
 ## Variables
 
 ## Themes

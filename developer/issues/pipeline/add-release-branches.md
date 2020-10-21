@@ -29,4 +29,7 @@
 
 TODO
 - TODO: prerelease on all feature branches? (develop yes.. and feature based on `[release]`)(how does this work with semantic-release?)
+- Develop is postfixed with -alpha. Release is postfixed with -beta. Master creates a tag and runs npm version and a script to generate release notes.
+- Libraries use GitFlow to manage multiple supported live versions and SemanticVersioning to communicate the type of changes (breaking, feature or fix).
+- Applications use GitHubFlow to bring features quickly to production as Continuous Delivery and SemanticVersioning to communice the type of release (new or fixes).
 

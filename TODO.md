@@ -5,6 +5,10 @@
     3) The initial website via CMS.
     4) Initial designs in Figma.
 
+## Reminders
+- Docs: where in Issues is to add bookmark “expo project page”? Also modify “coverage” report bookmark name. And the “environments” strapi admin and website preview. And heroku mock-server.
+- Docs: initial App - when using non expo library, use an If so that expo client keeps working. And only way “free” on a device is via Xcode.
+
 ## Other
 - Investigate segment for personalization: https://segment.com/marketing/?ref=nav
 - Investigate productboard for feature roadmap: https://portal.productboard.com/

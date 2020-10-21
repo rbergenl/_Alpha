@@ -23,6 +23,7 @@ React Gatsby website for legal and marketing purposes.
 - All pages should be wrapped with the `<Layout>` component.
 - The `src/components/layout.js` already defines a default website layout with a `<header>`, `<main>` and `<footer>`.
 - Pages can be created using `gatsby-node.js` which should use a page template from `src/templates`.
+- **TIP**: find more layouts at for example: https://laurent.qodeinteractive.com/
 
 ## Multilingual
 

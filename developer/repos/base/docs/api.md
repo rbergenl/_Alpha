@@ -177,6 +177,7 @@ T.b.d.
 - For `@function` a datasource `AWS_LAMBDA` will be created including a `pipelineResolver`.
 
 ## Add Resolvers
+- If the datasource is a MySQL database: https://docs.aws.amazon.com/appsync/latest/devguide/tutorial-rds-resolvers.html
 - How authorization works: https://docs.aws.amazon.com/appsync/latest/devguide/security-authorization-use-cases.html
 - Documentation about Resolver Mapping Templates: https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference.html
 The following default resolvers are used for the Root Types:
