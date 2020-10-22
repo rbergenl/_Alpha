@@ -16,6 +16,13 @@
 
 - Try to publish with `expo publish --target managed` to publish an app that will run in Expo client. Or run `expo publish --target bare` to just publish the app.
 - Try: go to the Expo project page and near the QR code click `Open project in browser`. There the app can be opened in Android and might display more error information.
+- Something wrong with expo App? For example 'invariant violation: "main" has not been registered'. Run `expo start --no-dev --minify`. Or also handy to clear cache with `expo r -c`.
+- Here are the steps to resolve problems:
+    - Go to folder: ~/Library/MobileDevice/Provisioning Profiles/
+    - Remove all the provisioning profile
+    - In Xcode 10 menu > Product > Clean Build Folder
+    - In Xcode 10 menu > Xcode > Preferences > Account > Download Manual Profiles
+    - In Xcode 10 menu > Product > Build / Archive
 
 ## React Native
 

@@ -74,45 +74,6 @@
 - Connect the Iphone and build to the Iphone.
     - First time: on the iPhone, open Settings > General > Device Management > <appleid> > *Trust*.
 
-## Build for the App Store (TODO)
-
-> You should be enrolled in the Apple Developer Program.
-- TODO??: add Version and Permissions to app.json.
-- TODO??: add Privacy Policy, add Icon, choose PrimaryColor.
-- TODO??: first create your own credentials (keys files etc).
-- Run `expo build:ios -t archive` and follow the instructions..
-    - To Configure credentials say "No" and then "Let Expo handle the process".
-    - If login fails, wait a couple of minutes, and run the command again with the flag ` --clear-credentials`.
-
-## Build and Test for Android (TODO)
-- Test Andriod App on Android Simulator.
-
-## Setup Pipeline (TODO)
-
-TODO: check https://stackoverflow.com/questions/59539163/how-to-install-expo-ipa-on-iphone-6
-TODO: check https://www.robincussol.com/build-standalone-expo-apk-ipa-with-turtle-cli/
-Btw, check here: https://exp.host/@aardonyx1/aardonyx-app/index.exp?sdkVersion=37.0.0
-
-## EXAMPLE SOUPCHEF
-
-- Download code from [here](https://developer.apple.com/documentation/sirikit/soup_chef_accelerating_app_interactions_with_shortcuts).
-- Before you can run Soup Chef on your iPhone, you need to:
-    - Set the app group name for the SoupChef, SoupChefIntents, SoupChefWatch Extension, and SoupChefIntentsWatch targets to a valid name. For more information on app groups, see Configure app groups.
-        - Select 'Target > SoupChef' and select a Team (from Apple Id). Update the `Bundle Identifier` to `com.example.apple-<projectname>.<appname>` and also add a `App Group` with name `com.example.apple-<projectname>`.
-    - Change AppGroup value in UserDefaults+DataSource.swift to match your app group name.
-- Connect the Iphone and build to the Iphone.
-    - First time: on the iPhone, open Settings > General > Device Management > <appleid> > *Trust*.
-
-TROUBLESHOOTING:
-In my case, here are the steps that I resolve the problems:
-- Go to this folder: ~/Library/MobileDevice/Provisioning Profiles/
-- Remove all the provisioning profile
-- In Xcode 10 menu > Product > Clean Build Folder
-- In Xcode 10 menu > Xcode > Preferences > Account > Download Manual Profiles
-- In Xcode 10 menu > Product > Build / Archive
-
-Something wrong with expo App? For example 'invariant violation: "main" has not been registered'. Run `expo start --no-dev --minify`. Or also handy to clear cache with `expo r -c`
-
 ## TODO: the feedback after fresh project running expo eject
 
 ⚠️  iOS configuration applied with warnings that should be fixed:
