@@ -37,6 +37,8 @@
 - If with installing 'HAXM' you get the error 'windows requires a digitally signed driver'; then run Windows security updated; or download haxm v7.1.0 from https://github.com/intel/haxm/releases
 - if JS Debugging says "connecting to remote debugger".. open the browser already at debugger url; and restart the app.
 - To reload the application or enable hot loading, shake the device or send via the terminal `$ adb shell input keyevent KEYCODE_MENU` (or `npm run menu`)
+- When building received error about `} catch {` from module `fs-extra`. Find and replace all occurences in `node_modules/@expo` with `} catch (error) {`.
+- An error like `"CopySwiftLibs" build input file cannot be found` gets solved by removing the *User-Defined* setting `EXCLUDED_ARCHS` at the pojects > target.
 
 ## Jest React Unit Testing
 
