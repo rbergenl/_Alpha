@@ -7,6 +7,7 @@
 - Add to `tsconfig.json` the line `"include": ["lib"]` to only build the lib folder.
 - Run `echo "build/" >> .gitignore`.
 - Remove the `bin` key from `package.json` since the reference to Typescript file fails when installing this repo in other projects.
+- Add to `package.json` the line `"files": [ "types/" ]`.
 - Add to `bin/<projectname>-base.ts` the line `const env: cdk.Environment = { account: '<ACCOUNT_ID>', region: '<REGION>' };` and add a third parameter to the stack `{ env }`.
 - Remove the folder `test` and modify `jest.config.js` to represent `{ roots: ['<rootDir>/lambda'], testMatch: ['**/*.spec.ts'], }`.
 - Run `echo "cdk.context.json" >> .gitignore` (so that the SSM secrets do not end up in the codebase).
@@ -19,12 +20,13 @@ const pascalCaseProjectName = pkg.name
     .map((part: string): string => part.charAt(0).toUpperCase() + part.slice(1))
     .join('');
 ```
-- Copy/paste from *Alpha Project* the folders `constructs`, `graphql`, `lambda` and `types`.
+- Copy/paste from *Alpha Project* the folders `clients`, `constructs`, `graphql`, `lambda` , `mocks` and `types`.
 - Run `git add . && git commit -m "perform initial householding" && git push`.
 
 ## Enable Mocking
 
 > The HTTPS connection is required for the Auth *Json Web Token (JWT)* to work.
+> Requires an installation of MongoDB.
 
 - Copy/paste from *Alpha Projects* the folder `mocks`.
 - Add to `tsconfig.json` the compiler options `"esModuleInterop": true`
@@ -39,7 +41,7 @@ openssl req \
     -keyout selfsigned.key \
     -new \
     -out selfsigned.crt \
-    -subj /CN=mock.<projectname>.com \
+    -subj /CN=mock.<projectname>-<reponame>.com \
     -reqexts SAN \
     -extensions SAN \
     -config <(cat /System/Library/OpenSSL/openssl.cnf \
@@ -50,11 +52,12 @@ openssl req \
 - Open KeychainOS > Certificates > `File` > `Import Items...`.
 - Import the just created `crt` file.
 - Open it and at the section *Trust* set it to *Always Trust*.
-- Run `npm run mocks` and open the browser at `https://localhost:8443`.
+- Run `npm start` and open the browser at `https://localhost:8443`.
+- Run `git add . && git commit -m "enable mocking" && git push`.
 
 ## Add Backend
 
-> When using Api and/or Storage, always add Auth first.
+> Always add Auth first when using Api and/or Storage. 
 
 - Auth: follow the instructions from `<projectname>/<projectname>-base/docs/auth.md`.
 - Api: follow the instructions from `<projectname>/<projectname>-base/docs/api.md`.

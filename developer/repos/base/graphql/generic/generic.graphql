@@ -33,6 +33,12 @@ type S3Object {
 }
 
 ##
+## M O N G O D B   T Y P E S
+##
+
+scalar ObjectId
+
+##
 ## E N U M S
 ##
 

@@ -19,6 +19,8 @@ export class ApiSchema {
     init(): void {
         if (!fs.existsSync(paths.schemaOutDir)) {
             fs.mkdirSync(paths.schemaOutDir);
+        } else {
+            fs.unlinkSync(path.join(paths.schemaOutDir, paths.schemaFileName));
         }
         const typesArray = mergeGraphqlSchemas.fileLoader(paths.schemasIn);
         this.schemaString = mergeGraphqlSchemas.mergeTypes(typesArray, { all: true });

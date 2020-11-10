@@ -4,7 +4,7 @@
 
 - Add to `config-stack.ts` the lines:
 ```javascript
-import { AuthProps } from './constructs/auth';
+import { Props as AuthProps } from './constructs/auth';
 const uuid = Buffer.from(pkg.name).toString('hex').substr(0, 5);
 export const authConfig: AuthProps = {
     userPoolName: `${pascalCaseProjectName}UserPool`,

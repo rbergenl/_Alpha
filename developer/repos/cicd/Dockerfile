@@ -1,4 +1,5 @@
 # nvm use && docker build --build-arg NODE_VERSION=$(node --version) --build-arg GITLAB_USERNAME=<username> --tag registry.gitlab.com/<groupname>/cicd .
+# docker login registry.gitlab.com --username <username> --password-stdin < ~/.docker/<projectname>_gitlab
 # docker push registry.gitlab.com/<groupname>/cicd
 # docker image rm registry.gitlab.com/<groupname>/cicd
 # docker run --detach --tty --volume /var/run/docker.sock:/var/run/docker.sock --name <groupname>-cicd registry.gitlab.com/<groupname>/cicd

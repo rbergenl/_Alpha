@@ -15,7 +15,8 @@
   ```
   - Update `package.json` to include this [config](https://github.com/stringparser/expo-jest-typescript/blob/master/package.json).
   - Add to `tsconfig.json` the line `{ "compilerOptions": { "esModuleInterop": true, } }` to allow importing `react-test-renderer`.
-  - Create a file `App.test.tsx` with contents:
+  - Base: make sure `tsconfig.json` has `"include": ["lambda"]`.
+  - Create a file `src/App.spec.tsx` with contents:
   ```javascript
   import React from 'react'
   import renderer from 'react-test-renderer'
@@ -65,4 +66,4 @@
     - http://**groupname**.gitlab.io/**reponame**>/lcov-report
       - By default configured to deploy *Master* only.
       - Also check *Settings > Pages*.
-      - Add the url to bookmarks with name `Gitlab - <Reponame> - Master - Coverage`.
+      - Add the url to bookmarks as *Gitlab - <Reponame> - Master - Coverage* to an *Product* folder and verify the URL is already in `README.md`.

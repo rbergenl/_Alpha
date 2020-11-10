@@ -13,9 +13,10 @@ React Native app based on Expo.
 - Run `npm start`.
 - In another terminal run `npm run ios`.
 
-## Test Environment
+## URLs
 
-- URL: https://expo.io/@<username>/<package.name>
+- Expo Project Page: https://expo.io/@<username>/<package.name>
+- Coverage Report: http://**groupname**.gitlab.io/**reponame**>/lcov-report
 
 ## Debugger
 
