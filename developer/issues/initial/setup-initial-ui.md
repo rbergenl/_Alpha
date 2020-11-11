@@ -2,61 +2,37 @@
 
 ## Do Householding
 
-- First modify the name in `package.json` to reflect the scope.
-- App:
-    - `expo init app --template expo-template-blank-typescript`.
-    - `cd app && rm -r .git`.
-    - `npm install native-base`.
-- Web:
-    - `npx create-react-library` and give the answers: `web ui-web <projectname> <projectname>/web MIT npm typescript`.
-- TODO: ?? This one, or the one above? Web:
-    - `npx create-react-app web --template typescript`.
-    - `cd web && rm -r .git`.
-    - `npm install react-bootstrap bootstrap`.
-- Theme: 
-    - `mkdir theme && cd theme && npm init --yes && echo "node_modules" >> .gitignore`.
+- First modify the name in `package.json` to reflect the scope `@<projectname>/ui`.
+- Run `echo "node_modules/" >> .gitignore`.
+- Copy/pase from *Alpha Project* the folders `components`, `fonts`, `icons` and `theme`.
+- Run `npm install --save-dev typescript`.
+- Run `npx tsc --init`.
+- Enable in `tsconfig.json` the line `"declaration": true,` and `"jsx": "preserve"`.
+- Also add outside of the compiler options the lines `"exclude": ["node_modules", "**/__tests__/*", "demo-app", "demo-web"],`.
+- Add to `package.json`:
+```json
+"files": ["dist"],
+"scripts": {
+    "clean": "rm -rf dist/",
+    "build": "npm run clean && tsc --outDir dist && npm run copy",
+    "copy": "cp -r components fonts icons theme dist"
+}
+```
+- Run `echo "dist/" >> .gitignore`.
 
-## Setup Theme
+## Setup Demo App
 
-- In the folder `theme`:
-    - Run `mkdir src && cd src && touch web-fonts.css && mkdir icons`.
-    - Run `npm install --save-dev typescript`.
-    - Run `npx tsc --init`.
-    - Enable in `tsconfig.json` the line `"declaration": true,`.
-    - Also add outside of the compiler options the lines `"include": ["src"], "exclude": ["node_modules", "**/__tests__/*"],`.
-    - Add to `package.json`:
-    ```json
-    "files": ["dist"]
-    "scripts": {
-        "build": "tsc --outDir dist && npm run copy",
-        "copy": "cp -r src/icons dist && cp src/*.css dist"
-    }
-    ```
-    - Run `echo "dist" >> .gitignore`.
+- `expo init demo-app --template expo-template-blank-typescript`.
+- `cd demo-app && rm -r .git`.
 
-## Add Fonts
+## Setup Demo Web
 
-- Download the font files from [Google Fonts](https://fonts.google.com).
-    - Select the style `Regular 400`.
-    - In the popup at *Embed* open the link.
-    - Copy/paste only the part commented with `/* latin */` into the file `theme/src/web-fonts.css`.
-    - Download the font file as defined in `src: url()`.
-    - Change the line to `src: local('Dosis'), url(/fonts/dosis-regular-400.woff) format('woff');` (might also be `woff2` depending on what is provided).
-    - Also add to `variables.ts` the code:
-    ```javascript
-    export const WEB_FONT_FAMILIES = {
-        sansSerif: '"Dosis", Helvetica, Arial, sans-serif',
-        serif: 'Georgia, Times, "Times New Roman", serif',
-        monoSpaced: '"Consolas", monaco, monospace',
-    }
-    ```
-    - Copy/paste and rename the downloaded file into `theme/public/fonts` (e.g. dosis-regular-400.woff).
+- `npx create-react-app demo-web --template typescript`.
 
-## Add Icons
+## Add Components
 
-- In *Figma* open the *App* file, then find a *Layer* which has an icon (e.g. Home and Profile).
-- Select the layer of the icon and *right click > copy/pase > copy as svg*.
-- Paste the contents into a new file `src/icons/<iconname>.svg`.
+- App: `npm install native-base`
+- Web: `npm install react-bootstrap bootstrap`
 
 ## TODO
 
