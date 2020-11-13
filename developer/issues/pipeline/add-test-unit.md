@@ -8,9 +8,6 @@
   "scripts": {
     ...
     "test": "jest --ci"
-  },
-  "jest": {
-    "preset": "jest-expo"
   }
   ```
   - Update `package.json` to include this [config](https://github.com/stringparser/expo-jest-typescript/blob/master/package.json).
@@ -66,4 +63,4 @@
     - http://**groupname**.gitlab.io/**reponame**>/lcov-report
       - By default configured to deploy *Master* only.
       - Also check *Settings > Pages*.
-      - Add the url to bookmarks as *Gitlab - <Reponame> - Master - Coverage* to an *Product* folder and verify the URL is already in `README.md`.
+      - Add the url to bookmarks as *Gitlab - <Reponame> - Master - Coverage* to the folder *Developer > Test Coverage Reports* and verify the URL is already in `README.md`.

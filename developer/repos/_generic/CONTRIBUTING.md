@@ -41,6 +41,23 @@ When merging from a feature branch to develop use in the Pull request descriptio
 - Run `git commit -m "message"` and exit `CTRL+C` the interactive pre-commit-hook to commit without convention.
 - A release happens after a commit on master. Based on the conventional commits in git log, the tool [semantic-release](https://github.com/semantic-release/semantic-release) creates a `git tag`, create a release, bumps the `package.json` version accordingly and generates a `CHANGELOG.md`.
 
+## Publishing
+
+- Publishing an NPM package is handled by the pipeline during the Release step.
+- To manually publish a package add the following `.npmrc` file (modify `<projectname>`):
+```yml
+# The Project ID and Token are automatically set by the pipeline
+# For manual publishing:
+# - the Project Id can be found on Gitlab Project Overview Page
+# - the Personal Token (used for CI_JOB_TOKEN) can be found in Gitlab > Group > Setting > Variables > GITLAB_TOKEN
+# Set URL for your scoped packages.
+@<projectname>:registry=https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/
+# Add token for uploading to the registry.
+//gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}
+```
+- Set the Environment Variables `CI_PROJECT_ID` and `CI_JOB_TOKEN` with the retrieved values.
+- Run `npm publish`.
+
 ## Debugging
 
 - Check the file `TROUBLESHOOTING.md`.

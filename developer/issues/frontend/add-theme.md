@@ -3,14 +3,24 @@
 TODO: modify theming to comply with this setup (mode and variant): https://styled-components.com/docs/tooling#styled-theming
 
 > First setup the *UI* repo so that a *Base Theme* and *Fonts* are available.
+
 > A word on *critical css* for *Website*: Gatsby handles this out of the box.
 
 ## Getting Started
 
-
-- Run `npm install --save-dev git+ssh://git@<username>.gitlab.com:<groupname>/ui.git#master`.
-- In the *UI* repo run `npm link` and then in the target repo run `npm link @<projectname>/ui` (this allows to use the local repo to be used for rapid development).
-- Add in `package.json` to `"start"` script the command `npm run link` and add `"link": npm link @<projectname>/ui`.
+- Make sure the `.npmrc` file is added as described in *Getting Started* of the `README.md`.
+- Run `npm install @<projectname>/ui`.
+- Add in `package.json` the script `"link": "npm link @<projectname>/ui"`.
+- Add in `package.json` the script `"unlink": "npm unlink --no-save @<projectname>/ui"`
+    - While working on an application and the UI repo at the same time, it is quicker to link the repos locally instead of publishing and installing the UI repo each time.
+    - In the *UI* repo run `npm link` to make it locally available.
+    - In the target repo run `npm run link`.
+- Copy/pase from *Alpha Project* the `theme` folder into `src`.
+- In `App.tsx` add (replace the `<div></div>`):
+```javascript
+import { Themed } from 'theme';
+<Themed>...existing app</Themed>
+```
 
 - Webapp:
     - Run `npm install --save-dev styled-components styled-theming @types/styled-components @types/styled-theming`.
@@ -18,13 +28,6 @@ TODO: modify theming to comply with this setup (mode and variant): https://style
 - Website: 
     - Check [docs](https://www.gatsbyjs.org/docs/styled-components/).
     - Run `npm install --save gatsby-plugin-styled-components styled-components babel-plugin-styled-components`.
-
-- Copy/pase from *Alpha Project* the `theme` folder into `src`.
-- In `App.tsx` add (replace the `<div></div>`):
-```javascript
-import { Themed } from 'theme';
-<Themed>...existing app</Themed>
-```
 
 ## Add Fonts
 

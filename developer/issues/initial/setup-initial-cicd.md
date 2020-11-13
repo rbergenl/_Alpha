@@ -6,11 +6,14 @@
 
 > This access is needed so that a release can be commited back to the repository.
 
-- In Gitlab, create a Personal Access Token with name `Pipeline` and scope *api, write repo* and add is as a protected and masked variable `GITLAB_TOKEN` to *Gitlab > Group > Settings > CI / CD > Variables*.
+- In Gitlab, create a Personal Access Token with name `GitlabToken` and scope *api, write repo*.
+- Add the token as a protected and masked variable `GITLAB_TOKEN` to *Gitlab > Group > Settings > CI / CD > Variables*.
 
 ## Setup access to Docker Registry
 
-- In *Gitlab > Settings > Access Token* create a new token with name `Docker` and scope `api`. Save the token in a file `nano ~/.docker/<projectname>_gitlab`.
+- In *Gitlab > Settings > Access Token* create a new token with name `DockerToken` and scope `api`.
+- Add the token as a protected and masked variable `DOCKER_TOKEN` to *Gitlab > Group > Settings > CI / CD > Variables*.
+- Save the token in a file `nano ~/.docker/<projectname>_gitlab`.
 - Run `docker login registry.gitlab.com --username <username> --password-stdin < ~/.docker/<projectname>_gitlab`.
 
 ## Docker Image

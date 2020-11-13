@@ -7,6 +7,7 @@
 - Have Expo CLI installed `npm install --global expo-cli`.
 - Run `expo login`.
 - Run `echo -e "\n# Custom" >> .gitignore`.
+- Run `echo ".npmrc" >> .gitignore`.
 - Add to `app.json` to the key `ios` the line `"bundleIdentifier": "com.<projectname>.app"`.
 - Add to `package.json` the key `"name": "<projectname>-app",`.
 - Copy/paste from `app.json` the key `version` into `package.json`.
@@ -14,6 +15,7 @@
 - Add to `package.json` the script `"debug": "expo start --no-dev --minify"` (to be able to publish the app from there).
 - Modify in `App.tsx` the line `export default function App() {` into `const App: React.FC = () => {` and end the file with `export default App`.
 - Run `git add . && git commit -m "householding" && git push`.
+- Add the url `https://expo.io/@<username>/<package.name>` to bookmarks as *Expo - App* to the folder *Developer > Environments* and verify the URL is already in `README.md`.
 
 ## Enable Expo Bare Workflow
 

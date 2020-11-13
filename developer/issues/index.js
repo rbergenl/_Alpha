@@ -107,6 +107,14 @@ ${addIssue('initial', 'enable-vcs.md')}
 ${addIssue('initial', 'add-basic-docs.md')}
 ${addIssue('initial', 'setup-initial-cms.md')}
 ${addIssue('environments', 'setup-test-cms.md')}
+${addIssue('pipeline', 'enable-pipeline.md')}
+${addIssue('pipeline', 'add-pre-audit.md')}
+${addIssue('pipeline', 'add-pre-format.md')}
+${addIssue('pipeline', 'add-pre-lint.md')}
+${addIssue('pipeline', 'add-build-compile.md')}
+${addIssue('pipeline', 'add-test-unit.md')}
+${addIssue('pipeline', 'add-release-branches.md')}
+${addIssue('pipeline', 'add-release-master.md')}
 `
 }
 
@@ -116,6 +124,14 @@ ${addIssue('initial', 'create-new-repo.md')}
 ${addIssue('initial', 'enable-vcs.md')}
 ${addIssue('initial', 'add-basic-docs.md')}
 ${addIssue('initial', 'setup-initial-ui.md')}
+${addIssue('pipeline', 'enable-pipeline.md')}
+${addIssue('pipeline', 'add-pre-audit.md')}
+${addIssue('pipeline', 'add-pre-format.md')}
+${addIssue('pipeline', 'add-pre-lint.md')}
+${addIssue('pipeline', 'add-build-compile.md')}
+${addIssue('pipeline', 'add-test-unit.md')}
+${addIssue('pipeline', 'add-release-branches.md')}
+${addIssue('pipeline', 'add-release-master.md')}
 `
 }
 

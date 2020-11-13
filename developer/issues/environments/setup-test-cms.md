@@ -58,5 +58,5 @@ if (process.env.NODE_ENV === 'test') {
 - Run `heroku config:set $(grep CLOUDINARY_KEY .env.test | xargs)`.
 - Run `heroku config:set $(grep CLOUDINARY_SECRET .env.test | xargs)`.
 - Run `git push heroku develop:master`.
-- Open the provided URL with `/admin` and bookmark it as *Strapi Admin* to an *Product* folder and verify the URL is already in `README.md`.
+- Open the provided URL with `/admin` and bookmark it as *Heroku - CMS* to the folder *Developer > Environments* and verify the URL is already in `README.md`.
 - Login as Admin using the credentials as stored in LastPass.

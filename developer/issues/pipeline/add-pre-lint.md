@@ -1,7 +1,7 @@
 # Add .Pre:Lint
 
 - Check [docs](https://reactjs.org/docs/hooks-rules.html#eslint-plugin)
-- App / Base:
+- App / Base / UI:
     - Run `npm install eslint --save-dev`.
     - Run `npx eslint --init`.
         - Select *To check syntax and find problems*.
@@ -14,9 +14,10 @@
         - Select *JSON*
         - Select *Yes* to install dependencies
     - Move the contents of the generated `.eslintrc.json` file into `package.json` under the key `eslintConfig` and remove the generated file again.
-    - For App, also extend the config with `"settings": { "react": { "version": "detect" } }`.
+    - For App and UI, also extend the config with `"settings": { "react": { "version": "detect" } }`.
     - For App, add to `package.json` the script `"lint": "eslint \"src/**/*.tsx\"",`.
     - For Base, add to `package.json` the script `"lint": "eslint \"{bin,clients,constructs,lambda,lib,mocks,types}/**/*.ts\"",`.
+    - For UI, add to `package.json` the script `"lint": "eslint \"{components,fonts,icons,theme}/**/*.{ts,tsx}\"",`
 - Webapp:
     - Run `npm install --save-dev eslint tslint-config-prettier`.
     - Add to `eslint.json`:

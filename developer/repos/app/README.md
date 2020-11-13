@@ -12,11 +12,12 @@ React Native app based on Expo.
 - Run `npm install`.
 - Run `npm start`.
 - In another terminal run `npm run ios`.
+- Run `set -o allexport && source .env && set +o allexport` to set Environment Variables.
 
 ## URLs
 
-- Expo Project Page: https://expo.io/@<username>/<package.name>
-- Coverage Report: http://**groupname**.gitlab.io/**reponame**>/lcov-report
+- Expo - App: https://expo.io/@<username>/<package.name>
+- Test Coverage Report: http://**groupname**.gitlab.io/**reponame**>/lcov-report
 
 ## Debugger
 

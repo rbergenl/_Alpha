@@ -11,7 +11,6 @@
 - Also add outside of the compiler options the lines `"exclude": ["node_modules", "**/__tests__/*", "demo-app", "demo-web"],`.
 - Add to `package.json`:
 ```json
-"files": ["dist"],
 "scripts": {
     "clean": "rm -rf dist/",
     "build": "npm run clean && tsc --outDir dist && npm run copy",

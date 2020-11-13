@@ -10,4 +10,4 @@
 - Run `heroku create <projectname>-base`.
 - RUn `heroku config:set NPM_CONFIG_PRODUCTION=false`
 - Run `git push heroku develop:master`.
-- Open and bookmark the provided URL.
+- Add the url to bookmarks as *Heroku - Mock Server* to the folder *Developer > Environments* and verify the URL is already in `README.md`.
