@@ -9,10 +9,17 @@ React Native app based on Expo.
 ## Getting Started
 
 - Run `nvm use`.
+- Add an `.npmrc` file with
+    - Make sure to modify `<projectname>` and `<NPM_TOKEN>`.
+    - Make sure this file is added to `.gitignore`.
+```yml
+# Find the value for `GITLAB_TOKEN` in *Gitlab > Group > Settings > CI / CD > Variables*.
+@<projectname>:registry=https://gitlab.com/api/v4/packages/npm/
+//gitlab.com/api/v4/packages/npm/:_authToken=<NPM_TOKEN>
+```
 - Run `npm install`.
-- Run `npm start`.
-- In another terminal run `npm run ios`.
-- Run `set -o allexport && source .env && set +o allexport` to set Environment Variables.
+- For Web, Run `npm run web`.
+- For iOS, Run `npm start` and in another terminal run `npm run ios`.
 
 ## URLs
 

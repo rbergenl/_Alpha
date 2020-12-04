@@ -1,49 +1,56 @@
-import { BASE_COLORS, BRAND_COLORS } from './variables';
+export type ThemeMode = 'light' | 'dark';
+export type Variant =  'default' | 'primary' | 'success' | 'warning';
+export type ITheme = typeof light; // auto fill the types based on the light mode
+export type BaseTheme = Record<ThemeMode, ITheme>;
 
-export const light: IBaseTheme = {
-    background: {
-        default: BRAND_COLORS.neutral
-    },
-    text: {
-        default: BASE_COLORS.black
-    },
-    button: {
-        default: BRAND_COLORS.neutral,
-        primary: BRAND_COLORS.accent
-    }
+const VARIABLES = {
+    web_font_family_sansSerif: '"Dosis", Helvetica, Arial, sans-serif',
+    web_font_family_serif: 'Georgia, Times, "Times New Roman", serif',
+    web_font_family_monoSpaced: '"Consolas", monaco, monospace',
+
+    base_color_black: '#373A3C',
+    base_color_white: '#E8F0F5',
+    base_color_queenPink: '#e2c2c6',
+    base_color_unbleachedSilk: '#ffe5d4',
+    base_color_laurelGreen: '#bacdb0',
+    base_color_darkSkyBlue: '#96bdc6',
+    base_color_spanishCarmine: '#ca2e55',
+
+    breakpoint_xs: '0',
+    breakpoint_sm: '576px',
+    breakpoint_md: '768px',
+    breakpoint_lg: '992px',
+    breakpoint_xl: '1200px',
+    breakpoint_xxl: '1400px',
+
+    button_padding_y_sm: '.25rem',
+    button_padding_y_md: '.375rem',
+    button_padding_y_lg: '.5rem',
+    button_padding_x_sm: '.5rem',
+    button_padding_x_md: '.75rem',
+    button_padding_x_lg: '1rem',
+    button_border_radius_sm: '3px',
+    button_border_radius_md: '5px',
+    button_border_radius_lg: '8px'
 };
 
-export const dark: IBaseTheme = {
-    background: {
-        default: BASE_COLORS.black
-    },
-    text: {
-        default: BASE_COLORS.white
-    },
-    button: {
-        default: BRAND_COLORS.accent,
-        primary: BRAND_COLORS.neutral
-    }
+const light = {
+    ...VARIABLES,
+    brandPrimary: VARIABLES.base_color_darkSkyBlue,
+    brandSecondary: VARIABLES.base_color_queenPink,
+    brandAccent: VARIABLES.base_color_spanishCarmine,
+    brandNeutral: VARIABLES.base_color_unbleachedSilk,
 };
 
-export const themes = { light, dark };
-
-export interface IBaseTheme {
-    background: Variants;
-    text: Variants;
-    button: Variants;
+const dark = {
+    ...VARIABLES,
+    brandPrimary: VARIABLES.base_color_darkSkyBlue,
+    brandSecondary: VARIABLES.base_color_queenPink,
+    brandAccent: VARIABLES.base_color_spanishCarmine,
+    brandNeutral: VARIABLES.base_color_unbleachedSilk,
 }
 
-export enum VARIANTS {
-    default = 'default',
-    primary = 'primary',
-    success = 'success',
-    warning = 'warning'
-}
-
-export interface Variants {
-    [VARIANTS.default]: string;
-    [VARIANTS.primary]?: string;
-    [VARIANTS.success]?: string;
-    [VARIANTS.warning]?: string;
+export const defaultTheme: BaseTheme = {
+    light,
+    dark
 }

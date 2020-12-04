@@ -1,18 +1,20 @@
 import React from 'react';
 import * as styledComponents from 'styled-components';
 import {
+    WEB_FONT_FAMILIES,
+    BASE_COLORS,
+    THEMES,
     IBaseTheme,
-    themes,
     VARIANTS
-} from '@<projectname>/ui/theme';
-import { WEB_FONT_FAMILIES, BASE_COLORS } from '@<projectname>/ui/theme/dist/variables';
-import '@<projectname>/ui/theme/dist/web-fonts.css';
+} from '@<projectname>>/ui';
+// import '@<projectname>/ui/theme/dist/web-fonts.css';
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface ITheme extends IBaseTheme {}
 
 const theme: ITheme = {
-    ...themes.light
+    ...THEMES.default.light
 };
-
-interface ITheme extends IBaseTheme {};
 
 const {
     default: styled,
@@ -43,7 +45,7 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-const Themed = ({ children }: any) => (
+const Themed = ({ children }: React.PropsWithChildren<unknown>): JSX.Element => (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       { children }

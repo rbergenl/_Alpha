@@ -32,6 +32,7 @@
     - Prettier - Code formatter
     - SQLite
     - Terminal
+    - Vscode Styled Components
 - Install Google Chrome extensions:
   - React Dev Tools
   - Redux Dev Tools

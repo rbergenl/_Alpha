@@ -27,8 +27,9 @@ RUN apk update && apk add --no-cache \
     python3 \
     python3-dev
 
-RUN pip3 install --upgrade setuptools pip && \
-    pip3 install awscli
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install
 
 # Alternative way of installing Node on Alpine: https://github.com/nvm-sh/nvm/issues/1102#issuecomment-550572252
 RUN curl -O https://unofficial-builds.nodejs.org/download/release/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64-musl.tar.xz

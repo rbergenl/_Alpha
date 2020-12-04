@@ -1,6 +1,6 @@
-import { light } from './default';
-const mode = {
-    light: { ...light },
-    dark: {}
-};
-export const theme_commercial = { ...mode };
+import { defaultTheme, BaseTheme } from './default'
+
+export const commercialTheme: BaseTheme = {
+    ...defaultTheme,
+    // Make specific overrides here
+}

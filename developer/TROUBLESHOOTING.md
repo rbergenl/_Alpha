@@ -53,10 +53,13 @@
 
 - Check folders via Terminal with command `du -hs */ | sort -h` (disk utility, human-readable summary and sort by the human-readable column (e.g. 2.2G)). Use `du -hs .*` to include hidden folders otherwise visible with `ls -a` or `du -hs *` for just files otherwise visible with `ls -l`.
 - Go through all NodeJS projects and remove the `node_modules` folder.
+    - On Mac, use Finder and first search "Documents" for "node_modules". Then click the plus sign and filter by Kind is Folder. Right click to open each enclosing folder to see in which project it was installed (perhaps go up multiple teams to get out of nested node_modules).
 - NVM:
     - stores versions here ``/Users/username/.nvm/versions`. It creates a different folder for each installation of Node. And each globally installed package is installed per version of Node. So, consolidate the versions of Node (e.g. v14.0.1 and v14.0.2 and v14.0.3, means, upgrade all to v14.0.3).
 - Docker:
-    - stores caches for each layer of images that are build or run. Check images with `docker images` and remove with `docker image rm <id|name>`.
+    - remove all with `docker system prune`.
+    - stores caches for each layer of images that are build or run. Check images with `docker images` and remove with `docker image rm <id|name>`  (tip, doubleclick and id, then CMD+right click then Space and next). Optionally force remove with the flag `-f`.
+    - Perhaps first remove stopped containers with `docker ps -a` and then `docker container rm <id>` (tip, doubleclick and id, then CMD+right click then Space and next).
 - Xcode:
     - stores downloads here `/Users/username/Library/Caches/com.apple.dt.Xcode`.
     - stores a build of an App here `/Users/username/Library/Developer/Xcode/DerivedData/`

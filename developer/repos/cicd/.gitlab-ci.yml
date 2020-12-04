@@ -44,7 +44,9 @@ pre_lint:
 build_compile:
     stage: build
     script: npm run build
-    # artifact dist folder? when npm publish, yes.
+    artifacts:
+        untracked: true
+
 
 test_unit:
     stage: test
@@ -60,9 +62,15 @@ release_branches:
     stage: release
     only:
         - develop
+    dependencies: 
+        - build_compile
     before_script:
         - if [ $CI_PROJECT_NAME == "app" ] ; then npm set unsafe-perm true; fi # to execute npm version command
-    script: npm version prerelease --preid=develop  --message "%s [skip ci]"
+        - npm config set @${CI_PROJECT_NAMESPACE}:registry=https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/ # to publish
+        - npm config set //gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN} # to publish
+    script:
+        - npm version prerelease --preid=develop  --message "%s [skip ci]"
+        - if [ $CI_PROJECT_NAME == "ui" ] ; then npm publish dist; fi
     after_script:
         - git remote set-url --push origin https://gitlab-ci-token:$GITLAB_TOKEN@gitlab.com/$CI_PROJECT_PATH.git
         - git push origin HEAD:develop
@@ -71,10 +79,16 @@ release_master:
     stage: release
     only: 
         - master
+    dependencies: 
+        - build_compile
     before_script:
-        - export GIT_AUTHOR_NAME=$(git config user.name)
-        - export GIT_AUTHOR_EMAIL=$(git config user.email)
-    script: npm run release
+        - export GIT_AUTHOR_NAME=$(git config user.name) # displayed commit user
+        - export GIT_AUTHOR_EMAIL=$(git config user.email) # displayed commit user
+        - npm config set @${CI_PROJECT_NAMESPACE}:registry=https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/ # to publish
+        - npm config set //gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN} # to publish
+    script:
+        - npm run release
+        - if [ $CI_PROJECT_NAME == "ui" ] ; then npm publish dist; fi
     after_script:
         - git remote set-url --push origin https://gitlab-ci-token:$GITLAB_TOKEN@gitlab.com/$CI_PROJECT_PATH.git
         - git push origin HEAD:develop

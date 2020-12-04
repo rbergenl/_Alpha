@@ -14,6 +14,7 @@
 "scripts": {
     "clean": "rm -rf dist/",
     "build": "npm run clean && tsc --outDir dist && npm run copy",
+    "build:watch": "npm run build && tsc --outDir dist --watch",
     "copy": "cp -r components fonts icons theme dist"
 }
 ```
@@ -23,6 +24,8 @@
 
 - `expo init demo-app --template expo-template-blank-typescript`.
 - `cd demo-app && rm -r .git`.
+- Add to `package.json` the script `"link": "npm link @<projectname>/ui`.
+- Copy/paste from *Alpha Project* the folder *demo-app*.
 
 ## Setup Demo Web
 
