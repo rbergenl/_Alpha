@@ -66,10 +66,11 @@ release_branches:
         - build_compile
     before_script:
         - if [ $CI_PROJECT_NAME == "app" ] ; then npm set unsafe-perm true; fi # to execute npm version command
+        - if [ $CI_PROJECT_NAME == "ui" ] ; then npm set unsafe-perm true; fi # to execute npm version command
         - npm config set @${CI_PROJECT_NAMESPACE}:registry=https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/ # to publish
         - npm config set //gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN} # to publish
     script:
-        - npm version prerelease --preid=develop  --message "%s [skip ci]"
+        - npm version prerelease --preid=develop --message "%s [skip ci]"
         - if [ $CI_PROJECT_NAME == "ui" ] ; then npm publish dist; fi
     after_script:
         - git remote set-url --push origin https://gitlab-ci-token:$GITLAB_TOKEN@gitlab.com/$CI_PROJECT_PATH.git

@@ -35,6 +35,7 @@ if (process.env.NODE_ENV === 'test') {
 - Click `connect`:
     - Since IP addresses from Heroku are dynamic, select *Allow access from anywhere* to display `0.0.0.0/0` and click *Add IP-address*. This is not secure, but good for now.
     - Enter username `admin` and click *generate password*, copy the password and paste it to LastPass secure note `MongoDB`. Then click *create user* and then *choose a connection method*.
+    - Make sure to store the credentials in LastPass.
     - Select `connect your application` and keep the default *NodeJS* and version *3.0 or later*. Then copy/paste the connection string.
 - Run `echo "DATABASE_URI=<CONNECTION_STRING>" >> .env.test`.
 - Add to `package.json` the script `"develop:test-env": "ENV_PATH=.env.test NODE_ENV=test npm run develop"`.

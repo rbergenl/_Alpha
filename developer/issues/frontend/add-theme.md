@@ -40,14 +40,13 @@ import { Themed } from 'theme';
 
 - In `Dummy.tsx` add the code:
 ```javascript
-import { VARIANTS } from 'theme';
-import Button from 'theme/ui/Button';
-<Button variant={VARIANTS.primary}>Click</Button>
+import Button from '@<projectname>/ui/{app|web}';
+<Button variant="primary">Click</Button>
 ```
 
 ## Add App Shell
 
-- Copy/paste from *Project Alpha* the `withAppShell.tsx` Higher Order Component into `src/components`.
+- Copy/paste from *Project Alpha* the `withAppShell.tsx` Higher Order Component into `src`.
 - Move the `<Header />` from `App.tsx` into `<header></header>` of `withAppShell.tsx`.
 - Add to `Dummy.tsx` the lines:
 ```javascript
@@ -55,12 +54,19 @@ import withAppShell from './withAppShell';
 export default withAppShell(Dummy);
 ```
 
+## Add Icons
+
+- App:
+    - View the [docs](https://docs.expo.io/guides/icons/) 
+    - Is installed by default and can be used like `import { Ionicons } from '@expo/vector-icons'`.
+    - Find icons via this [directory](https://expo.github.io/vector-icons/)
+
 ## Add Fonts
 
 - App:
+    - View the [docs](https://docs.expo.io/guides/using-custom-fonts/).
     - Download the font files from [Google Fonts](https://fonts.google.com).
-    - Place the file(s) inside `android/app/src/main/assets/fonts`.
-    - Use the actual font file name in the code `fontFamily: 'Kalam-Bold'`.
+    - Place the file(s) inside `./assets/fonts/<fontname>.otf`.
 - Webapp:
     - The `@font-face` definition is already defined in `GlobalStyle` component.
     - Copy/paste from *UI* repo the `public/fonts` folder into the projec folder.

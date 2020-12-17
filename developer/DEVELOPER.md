@@ -10,7 +10,7 @@
   - [SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html) - to invoka a lambda locally.
     - Run `brew tap aws/tap && brew install aws-sam-cli`.
   - Proxy: `brew install mitmproxy`.
-  - Heroku: `brew install heroku/brew/heroku`.
+  - Heroku: `brew tap heroku/brew && brew install heroku`.
   - React-Native-Debugger: `brew cask install react-native-debugger`.
   - MongoDB: `brew tap mongodb/brew && brew install mongodb-community`.
     - Also install the UI Admin: Mongo Compass.

@@ -28,6 +28,7 @@ new Api(this, "Api", {
 
 ## Generating GraphQL Typescript Definitions
 
+> TODO! Check Aardonyx project. Is now done with graphql-codegen
 - Run `npm install --save-dev apollo-boost`.
 - Add to `package.json` the script `"codegen": "apollo client:codegen src/api/types --target typescript --outputFlat",`.
 - Add a file `apollo.config.js` with the content:

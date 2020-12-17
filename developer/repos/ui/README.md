@@ -3,7 +3,10 @@
 
 Shared UI components, styleguide for ReactNative and Web. Place code snippets as well.
 
-- App: Use [NativeBase](https://nativebase.io/). It has platform or brand based theming and allows customisation; and has most stars on GitHub. 
+- App: Use [NativeBase](https://nativebase.io/). It has platform or brand based theming and allows customisation; and has most stars on GitHub.
+    - To fix the error about `import type { KeyboardAwareInterface } from './KeyboardAwareInterface'` do the following:
+        - Run `expo customize:web` and choose to generate a `webpack.config.js`.
+        - Modify that file to change the argument `env` into `{...env,babel:{dangerouslyAddModulePathsToTranspile: ['@codler/react-native-keyboard-aware-scroll-view'] }}`
 - Web: Use [React Bootstrap](https://react-bootstrap.github.io/). It is an industry standard for many years.
 
 Keep this library as thin as possible.
