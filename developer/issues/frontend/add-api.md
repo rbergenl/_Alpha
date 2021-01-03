@@ -33,7 +33,7 @@ const client = new ApolloClient({
 
 ## Add Codegen and Intellisense
 
-- Add to `package.json` the script `"codegen": "apollo client:codegen src/api/types --target typescript --outputFlat",`.
+- Add to `package.json` the script `"codegen": "apollo client:codegen src/__generated__/types --target typescript --outputFlat",`.
 - Add to the root a file `apollo.config.js` with the contents:
 ```javascript
 const path = require('path');

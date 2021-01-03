@@ -44,9 +44,17 @@ Demo App (expo web) and Web: HTML snippets (and examples) for components and pag
 
 ## Add Icons
 
-- In *Figma* open the *App* file, then find a *Layer* which has an icon (e.g. Home and Profile).
-- Select the layer of the icon and *right click > copy/pase > copy as svg*.
-- Paste the contents into a new file `src/icons/<iconname>.svg`.
+-> For monochromatic icons, use Icomoon.
+-> For multicolor icons, use react-native-svg.
+    -> Best approach is to convert SVG to React Components with `npx @svgr/cli --native --typescript --svgo-config "{ \"plugins\": [ {\"convertPathData\": false, \"removeViewBox\": false, \"removeDimensions\": true } ] }" [-d out-dir] [src-dir]`.
+
+- Get an icon in Figma:
+    1. In Figma open the menu and search for `Iconify`.
+    2. Alternatively, find an icon at https://thenounproject.com/. Via Element Inspector, open the base64 in a new tab and save to svg. Then import that file into Figma and resize the frame to 16x16.
+    
+- Exporting SVG's from Figma:
+    1. Select the layer of the icon and *right click > copy/pase > copy as svg*. Paste the contents into a new file `src/icons/<iconname>.svg`.
+    2. Alternatively, select the group/frame and in the right menu export as svg in `export` section.
 
 ## Variables
 

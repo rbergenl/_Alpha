@@ -10,6 +10,7 @@
 
 - Add to `package.json` the key `files`.
     - For *UI* the value should be `["dist/"]`.
+    - For *Base* the value should be `["types/", "graphql/"]`.
 - Remove from `package.json` the key `"private": "true",`.
 - Publishing is handled by the pipeline which utilizes `npm config set` instead of an `.npmrc` file. 
 - Read the `CONTRIBUTING.md` file for more information.

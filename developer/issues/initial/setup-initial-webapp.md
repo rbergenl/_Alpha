@@ -16,7 +16,13 @@ import React from 'react';
 function Header() { return(<React.Fragment>Header</React.Fragment>) }
 export default Header;
 ```
-- In `App.tsx` replace all content with `return (<div><Header /><Dummy /></div>);` and import appropriately.
+- In `App.tsx` replace all content with `return (<div><Suspense fallback={renderLoader()}><Header /><Dummy /><Suspense></div>);` and import using Lazy Loading:
+```javascript
+import React, { lazy, Suspense } from 'React';
+const Dummy = lazy(() => import('components/Dummy'));
+const Header = lazy(() => import('components/Header'));
+const renderLoader = () => <p>Loading</p>;
+```
 
 ## Add Amplify
 - Run `npm install aws-amplify`.
