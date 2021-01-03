@@ -33,9 +33,9 @@ Start with these necessary steps:
 
 Follow up with laying the groundwork for the startup:
 
-### UX
+### Design
 
-- Make sure to follow these instructions in [`UX.md`](ux/UX.md):
+- Make sure to follow these instructions in [`DESIGN.md`](design/DESIGN.md):
     - Decide on initial Color Scheme and Fonts.
     - Setup Figma.
     - Create Design System.
@@ -77,9 +77,9 @@ Build the MVP and bring it live (version Alpha):
 - Make sure to follow these instructions in [`MARKETING.md`](marketing/MARKETING.md):
     - Add Minumum Viable Product features.
 
-### UX
+### Design
 
-- Make sure to follow these instructions in [`UX.md`](ux/UX.md):
+- Make sure to follow these instructions in [`DESIGN.md`](design/DESIGN.md):
     - Create Website Prototype.
     - Create App Prototype.
     - Use workflow to add new user flows.
@@ -126,10 +126,12 @@ Go live with version 1 and grow to sell:
 ### Marketing
 
 - Perform SEO:
-    - Keyword research
-    - Google Search Console
-    - Google PageSpeed Insights
-    - Linkbacks
+    1. Keyword research
+    2. Linkbacks
+    3. Internal links
+    4. Technicalities: meta tags, alt tags, headers, etc.
+- Google Search Console
+- Google PageSpeed Insights
 - Set Marketing Goals and perform Analysis on them.
 
 ### Developer
@@ -142,6 +144,8 @@ Go live with version 1 and grow to sell:
 - Create an Investor Pitch.
 
 ## 6. Ownership Transfer
+
+Exit the investment by selling (sweat) equity via: Private Shares, Acquisition or IPO.
 
 ### Exit Procedure
 
