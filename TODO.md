@@ -21,3 +21,9 @@
 - create in all apps the basic flows `User: login/register/profile/preferences`, and `Ecommerce: products/cart/checkout` (add these tasks to issues-seed).
 - make sure to use correct `@auth` usage in schema and resolvers (least privilege).
 - check how to do `a/b testing` and `ecommerce`: https://www.gatsbyjs.org/docs/ab-testing-with-google-analytics-and-netlify/
+
+# Intranet
+- Create an intranet project and host it on an "internet web".
+- Make a Contributing page and point each CONTRIBUTING.md file to this webpage.
+- Make a Troubleshooting page and point Contributing > Debugging to this page.
+- Make a Dashboard available for all employees.

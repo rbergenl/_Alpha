@@ -7,6 +7,7 @@ Shared UI components, styleguide for ReactNative and Web. Place code snippets as
     - To fix the error about `import type { KeyboardAwareInterface } from './KeyboardAwareInterface'` do the following:
         - Run `expo customize:web` and choose to generate a `webpack.config.js`.
         - Modify that file to change the argument `env` into `{...env,babel:{dangerouslyAddModulePathsToTranspile: ['@codler/react-native-keyboard-aware-scroll-view'] }}`
+    > Do not use Native Base. Stay plain vanilla, keep it simple!
 - Web: Use [React Bootstrap](https://react-bootstrap.github.io/). It is an industry standard for many years.
 
 Keep this library as thin as possible.
@@ -23,42 +24,6 @@ Demo App (expo web) and Web: HTML snippets (and examples) for components and pag
 - Run `npm install`
 - To view the demo app: `cd demo-app && npm run web`.
 - To view the demo web: `cd demo-web && npm start`.
-
-## Add Fonts
-
-- Download the font files from [Google Fonts](https://fonts.google.com).
-    - Select the style `Regular 400`.
-    - In the popup at *Embed* open the link.
-    - Copy/paste only the part commented with `/* latin */` into the file `theme/src/web-fonts.css`.
-    - Download the font file as defined in `src: url()`.
-    - Change the line to `src: local('Dosis'), url(/fonts/dosis-regular-400.woff) format('woff');` (might also be `woff2` depending on what is provided).
-    - Also add to `variables.ts` the code:
-    ```javascript
-    export const WEB_FONT_FAMILIES = {
-        sansSerif: '"Dosis", Helvetica, Arial, sans-serif',
-        serif: 'Georgia, Times, "Times New Roman", serif',
-        monoSpaced: '"Consolas", monaco, monospace',
-    }
-    ```
-    - Copy/paste and rename the downloaded file into `theme/public/fonts` (e.g. dosis-regular-400.woff).
-
-## Add Icons
-
--> For monochromatic icons, use Icomoon.
--> For multicolor icons, use react-native-svg.
-    -> Best approach is to convert SVG to React Components with `npx @svgr/cli --native --typescript --svgo-config "{ \"plugins\": [ {\"convertPathData\": false, \"removeViewBox\": false, \"removeDimensions\": true } ] }" [-d out-dir] [src-dir]`.
-
-- Get an icon in Figma:
-    1. In Figma open the menu and search for `Iconify`.
-    2. Alternatively, find an icon at https://thenounproject.com/. Via Element Inspector, open the base64 in a new tab and save to svg. Then import that file into Figma and resize the frame to 16x16.
-    
-- Exporting SVG's from Figma:
-    1. Select the layer of the icon and *right click > copy/pase > copy as svg*. Paste the contents into a new file `src/icons/<iconname>.svg`.
-    2. Alternatively, select the group/frame and in the right menu export as svg in `export` section.
-
-## Variables
-
-## Themes
 
 ## Components
 

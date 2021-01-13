@@ -5,8 +5,8 @@
   - Add to `package.json` the script `"format": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",` (command taken from [here](https://create-react-app.dev/docs/setting-up-your-editor/#formatting-code-automatically)).
     - For *Base* replace the `src` with `{bin,clients,constructs,lambda,lib,mocks,types}`.
     - For *UI* replace the `src` with `{components,fonts,icons,theme}`.
-  - For configuration use these [defaults](https://prettier.io/docs/en/configuration.html).
-  - Add to `package.json` the config (for *Base* it should be `"semi": true`):
+  - Add to `package.json` the config (configuration taken from [here](https://prettier.io/docs/en/configuration.html)):
+    - For *Base* it should be `"semi": true`.
   ```json
   "prettier": {
       "trailingComma": "es5",

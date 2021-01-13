@@ -20,22 +20,6 @@
 ```
 - Run `echo "dist/" >> .gitignore`.
 
-## Setup Demo App
-
-- `expo init demo-app --template expo-template-blank-typescript`.
-- `cd demo-app && rm -r .git`.
-- Add to `package.json` the script `"link": "npm link @<projectname>/ui`.
-- Copy/paste from *Alpha Project* the folder *demo-app*.
-
-## Setup Demo Web
-
-- `npx create-react-app demo-web --template typescript`.
-
-## Add Components
-
-- App: `npm install native-base`
-- Web: `npm install react-bootstrap bootstrap`
-
 ## TODO
 
 - Add a CSS Reset file (to be included by Webapp and Website):

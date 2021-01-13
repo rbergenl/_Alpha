@@ -1,5 +1,6 @@
 # Add Test:Unit
 
+- Webapp: already enabled by default.
 - App:
   - Check the [docs](https://docs.expo.io/guides/setting-up-continuous-integration/).
   - Run `npm install --save-dev jest ts-jest jest-expo react-test-renderer npm install @types/react-test-renderer @types/jest`.

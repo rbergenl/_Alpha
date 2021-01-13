@@ -25,6 +25,7 @@ const renderLoader = () => <p>Loading</p>;
 ```
 
 ## Add Amplify
+
 - Run `npm install aws-amplify`.
 - Copy/paste from *Alpha Project* the `app-config.js` into the `src` folder.
 - Add to `App.tsx`:

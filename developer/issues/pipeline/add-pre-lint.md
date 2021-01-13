@@ -1,6 +1,5 @@
 # Add .Pre:Lint
 
-- Check [docs](https://reactjs.org/docs/hooks-rules.html#eslint-plugin)
 - App / Base / UI:
     - Run `npm install eslint --save-dev`.
     - Run `npx eslint --init`.
@@ -19,14 +18,7 @@
     - For Base, add to `package.json` the script `"lint": "eslint \"{bin,clients,constructs,lambda,lib,mocks,types}/**/*.ts\"",`.
     - For UI, add to `package.json` the script `"lint": "eslint \"{components,fonts,icons,theme}/**/*.{ts,tsx}\"",`
 - Webapp:
-    - Run `npm install --save-dev eslint tslint-config-prettier`.
-    - Add to `eslint.json`:
-    ```json
-    {
-       "extends": ["tslint:recommended", "tslint-config-prettier"]
-    }
-    ```
-    - Add to `package.json` the script `"lint": "tslint -p tsconfig.json"`.
+    - Add to `package.json` the script `"lint": "eslint src",`.
 - Website:
     - Check [docs](https://www.npmjs.com/package/gatsby-plugin-resolve-src).
     - Add to `eslint.config.js`:
@@ -41,3 +33,7 @@
         }
     }
     ```
+
+## React Hooks
+
+- Enable linting on React Hooks by folling these [docs](https://reactjs.org/docs/hooks-rules.html#eslint-plugin).
