@@ -55,6 +55,7 @@ module.exports = {
 ## Initial Setup Frontend
 
 - Run the commands:
+  > for *App* the variables should start with `REACT_NATIVE_`. 
 ```bash
 echo "REACT_APP_APPSYNC_GRAPHQL_ENDPOINT=https://localhost:8443/graphql" >> .env.local
 echo "REACT_APP_APPSYNC_REGION=localhost_region" >> .env.local
@@ -68,9 +69,11 @@ echo "REACT_APP_APPSYNC_REGION=localhost_region" >> .env.local
 - Add to `App.tsx` the lines (make sure to add the provider inside auth and store):
 ```javascript
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import config from './app-config'; // make sure "allowJs": true is added to tsconfig.json
+import Constants from 'expo-constants'; // App only
+import config from './app-config'; // Non-App only. Also make sure "allowJs": true is added to tsconfig.json
 const client = new ApolloClient({
-  uri: config.aws.aws_appsync_graphqlEndpoint,
+  uri: Constants.manifest.extra.aws.API.graphql_endpoint, // App only
+  uri: config.aws.aws_appsync_graphqlEndpoint, // Non-App only.
   cache: new InMemoryCache()
 });
 <ApolloProvider client={client}>..the app</ApolloProvider>

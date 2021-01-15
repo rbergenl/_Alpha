@@ -1,9 +1,10 @@
 import express from 'express';
+import querystring from 'querystring';
 
 import { sign, SignOptions } from 'jsonwebtoken';
 
 import { privateKey } from '../index';
-import { users, USERS } from '../..data/users';
+import { users, USERS } from '../../db-data/users';
 
 export const oAuthRouter = express.Router();
 export const logoutRouter = express.Router();
@@ -14,11 +15,14 @@ enum CLIENT_IDS {
 }
 
 oAuthRouter.get('/authorize', (req: express.Request, res: express.Response) => {
-    const queryString = new URLSearchParams();
-    queryString.append('state', req.query.state.toString());
-    queryString.append('redirect_uri', req.query.redirect_uri.toString());
-    queryString.append('client_id', req.query.client_id.toString());
+    const { state, redirect_uri, client_id } = req.query;
+    if (!state || !redirect_uri || !client_id) throw new Error();
 
+    const queryString = querystring.stringify({
+        state: state.toString(),
+        redirect_uri: redirect_uri.toString(),
+        client_id: client_id.toString()
+    });
     res.redirect(`./hosted_ui?${queryString.toString()}`);
 });
 
@@ -54,9 +58,10 @@ oAuthRouter.post('/login' , (req: express.Request, res: express.Response) => {
     const user = users.find((user) => user['cognito:username'] === username);
 
     if (user) {
-        const queryString = new URLSearchParams();
-        queryString.append('code', Buffer.from(username).toString('hex'));
-        queryString.append('state', state);
+        const queryString = querystring.stringify({
+            state,
+            code: Buffer.from(username).toString('hex'),
+        });
         res.redirect(`${redirect_uri}?${queryString.toString()}`);
     } else {
         res.status(404);
@@ -92,5 +97,7 @@ oAuthRouter.post('/token', (req: express.Request, res: express.Response) => {
 });
 
 logoutRouter.get('/', (req: express.Request, res: express.Response) => {
-    res.redirect(req.query.logout_uri.toString());
+    const { logout_uri } = req.query;
+    if (!logout_uri) throw new Error();
+    res.redirect(logout_uri.toString());
 });

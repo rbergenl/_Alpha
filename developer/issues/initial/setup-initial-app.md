@@ -2,7 +2,7 @@
 
 > Make sure you have an *Expo* account.
 
-## Householding
+## Do Householding
 
 - Have Expo CLI installed `npm install --global expo-cli`.
 - Run `expo login`.
@@ -45,3 +45,26 @@
     - Find an icon image via Google and get an Icon Set from it via an online tool like https://appicon.co/.
     - Drag and drop the downloaded folder `AppIcon.appiconset` into the projects `ios/<projectname>/Images.xcassets/` folder.
 - Fix the Expo warnings - Android: TODO!
+
+## Add Amplify
+
+- Run `npm install aws-amplify aws-amplify-react aws-amplify-react-native`.
+- Run `npm install dotenv`.
+- Create in the root of the project a file `app.config.js` with the contents:
+```javascript
+import dotenv from 'dotenv';
+dotenv.config({ path: `.env.local` });
+export default ({ config }) => {
+    return {
+        ...config,
+        extra: { aws: {} }
+    }
+}
+```
+- Copy/paste from *Alpha Project* in the file `app-config.ts` the object `aws` and replace it with the `aws` object in `app.config.js`.
+- Add to `App.tsx`:
+```javascript
+    import Amplify from 'aws-amplify';
+    import Constants from 'expo-constants';
+    Amplify.configure(Constants.manifest.extra.aws);
+```

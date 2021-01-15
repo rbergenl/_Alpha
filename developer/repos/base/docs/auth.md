@@ -10,6 +10,23 @@
 
 - For info on the `useAuth` hook, check this [blog](https://www.rockyourcode.com/custom-react-hook-use-aws-amplify-auth/).
 
+## Getting Started
+### Google Console - create a ClientApp with credentials
+
+- Run `npx ts-node -e "import * as pkg from './package.json'; console.log(Buffer.from(pkg.name).toString('hex').substr(0, 5));"`. Use the project name and this unique id as an `authDomainPrefix` (e.g. `project-name-1234`).
+- Go to https://console.cloud.google.com/:
+- First create an app for OAuth-access screen
+    - intern
+    - scope: email, profile, openid
+    - allowed domain: `amazoncognito.com`
+- Then create new logindata/credentials oAuth
+    - authorized Javascript URI's:
+        - `https://{authDomainPrefix}.auth.{region}.amazoncognito.com` 
+        - `http://localhost:3000`
+    - authorized Redirect URI's:
+        - `https://{authDomainPrefix}.auth.{region}.amazoncognito.com/oauth2/idpresponse`
+- Save the client_secret into AWS Systems Manager Parameter Store as a **normal** String, since its only a secret in the account and not necessary to encrypt/decrypt. Define the Parameter Name as `/${props.userPoolName}${identityProvider.type}Secret` (e.g. `PlantyBasePoolGoogleSecret`).
+
 ## Initial Setup Backend
 
 - Add to `config-stack.ts` the lines:
@@ -55,7 +72,9 @@ const auth = new Auth(this, 'Auth', authConfig);
 ## Initial Setup Frontend
 
 - Run the commands:
-  > depending on the client, change `localhost_admin_client` to `localhost_app_client` or `localhost_webapp_client` to enable prefilled login username.
+    > depending on the client, change `localhost_admin_client` to `localhost_app_client` or `localhost_webapp_client` to enable prefilled login username.
+    > for *App* the variables should start with `REACT_NATIVE_`.
+    > for *App* the oAuth Redirects should go to port `19006`.
 
 ```bash
 echo "REACT_APP_AWS_COGNITO_REGION=localhost_region" >> .env.local
@@ -70,23 +89,11 @@ echo "REACT_APP_OAUTH_REDIRECT_SIGN_OUT=http://localhost:3000/" >> .env.local
 
 - Check [docs](https://aws.amazon.com/premiumsupport/knowledge-center/decode-verify-cognito-json-token/).
 - Run `npm install --save-dev jsonwebtoken @types/jsonwebtoken`.
+- Install in Google Chrome the extension *Requestly*.
+    - Add a redirect rule:
+        - from `cognito-identity.us-east-1.amazonaws.com` to `https://localhost:8443/oauth2/cognito-identity`.
+        - from `cognito-idp.localhost.amazonaws.com` to `https://localhost:8443/oauth2/cognito-idp`. 
 - TODO..
-
-## Google Console - create a ClientApp with credentials
-
-- Run `npx ts-node -e "import * as pkg from './package.json'; console.log(Buffer.from(pkg.name).toString('hex').substr(0, 5));"`. Use the project name and this unique id as an `authDomainPrefix` (e.g. `project-name-1234`).
-- Go to https://console.cloud.google.com/:
-- First create an app for OAuth-access screen
-    - intern
-    - scope: email, profile, openid
-    - allowed domain: `amazoncognito.com`
-- Then create new logindata/credentials oAuth
-    - authorized Javascript URI's:
-        - `https://{authDomainPrefix}.auth.{region}.amazoncognito.com` 
-        - `http://localhost:3000`
-    - authorized Redirect URI's:
-        - `https://{authDomainPrefix}.auth.{region}.amazoncognito.com/oauth2/idpresponse`
-- Save the client_secret into AWS Systems Manager Parameter Store as a **normal** String, since its only a secret in the account and not necessary to encrypt/decrypt. Define the Parameter Name as `/${props.userPoolName}${identityProvider.type}Secret` (e.g. `PlantyBasePoolGoogleSecret`).
 
 ## Configure CDK - create UserPool with a ClientApp and IdentityProvider
 
@@ -132,9 +139,14 @@ export const authConfig: AuthProps = {
 
 ```javascript
     import { Auth } from 'aws-amplify';
+    // Web
     <button onClick={() => Auth.federatedSignIn()}>Sign In</button>
     <button onClick={async () => console.log(await Auth.currentSession())}>Current Session</button>
     <button onClick={() => Auth.signOut()}>Sign Out</button>
+    // App
+    <Button onPress={() => Auth.federatedSignIn()} ><Text>Sign In</Text></Button>
+    <Button onPress={async () => console.log(await Auth.currentSession())}><Text>Current Session</Text></Button>
+    <Button onPress={() => Auth.signOut()}><Text>Sign Out</Text></Button>
 ```
 
 ## Add State

@@ -4,7 +4,7 @@
 
 -> For monochromatic icons, use Icomoon.
 -> For multicolor icons, use react-native-svg.
-    -> Best approach is to convert SVG to React Components with `npx @svgr/cli --native --typescript --svgo-config "{ \"plugins\": [ {\"convertPathData\": false, \"removeViewBox\": false, \"removeDimensions\": true } ] }" [-d out-dir] [src-dir]`.
+-> Best approach is to convert SVG to React Components. Add to `package.json` of the frontend project the script `"icons": "npx @svgr/cli --native --typescript --svgo-config \"{ \\\"plugins\\\": [ {\\\"convertPathData\\\": false, \\\"removeViewBox\\\": false, \\\"removeDimensions\\\": true, \\\"removeXMLNS\\\": true } ] }\" --out-dir ./src/__generated__/icons/ ./node_modules/@<projectname>/ui/icons/"`
 
 - Get an icon in Figma:
     1. In Figma open the menu and search for `Iconify`.
@@ -15,6 +15,7 @@
     2. Alternatively, select the group/frame and in the right menu export as svg in `export` section.
 
 ## Use in Frontend
+
 - App:
     - View the [docs](https://docs.expo.io/guides/icons/) 
     - Is installed by default and can be used like `import { Ionicons } from '@expo/vector-icons'`.
