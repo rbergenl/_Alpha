@@ -16,6 +16,7 @@ Legal documents: https://www.clerky.com/pricing#pay-per-use
 Fiscal documents: 83b election
 Payroll system: https://gusto.com/product/pricing
 Accounting system: https://www.indinero.com/pricing
+Options (equity) management system: ??
 Stock Equity, 409A etc: https://www.youtube.com/watch?v=rXUFKDVtAVE
 
 ## PITCH

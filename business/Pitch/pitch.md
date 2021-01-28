@@ -1,5 +1,7 @@
 # Pitch Guidelines
 
+> Source: iTunes University - Starting a Startup
+
 30 seconds:
 1. What does your company do? We are Airbnb, we allow you to rent out the extra room in your house. (not we are a marketplace for space).
 2. How big is the market? we are in the hotel-market, vacation rental market, online hotel booking market; which is a multi billion dollar market. (don't skip this)
