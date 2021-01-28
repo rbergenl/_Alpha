@@ -20,6 +20,10 @@
 ```
 - Run `echo "dist/" >> .gitignore`.
 
+## Host the Design System
+
+- TODO: Zeroheight integreerd goed met Figma.
+
 ## TODO
 
 - Add a CSS Reset file (to be included by Webapp and Website):

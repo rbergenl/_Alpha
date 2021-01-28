@@ -61,6 +61,7 @@ Neutral = UnbleachedSlik
     - *Iconify* (to have all kinds of icons)
     - *Content Reel* (to have texts and avatars)
     - *Dark Mode Switcher* (select a frame and switch to colors based on `/light` or `/dark` in the color name).
+- Install *Figma Mirror* app to be able to view the prototype without a browser.
 
 ## Create Design System
 

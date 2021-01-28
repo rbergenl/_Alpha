@@ -61,3 +61,7 @@ React Native app based on Expo.
 - Select 'Target > <projectname>app' and go to section `Signing & Capabilities`. Select a Team (from Apple Id). Update the `Bundle Identifier` to `com.<projectname>.app` (as set in `app.json`).
 - Connect the Iphone and build to the Iphone.
     - First time: on the iPhone, open Settings > General > Device Management > <appleid> > *Trust*.
+
+## Mocking
+
+> To be able to connect to this local server from an Expo Client (app on device) it is recommended to use `ngrok`. Via http you can replace `localhost` with the local ip-address (192.168.1.108). But for HTTPS, the certificate is signed for localhost only. First create an account at ngrok.com. Then run `ngrok authtoken <token>`. Then run `ngrok http https://localhost:8443 -host-header="localhost:8443"`. Place the given address in `app-config.ts`.

@@ -78,6 +78,7 @@ const auth = new Auth(this, 'Auth', authConfig);
 
 ```bash
 echo "REACT_APP_AWS_COGNITO_REGION=localhost_region" >> .env.local
+echo "REACT_NATIVE_AWS_IDENTITY_POOL_ID=localost_identity_pool_id" >> .env.local
 echo "REACT_APP_AWS_USER_POOLS_ID=localhost_user_pool_id" >> .env.local
 echo "REACT_APP_AWS_USER_POOLS_WEB_CLIENT_ID=localhost_admin_client" >> .env.local
 echo "REACT_APP_OAUTH_DOMAIN=localhost:8443" >> .env.local
@@ -148,6 +149,12 @@ export const authConfig: AuthProps = {
     <Button onPress={async () => console.log(await Auth.currentSession())}><Text>Current Session</Text></Button>
     <Button onPress={() => Auth.signOut()}><Text>Sign Out</Text></Button>
 ```
+
+## Redirect to Expo Client
+- Check the Amplify [docs](https://docs.amplify.aws/lib/auth/social/q/platform/js#full-samples) for a React Native example.
+- Check the Expo [docs](https://docs.expo.io/workflow/linking/?redirected#in-the-expo-client).
+Run: `expo install expo-web-browser`.
+
 
 ## Add State
 
