@@ -70,3 +70,36 @@
 - Mac:
     - stores system updates here `/Library/Updates/` (first check if latest update is installed, it should be automatically removed).
     - stores application data here `/Users/username/Library/Application Support/` and here `/Library/Application Support/` (check for application you don't use anymore).
+
+## Using a Proxy to intercept Network Traffic
+- Read the Mitmproxy [docs](https://docs.mitmproxy.org/stable/)
+- Setup an automatic response by creating a Python file `example.py`:
+```python
+from mitmproxy import http
+
+def request(flow: http.HTTPFlow) -> None:
+    if flow.request.pretty_url == "http://example.com/path":
+        flow.response = http.HTTPResponse.make(
+            200,  # (optional) status code
+            b"Hello World",  # (optional) content
+            {"Content-Type": "text/html"}  # (optional) headers
+        )
+```
+- Starting the Proxy:
+    - Install: `brew install mitmproxy`.
+    - Run: `mitmproxy -s example.py --set listen_port=9061`.
+    - Test: `curl --proxy http://127.0.0.1:9061 "http://example.com/path"`.
+- Manually configure the Proxy:
+    1. use ‘i’ to set a filter
+    2. Select a request and press `e` to edit
+    3. use ESC and Q
+    4. use `a` to resume the flow
+- Configure to use Proxy on iPhone:
+    1. Start mitmproxy on the Macbook.
+    2. On the iPhone launch safari and and navigate to `mitm.it`. Click to install the certificate. 
+    3. Settings > General > Profile > “mitmproxy” > Install.
+    4. Settings > General > About > Certificate Trust Settings > enable “mitmproxy”.
+    5. Settings > WiFi > Click (i) > Use Proxy > Manual > Set the IP as found on Macbook and Port as defined with mitmproxy command.
+        - To find the Macbook IP run `ifconfig` and use `en0` the IP address at `inet`.
+- Configure to use Proxy on Macbook:
+    1. System Preferences > Network > Wi-Fi > Advanced... > Tab "Proxies" > Enable "Web Proxy (HTTP)" > Set the IP to `127.0.0.1` and Port as defined with mitmproxy command.
