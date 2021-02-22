@@ -90,10 +90,6 @@ echo "REACT_APP_OAUTH_REDIRECT_SIGN_OUT=http://localhost:3000/" >> .env.local
 
 - Check [docs](https://aws.amazon.com/premiumsupport/knowledge-center/decode-verify-cognito-json-token/).
 - Run `npm install --save-dev jsonwebtoken @types/jsonwebtoken`.
-- Install in Google Chrome the extension *Requestly*.
-    - Add a redirect rule:
-        - from `cognito-identity.us-east-1.amazonaws.com` to `https://localhost:8443/oauth2/cognito-identity`.
-        - from `cognito-idp.localhost.amazonaws.com` to `https://localhost:8443/oauth2/cognito-idp`. 
 - TODO..
 
 ## Configure CDK - create UserPool with a ClientApp and IdentityProvider

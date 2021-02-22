@@ -16,6 +16,7 @@
 - Modify in `App.tsx` the line `export default function App() {` into `const App: React.FC = () => {` and end the file with `export default App`.
 - Run `git add . && git commit -m "householding" && git push`.
 - Add the url `https://expo.io/@<username>/<package.name>` to bookmarks as *Expo - App* to the folder *Developer > Environments* and verify the URL is already in `README.md`.
+- Cleanup the development tool Flipper from `ios/Podfile`.
 
 ## Enable Expo Bare Workflow
 

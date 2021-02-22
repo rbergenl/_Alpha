@@ -69,3 +69,11 @@ When merging from a feature branch to develop use in the Pull request descriptio
     - Instaal logger: `brew install --HEAD libimobiledevice -g`.
 - App: run `npx @react-native-community/cli doctor` to find missing items from a common App development setup.
 - Redux: to enable debugger add in `store/index.tsx` to the `createStore()` function as third parameter `(window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()` (ignore the eslint error).
+
+## Patching
+
+- Run `npm install --save-dev patch-package`.
+- Add to `package.json` the script `"postinstall": "patch-package"`.
+- Make a fix in a node_modules/ package file.
+- Run `npx patch-package <packagename>`.
+- Commit the patch file in `patches/`.

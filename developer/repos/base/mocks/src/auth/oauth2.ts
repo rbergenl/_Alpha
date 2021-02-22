@@ -1,29 +1,63 @@
+// Amazon Cognito User Pools is a full-featured user directory service to handle user registration, authentication, and account recovery
+// Amplify Auth.Sign() handles getting JWT tokens from User Pools and AWS credentials from Identity Pools.
 import express from 'express';
 import querystring from 'querystring';
-
 import { sign, SignOptions } from 'jsonwebtoken';
 
-import { privateKey } from '../index';
-import { users, USERS } from '../../db-data/users';
+import { users, USERS } from '../../cognito/users';
 
 export const oAuthRouter = express.Router();
-export const logoutRouter = express.Router();
 
 enum CLIENT_IDS {
     localhost_admin_client = 'localhost_admin_client',
     localhost_webapp_client = 'localhost_webapp_client'
 }
 
+const AUTH_SERVER_SECRET = 'auth_server_secret';
+
 oAuthRouter.get('/authorize', (req: express.Request, res: express.Response) => {
-    const { state, redirect_uri, client_id } = req.query;
+    const { identity_provider, state, redirect_uri, client_id } = req.query;
     if (!state || !redirect_uri || !client_id) throw new Error();
 
+    let url = '';
+    let queryString = '';
+
+    switch (identity_provider) {
+        case 'COGNITO':
+            queryString = querystring.stringify({
+                state: state.toString(),
+                redirect_uri: redirect_uri.toString(),
+                client_id: client_id.toString()
+            });
+            url = `./hosted_ui?${queryString.toString()}`;
+            break;
+        case 'Google':
+            queryString = querystring.stringify({
+                client_id: '1042212733592-r6fmj27ttt6719pjtnnnkv6c7ogpe0f6.apps.googleusercontent.com',
+                redirect_uri: 'https://testwebapp385c62e1-385c62e1-dev.auth.us-east-1.amazoncognito.com/oauth2/idpresponse',
+                // redirect_uri: 'https://localhost:8443/oauth2/idpresponse',
+                scope: 'openid email profile',
+                response_type: 'code',
+                state: state.toString()
+            });
+            url = `./google?${queryString.toString()}`;
+            break;
+    }
+    res.redirect(url);
+});
+
+oAuthRouter.get('/idpresponse', (req, res) => {
+    const { state } = req.query;
+    if (!state) throw new Error();
+
+    const username = USERS.user1;
     const queryString = querystring.stringify({
         state: state.toString(),
-        redirect_uri: redirect_uri.toString(),
-        client_id: client_id.toString()
+        code: Buffer.from(username).toString('hex'),
     });
-    res.redirect(`./hosted_ui?${queryString.toString()}`);
+
+    // TODO: fetch redirect_uri stored at the /authorize call
+    res.redirect(`http://localhost:19006/?${queryString.toString()}`);
 });
 
 oAuthRouter.get('/hosted_ui', (req: express.Request, res: express.Response) => {
@@ -73,6 +107,9 @@ oAuthRouter.post('/token', (req: express.Request, res: express.Response) => {
     
     const username = Buffer.from(req.body.code, 'hex').toString('utf8');
     const user = users.find((user) => user['cognito:username'] === username);
+
+    if (!user) throw new Error();
+    
     const payload = {
         ...user
     };
@@ -82,10 +119,12 @@ oAuthRouter.post('/token', (req: express.Request, res: express.Response) => {
         subject:  'localhost_subject',
         audience:  'localhost_audience',
         expiresIn:  '12h',
-        algorithm:  'RS256'
+        // algorithm:  'RS256' // requires privateKey
+        algorithm: 'HS256'
     };
 
-    const token = sign(payload, privateKey, signOptions);
+    // const token = sign(payload, privateKey, signOptions);
+    const token = sign(payload, AUTH_SERVER_SECRET, signOptions);
 
     res.json({
         id_token: token,
@@ -94,10 +133,4 @@ oAuthRouter.post('/token', (req: express.Request, res: express.Response) => {
         expires_in: 3600,
         token_type: 'Bearer'
     });
-});
-
-logoutRouter.get('/', (req: express.Request, res: express.Response) => {
-    const { logout_uri } = req.query;
-    if (!logout_uri) throw new Error();
-    res.redirect(logout_uri.toString());
 });

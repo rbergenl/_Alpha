@@ -1,6 +1,18 @@
 import { PubSub } from 'graphql-subscriptions';
-import { listMessages_listMessages_items as MessageItem } from '../../../types/__generated__/listMessages';
+// import { listMessages_listMessages_items as MessageItem } from '../../../types/__generated__/listMessages';
 
+interface MessageItem {
+    __typename: String;
+    id: String;
+    createdAt: Date;
+    updatedAt: Date;
+    text: String;
+    sentBy: {
+        __typename: String;
+        id: String;
+        name: String;
+    },
+}
 const pubsub = new PubSub();
 
 // TODO: integratie this with the auth implementation

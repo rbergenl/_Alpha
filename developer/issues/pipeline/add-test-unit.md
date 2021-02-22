@@ -3,7 +3,7 @@
 - Webapp: already enabled by default.
 - App:
   - Check the [docs](https://docs.expo.io/guides/setting-up-continuous-integration/).
-  - Run `npm install --save-dev jest ts-jest jest-expo react-test-renderer npm install @types/react-test-renderer @types/jest`.
+  - Run `npm install --save-dev jest ts-jest jest-expo react-test-renderer @testing-library/react-native @types/react-test-renderer @types/jest`.
   - Update `package.json` with:
   ```javascript
   "scripts": {
@@ -17,15 +17,16 @@
   - Create a file `src/App.spec.tsx` with contents:
   ```javascript
   import React from 'react'
-  import renderer from 'react-test-renderer'
+  import { render, cleanup, act } from '@testing-library/react-native'
   import App from './App'
 
   jest.useFakeTimers()
 
   describe('<App />', () => {
       it('has 1 child', () => {
-          const tree = renderer.create(<App />)
-          expect(tree.toJSON()).toMatchSnapshot()
+          const component = <App />
+          const { toJSON, getByText } = render(component)
+          expect(toJSON()).toMatchSnapshot()
       })
   })
   ```

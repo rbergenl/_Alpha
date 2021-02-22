@@ -26,7 +26,7 @@
 
 ## React Native
 
-- Check the `ios/Podfile` at the `react-native` or `expo` github repository inside `template` folder.
+- Check the `ios/Podfile` at the `react-native` or `expo` github repository inside `template` folder (https://github.com/expo/expo/tree/master/templates/expo-template-bare-minimum).
 - Using JS Debugging: when in the app; open the menu > dev settings > server and port > localhost:8081. Then in Chrome go to `chrome://extensions/` to disable all extensions (cause they might give errors). Close the browser. And on the device then enable menu > js debugging
 - when loading firebase while using react-native, you might get the error "undefined self.fetch". This problem is in the fetch module, and can be solved by opening the from the Dev menu on the device the Remote JS debugger
 - Install the latest version of XDE https://github.com/expo/xde/releases. If you don’t update, you will see an error similar to: `Error: Cannot find module 'exponent/tools/hashAssetFiles'...` (actually, it is because of expo should be under 'dependencies' in the package.json)
@@ -37,7 +37,7 @@
 - If with installing 'HAXM' you get the error 'windows requires a digitally signed driver'; then run Windows security updated; or download haxm v7.1.0 from https://github.com/intel/haxm/releases
 - if JS Debugging says "connecting to remote debugger".. open the browser already at debugger url; and restart the app.
 - To reload the application or enable hot loading, shake the device or send via the terminal `$ adb shell input keyevent KEYCODE_MENU` (or `npm run menu`)
-- When building received error about `} catch {` from module `fs-extra`. Find and replace all occurences in `node_modules/@expo` with `} catch (error) {`.
+- When building received error about `} catch {` from module `fs-extra`. Find and replace all occurences in `node_modules/{@expo,fs-extra}` with `} catch (error) {`.
 - An error like `"CopySwiftLibs" build input file cannot be found` gets solved by removing the *User-Defined* setting `EXCLUDED_ARCHS` at the pojects > target.
 
 ## Jest React Unit Testing
@@ -52,6 +52,9 @@
 ## MacOS Storage Full
 
 - Check folders via Terminal with command `du -hs */ | sort -h` (disk utility, human-readable summary and sort by the human-readable column (e.g. 2.2G)). Use `du -hs .*` to include hidden folders otherwise visible with `ls -a` or `du -hs *` for just files otherwise visible with `ls -l`.
+    - You can also you Finder. Go to View > Show View Options > Calculate All Size.
+    - To show hidden files use CMD+SHIFT+(dot).
+    - To navigate a folder up use CMD+(up).
 - Go through all NodeJS projects and remove the `node_modules` folder.
     - On Mac, use Finder and first search "Documents" for "node_modules". Then click the plus sign and filter by Kind is Folder. Right click to open each enclosing folder to see in which project it was installed (perhaps go up multiple teams to get out of nested node_modules).
 - NVM:
@@ -70,6 +73,13 @@
 - Mac:
     - stores system updates here `/Library/Updates/` (first check if latest update is installed, it should be automatically removed).
     - stores application data here `/Users/username/Library/Application Support/` and here `/Library/Application Support/` (check for application you don't use anymore).
+
+## Trusting a SSL Certificate
+
+- Download certificate: `openssl s_client -showcerts -connect acc.mrp-ns.nl:443 < /dev/null | openssl x509 -outform DER > mrp-ns.pem`.
+- Either:
+    - Import certificate: `yes | sudo keytool -importcert -file mrp-ns.pem -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit -alias "mrp-ns-root"`
+    - Or import via the Keychain tool (import certificate; and then change setting to *Always Trust*).
 
 ## Using a Proxy to intercept Network Traffic
 - Read the Mitmproxy [docs](https://docs.mitmproxy.org/stable/)

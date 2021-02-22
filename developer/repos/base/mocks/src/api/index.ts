@@ -3,25 +3,30 @@ import * as fs from 'fs';
 import { ApolloServer } from 'apollo-server-express';
 import { makeExecutableSchema, addMocksToSchema } from 'graphql-tools';
 
-import { mocks as awsMocks } from './aws';
-import { resolvers as messageResolvers } from './message';
+import { mocks as awsMocks } from './mocks/aws';
+import { mocks as mongoMocks } from './mocks/monogdb';
 
-const schemaString = fs.readFileSync(path.join(require.resolve('@aardonyx/base/package.json'), '../cdk.out/schema.graphql')).toString();
+// import { resolvers as messageResolvers } from './message';
+import { resolvers as mealResolvers } from './resolvers/meal';
+
+const schemaString = fs.readFileSync(path.join(__dirname, '../../../', './graphql/__generated__/schema.graphql')).toString();
 
 const schema = makeExecutableSchema({
     typeDefs: [schemaString],
-    resolvers: [messageResolvers]
+    resolvers: [mealResolvers]
 });
 
 const mocks = {
-    ...awsMocks
+    ...awsMocks,
+    ...mongoMocks
 };
 
-addMocksToSchema({
-    schema,
-    mocks,
-    preserveResolvers: true
-});
+// TODO: when adding mocks, when a field should be null it becomes "Hello World" (e.g. meal.instructions.use)
+// addMocksToSchema({
+//     schema,
+//     // mocks,
+//     preserveResolvers: true
+// });
 
 export const apolloServer = new ApolloServer({
     schema,
