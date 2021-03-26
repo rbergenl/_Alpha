@@ -18,6 +18,7 @@ Payroll system: https://gusto.com/product/pricing
 Accounting system: https://www.indinero.com/pricing
 Options (equity) management system: ??
 Stock Equity, 409A etc: https://www.youtube.com/watch?v=rXUFKDVtAVE
+Shareholders voting platform: https://vote.saytechnologies.com/
 
 ## PITCH
 
