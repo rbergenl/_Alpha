@@ -40,11 +40,13 @@
         - Run `npm install react-native-unimodules && npx pod-install`.
     - Run `expo install expo-splash-screen && npx pod-install`.
     - Run `npx expo-splash-screen --background-color <color_code>`.
+    - Update `app.json` to `"splash": { "xib": "./ios/<projectname>/Base.lproj/LaunchScreen.xib" }`. Also remove `assets/splashscreen.png`.
 - Fix the Expo warnings - Icon:
     - Open Xcode and navigate to Project > Images.xcassets > AppIcon.
     - Remove the existing AppIcon. Then **right-click > App Icons > New iOs App Icon**.
-    - Find an icon image via Google and get an Icon Set from it via an online tool like https://appicon.co/.
+    - Find an icon image via Google and get an Icon Set from it via an online tool like https://appicon.co/. Make sure the images are actually a PNG.
     - Drag and drop the downloaded folder `AppIcon.appiconset` into the projects `ios/<projectname>/Images.xcassets/` folder.
+    - Update `app.json` to `"icon": "./ios/<projectname>/Images.xcassets/AppIcon.appiconset/1024.png"`. Also remove `assets/icon.png`.
 - Fix the Expo warnings - Android: TODO!
 
 ## Add Amplify

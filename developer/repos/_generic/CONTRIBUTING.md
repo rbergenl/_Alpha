@@ -74,6 +74,7 @@ When merging from a feature branch to develop use in the Pull request descriptio
 
 - Run `npm install --save-dev patch-package`.
 - Add to `package.json` the script `"postinstall": "patch-package"`.
+- Also add `unsafe-perm = true` to `.npmrc` file to allow the postinstall action.
 - Make a fix in a node_modules/ package file.
 - Run `npx patch-package <packagename>`.
 - Commit the patch file in `patches/`.

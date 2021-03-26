@@ -23,6 +23,7 @@
     - In Xcode 10 menu > Product > Clean Build Folder
     - In Xcode 10 menu > Xcode > Preferences > Account > Download Manual Profiles
     - In Xcode 10 menu > Product > Build / Archive
+- Error `FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory`. Probably due to Docker hosts maximum memory setting.
 
 ## React Native
 
@@ -73,6 +74,8 @@
 - Mac:
     - stores system updates here `/Library/Updates/` (first check if latest update is installed, it should be automatically removed).
     - stores application data here `/Users/username/Library/Application Support/` and here `/Library/Application Support/` (check for application you don't use anymore).
+- GitlabRunner:
+    - Check `/Users/Shared/` or `~/builds` and `~/cache`.
 
 ## Trusting a SSL Certificate
 

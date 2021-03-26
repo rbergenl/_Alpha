@@ -44,6 +44,7 @@ RUN npm install --global eslint \
        expo-cli
 
 # Adding ssh config to be able to fetch private packages referenced in package.json
+# TODO: verify if still using ssh key for this use case? Alternative is npm config auth token.
 RUN mkdir -p ~/.ssh && \
     chmod 700 ~/.ssh && \
     ssh-keyscan gitlab.com >> ~/.ssh/known_hosts && \

@@ -1,4 +1,4 @@
-# Add Publish:Android
+# Add Upload:Android
 - Build a standalone app Android:
     - `expo build:android`.
 

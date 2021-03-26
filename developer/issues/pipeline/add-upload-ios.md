@@ -1,7 +1,13 @@
-# Add Publish:iOS
+# Add Upload:iOS
+
+> The Master Branch creates a Beta Release and uploads the App to TestFlight.
+
 > Requires creditcard and Apple Developer Program enrollment.
 - Build a standalone app IOS:
     - `expo build:ios`.
+
+# Automatically uploading your App
+- View [blog](https://about.gitlab.com/blog/2019/03/06/ios-publishing-with-gitlab-and-fastlane/).
 
 # Manually uploading your app
 - In order to see your app on Testflight, you will first need to submit your .IPA file to Apple using Transporter (previously known as Application Loader), available on the App Store (link). In order to do this:

@@ -1,4 +1,13 @@
 ## Expand pipeline
+
+App: Master Branch Delivery = (verify) > build signed > (tests) > version release > upload to testflight/beta > [promote] > submit to store > exploratory test/celebrate 
+
+App: Develop Branch Delivery = (verify) > build expopublish/turtle/simulator > (detox/tests) version prerelease > upload tarfile ro projectpage > exploratory test.
+
+Web: Master Branch Delivery = (verify) > build production > (tests) version release > deploy to staging > [promote] > deploy to production > auto smoketest > exploratory test/celebrate
+
+Web: Develop Branch Delivery = (verify) > build production > (tests) version prerelease > deploy test > auto smoketest > exploratory test.
+
 TODO: add this diagram to default `docs` in each project.
 
 | Stage:Job         | Tool          | Push | Create PR | Merge | Create RC | Release |

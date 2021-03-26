@@ -27,6 +27,7 @@ pre_install:
     before_script:
         - env
         - echo $SSH_GITLAB_KEY | base64 -d > ~/.ssh/id_rsa && chmod 400 ~/.ssh/id_rsa
+        - npm config set @${CI_PROJECT_NAMESPACE}:registry=https://gitlab.com/api/v4/packages/npm/ # to install private packages
     script: npm ci --cache .npm --prefer-offline --no-audit
 
 pre_audit:
@@ -65,9 +66,9 @@ release_branches:
     dependencies: 
         - build_compile
     before_script:
-        - if [ $CI_PROJECT_NAME == "app" ] ; then npm set unsafe-perm true; fi # to execute npm version command
-        - if [ $CI_PROJECT_NAME == "ui" ] ; then npm set unsafe-perm true; fi # to execute npm version command
-        - if [ $CI_PROJECT_NAME == "base" ] ; then npm set unsafe-perm true; fi # to execute npm version command
+        - if [ $CI_PROJECT_NAME == "app" ] ; then npm set unsafe-perm true; fi # to execute npm version and postinstall command
+        - if [ $CI_PROJECT_NAME == "ui" ] ; then npm set unsafe-perm true; fi # to execute npm version and postinstall command
+        - if [ $CI_PROJECT_NAME == "base-team" ] ; then npm set unsafe-perm true; fi # to execute npm version and postinstall command
         - npm config set @${CI_PROJECT_NAMESPACE}:registry=https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/ # to publish
         - npm config set //gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN} # to publish
     script:
