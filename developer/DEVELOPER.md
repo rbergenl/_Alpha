@@ -36,6 +36,7 @@
 - Install Google Chrome extensions:
   - React Dev Tools
   - Redux Dev Tools
+  - Omnibug
 - Install for Java/Kotlin web development:
   - Intellij Community Edition
   - Install Intellij plugins:
