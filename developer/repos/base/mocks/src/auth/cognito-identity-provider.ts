@@ -10,10 +10,10 @@ oAuthCognitoRouter.post('/cognito-identity', (req, res) => {
     // res.json({"IdentityId":"us-east-1:ace22fd0-4d3f-4924-8307-ce3dea3cd3b4"});
     res.json({
         Credentials: {
-            AccessKeyId: "ADDED_FOR_TEST" + "ASIAW3CCSAXWYO4EVUYA",
+            AccessKeyId: "ADDED_FOR_TEST" + process.env.ACCESS_KEY_ID,
             Expiration: 1610645987,
-            SecretKey: "ADDED_FOR_TEST" + "kiYAU5ZmorFPmL4zDI0kZrWjgTxnTXH6fetU6cr0",
-            SessionToken: "ADDED_FOR_TEST" + "IQoJb3JpZ2luX2VjECkaCXVzLWVhc3QtMSJHMEUCIC2GigK/u2xGKh7aOWCHUn8ZVgA5Zzw5Tvajmdw8n/McAiEA8StEQeueYaLSHx2l8Cqosz5tLO+HG0/N+B3yL+zXpMQqzQQI8v//////////ARABGgw0NzA0Mzg1MTIxMDkiDNoiEN6ONZKjhYU/wiqhBADErQ2wqwUBw7C3evIyTizMCZAGIbyg7QBh7Y9hP/L7HtyBdGCOywvAtNk12LZi+LcE4VSjYbot+eHc0DAwq6q0BmYUUGuer2Gn/Lu/cOuLUknpVc1AFp3UevZ6fnHQEE5C6n+4+Oxs7Hms/xohkyU38vuX7eFs1WyC68s/lDvCNQpEFVPFiHzRIo77mcjj4wCFTbssjYsON6eczd0/hy4uYvKe/DcEI4RZHWG9yCKMTagw90Ny9QoZlHULewW3qvte5sfmUaa07DB/HY6bEtqwbumCu91oeAftwcXvnAPRN0Vdlh+Xe21bgg/Y+zQCB7y9/ycSyE7cLUrteThKOU53UZB3nITjp7og/Ejh7pqt9RKq5wITwxTOXcqAx2C1oDlz8yWZshY97a1TrDoGGGn6Fa0GFP461t0ppkDKDWTsfVoFYmpe8WhUQo5ftC19jb9PHSDGyEzATnGCISqyuY9O5zG+bxKRk5SbECryhjF9UxtfNS0mf7C+qsJdISZmXhW7u0Ie6aBQPrZqx22k9blhqmXqVSPt9kZnk29qz8+8qCPDfOOzEXhRTIGI/7yRSLRJvpGXm1Na2aj6VXjS5zgYTjz4D3X3s/FrRnKeKVBgWOGMNR/hsy/855htxekHKiMn3DeFcV91t6ZrNATvLzaXs0ZY/Mm+YL5Z8Lc987hr+1dGlnLNFMlL6zDYrUuhIeNuBPlWfGmFRU/ObgTKNkloMNPngYAGOoUCqWGNc1005/g9m/MA/BglwLwOUvnKZmBokBatWvkS3hiSsbg0ARC2s10hV2pfqbCKQC2CTa2AhPH1O3BsVNRmQZQYLDfHvB1ExdJGRX6hmrw6MsQ1B2KtQM34N8BK2EL04cSCylw70dk93yWQ3yry86YXz7kYgroTPSHeRy1PKTljlexOex8ciVNLU7HeQ3PAwxxY2YiMsBE1gpmHFr8UXBeU2Q1HZNXmNQrr44uIlR8bcD1oMwcC5JuhGPPVO6dX2hixJKhKSZG+bD4yMyEFycCtJc4TKbc4tdky3XwKLdeIiYL1z/n/iJKGTPKA5aQe2KDwmf0575AnsGTn/CWibDM9hcRq"
+            SecretKey: "ADDED_FOR_TEST" + process.env.SECRET_KEY,
+            SessionToken: "ADDED_FOR_TEST" + process.env.SESSION_TOKEN
         },
         IdentityId: "us-east-1:ace22fd0-4d3f-4924-8307-ce3dea3cd3b4"
     });
