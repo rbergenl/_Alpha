@@ -51,7 +51,7 @@
 
 ## Initialize a NodeJS version
 
-- In the project folder run `nvm install node && nvm alias default node && echo $(node -v) > .nvmrc`.
+- In the project folder run `nvm install --lts && nvm alias default node && echo $(node -v) > .nvmrc`.
 - When working on a repository in this project, always first run `nvm use`.
 - Optionally: update the `.nvmrc` file of other projects also to the latest version and remove all `node_modules` folders. Global packages should be installed again.
 
