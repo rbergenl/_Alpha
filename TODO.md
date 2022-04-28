@@ -27,3 +27,21 @@
 - Make a Contributing page and point each CONTRIBUTING.md file to this webpage.
 - Make a Troubleshooting page and point Contributing > Debugging to this page.
 - Make a Dashboard available for all employees.
+
+
+- Process below security measures:
+```
+$ curl --head https://www.secure-website.nl/
+HTTP/2 200
+x-frame-options: sameorigin
+content-security-policy: upgrade-insecure-requests;
+pragma: no-cache
+content-type: text/html;charset=UTF-8
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+referrer-policy: same-origin
+cache-control: no-cache
+expires: Wed, 02 Sep 2020 13:00:07 GMT
+date: Wed, 02 Sep 2020 13:00:07 GMT
+strict-transport-security: max-age=15768000
+```
